@@ -1,30 +1,45 @@
-﻿using UnityEngine;
-using System.Collections;
-using System.Collections.Generic;
-
+﻿using System.Collections.Generic;
+using UnityEngine;
+[RequireComponent (typeof (TracePath))]
 public class Pathfinding : MonoBehaviour
 {
 
-    public Transform seeker, target;
+
+    TracePath path;
+
+    private Transform seeker, target;
     Grid grid;
 
-    void Awake ()
+    public static bool hasPath = false;
+
+
+
+
+    private void Awake ()
     {
-        grid = GetComponent<Grid> ();
+        path = GetComponent<TracePath> ();
     }
-
-    void Update ()
+    private void Start ()
     {
-        FindPath (seeker.position, target.position);
+        TreePlacer.OnPlaceTree += FindPath;
 
+        grid = Grid.currentGrid;
+
+        seeker = transform;
+        target = GameObject.FindGameObjectWithTag ("Target").transform;
+
+        FindPath ();
 
     }
-
-    void FindPath (Vector3 startPos, Vector3 targetPos)
+    private void OnDisable ()
     {
-
-        Node startNode = grid.NodeFromWorldPoint (startPos);
-        Node targetNode = grid.NodeFromWorldPoint (targetPos);
+        TreePlacer.OnPlaceTree -= FindPath;
+    }
+    public void FindPath ()
+    {
+        hasPath = false;
+        Node startNode = grid.NodeFromWorldPoint (seeker.position);
+        Node targetNode = grid.NodeFromWorldPoint (target.position);
 
         Heap<Node> openSet = new Heap<Node> (grid.MaxSize);
         HashSet<Node> closedSet = new HashSet<Node> ();
@@ -37,6 +52,7 @@ public class Pathfinding : MonoBehaviour
 
             if (currentNode == targetNode)
             {
+                hasPath = true;
                 RetracePath (startNode, targetNode);
                 return;
             }
@@ -47,7 +63,6 @@ public class Pathfinding : MonoBehaviour
                 {
                     continue;
                 }
-
                 int newMovementCostToNeighbour = currentNode.gCost + GetDistance (currentNode, neighbour);
                 if (newMovementCostToNeighbour < neighbour.gCost || !openSet.Contains (neighbour))
                 {
@@ -64,6 +79,8 @@ public class Pathfinding : MonoBehaviour
                 }
             }
         }
+
+
     }
 
     void RetracePath (Node startNode, Node endNode)
@@ -80,11 +97,11 @@ public class Pathfinding : MonoBehaviour
             currentNode = currentNode.parent;
         }
 
-        path.Add (grid.NodeFromWorldPoint (seeker.position));
+
 
         path.Reverse ();
 
-        grid.path = path;
+        this.path.SetPath = path;
 
     }
 

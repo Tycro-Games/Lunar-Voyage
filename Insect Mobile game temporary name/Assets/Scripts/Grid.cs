@@ -14,10 +14,12 @@ public class Grid : MonoBehaviour
     private GameObject prefabToPlace = null;
     Node[,] grid;
 
-    public static Grid currentGrid=null;
+    public static Grid currentGrid = null;
 
     float nodeDiameter;
     int gridSizeX, gridSizeY;
+
+   
 
     private void Awake ()
     {
@@ -30,6 +32,14 @@ public class Grid : MonoBehaviour
         gridSizeX = Mathf.RoundToInt (gridWorldSize.x / nodeDiameter);
         gridSizeY = Mathf.RoundToInt (gridWorldSize.y / nodeDiameter);
         CreateGrid ();
+    }
+    private void Start ()
+    {
+        TreePlacer.OnPlaceTree += UpdateGrid;
+    }
+    private void OnDisable ()
+    {
+        TreePlacer.OnPlaceTree -= UpdateGrid;
     }
     public int MaxSize
     {
@@ -57,12 +67,12 @@ public class Grid : MonoBehaviour
         {
             for (int y = 0; y < gridSizeY; y++)
             {
-                
+
                 Vector3 worldPoint = worldBottomLeft + Vector3.right * (x * nodeDiameter + nodeRadius) + Vector3.up * (y * nodeDiameter + nodeRadius);
-                Instantiate (prefabToPlace, worldPoint, Quaternion.identity);
                 bool walkable = !(Physics.CheckSphere (worldPoint, nodeRadius, unwalkableMask));
+                GameObject Gridp = Instantiate (prefabToPlace, worldPoint, Quaternion.identity, transform);
                 grid[x, y] = new Node (walkable, worldPoint, x, y);
-                
+
             }
         }
     }
@@ -118,7 +128,7 @@ public class Grid : MonoBehaviour
                 {
                     Gizmos.color = Color.black;
                     Gizmos.DrawCube (n.worldPosition, Vector3.one * nodeDiameter);
-                    
+
                 }
             }
         }
@@ -129,9 +139,6 @@ public class Grid : MonoBehaviour
                 foreach (Node n in grid)
                 {
                     Gizmos.color = (n.walkable) ? Color.white : Color.red;
-                    if (path != null)
-                        if (path.Contains (n))
-                            Gizmos.color = Color.black;
                     Gizmos.DrawCube (n.worldPosition, Vector3.one * (nodeDiameter));
                 }
             }
