@@ -10,7 +10,7 @@ public class Pathfinding : MonoBehaviour
     private Transform seeker, target;
     Grid grid;
 
-    public static bool hasPath = false;
+    private List<Node> pathCurrent = new List<Node> ();
 
 
 
@@ -21,7 +21,8 @@ public class Pathfinding : MonoBehaviour
     }
     private void Start ()
     {
-        TreePlacer.OnPlaceTree += FindPath;
+
+        EnemyManager.pathfindings.Add (path,GetComponent<Pathfinding>());
 
         grid = Grid.currentGrid;
 
@@ -31,13 +32,12 @@ public class Pathfinding : MonoBehaviour
         FindPath ();
 
     }
-    private void OnDisable ()
-    {
-        TreePlacer.OnPlaceTree -= FindPath;
-    }
+
     public void FindPath ()
     {
-        hasPath = false;
+        grid.UpdateGrid ();
+
+        
         Node startNode = grid.NodeFromWorldPoint (seeker.position);
         Node targetNode = grid.NodeFromWorldPoint (target.position);
 
@@ -52,7 +52,7 @@ public class Pathfinding : MonoBehaviour
 
             if (currentNode == targetNode)
             {
-                hasPath = true;
+                
                 RetracePath (startNode, targetNode);
                 return;
             }
@@ -82,30 +82,89 @@ public class Pathfinding : MonoBehaviour
 
 
     }
+    public bool FindPath (bool hasPath)
+    {
+        grid.UpdateGrid ();
 
+        hasPath = false;
+
+        Node startNode = grid.NodeFromWorldPoint (seeker.position);
+        Node targetNode = grid.NodeFromWorldPoint (target.position);
+
+        Heap<Node> openSet = new Heap<Node> (grid.MaxSize);
+        HashSet<Node> closedSet = new HashSet<Node> ();
+        openSet.Add (startNode);
+
+        while (openSet.Count > 0)
+        {
+            Node currentNode = openSet.RemoveFirst ();
+            closedSet.Add (currentNode);
+
+            if (currentNode == targetNode)
+            {
+                hasPath = true;
+                RetracePath (startNode, targetNode);
+                return hasPath;
+            }
+
+            foreach (Node neighbour in grid.GetNeighbours (currentNode))
+            {
+                if (!neighbour.walkable || closedSet.Contains (neighbour))
+                {
+                    continue;
+                }
+                int newMovementCostToNeighbour = currentNode.gCost + GetDistance (currentNode, neighbour);
+                if (newMovementCostToNeighbour < neighbour.gCost || !openSet.Contains (neighbour))
+                {
+                    neighbour.gCost = newMovementCostToNeighbour;
+                    neighbour.hCost = GetDistance (neighbour, targetNode);
+                    neighbour.parent = currentNode;
+
+                    if (!openSet.Contains (neighbour))
+                        openSet.Add (neighbour);
+                    else
+                    {
+                        openSet.UpdateItem (neighbour);
+                    }
+                }
+            }
+        }
+        return hasPath;
+
+    }
     void RetracePath (Node startNode, Node endNode)
     {
-        List<Node> path = new List<Node> ();
-        path.Add (grid.NodeFromWorldPoint (target.position));
+        pathCurrent = new List<Node> ();
+        pathCurrent.Add (grid.NodeFromWorldPoint (target.position));
         Node currentNode = endNode;
 
 
 
         while (currentNode != startNode)
         {
-            path.Add (currentNode);
+            pathCurrent.Add (currentNode);
             currentNode = currentNode.parent;
         }
 
 
 
-        path.Reverse ();
+        pathCurrent.Reverse ();
 
-        this.path.SetPath = path;
+        path.SetPath = pathCurrent;
 
     }
-
-    int GetDistance (Node nodeA, Node nodeB)
+    private void OnDrawGizmos ()
+    {
+        if (path != null)
+        {
+                foreach (Node n in path.SetPath)
+                {
+                    Gizmos.color = Color.black;
+                    Gizmos.DrawCube (n.worldPosition, Vector3.one * 1.25f);
+                }
+        }
+    }
+   public int GetDistance (Node nodeA, Node nodeB)
     {
         int dstX = Mathf.Abs (nodeA.gridX - nodeB.gridX);
         int dstY = Mathf.Abs (nodeA.gridY - nodeB.gridY);

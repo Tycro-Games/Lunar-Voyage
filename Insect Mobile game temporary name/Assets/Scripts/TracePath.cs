@@ -8,10 +8,19 @@ public class TracePath : MonoBehaviour
     [SerializeField]
     private float speed = 1.0f;
     private List<Node> path = new List<Node> ();
+    private void Start ()
+    {
+        if(speed!=0)
+        speed = Random.Range (0.25f, 2);
 
+        StartPath ();
+    }
     public List<Node> SetPath {
-      
 
+        get
+        {
+            return path;
+        }
         set
         {
             path = value;
@@ -25,13 +34,7 @@ public class TracePath : MonoBehaviour
         StopAllCoroutines ();
         StartCoroutine (FollowPath (path));
     }
-    private void Update ()
-    {
-        if (Input.GetKeyDown (KeyCode.A))
-        {
-            StartPath ();
-        }
-    }
+
     IEnumerator FollowPath (List<Node> path)
     {
 

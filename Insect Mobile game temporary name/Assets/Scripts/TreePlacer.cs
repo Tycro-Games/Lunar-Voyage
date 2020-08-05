@@ -22,22 +22,21 @@ public class TreePlacer : MonoBehaviour
         {
             obj = hit.collider.gameObject;
         }
-
-
     }
     public void CheckToPlace (InputAction.CallbackContext ctx)
-    {
+    {  
         if (ctx.started)
         {
+            EnemyManager.hasPath = false;
             GameObject currentPlace = Instantiate (currentTree, obj.transform.position, Quaternion.identity);
             OnPlaceTree ();
 
 
-
-            if (!Pathfinding.hasPath)
+            
+            if (!EnemyManager.hasPath)
             {
                 Destroy (currentPlace);
-                OnPlaceTree ();
+                
                 return;
             }
            

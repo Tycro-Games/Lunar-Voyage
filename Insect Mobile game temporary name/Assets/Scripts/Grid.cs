@@ -19,7 +19,7 @@ public class Grid : MonoBehaviour
     float nodeDiameter;
     int gridSizeX, gridSizeY;
 
-   
+
 
     private void Awake ()
     {
@@ -33,14 +33,7 @@ public class Grid : MonoBehaviour
         gridSizeY = Mathf.RoundToInt (gridWorldSize.y / nodeDiameter);
         CreateGrid ();
     }
-    private void Start ()
-    {
-        TreePlacer.OnPlaceTree += UpdateGrid;
-    }
-    private void OnDisable ()
-    {
-        TreePlacer.OnPlaceTree -= UpdateGrid;
-    }
+
     public int MaxSize
     {
         get
@@ -120,28 +113,6 @@ public class Grid : MonoBehaviour
     {
         Gizmos.DrawWireCube (transform.position, new Vector3 (gridWorldSize.x, gridWorldSize.y, 0));
 
-        if (onlyDisplayPathGizmos)
-        {
-            if (path != null)
-            {
-                foreach (Node n in path)
-                {
-                    Gizmos.color = Color.black;
-                    Gizmos.DrawCube (n.worldPosition, Vector3.one * nodeDiameter);
 
-                }
-            }
-        }
-        else
-        {
-            if (grid != null)
-            {
-                foreach (Node n in grid)
-                {
-                    Gizmos.color = (n.walkable) ? Color.white : Color.red;
-                    Gizmos.DrawCube (n.worldPosition, Vector3.one * (nodeDiameter));
-                }
-            }
-        }
     }
 }
