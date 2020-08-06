@@ -7,8 +7,7 @@ public class EnemyManager : MonoBehaviour
     public static Dictionary<TracePath, Pathfinding> pathfindings = new Dictionary<TracePath, Pathfinding> ();
 
     public static EnemyManager enemyManager;
-    [SerializeField]
-    private TracePath path1 = null;
+
 
     public static bool hasPath;
     private void Awake ()
