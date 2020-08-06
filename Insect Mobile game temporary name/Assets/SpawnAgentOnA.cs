@@ -5,12 +5,8 @@ using UnityEngine;
 public class SpawnAgentOnA : MonoBehaviour
 {
     [SerializeField]
-    private GameObject prefab;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    private GameObject prefab=null;
+
 
     // Update is called once per frame
     void Update()

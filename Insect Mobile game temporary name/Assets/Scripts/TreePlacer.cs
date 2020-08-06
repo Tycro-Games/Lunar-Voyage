@@ -18,29 +18,41 @@ public class TreePlacer : MonoBehaviour
     private void Update ()
     {
         Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
-        if (Physics.Raycast (ray, out RaycastHit hit, 100, grid))
+        
+        if (Input.GetMouseButtonDown (0))
         {
-            obj = hit.collider.gameObject;
+            if (Physics.Raycast (ray, out RaycastHit hit, 100, grid))
+            {
+                if (hit.transform.tag == "grid")
+                {
+                    obj = hit.collider.gameObject;
+                    CheckToPlace ();
+                } 
+            }
+            
         }
     }
-    public void CheckToPlace (InputAction.CallbackContext ctx)
-    {  
-        if (ctx.started)
+    public void CheckToPlace ()
+    {
+        if (obj.transform.childCount != 0)
+            return;
+
+        EnemyManager.hasPath = false;
+
+
+        GameObject currentPlace = Instantiate (currentTree, obj.transform.position, Quaternion.identity, obj.transform);
+        OnPlaceTree ();
+
+
+
+        if (!EnemyManager.hasPath)
         {
-            EnemyManager.hasPath = false;
-            GameObject currentPlace = Instantiate (currentTree, obj.transform.position, Quaternion.identity);
+            Destroy (currentPlace);
             OnPlaceTree ();
-
-
-            
-            if (!EnemyManager.hasPath)
-            {
-                Destroy (currentPlace);
-                
-                return;
-            }
-           
+            return;
         }
+
+
     }
     private void OnDrawGizmos ()
     {

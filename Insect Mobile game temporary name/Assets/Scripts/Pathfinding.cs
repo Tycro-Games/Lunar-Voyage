@@ -18,26 +18,30 @@ public class Pathfinding : MonoBehaviour
     private void Awake ()
     {
         path = GetComponent<TracePath> ();
+
+        seeker = transform;
+        target = GameObject.FindGameObjectWithTag ("Target").transform;
     }
     private void Start ()
     {
 
-        EnemyManager.pathfindings.Add (path,GetComponent<Pathfinding>());
+        
 
         grid = Grid.currentGrid;
 
-        seeker = transform;
-        target = GameObject.FindGameObjectWithTag ("Target").transform;
 
-        FindPath ();
+        if (seeker != null && target != null)
+            FindPath ();
 
+        EnemyManager.pathfindings.Add (path, GetComponent<Pathfinding> ());
     }
 
     public void FindPath ()
     {
+
         grid.UpdateGrid ();
 
-        
+
         Node startNode = grid.NodeFromWorldPoint (seeker.position);
         Node targetNode = grid.NodeFromWorldPoint (target.position);
 
@@ -52,7 +56,7 @@ public class Pathfinding : MonoBehaviour
 
             if (currentNode == targetNode)
             {
-                
+
                 RetracePath (startNode, targetNode);
                 return;
             }
@@ -157,14 +161,14 @@ public class Pathfinding : MonoBehaviour
     {
         if (path != null)
         {
-                foreach (Node n in path.SetPath)
-                {
-                    Gizmos.color = Color.black;
-                    Gizmos.DrawCube (n.worldPosition, Vector3.one * 1.25f);
-                }
+            foreach (Node n in path.SetPath)
+            {
+                Gizmos.color = Color.black;
+                Gizmos.DrawCube (n.worldPosition, Vector3.one * 1.25f);
+            }
         }
     }
-   public int GetDistance (Node nodeA, Node nodeB)
+    public int GetDistance (Node nodeA, Node nodeB)
     {
         int dstX = Mathf.Abs (nodeA.gridX - nodeB.gridX);
         int dstY = Mathf.Abs (nodeA.gridY - nodeB.gridY);

@@ -4,13 +4,23 @@ using UnityEngine;
 
 public class EnemyManager : MonoBehaviour
 {
-    public static Dictionary<TracePath,Pathfinding> pathfindings = new Dictionary<TracePath, Pathfinding>();
+    public static Dictionary<TracePath, Pathfinding> pathfindings = new Dictionary<TracePath, Pathfinding> ();
 
     public static EnemyManager enemyManager;
+    [SerializeField]
+    private TracePath path1 = null;
 
-    public static bool hasPath = true;
+    public static bool hasPath;
+    private void Awake ()
+    {
+        pathfindings = new Dictionary<TracePath, Pathfinding> ();
+    }
     private void Start ()
     {
+
+
+        hasPath = true;
+
         if (enemyManager == null)
             enemyManager = this;
         else
@@ -26,19 +36,19 @@ public class EnemyManager : MonoBehaviour
     }
     public void CheckSpace ()
     {
-        int pathCount = 0;
-        TracePath path1 = null;
+        hasPath = true;
         foreach (var path in pathfindings.Keys)
         {
-            if (path.SetPath.Count > pathCount)
-            {
-                path1 = path;
-                pathCount = path.SetPath.Count;             
-            }
             pathfindings[path].FindPath ();
+            hasPath = pathfindings[path].FindPath (hasPath);
+            if(!hasPath)
+            {
+
+                return;
+            }
         }
 
-        hasPath = path1.GetComponent<Pathfinding> ().FindPath (hasPath);
-        Debug.Log (hasPath);
+
+
     }
 }
