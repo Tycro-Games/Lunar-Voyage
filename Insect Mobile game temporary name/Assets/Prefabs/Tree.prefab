@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7273484872861613680}
   - component: {fileID: 2197415776847281660}
   m_Layer: 8
-  m_Name: Cube
+  m_Name: GPX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -89,6 +89,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2682349619809252362}
   - component: {fileID: 2682349619809252363}
+  - component: {fileID: 8690086646032689990}
+  - component: {fileID: 7464418122177971255}
+  - component: {fileID: 653325266849308169}
   m_Layer: 8
   m_Name: Tree
   m_TagString: Untagged
@@ -124,3 +127,56 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &8690086646032689990
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2682349619809252360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66cedc0d3326d4742ac0bd774643a845, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  treeStats: {fileID: 11400000, guid: 9068d981c52b28949a9daf3a98418e0c, type: 2}
+--- !u!114 &7464418122177971255
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2682349619809252360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a9675ff07bd677489e3d69b0fe3eeb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &653325266849308169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2682349619809252360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2174729f36d955848af18fb955156f80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TimeToWait: 1
+  loop: 1
+  OnTimerFinished:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7464418122177971255}
+        m_MethodName: Die
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 1
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

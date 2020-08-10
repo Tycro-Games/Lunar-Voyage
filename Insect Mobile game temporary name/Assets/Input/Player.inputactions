@@ -7,7 +7,7 @@
             "actions": [
                 {
                     "name": "Click",
-                    "type": "Button",
+                    "type": "PassThrough",
                     "id": "38ffe136-8a60-4ba3-9eed-6676b4dea7f8",
                     "expectedControlType": "Button",
                     "processors": "",

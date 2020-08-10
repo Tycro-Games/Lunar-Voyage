@@ -7,15 +7,17 @@ public class TracePath : MonoBehaviour
 {
     [SerializeField]
     private float speed = 1.0f;
-    private List<Node> path = new List<Node> ();
-    private void Start ()
-    {
-        if(speed!=0)
-        speed = Random.Range (0.25f, 2);
+    private List<Node> path = new List<Node>();
 
-        StartPath ();
+    [SerializeField]
+    private bool JustPassiveTest = false;
+    private void Start()
+    {
+
+        StartPath();
     }
-    public List<Node> SetPath {
+    public List<Node> SetPath
+    {
 
         get
         {
@@ -24,54 +26,53 @@ public class TracePath : MonoBehaviour
         set
         {
             path = value;
-            StartPath ();
+            StartPath();
         }
     }
 
-    public void StartPath ()
+    public void StartPath()
     {
-
-        StopAllCoroutines ();
-        StartCoroutine (FollowPath (path));
+        if (!JustPassiveTest)
+        {
+            StopAllCoroutines();
+            StartCoroutine(FollowPath(path));
+        }
     }
 
-    IEnumerator FollowPath (List<Node> path)
+    IEnumerator FollowPath(List<Node> path)
     {
 
         int i = 0;
         while (i < path.Count)
         {
-
-
-            yield return StartCoroutine (Move (path[i].worldPosition));
+            yield return StartCoroutine(Move(path[i].worldPosition));
             i++;
         }
     }
 
-    IEnumerator Move (Vector3 node)
+    IEnumerator Move(Vector3 node)
     {
         while (transform.position != node)
         {
+            transform.position = Vector3.MoveTowards(transform.position, node, speed * Time.deltaTime);
 
-            transform.position = Vector3.MoveTowards (transform.position, node, speed * Time.deltaTime);
-
-            Debug.DrawLine (transform.position, transform.position + Dir (node));
+            Debug.DrawLine(transform.position, transform.position + Dir(node));
             yield return null;
         }
     }
-    Vector3 Dir (Vector3 thingTolookAt)
+    Vector3 Dir(Vector3 thingTolookAt)
     {
         Vector2 dir = (thingTolookAt - transform.position).normalized;
         return dir;
     }
-    private void OnDrawGizmos ()
+    private void OnDrawGizmosSelected()
     {
         if (path != null)
         {
             foreach (Node n in path)
             {
                 Gizmos.color = Color.black;
-                Gizmos.DrawCube (n.worldPosition, Vector3.one );
+                Gizmos.DrawCube(n.worldPosition, Vector3.one);
             }
         }
     }

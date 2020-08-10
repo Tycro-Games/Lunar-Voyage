@@ -16,8 +16,6 @@ public class EnemyManager : MonoBehaviour
     }
     private void Start ()
     {
-
-
         hasPath = true;
 
         if (enemyManager == null)
@@ -25,15 +23,8 @@ public class EnemyManager : MonoBehaviour
         else
             Destroy (gameObject);
     }
-    private void OnEnable ()
-    {
-        TreePlacer.OnPlaceTree += CheckSpace;
-    }
-    private void OnDisable ()
-    {
-        TreePlacer.OnPlaceTree -= CheckSpace;
-    }
-    public void CheckSpace ()
+    
+    public static void CheckSpace ()
     {
         hasPath = true;
         foreach (var path in pathfindings.Keys)

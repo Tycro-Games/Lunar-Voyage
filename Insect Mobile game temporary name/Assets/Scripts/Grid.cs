@@ -112,7 +112,5 @@ public class Grid : MonoBehaviour
     void OnDrawGizmos ()
     {
         Gizmos.DrawWireCube (transform.position, new Vector3 (gridWorldSize.x, gridWorldSize.y, 0));
-
-
     }
 }
