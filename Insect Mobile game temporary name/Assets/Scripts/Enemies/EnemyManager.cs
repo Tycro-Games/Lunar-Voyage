@@ -4,36 +4,35 @@ using UnityEngine;
 
 public class EnemyManager : MonoBehaviour
 {
-    public static Dictionary<TracePath, Pathfinding> pathfindings = new Dictionary<TracePath, Pathfinding> ();
+    public static Dictionary<TracePath, Pathfinding> pathfindings = new Dictionary<TracePath, Pathfinding>();
 
     public static EnemyManager enemyManager;
-
-
     public static bool hasPath;
-    private void Awake ()
+    private void Awake()
     {
-        pathfindings = new Dictionary<TracePath, Pathfinding> ();
+        pathfindings = new Dictionary<TracePath, Pathfinding>();
     }
-    private void Start ()
+    private void Start()
     {
         hasPath = true;
 
         if (enemyManager == null)
             enemyManager = this;
         else
-            Destroy (gameObject);
+            Destroy(gameObject);
     }
-    
-    public static void CheckSpace ()
+
+    public static void CheckSpace()
     {
+        if (pathfindings == null)
+            return;
+
         hasPath = true;
         foreach (var path in pathfindings.Keys)
         {
-            pathfindings[path].FindPath ();
-            hasPath = pathfindings[path].FindPath (hasPath);
-            if(!hasPath)
+            hasPath = pathfindings[path].FindPath(hasPath);
+            if (!hasPath)
             {
-
                 return;
             }
         }

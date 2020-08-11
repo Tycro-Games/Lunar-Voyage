@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.InputSystem;
+﻿using UnityEngine;
 using TouchPhase = UnityEngine.TouchPhase;
 
 public class TreePlacer : MonoBehaviour
@@ -13,22 +10,20 @@ public class TreePlacer : MonoBehaviour
     [SerializeField]
     private GameObject currentTree = null;
 
-    
-
-    private void Update ()
+    private void Update()
     {
 #if UNITY_ANDROID
         foreach (Touch touch in Input.touches)
         {
             if (touch.phase == TouchPhase.Began)
             {
-                Ray ray = Camera.main.ScreenPointToRay (touch.position);
-                if (Physics.Raycast (ray, out RaycastHit hit, 100, grid))
+                Ray ray = Camera.main.ScreenPointToRay(touch.position);
+                if (Physics.Raycast(ray, out RaycastHit hit, 100, grid))
                 {
                     if (hit.transform.tag == "grid")
                     {
                         obj = hit.collider.gameObject;
-                        CheckToPlace ();
+                        CheckToPlace();
                     }
                 }
             }
@@ -36,22 +31,21 @@ public class TreePlacer : MonoBehaviour
 #endif
 #if UNITY_EDITOR
         if (Input.GetMouseButtonDown(0))
+        {
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            if (Physics.Raycast(ray, out RaycastHit hit, 100, grid))
             {
-                Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
-                if (Physics.Raycast (ray, out RaycastHit hit, 100, grid))
+                if (hit.transform.tag == "grid")
                 {
-                    if (hit.transform.tag == "grid")
-                    {
-                        obj = hit.collider.gameObject;
-                        CheckToPlace ();
-                    }
+                    obj = hit.collider.gameObject;
+                    CheckToPlace();
                 }
-
             }
-        
+
+        }
 #endif
     }
-    public void CheckToPlace ()
+    public void CheckToPlace()
     {
         if (obj.transform.childCount != 0)
             return;
@@ -59,26 +53,26 @@ public class TreePlacer : MonoBehaviour
         EnemyManager.hasPath = false;
 
 
-        GameObject currentPlace = Instantiate (currentTree, obj.transform.position, Quaternion.identity, obj.transform);
-        EnemyManager.CheckSpace ();
+        GameObject currentPlace = Instantiate(currentTree, obj.transform.position, Quaternion.identity, obj.transform);
+        EnemyManager.CheckSpace();
 
 
 
         if (!EnemyManager.hasPath)
         {
-            Destroy (currentPlace);
-            EnemyManager.CheckSpace ();
+            Destroy(currentPlace);
+            EnemyManager.CheckSpace();
             return;
         }
 
 
     }
-    private void OnDrawGizmos ()
+    private void OnDrawGizmos()
     {
         if (obj)
         {
             Gizmos.color = Color.black;
-            Gizmos.DrawWireCube (obj.transform.position, Vector3.one * 1);
+            Gizmos.DrawWireCube(obj.transform.position, Vector3.one * 1);
         }
     }
 }

@@ -5,8 +5,8 @@ using UnityEngine;
 public class TreeInherit : MonoBehaviour
 {
     protected TreeAI treeAI = null;
-    private void Awake ()
+    private void Awake()
     {
-        treeAI = GetComponent<TreeAI> ();
+        treeAI = GetComponent<TreeAI>();
     }
 }

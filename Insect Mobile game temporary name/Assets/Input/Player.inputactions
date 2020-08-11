@@ -7,9 +7,9 @@
             "actions": [
                 {
                     "name": "Click",
-                    "type": "PassThrough",
+                    "type": "Value",
                     "id": "38ffe136-8a60-4ba3-9eed-6676b4dea7f8",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": ""
                 }
@@ -18,10 +18,10 @@
                 {
                     "name": "",
                     "id": "d77c6bcf-68c3-4d7c-8a24-4d45763fa966",
-                    "path": "<Pointer>/press",
+                    "path": "<Pointer>/position",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Mobile",
                     "action": "Click",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -29,5 +29,17 @@
             ]
         }
     ],
-    "controlSchemes": []
+    "controlSchemes": [
+        {
+            "name": "Mobile",
+            "bindingGroup": "Mobile",
+            "devices": [
+                {
+                    "devicePath": "<Touchscreen>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        }
+    ]
 }

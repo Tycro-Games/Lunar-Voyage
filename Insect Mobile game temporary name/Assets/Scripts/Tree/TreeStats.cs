@@ -1,7 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-[CreateAssetMenu (fileName = "new tree", menuName = "Create new tree")]
+﻿using UnityEngine;
+[CreateAssetMenu(fileName = "new tree", menuName = "Create/ new tree")]
 public class TreeStats : ScriptableObject
 {
     [SerializeField]

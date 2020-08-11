@@ -5,11 +5,11 @@ using UnityEngine;
 public class TreeAI : MonoBehaviour
 {
     [SerializeField]
-    private TreeStats treeStats=null;
+    private TreeStats treeStats = null;
     public TreeStats GetTreeStats
     {
         get => treeStats;
-       
+
     }
-    
+
 }
