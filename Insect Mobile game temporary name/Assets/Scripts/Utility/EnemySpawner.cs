@@ -17,7 +17,10 @@ public class EnemySpawner : MonoBehaviour
     public void Spawn(GameObject enemyPrefab)
     {
         GameObject enemy = Instantiate(enemyPrefab, transform.position, Quaternion.identity, transform);
-        Pathfinding enemyPath = enemy.GetComponent<Pathfinding>();
-        enemyPath.Init(target);
+        Pathfinding[] enemyPaths = enemy.GetComponentsInChildren<Pathfinding>();
+        foreach (Pathfinding enemyPath in enemyPaths)
+        {
+            enemyPath.Init(target);
+        }
     }
 }

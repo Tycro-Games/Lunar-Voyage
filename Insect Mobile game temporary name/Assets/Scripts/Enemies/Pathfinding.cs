@@ -26,10 +26,7 @@ public class Pathfinding : MonoBehaviour
         if (seeker != null && target != null)
             FindPath();
     }
-    private void Start()
-    {
 
-    }
 
     public void FindPath()
     {

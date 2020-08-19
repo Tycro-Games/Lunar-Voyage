@@ -239,7 +239,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   gridWorldSize: {x: 14, y: 8}
-  nodeRadius: 0.5
+  nodeRadius: 0.25
   noDiagonal: 1
   prefabToPlace: {fileID: 4388357516766586266, guid: 0bf87547f4fce5e4ea7707ee0150535c,
     type: 3}
@@ -378,7 +378,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2174729f36d955848af18fb955156f80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TimeToWait: 10
+  TimeToWait: 2
   loop: 1
   OnTimerFinished:
     m_PersistentCalls:
@@ -387,7 +387,7 @@ MonoBehaviour:
         m_MethodName: Spawn
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 263934411382671086, guid: 95511d3094e116844bc1351273be1488,
+          m_ObjectArgument: {fileID: 859577497370853549, guid: ee805a0dd7198d541a8c3f3cead38c20,
             type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
@@ -407,7 +407,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 311e06d4a369b644fb2dbf6969416c0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 1208612806}
+  target: {fileID: 1653676649}
 --- !u!65 &915004447
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -954,7 +954,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 311e06d4a369b644fb2dbf6969416c0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 1653676649}
+  target: {fileID: 1208612806}
 --- !u!114 &263934411478309778
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -967,7 +967,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2174729f36d955848af18fb955156f80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TimeToWait: 10
+  TimeToWait: 2
   loop: 1
   OnTimerFinished:
     m_PersistentCalls:
@@ -976,7 +976,7 @@ MonoBehaviour:
         m_MethodName: Spawn
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 263934411382671086, guid: 95511d3094e116844bc1351273be1488,
+          m_ObjectArgument: {fileID: 859577497370853549, guid: ee805a0dd7198d541a8c3f3cead38c20,
             type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
