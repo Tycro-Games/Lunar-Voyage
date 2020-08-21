@@ -4,15 +4,16 @@ public class EnemySpawner : MonoBehaviour
 {
     [SerializeField]
     private Transform target = null;
+    private Grid grid = null;
 
     private Pathfinding pathfinding;
     void Awake()
     {
+        grid = FindObjectOfType<Grid>();
+
         pathfinding = GetComponent<Pathfinding>();
-    }
-    void Start()
-    {
-        pathfinding.Init(target);
+
+        pathfinding.Init(target, grid);
     }
     public void Spawn(GameObject enemyPrefab)
     {
@@ -20,7 +21,7 @@ public class EnemySpawner : MonoBehaviour
         Pathfinding[] enemyPaths = enemy.GetComponentsInChildren<Pathfinding>();
         foreach (Pathfinding enemyPath in enemyPaths)
         {
-            enemyPath.Init(target);
+            enemyPath.Init(target, grid);
         }
     }
 }

@@ -3,26 +3,12 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 
-public class TracePath : MonoBehaviour
+public class TracePath : TracePathCheck
 {
     [SerializeField]
     private float speed = 1.0f;
-    private List<Node> path = new List<Node>();
-
-    [SerializeField]
-    private bool JustPassiveTest = false;
-    private void Start()
+    public override List<Node> SetPath
     {
-
-        StartPath();
-    }
-    public List<Node> SetPath
-    {
-
-        get
-        {
-            return path;
-        }
         set
         {
             path = value;
@@ -32,14 +18,11 @@ public class TracePath : MonoBehaviour
 
     public void StartPath()
     {
-        if (!JustPassiveTest)
-        {
-            StopAllCoroutines();
-            StartCoroutine(FollowPath(path));
-        }
+        StopAllCoroutines();
+        StartCoroutine(FollowPath(path));
     }
 
-    IEnumerator FollowPath(List<Node> path)
+    private IEnumerator FollowPath(List<Node> path)
     {
 
         int i = 0;
@@ -50,7 +33,7 @@ public class TracePath : MonoBehaviour
         }
     }
 
-    IEnumerator Move(Vector3 node)
+    private IEnumerator Move(Vector3 node)
     {
         while (transform.position != node)
         {
@@ -60,21 +43,11 @@ public class TracePath : MonoBehaviour
             yield return null;
         }
     }
-    Vector3 Dir(Vector3 thingTolookAt)
+    private Vector3 Dir(Vector3 thingTolookAt)
     {
         Vector2 dir = (thingTolookAt - transform.position).normalized;
         return dir;
     }
-    private void OnDrawGizmosSelected()
-    {
-        if (path != null)
-        {
-            foreach (Node n in path)
-            {
-                Gizmos.color = Color.black;
-                Gizmos.DrawCube(n.worldPosition, Vector3.one);
-            }
-        }
-    }
+
 }
 

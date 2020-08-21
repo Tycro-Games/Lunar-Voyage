@@ -41,7 +41,6 @@ public class TreePlacer : MonoBehaviour
                     CheckToPlace();
                 }
             }
-
         }
 #endif
     }
@@ -52,11 +51,8 @@ public class TreePlacer : MonoBehaviour
 
         EnemyManager.hasPath = false;
 
-
         GameObject currentPlace = Instantiate(currentTree, obj.transform.position, Quaternion.identity, obj.transform);
         EnemyManager.CheckSpace();
-
-
 
         if (!EnemyManager.hasPath)
         {
