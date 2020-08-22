@@ -24,6 +24,8 @@ public class EnemyManager
         hasPath = true;
         foreach (var path in pathfindings.Keys)
         {
+            if (path == null)
+                continue;
             hasPath = pathfindings[path].FindPath();
             if (!hasPath)
             {

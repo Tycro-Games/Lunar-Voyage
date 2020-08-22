@@ -2,8 +2,13 @@
 
 public class EnemyAI : MonoBehaviour
 {
-    [SerializeField]
-    private EnemyCommon enemyCommon = null;
-
-    public EnemyCommon EnemyCommon { get => enemyCommon; }
+    private EnemyHealth enemyHP;
+    private void Start()
+    {
+        enemyHP = GetComponent<EnemyHealth>();
+    }
+    public void TakeDamage(int dg)
+    {
+        enemyHP.TakeDamage(dg);
+    }
 }

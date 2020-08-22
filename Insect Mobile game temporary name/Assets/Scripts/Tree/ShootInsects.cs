@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class ShootInsects : TreeInherit
+public class ShootInsects : MonoBehaviour
 {
 
 }

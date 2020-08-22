@@ -1,0 +1,15 @@
+{
+    "name": "Tree",
+    "references": [
+        "GUID:1eaa81dc011b7a849aeb1dd8084f39c4"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

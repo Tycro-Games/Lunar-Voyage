@@ -1,22 +1,19 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyHealth : EnemyAIInheritence
+public class EnemyHealth : MonoBehaviour
 {
+    public event Action OnDead;
+    [SerializeField]
     private int health = 0;
-
-    void Start()
-    {
-        health = enemyAI.EnemyCommon.GetHealth;
-    }
-    public void Die(int dg)
+    public void TakeDamage(int dg)
     {
         health -= dg;
         if (health <= 0)
         {
-            Debug.Log(gameObject.name);
-            Destroy(gameObject);
+            OnDead?.Invoke();
         }
 
     }

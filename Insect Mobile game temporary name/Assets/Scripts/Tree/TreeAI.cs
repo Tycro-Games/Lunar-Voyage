@@ -4,12 +4,30 @@ using UnityEngine;
 
 public class TreeAI : MonoBehaviour
 {
-    [SerializeField]
-    private TreeStats treeStats = null;
-    public TreeStats GetTreeStats
+    private TreeRecon treeRecon;
+    private ITreeShoot treeShoot;
+    private Transform target;
+    private void Start()
     {
-        get => treeStats;
-
+        treeShoot = GetComponent<TreeShoot>();
+        treeRecon = GetComponent<TreeRecon>();
     }
+    private void Update()
+    {
+        if (target != null)
+        {
+            return;
+        }
 
+        Collider colTarget = treeRecon.CheckSorounding();
+        if (colTarget != null)
+        {
+            target = colTarget.transform;
+            StartCoroutine(treeShoot.Shoot(target));
+        }
+    }
+    private void OnDisable()
+    {
+        StopAllCoroutines();
+    }
 }
