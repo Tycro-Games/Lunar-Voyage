@@ -225,4 +225,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectileObject: {fileID: 4138705543927219697, guid: 7cd7132841caff141a2b61d3aedb8619,
     type: 3}
-  fireRate: 0.25
+  fireRate: 0.5

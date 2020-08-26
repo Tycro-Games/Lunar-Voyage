@@ -21,7 +21,7 @@ public class TreeShoot : MonoBehaviour, ITreeShoot
     {
         while (target != null)
         {
-            GameObject instance = Instantiate(projectileObject, transform.position, Quaternion.identity);
+            GameObject instance = Instantiate(projectileObject, transform.position, Quaternion.identity, transform);
             CacheProjectile(instance);
             projectile.Init(target);
 

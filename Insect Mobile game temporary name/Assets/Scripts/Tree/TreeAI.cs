@@ -30,4 +30,9 @@ public class TreeAI : MonoBehaviour
     {
         StopAllCoroutines();
     }
+    private void OnDrawGizmos()
+    {
+        if (target != null)
+            Gizmos.DrawLine(transform.position, target.position);
+    }
 }
