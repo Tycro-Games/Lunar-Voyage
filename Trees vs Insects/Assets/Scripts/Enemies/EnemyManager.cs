@@ -5,8 +5,6 @@ using UnityEngine;
 public class EnemyManager
 {
     public static Dictionary<TracePathCheck, Pathfinding> pathfindings = new Dictionary<TracePathCheck, Pathfinding>();
-
-    public static EnemyManager enemyManager;
     public static bool hasPath;
 
     public static bool CheckForNullPaths()
@@ -26,9 +24,12 @@ public class EnemyManager
         {
             if (path == null)
                 continue;
+
             hasPath = pathfindings[path].FindPath();
+
             if (!hasPath)
             {
+                Debug.Log("not enough space");
                 return;
             }
         }
