@@ -102,8 +102,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyChild
       objectReference: {fileID: 0}
+    - target: {fileID: 8164740876421076467, guid: acb20cc04ca2ed042ae2a624c18d946a,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.5
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6244547422164822890, guid: acb20cc04ca2ed042ae2a624c18d946a, type: 3}
     - {fileID: 6244547422164822888, guid: acb20cc04ca2ed042ae2a624c18d946a, type: 3}
-    - {fileID: 4381721852880087137, guid: acb20cc04ca2ed042ae2a624c18d946a, type: 3}
+    - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: acb20cc04ca2ed042ae2a624c18d946a, type: 3}

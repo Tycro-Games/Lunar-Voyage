@@ -89,13 +89,11 @@ GameObject:
   m_Component:
   - component: {fileID: 7935677415777961335}
   - component: {fileID: 7935677415777961334}
-  - component: {fileID: 3711473619634723387}
-  - component: {fileID: 4198254030230815002}
-  - component: {fileID: 773390451943850926}
-  - component: {fileID: 1520608499490192641}
-  - component: {fileID: 1518710009124534350}
+  - component: {fileID: 6849496084709485304}
+  - component: {fileID: 5977206656215406353}
+  - component: {fileID: 3831769811946877183}
   m_Layer: 8
-  m_Name: Tree
+  m_Name: Golden Tree
   m_TagString: Untagged
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -129,7 +127,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.5, y: 0.5, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &3711473619634723387
+--- !u!114 &6849496084709485304
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -138,39 +136,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 7935677415777961333}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 66cedc0d3326d4742ac0bd774643a845, type: 3}
+  m_Script: {fileID: 11500000, guid: c944fb629ac85cb4b86ac5c0e0fd2bec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &4198254030230815002
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7935677415777961333}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb4fd25957f0136468b44bd022e58e68, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  radius: 2
-  enemies:
-    serializedVersion: 2
-    m_Bits: 1024
---- !u!114 &773390451943850926
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7935677415777961333}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93083de441cef9040a25ed2a4f719458, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lifetime: 2
---- !u!114 &1520608499490192641
+  energyGain: 1
+--- !u!114 &5977206656215406353
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -182,7 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bba2f0e1f4172fc4faaedc59fbdf9fb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1518710009124534350
+--- !u!114 &3831769811946877183
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -191,9 +161,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 7935677415777961333}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 20a446bdde3fad448a7d7b7cfbfbb5d9, type: 3}
+  m_Script: {fileID: 11500000, guid: 2174729f36d955848af18fb955156f80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectileObject: {fileID: 4138705543927219697, guid: 7cd7132841caff141a2b61d3aedb8619,
-    type: 3}
-  fireRate: 0.5
+  TimeToWait: 1
+  loop: 1
+  OnTimerFinished:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6849496084709485304}
+        m_MethodName: AddEnergy
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

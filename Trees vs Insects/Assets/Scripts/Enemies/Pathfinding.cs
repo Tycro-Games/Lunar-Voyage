@@ -106,7 +106,7 @@ public class Pathfinding : MonoBehaviour
             return 14 * dstY + 10 * (dstX - dstY);
         return 14 * dstX + 10 * (dstY - dstX);
     }
-    private void OnDrawGizmos()
+    private void OnDrawGizmosSelected()
     {
         if (path != null)
         {

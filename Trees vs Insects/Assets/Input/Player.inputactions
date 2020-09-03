@@ -2,14 +2,14 @@
     "name": "Player",
     "maps": [
         {
-            "name": "Touch",
-            "id": "58825653-fe6c-4784-af2d-ed0cd1bf62b0",
+            "name": "Mouse",
+            "id": "1891be02-8b04-419f-b11e-1e21bcd21210",
             "actions": [
                 {
-                    "name": "Click",
-                    "type": "Value",
-                    "id": "38ffe136-8a60-4ba3-9eed-6676b4dea7f8",
-                    "expectedControlType": "Vector2",
+                    "name": "New action",
+                    "type": "Button",
+                    "id": "05fcfcf0-72a3-41ee-b2f2-5e92c1cb9adb",
+                    "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
                 }
@@ -17,29 +17,17 @@
             "bindings": [
                 {
                     "name": "",
-                    "id": "d77c6bcf-68c3-4d7c-8a24-4d45763fa966",
-                    "path": "<Pointer>/position",
+                    "id": "a9d44170-901d-41fe-a412-c78b530427b9",
+                    "path": "<Mouse>/leftButton",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Mobile",
-                    "action": "Click",
+                    "groups": "",
+                    "action": "New action",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
             ]
         }
     ],
-    "controlSchemes": [
-        {
-            "name": "Mobile",
-            "bindingGroup": "Mobile",
-            "devices": [
-                {
-                    "devicePath": "<Touchscreen>",
-                    "isOptional": false,
-                    "isOR": false
-                }
-            ]
-        }
-    ]
+    "controlSchemes": []
 }

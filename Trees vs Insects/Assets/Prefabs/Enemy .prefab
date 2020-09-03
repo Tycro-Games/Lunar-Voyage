@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6206204606452546490}
   - component: {fileID: 1220222091331719159}
   - component: {fileID: 6699237311088738117}
-  - component: {fileID: 457642583886062416}
+  - component: {fileID: 8164740876421076467}
   m_Layer: 10
   m_Name: AI
   m_TagString: Untagged
@@ -59,8 +59,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 10
---- !u!65 &457642583886062416
-BoxCollider:
+--- !u!135 &8164740876421076467
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -70,7 +70,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Radius: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6244547422164822893
 GameObject:

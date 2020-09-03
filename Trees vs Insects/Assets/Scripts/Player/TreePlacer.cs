@@ -3,18 +3,16 @@
 public class TreePlacer : MonoBehaviour
 {
     private Raycaster raycaster;
-    private CheckPlacer checkPlacer;
+    private ICheckPlacer checkPlacer;
     private void Start()
     {
-        checkPlacer = GetComponent<CheckPlacer>();
+        checkPlacer = GetComponent<ICheckPlacer>();
         raycaster = GetComponent<Raycaster>();
     }
-    private void Update()
+    public void Place()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            checkPlacer.CheckToPlace(raycaster.Raycast(Input.mousePosition));
-        }
+
+        checkPlacer.CheckToPlace(raycaster.Raycast(Input.mousePosition));
     }
 
 
