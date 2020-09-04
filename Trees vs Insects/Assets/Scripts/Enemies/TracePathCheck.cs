@@ -17,7 +17,7 @@ public class TracePathCheck : MonoBehaviour
             path = value;
         }
     }
-    private void OnDrawGizmos()
+    private void OnDrawGizmosSelected()
     {
         if (path != null)
         {

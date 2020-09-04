@@ -30,8 +30,6 @@ public class Pathfinding : MonoBehaviour
     #region  checkSpace
     public bool FindPath()
     {
-        bool hasPath = false;
-
         grid.UpdateGrid();
 
 
@@ -50,9 +48,9 @@ public class Pathfinding : MonoBehaviour
 
             if (currentNode == targetNode)
             {
-                hasPath = true;
+
                 RetracePath(startNode, targetNode);
-                return hasPath;
+                return true;
             }
 
             foreach (Node neighbour in grid.GetNeighbours(currentNode))
@@ -77,7 +75,7 @@ public class Pathfinding : MonoBehaviour
                 }
             }
         }
-        return hasPath;
+        return false;
     }
     #endregion
     protected void RetracePath(Node startNode, Node endNode)

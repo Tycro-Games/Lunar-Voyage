@@ -1,13 +1,10 @@
 ﻿using UnityEngine;
 
-public class CheckPlacerPath : MonoBehaviour, ICheckPlacer
+public class CheckPlacerPath : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject currentTree = null;
 
-    public GameObject CurrentTree { get => currentTree; set => currentTree = value; }
 
-    public void CheckToPlace(GameObject cell)
+    public void CheckToPlace(GameObject cell, GameObject currentTree)
     {
         if (cell == null)
             return;

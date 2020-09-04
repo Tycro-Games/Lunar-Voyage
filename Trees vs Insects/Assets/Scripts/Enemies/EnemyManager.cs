@@ -19,7 +19,7 @@ public class EnemyManager
         if (CheckForNullPaths())
             return;
 
-        hasPath = true;
+
         foreach (var path in pathfindings.Keys)
         {
             if (path == null)

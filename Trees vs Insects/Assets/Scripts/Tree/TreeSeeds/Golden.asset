@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2440719c713eda543af74407f0ec8d21, type: 3}
+  m_Name: Golden
+  m_EditorClassIdentifier: 
+  TreeGameObject: {fileID: 7935677415777961333, guid: 22f0588ec5c83f0469ad6617dfec3dcf,
+    type: 3}
+  icon: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
