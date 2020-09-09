@@ -1,18 +1,17 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System;
+
 using UnityEngine;
 
 public class Projectile : MonoBehaviour, IProjectile
 {
     [SerializeField]
     private float speed = 0;
-    [SerializeField]
-    private float distanceToHit = .25f;
+
     [SerializeField]
     private int damage = 1;
     private Transform target;
     private EnemyAI enemyAI;
-
+    public event Action OnDead;
     public void Init(Transform Target)
     {
         target = Target;
@@ -20,7 +19,6 @@ public class Projectile : MonoBehaviour, IProjectile
     }
     private void Update()
     {
-
         if (target == null)
         {
             DestroyProjectile();
@@ -35,15 +33,15 @@ public class Projectile : MonoBehaviour, IProjectile
     }
     void CheckSpace()
     {
-        if ((target.position - transform.position).sqrMagnitude < distanceToHit * distanceToHit)
+        if (transform.position == target.position)
         {
             enemyAI.TakeDamage(damage);
             DestroyProjectile();
         }
-
     }
     void DestroyProjectile()
     {
+        OnDead?.Invoke();
         Destroy(gameObject);
     }
 

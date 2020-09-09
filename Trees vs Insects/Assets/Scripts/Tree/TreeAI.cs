@@ -6,24 +6,24 @@ public class TreeAI : MonoBehaviour
 {
     private TreeRecon treeRecon;
     private ITreeShoot treeShoot;
-    private Transform target;
+    private BoxCollider target;
     private void Start()
     {
-        treeShoot = GetComponent<TreeShoot>();
+        treeShoot = GetComponent<ITreeShoot>();
         treeRecon = GetComponent<TreeRecon>();
     }
     private void Update()
     {
-        if (target != null)
+        if (target != null && treeRecon.CheckSorounding(target))
         {
             return;
         }
+        BoxCollider colTarget = treeRecon.CheckSorounding();
 
-        Collider colTarget = treeRecon.CheckSorounding();
         if (colTarget != null)
         {
-            target = colTarget.transform;
-            StartCoroutine(treeShoot.Shoot(target));
+            target = colTarget;
+            StartCoroutine(treeShoot.Shoot(target.transform));
         }
     }
     private void OnDisable()
@@ -33,6 +33,6 @@ public class TreeAI : MonoBehaviour
     private void OnDrawGizmos()
     {
         if (target != null)
-            Gizmos.DrawLine(transform.position, target.position);
+            Gizmos.DrawLine(transform.position, target.transform.position);
     }
 }

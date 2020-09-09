@@ -14,6 +14,8 @@ public class EnemyDead : MonoBehaviour
     }
     private void OnEnable()
     {
+        EnemyList.List.Add(gameObject);
+
         enemyHealth.OnDead += DestroyEnemy;
     }
     private void OnDisable()
@@ -22,7 +24,11 @@ public class EnemyDead : MonoBehaviour
     }
     public void DestroyEnemy()
     {
+        EnemyList.List.Remove(gameObject);
+        EnemyList.CheckEnemies();
+
         Destroy(gameObject);
+
         OnDie?.Invoke();
     }
 }

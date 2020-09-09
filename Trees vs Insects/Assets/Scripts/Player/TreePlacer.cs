@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-
+using System;
 public class TreePlacer : MonoBehaviour, ICurrentSeedDisplay<GameObject>
 {
     [SerializeField]
@@ -7,7 +7,7 @@ public class TreePlacer : MonoBehaviour, ICurrentSeedDisplay<GameObject>
 
     private Raycaster raycaster;
     private CheckPlacerPath checkPlacer;
-
+    public static event Action OnBuyCheck;
     private void Start()
     {
         checkPlacer = GetComponent<CheckPlacerPath>();
@@ -16,7 +16,15 @@ public class TreePlacer : MonoBehaviour, ICurrentSeedDisplay<GameObject>
     public void Place()
     {
         if (currentTree != null)
-            checkPlacer.CheckToPlace(raycaster.Raycast(Input.mousePosition), currentTree);
+        {
+            if (checkPlacer.CheckToPlace(raycaster.Raycast(Input.mousePosition), currentTree))
+            {
+
+                currentTree = null;
+                OnBuyCheck?.Invoke();
+            }
+
+        }
     }
 
     public void UpdateSprite(GameObject seed)

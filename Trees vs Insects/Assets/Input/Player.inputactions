@@ -6,9 +6,17 @@
             "id": "1891be02-8b04-419f-b11e-1e21bcd21210",
             "actions": [
                 {
-                    "name": "New action",
+                    "name": "Select",
                     "type": "Button",
                     "id": "05fcfcf0-72a3-41ee-b2f2-5e92c1cb9adb",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Deselect",
+                    "type": "Button",
+                    "id": "f0386fb4-94a4-4deb-9c21-41669d39e3ae",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
@@ -22,7 +30,18 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "New action",
+                    "action": "Select",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "044e0f52-558e-45e5-a4ac-8712cc0764ae",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Deselect",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

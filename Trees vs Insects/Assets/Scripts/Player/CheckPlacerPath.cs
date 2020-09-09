@@ -2,25 +2,23 @@
 
 public class CheckPlacerPath : MonoBehaviour
 {
-
-
-    public void CheckToPlace(GameObject cell, GameObject currentTree)
+    public bool CheckToPlace(GameObject cell, GameObject currentTree)
     {
-        if (cell == null)
-            return;
-        if (cell.transform.childCount != 0)
-            return;
+        if (cell == null || cell.transform.childCount != 0)
+            return false;
+
 
         EnemyManager.hasPath = false;
 
         GameObject currentPlace = Instantiate(currentTree, cell.transform.position, Quaternion.identity, cell.transform);
         EnemyManager.CheckSpace();
-
         if (!EnemyManager.hasPath)
         {
             Destroy(currentPlace);
             EnemyManager.CheckSpace();
-            return;
+            return false;
         }
+        return true;
+
     }
 }

@@ -4,19 +4,23 @@ public class TreeRecon : MonoBehaviour
 {
     [SerializeField]
     private float radius = 5.0f;
+    private Vector3 radiusVect;
     [SerializeField]
     private LayerMask enemies = 0;
-    private Collider[] colliders = new Collider[10];
-    public Collider CheckSorounding()
+    private BoxCollider[] colliders = new BoxCollider[10];
+    private void Awake()
     {
-
-        int count = Physics.OverlapSphereNonAlloc(transform.position, radius, colliders, enemies);
+        radiusVect = new Vector3(radius / 2, radius / 2, 1);
+    }
+    public BoxCollider CheckSorounding()
+    {
+        int count = Physics.OverlapBoxNonAlloc(transform.position, radiusVect, colliders, Quaternion.identity, enemies);
         if (count > 0)
         {
-            Collider col = colliders[0];
+            BoxCollider col = colliders[0];
 
             float currentDist = dist(col.transform.position);
-            foreach (Collider c in colliders)
+            foreach (BoxCollider c in colliders)
             {
                 if (c == null)
                     continue;
@@ -32,13 +36,18 @@ public class TreeRecon : MonoBehaviour
         }
         return null;
     }
+    public bool CheckSorounding(BoxCollider col)
+    {
+        if (radius * radius >= dist(col.transform.position))
+            return true;
+        return false;
+    }
     private float dist(Vector3 col)
     {
         return (transform.position - col).sqrMagnitude;
     }
     private void OnDrawGizmos()
     {
-        Gizmos.DrawWireSphere(transform.position, radius);
-
+        Gizmos.DrawWireCube(transform.position, new Vector3(radius, radius));
     }
 }

@@ -6,12 +6,22 @@ public class TreeShoot : MonoBehaviour, ITreeShoot
 {
     [SerializeField]
     private GameObject projectileObject = null;
-    private IProjectile projectile = null;
-    [SerializeField]
-    private float fireRate = .25f;
+    private IProjectile Currentprojectile = null;
+    private IFireRater fireRater = null;
+
+    private GameObject instance = null;
+
     public void CacheProjectile(GameObject projectileObject)
     {
-        projectile = projectileObject.GetComponent<IProjectile>();
+        Currentprojectile = projectileObject.GetComponent<IProjectile>();
+    }
+    public bool NullProjectile()
+    {
+        return instance == null ? true : false;
+    }
+    private void Awake()
+    {
+        fireRater = GetComponent<IFireRater>();
     }
     private void Start()
     {
@@ -21,13 +31,14 @@ public class TreeShoot : MonoBehaviour, ITreeShoot
     {
         while (target != null)
         {
-            GameObject instance = Instantiate(projectileObject, transform.position, Quaternion.identity, transform);
+            instance = Instantiate(projectileObject, transform.position, Quaternion.identity, transform);
             CacheProjectile(instance);
-            projectile.Init(target);
+            Currentprojectile.Init(target);
 
-            yield return new WaitForSeconds(fireRate);
+            yield return StartCoroutine(fireRater.Wait());
 
-            Destroy(instance, 5.0f);
+            Destroy(instance, 10.0f);
         }
     }
+
 }
