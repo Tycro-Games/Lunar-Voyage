@@ -1,16 +1,19 @@
 ﻿using System.Collections;
 using UnityEngine;
+
 [System.Serializable]
 public struct Wave
 {
     public float duration;
     public int weight;
-    public Wave(float _duration, int _weight)
+
+    public Wave (float _duration, int _weight)
     {
         duration = _duration;
         weight = _weight;
     }
 }
+
 public class WaveSystem : MonoBehaviour
 {
     private int count;
@@ -18,67 +21,68 @@ public class WaveSystem : MonoBehaviour
     private EnemyChooser enemyChooser;
     private TriggerSpawner trigger;
     private EnemyListChecker enemyListChecker;
-    [Header("Waves")]
+
+    [Header ("Waves")]
     [SerializeField]
     private Wave[] waves = null;
+
     private int currentWave = 0;
-    [Header("Enemies")]
+
+    [Header ("Enemies")]
     [SerializeField]
     private EnemySpawnable[] enemySpawnable = null;
+
     [SerializeField]
     private int MaxEnemyWeight = 10;
-    private void Awake()
+
+    private void Awake ()
     {
-        enemyListChecker = GetComponent<EnemyListChecker>();
+        enemyListChecker = GetComponent<EnemyListChecker> ();
+        trigger = GetComponent<TriggerSpawner> ();
+        seed = GetComponent<Seed> ();
+
+        //how to send some variables of arrays
+        enemyChooser = GetComponent<EnemyChooser> ();
+        enemyChooser.Init (enemySpawnable);
     }
-    private void OnEnable()
+
+    private void OnEnable ()
     {
         enemyListChecker.OnNoEnemies += randomSpawner;
     }
-    private void OnDisable()
+
+    private void OnDisable ()
     {
         enemyListChecker.OnNoEnemies -= randomSpawner;
     }
-    private void Start()
-    {
 
-        seed = GetComponent<Seed>();
-        enemyChooser = GetComponent<EnemyChooser>();
-        trigger = GetComponent<TriggerSpawner>();
-
-        //how to send some variables of arrays
-        enemyChooser.Init(enemySpawnable);
-    }
-
-
-    public void randomSpawner()
+    public void randomSpawner ()
     {
         if (currentWave < waves.Length)
         {
             MaxEnemyWeight = waves[currentWave].weight;
 
-            StartCoroutine(RandomSpawner(MaxEnemyWeight));
+            StartCoroutine (RandomSpawner (MaxEnemyWeight));
             currentWave++;
-
         }
     }
-    public IEnumerator RandomSpawner(int enemyWeight)
+
+    public IEnumerator RandomSpawner (int enemyWeight)
     {
         while (enemyWeight >= 0)
         {
-            EnemySpawner spawner = trigger.ChooseASpawner();
+            EnemySpawner spawner = trigger.ChooseASpawner ();
 
-            int index = enemyChooser.ChooseEnemy(enemyWeight);
-
+            int index = enemyChooser.ChooseEnemy (enemyWeight);
 
             enemyWeight -= enemySpawnable[index].weight;
             if (enemyWeight < 0)
                 continue;
 
             GameObject enemy = enemySpawnable[index].enemyGameObject;
-            spawner.Spawn(enemy);
+            spawner.Spawn (enemy);
 
-            yield return new WaitForSeconds(.5f);
+            yield return new WaitForSeconds (.5f);
         }
     }
 }
