@@ -3,5 +3,5 @@ using UnityEngine;
 
 public interface ITreeShoot
 {
-    IEnumerator Shoot(Transform target);
+    void Shoot (Transform target);
 }

@@ -6,8 +6,9 @@ public class FireOnTime : MonoBehaviour, IFireRater
 {
     [SerializeField]
     private float time = 0;
-    public IEnumerator Wait()
+
+    public IEnumerator Wait ()
     {
-        yield return new WaitForSeconds(time);
+        yield return new WaitForSeconds (time);
     }
 }

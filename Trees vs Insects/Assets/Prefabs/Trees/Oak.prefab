@@ -159,8 +159,8 @@ GameObject:
   - component: {fileID: 773390451943850926}
   - component: {fileID: 1520608499490192641}
   - component: {fileID: 1518710009124534350}
-  - component: {fileID: 3993768902680089896}
   - component: {fileID: 792551126891858832}
+  - component: {fileID: 8964490059589244520}
   m_Layer: 8
   m_Name: Oak
   m_TagString: Untagged
@@ -251,18 +251,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectileObject: {fileID: 4138705543927219697, guid: 7cd7132841caff141a2b61d3aedb8619,
     type: 3}
---- !u!114 &3993768902680089896
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7935677415777961333}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c13e063b2458c9648ad168a2d30611d8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!65 &792551126891858832
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -276,3 +264,16 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &8964490059589244520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7935677415777961333}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2e268f83e1e4344ab1684324f2a6878, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  time: 0.5

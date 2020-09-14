@@ -7,32 +7,37 @@ public class TreeAI : MonoBehaviour
     private TreeRecon treeRecon;
     private ITreeShoot treeShoot;
     private BoxCollider target;
-    private void Start()
+
+    private void Start ()
     {
-        treeShoot = GetComponent<ITreeShoot>();
-        treeRecon = GetComponent<TreeRecon>();
+        treeShoot = GetComponent<ITreeShoot> ();
+        treeRecon = GetComponent<TreeRecon> ();
     }
-    private void Update()
+
+    private void Update ()
     {
-        if (target != null && treeRecon.CheckSorounding(target))
+        if (target != null && treeRecon.CheckDist (target))
         {
+            treeShoot.Shoot (target.transform);
             return;
         }
-        BoxCollider colTarget = treeRecon.CheckSorounding();
+        GetBoxCol ();
+    }
 
-        if (colTarget != null)
-        {
-            target = colTarget;
-            StartCoroutine(treeShoot.Shoot(target.transform));
-        }
-    }
-    private void OnDisable()
+    public void GetBoxCol ()
     {
-        StopAllCoroutines();
+        BoxCollider colTarget = treeRecon.CheckSorounding ();
+        target = colTarget;
     }
-    private void OnDrawGizmos()
+
+    private void OnDisable ()
+    {
+        StopAllCoroutines ();
+    }
+
+    private void OnDrawGizmos ()
     {
         if (target != null)
-            Gizmos.DrawLine(transform.position, target.transform.position);
+            Gizmos.DrawLine (transform.position, target.transform.position);
     }
 }

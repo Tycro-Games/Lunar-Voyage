@@ -6,39 +6,55 @@ public class TreeShoot : MonoBehaviour, ITreeShoot
 {
     [SerializeField]
     private GameObject projectileObject = null;
+
     private IProjectile Currentprojectile = null;
     private IFireRater fireRater = null;
 
     private GameObject instance = null;
 
-    public void CacheProjectile(GameObject projectileObject)
+    public bool CanShoot { get; private set; } = true;
+
+    public void CacheProjectile (GameObject projectileObject)
     {
-        Currentprojectile = projectileObject.GetComponent<IProjectile>();
+        Currentprojectile = projectileObject.GetComponent<IProjectile> ();
     }
-    public bool NullProjectile()
+
+    public bool NullProjectile ()
     {
         return instance == null ? true : false;
     }
-    private void Awake()
+
+    private void Awake ()
     {
-        fireRater = GetComponent<IFireRater>();
+        fireRater = GetComponent<IFireRater> ();
     }
-    private void Start()
+
+    private void Start ()
     {
-        CacheProjectile(projectileObject);
+        CacheProjectile (projectileObject);
     }
-    public IEnumerator Shoot(Transform target)
+
+    public void Shoot (Transform target)
     {
-        while (target != null)
+        if (CanShoot)
+            StartCoroutine (Shooting (target));
+    }
+
+    private IEnumerator Shooting (Transform target)
+    {
+        if (target != null)
         {
-            instance = Instantiate(projectileObject, transform.position, Quaternion.identity, transform);
-            CacheProjectile(instance);
-            Currentprojectile.Init(target);
+            CanShoot = false;
 
-            yield return StartCoroutine(fireRater.Wait());
+            instance = Instantiate (projectileObject, transform.position, Quaternion.identity, transform);
+            CacheProjectile (instance);
+            Currentprojectile.Init (target);
 
-            Destroy(instance, 10.0f);
+            yield return StartCoroutine (fireRater.Wait ());
+
+            CanShoot = true;
+
+            Destroy (instance, 10.0f);
         }
     }
-
 }
