@@ -1,25 +1,30 @@
 ﻿using System;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyListChecker : MonoBehaviour
+namespace Bogadanul.Assets.Scripts.Enemies
 {
-    public event Action OnNoEnemies;
+    public class EnemyListChecker : MonoBehaviour
+    {
+        public event Action OnNoEnemies;
 
-    private void OnEnable()
-    {
-        EnemyList.OnNoEnemies += CheckList;
-    }
-    private void OnDisable()
-    {
-        EnemyList.OnNoEnemies -= CheckList;
-    }
-    private void Start()
-    {
-        CheckList();
-    }
-    private void CheckList()
-    {
-        OnNoEnemies?.Invoke();
+        private void CheckList ()
+        {
+            OnNoEnemies?.Invoke ();
+        }
+
+        private void OnDisable ()
+        {
+            EnemyList.OnNoEnemies -= CheckList;
+        }
+
+        private void OnEnable ()
+        {
+            EnemyList.OnNoEnemies += CheckList;
+        }
+
+        private void Start ()
+        {
+            CheckList ();
+        }
     }
 }

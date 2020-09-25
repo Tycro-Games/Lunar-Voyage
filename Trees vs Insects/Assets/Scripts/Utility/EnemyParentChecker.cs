@@ -1,12 +1,13 @@
 ﻿using UnityEngine;
 
-public class EnemyParentChecker : MonoBehaviour
+namespace Bogadanul.Assets.Scripts.Utility
 {
-
-    public void CheckChildren()
+    public class EnemyParentChecker : MonoBehaviour
     {
-        if (transform.childCount == 1)//this is fucked up but if this is called that means the enemy will die so it s fine
-            Destroy(gameObject);
-
+        public void CheckChildren ()
+        {
+            if (transform.childCount == 1)//this is fucked up but if this is called that means the enemy will die so it s fine
+                Destroy (gameObject);
+        }
     }
 }

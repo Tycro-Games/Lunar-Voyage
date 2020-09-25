@@ -1,4 +1,7 @@
-public interface ICurrentSeedDisplay<T>
+namespace Bogadanul.Assets.Scripts.Tree
 {
-    void UpdateSprite(T seed);
+    public interface ICurrentSeedDisplay<T>
+    {
+        void UpdateSprite (T seed);
+    }
 }

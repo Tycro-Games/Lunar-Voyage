@@ -1,34 +1,40 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Events;
 
-public class EnemyDead : MonoBehaviour
+namespace Bogadanul.Assets.Scripts.Enemies
 {
-    EnemyHealth enemyHealth;
-    [SerializeField]
-    private UnityEvent OnDie = null;
-    private void Awake()
+    public class EnemyDead : MonoBehaviour
     {
-        enemyHealth = GetComponentInChildren<EnemyHealth>();
-    }
-    private void OnEnable()
-    {
-        EnemyList.List.Add(gameObject);
+        [SerializeField]
+        private readonly UnityEvent OnDie = null;
 
-        enemyHealth.OnDead += DestroyEnemy;
-    }
-    private void OnDisable()
-    {
-        enemyHealth.OnDead -= DestroyEnemy;
-    }
-    public void DestroyEnemy()
-    {
-        EnemyList.List.Remove(gameObject);
-        EnemyList.CheckEnemies();
+        private EnemyHealth enemyHealth;
 
-        Destroy(gameObject);
+        public void DestroyEnemy ()
+        {
+            EnemyList.List.Remove (gameObject);
+            EnemyList.CheckEnemies ();
 
-        OnDie?.Invoke();
+            Destroy (gameObject);
+
+            OnDie?.Invoke ();
+        }
+
+        private void Awake ()
+        {
+            enemyHealth = GetComponentInChildren<EnemyHealth> ();
+        }
+
+        private void OnDisable ()
+        {
+            enemyHealth.OnDead -= DestroyEnemy;
+        }
+
+        private void OnEnable ()
+        {
+            EnemyList.List.Add (gameObject);
+
+            enemyHealth.OnDead += DestroyEnemy;
+        }
     }
 }

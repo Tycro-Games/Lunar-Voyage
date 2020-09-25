@@ -1,36 +1,38 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyManager
+namespace Bogadanul.Assets.Scripts.Enemies
 {
-    public static Dictionary<TracePathCheck, Pathfinding> pathfindings = new Dictionary<TracePathCheck, Pathfinding>();
-    public static bool hasPath;
-
-    public static bool CheckForNullPaths()
+    public static class EnemyManager
     {
-        if (pathfindings == null)
-            return true;
-        else
-            return false;
-    }
-    public static void CheckSpace()
-    {
-        if (CheckForNullPaths())
-            return;
+        public static bool hasPath;
+        public static Dictionary<TracePathCheck, Pathfinding> pathfindings = new Dictionary<TracePathCheck, Pathfinding> ();
 
-
-        foreach (var path in pathfindings.Keys)
+        public static bool CheckForNullPaths ()
         {
-            if (path == null)
-                continue;
+            if (pathfindings == null)
+                return true;
+            else
+                return false;
+        }
 
-            hasPath = pathfindings[path].FindPath();
-
-            if (!hasPath)
-            {
-                Debug.Log("not enough space");
+        public static void CheckSpace ()
+        {
+            if (CheckForNullPaths ())
                 return;
+
+            foreach (TracePathCheck path in pathfindings.Keys)
+            {
+                if (path == null)
+                    continue;
+
+                hasPath = pathfindings[path].FindPath ();
+
+                if (!hasPath)
+                {
+                    Debug.Log ("not enough space");
+                    return;
+                }
             }
         }
     }

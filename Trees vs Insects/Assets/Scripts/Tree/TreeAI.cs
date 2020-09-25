@@ -1,43 +1,44 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class TreeAI : MonoBehaviour
+namespace Bogadanul.Assets.Scripts.Tree
 {
-    private TreeRecon treeRecon;
-    private ITreeShoot treeShoot;
-    private BoxCollider target;
-
-    private void Start ()
+    public class TreeAI : MonoBehaviour
     {
-        treeShoot = GetComponent<ITreeShoot> ();
-        treeRecon = GetComponent<TreeRecon> ();
-    }
+        private BoxCollider target;
+        private TreeRecon treeRecon;
+        private ITreeShoot treeShoot;
 
-    private void Update ()
-    {
-        if (target != null && treeRecon.CheckDist (target))
+        public void GetBoxCol ()
         {
-            treeShoot.Shoot (target.transform);
-            return;
+            BoxCollider colTarget = treeRecon.CheckSorounding ();
+            target = colTarget;
         }
-        GetBoxCol ();
-    }
 
-    public void GetBoxCol ()
-    {
-        BoxCollider colTarget = treeRecon.CheckSorounding ();
-        target = colTarget;
-    }
+        private void OnDisable ()
+        {
+            StopAllCoroutines ();
+        }
 
-    private void OnDisable ()
-    {
-        StopAllCoroutines ();
-    }
+        private void OnDrawGizmos ()
+        {
+            if (target != null)
+                Gizmos.DrawLine (transform.position, target.transform.position);
+        }
 
-    private void OnDrawGizmos ()
-    {
-        if (target != null)
-            Gizmos.DrawLine (transform.position, target.transform.position);
+        private void Start ()
+        {
+            treeShoot = GetComponent<ITreeShoot> ();
+            treeRecon = GetComponent<TreeRecon> ();
+        }
+
+        private void Update ()
+        {
+            if (target != null && treeRecon.CheckDist (target))
+            {
+                treeShoot.Shoot (target.transform);
+                return;
+            }
+            GetBoxCol ();
+        }
     }
 }

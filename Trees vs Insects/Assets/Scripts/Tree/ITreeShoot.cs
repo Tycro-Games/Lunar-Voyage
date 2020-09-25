@@ -1,7 +1,9 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 
-public interface ITreeShoot
+namespace Bogadanul.Assets.Scripts.Tree
 {
-    void Shoot (Transform target);
+    public interface ITreeShoot
+    {
+        void Shoot (Transform target);
+    }
 }

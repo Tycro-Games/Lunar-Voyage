@@ -1,19 +1,19 @@
 ﻿using UnityEngine;
 
-public class TriggerSpawner : MonoBehaviour
+namespace Bogadanul.Assets.Scripts.Enemies
 {
-    private EnemySpawner[] enemySpawners;
-
-    void Start()
+    public class TriggerSpawner : MonoBehaviour
     {
-        enemySpawners = GetComponentsInChildren<EnemySpawner>();
-    }
-    public EnemySpawner ChooseASpawner()
-    {
-        EnemySpawner enemySpawner = enemySpawners[Random.Range(0, enemySpawners.Length)];
-        return enemySpawner;
-    }
+        private EnemySpawner[] enemySpawners;
 
+        public EnemySpawner ChooseASpawner ()
+        {
+            return enemySpawners[Random.Range (0, enemySpawners.Length)];
+        }
+
+        private void Start ()
+        {
+            enemySpawners = GetComponentsInChildren<EnemySpawner> ();
+        }
+    }
 }
-
-

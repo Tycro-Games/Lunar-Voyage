@@ -1,37 +1,42 @@
-﻿using System;
+﻿using Bogadanul.Assets.Scripts.Tree;
 using UnityEngine;
 
-public class TreeSeedSender : MonoBehaviour
+namespace Bogadanul.Assets.Scripts.Player
 {
-    private ICurrentSeedDisplay<GameObject> treePlacer;
-    private ICurrentSeedDisplay<Sprite> seedDisplay;
-    [HideInInspector]
-    public Market market = null;
-    private bool hasSeed = false;
-
-    private void Awake()
+    public class TreeSeedSender : MonoBehaviour
     {
-        market = FindObjectOfType<Market>();
+        [HideInInspector]
+        public Market market = null;
 
-        treePlacer = FindObjectOfType<TreePlacer>();
-        seedDisplay = FindObjectOfType<CurrentSeedDisplay>();
-    }
-    public void ChangeCurrentSeed(TreeSeed seed)
-    {
-        hasSeed = true;
+        private bool hasSeed = false;
+        private ICurrentSeedDisplay<Sprite> seedDisplay;
+        private ICurrentSeedDisplay<GameObject> treePlacer;
 
-        seedDisplay.UpdateSprite(seed.sprite);
-        treePlacer.UpdateSprite(seed.TreeGameObject);
-    }
-    public void CancelCurrentSeed()
-    {
-        if (hasSeed)
+        public void CancelCurrentSeed ()
         {
-            hasSeed = false;
+            if (hasSeed)
+            {
+                hasSeed = false;
 
-            seedDisplay.UpdateSprite(null);
-            treePlacer.UpdateSprite(null);
+                seedDisplay.UpdateSprite (null);
+                treePlacer.UpdateSprite (null);
+            }
+        }
+
+        public void ChangeCurrentSeed (TreeSeed seed)
+        {
+            hasSeed = true;
+
+            seedDisplay.UpdateSprite (seed.sprite);
+            treePlacer.UpdateSprite (seed.TreeGameObject);
+        }
+
+        private void Awake ()
+        {
+            market = FindObjectOfType<Market> ();
+
+            treePlacer = FindObjectOfType<TreePlacer> ();
+            seedDisplay = FindObjectOfType<CurrentSeedDisplay> ();
         }
     }
-
 }

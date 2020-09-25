@@ -1,24 +1,39 @@
-﻿using UnityEngine;
+﻿using Bogadanul.Assets.Scripts.Enemies;
+using Bogadanul.Assets.Scripts.Grid;
+using UnityEngine;
 
-public class CheckPlacerPath : MonoBehaviour
+namespace Bogadanul.Assets.Scripts.Player
 {
-    public bool CheckToPlace(GameObject cell, GameObject currentTree)
+    [System.Serializable]
+    internal struct RandomNumbers
     {
-        if (cell == null || cell.transform.childCount != 0)
-            return false;
+        public float Maxx;
+        public float Maxy;
+        public float Minx;
+        public float Miny;
+    }
 
+    public class CheckPlacerPath : MonoBehaviour
+    {
+        [SerializeField]
+        private RandomNumbers randomNumbers;
 
-        EnemyManager.hasPath = false;
-
-        GameObject currentPlace = Instantiate(currentTree, cell.transform.position, Quaternion.identity, cell.transform);
-        EnemyManager.CheckSpace();
-        if (!EnemyManager.hasPath)
+        public bool CheckToPlace (Node cell, GameObject currentTree)
         {
-            Destroy(currentPlace);
-            EnemyManager.CheckSpace();
-            return false;
-        }
-        return true;
+            if (!cell.walkable)
+                return false;
 
+            EnemyManager.hasPath = false;
+            Vector2 pos = cell.worldPosition + new Vector3 (Random.Range (randomNumbers.Minx, randomNumbers.Maxx), Random.Range (randomNumbers.Miny, randomNumbers.Maxy), 0);
+            GameObject currentPlace = Instantiate (currentTree, pos, Quaternion.identity, transform);
+            EnemyManager.CheckSpace ();
+            if (!EnemyManager.hasPath)
+            {
+                Destroy (currentPlace);
+                EnemyManager.CheckSpace ();
+                return false;
+            }
+            return true;
+        }
     }
 }

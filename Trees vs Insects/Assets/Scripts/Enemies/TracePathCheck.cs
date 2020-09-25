@@ -1,30 +1,34 @@
-﻿using System.Collections;
+﻿using Bogadanul.Assets.Scripts.Grid;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TracePathCheck : MonoBehaviour
+namespace Bogadanul.Assets.Scripts.Enemies
 {
+    public class TracePathCheck : MonoBehaviour
+    {
+        protected List<Node> path = new List<Node> ();
 
-    protected List<Node> path = new List<Node>();
-    public virtual List<Node> SetPath
-    {
-        get
+        public virtual List<Node> SetPath
         {
-            return path;
-        }
-        set
-        {
-            path = value;
-        }
-    }
-    private void OnDrawGizmosSelected()
-    {
-        if (path != null)
-        {
-            foreach (Node n in path)
+            get
             {
-                Gizmos.color = Color.black;
-                Gizmos.DrawCube(n.worldPosition, Vector3.one);
+                return path;
+            }
+            set
+            {
+                path = value;
+            }
+        }
+
+        private void OnDrawGizmosSelected ()
+        {
+            if (path != null)
+            {
+                foreach (Node n in path)
+                {
+                    Gizmos.color = Color.black;
+                    Gizmos.DrawCube (n.worldPosition, Vector3.one * 2);
+                }
             }
         }
     }

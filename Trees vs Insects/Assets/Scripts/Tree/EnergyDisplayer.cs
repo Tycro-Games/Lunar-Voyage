@@ -1,25 +1,30 @@
-﻿using UnityEngine;
-using TMPro;
-public class EnergyDisplayer : MonoBehaviour
+﻿using TMPro;
+using UnityEngine;
+
+namespace Bogadanul.Assets.Scripts.Tree
 {
-    private TextMeshProUGUI text;
-    private void Awake()
+    public class EnergyDisplayer : MonoBehaviour
     {
-        text = GetComponent<TextMeshProUGUI>();
+        private TextMeshProUGUI text;
 
-    }
-    void OnEnable()
-    {
-        MarketIntro.OnEnergyChange += UpdateText;
-        UpdateText(MarketIntro.WaterInst);
-    }
-    void OnDisable()
-    {
-        MarketIntro.OnEnergyChange -= UpdateText;
-    }
+        private void Awake ()
+        {
+            text = GetComponent<TextMeshProUGUI> ();
+        }
 
-    void UpdateText(int value)
-    {
-        text.text = value.ToString();
+        private void OnDisable ()
+        {
+            MarketIntro.OnEnergyChange -= UpdateText;
+        }
+
+        private void OnEnable ()
+        {
+            MarketIntro.OnEnergyChange += UpdateText;
+        }
+
+        private void UpdateText (int value)
+        {
+            text.text = value.ToString ();
+        }
     }
 }

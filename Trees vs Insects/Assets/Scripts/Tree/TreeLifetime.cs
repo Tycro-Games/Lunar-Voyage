@@ -1,21 +1,26 @@
 ﻿using UnityEngine;
 
-public class TreeLifetime : MonoBehaviour
+namespace Bogadanul.Assets.Scripts.Tree
 {
-    private DestroyTree destroy;
-    [SerializeField]
-    private float lifetime = 0;
-    private void Start()
+    public class TreeLifetime : MonoBehaviour
     {
-        destroy = GetComponent<DestroyTree>();
-    }
-    public void IsTooOld(float time)
-    {
-        lifetime -= time;
-        if (lifetime <= 0)
+        private DestroyTree destroy;
+
+        [SerializeField]
+        private float lifetime = 0;
+
+        public void IsTooOld (float time)
         {
-            destroy.DestroyTheTree();
+            lifetime -= time;
+            if (lifetime <= 0)
+            {
+                destroy.DestroyTheTree ();
+            }
         }
 
+        private void Start ()
+        {
+            destroy = GetComponent<DestroyTree> ();
+        }
     }
 }

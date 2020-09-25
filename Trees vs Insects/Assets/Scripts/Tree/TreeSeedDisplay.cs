@@ -1,24 +1,28 @@
-﻿
+﻿using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 
-public class TreeSeedDisplay : MonoBehaviour
+namespace Bogadanul.Assets.Scripts.Tree
 {
-    private Image image;
-    private TextMeshProUGUI text;
-    private void Awake()
+    public class TreeSeedDisplay : MonoBehaviour
     {
-        image = GetComponent<Image>();
-        text = GetComponentInChildren<TextMeshProUGUI>();
-    }
+        private Image image;
+        private TextMeshProUGUI text;
 
-    public void DisplaySprite(Sprite sprite)
-    {
-        image.sprite = sprite;
-    }
-    public void DisplayPrice(int price)
-    {
-        text.text = price.ToString();
+        public void DisplayPrice (int price)
+        {
+            text.text = price.ToString ();
+        }
+
+        public void DisplaySprite (Sprite sprite)
+        {
+            image.sprite = sprite;
+        }
+
+        private void Awake ()
+        {
+            image = GetComponent<Image> ();
+            text = GetComponentInChildren<TextMeshProUGUI> ();
+        }
     }
 }

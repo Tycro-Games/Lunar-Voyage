@@ -1,53 +1,55 @@
-﻿using System.Collections;
+﻿using Bogadanul.Assets.Scripts.Grid;
+using System.Collections;
 using System.Collections.Generic;
-using System.IO;
 using UnityEngine;
 
-public class TracePath : TracePathCheck
+namespace Bogadanul.Assets.Scripts.Enemies
 {
-    [SerializeField]
-    private float speed = 1.0f;
-    public override List<Node> SetPath
+    public class TracePath : TracePathCheck
     {
-        set
+        [SerializeField]
+        private float speed = 1.0f;
+
+        public override List<Node> SetPath
         {
-            path = value;
-            StartPath();
+            set
+            {
+                path = value;
+                StartPath ();
+            }
+        }
+
+        public void StartPath ()
+        {
+            StopAllCoroutines ();
+            StartCoroutine (FollowPath (path));
+        }
+
+        private Vector3 Dir (Vector3 thingTolookAt)
+        {
+            Vector2 dir = (thingTolookAt - transform.position).normalized;
+            return dir;
+        }
+
+        private IEnumerator FollowPath (List<Node> path)
+        {
+            int i = 0;
+            while (i < path.Count)
+            {
+                yield return StartCoroutine (Move (path[i].worldPosition));
+                i++;
+            }
+        }
+
+        private IEnumerator Move (Vector3 node)
+        {
+            while (transform.position != node)
+            {
+                transform.position = Vector3.MoveTowards (transform.position, node, speed * Time.deltaTime);
+
+                Debug.DrawLine (transform.position, transform.position + Dir (node));
+                yield return null;
+            }
         }
     }
-
-    public void StartPath()
-    {
-        StopAllCoroutines();
-        StartCoroutine(FollowPath(path));
-    }
-
-    private IEnumerator FollowPath(List<Node> path)
-    {
-
-        int i = 0;
-        while (i < path.Count)
-        {
-            yield return StartCoroutine(Move(path[i].worldPosition));
-            i++;
-        }
-    }
-
-    private IEnumerator Move(Vector3 node)
-    {
-        while (transform.position != node)
-        {
-            transform.position = Vector3.MoveTowards(transform.position, node, speed * Time.deltaTime);
-
-            Debug.DrawLine(transform.position, transform.position + Dir(node));
-            yield return null;
-        }
-    }
-    private Vector3 Dir(Vector3 thingTolookAt)
-    {
-        Vector2 dir = (thingTolookAt - transform.position).normalized;
-        return dir;
-    }
-
 }
-

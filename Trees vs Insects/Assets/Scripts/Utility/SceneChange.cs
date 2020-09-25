@@ -1,21 +1,16 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
-public class SceneChange : MonoBehaviour
+
+namespace Bogadanul.Assets.Scripts.Utility
 {
-    // Start is called before the first frame update
-    void Start()
+    public class SceneChange : MonoBehaviour
     {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetMouseButtonDown(1))
+        private void Update ()
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            if (Input.GetMouseButtonDown (1))
+            {
+                SceneManager.LoadScene (SceneManager.GetActiveScene ().name);
+            }
         }
     }
 }

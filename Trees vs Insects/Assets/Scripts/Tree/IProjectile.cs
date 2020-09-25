@@ -1,10 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public interface IProjectile
+namespace Bogadanul.Assets.Scripts.Tree
 {
-    void Init(Transform Target);
-
-
+    public interface IProjectile
+    {
+        void Init (Transform Target);
+    }
 }

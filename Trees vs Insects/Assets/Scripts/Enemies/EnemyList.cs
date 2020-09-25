@@ -2,26 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public static class EnemyList
+namespace Bogadanul.Assets.Scripts.Enemies
 {
-    private static List<GameObject> enemyList = new List<GameObject>();
-
-    public static event Action OnNoEnemies;
-    public static List<GameObject> List
+    public static class EnemyList
     {
+        public static event Action OnNoEnemies;
 
-        get
+        public static List<GameObject> List { get; set; } = new List<GameObject> ();
+
+        public static void CheckEnemies ()
         {
-            return enemyList;
+            if (List.Count == 0)
+                OnNoEnemies?.Invoke ();
         }
-        set
-        {
-            enemyList = value;
-        }
-    }
-    public static void CheckEnemies()
-    {
-        if (enemyList.Count == 0)
-            OnNoEnemies?.Invoke();
     }
 }

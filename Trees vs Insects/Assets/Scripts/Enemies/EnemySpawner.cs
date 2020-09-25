@@ -1,29 +1,35 @@
-﻿using UnityEngine;
+﻿using Bogadanul.Assets.Scripts.Grid;
+using UnityEngine;
 
-public class EnemySpawner : MonoBehaviour
+namespace Bogadanul.Assets.Scripts.Enemies
 {
-    [SerializeField]
-    private Transform target = null;
-    private Grid grid = null;
-
-    private Pathfinding pathfinding;
-    void Awake()
+    public class EnemySpawner : MonoBehaviour
     {
-        grid = FindObjectOfType<Grid>();
+        private Gridmanager grid = null;
 
-        pathfinding = GetComponent<Pathfinding>();
+        private Pathfinding pathfinding;
 
-        pathfinding.Init(target, grid);
-    }
-    public void Spawn(GameObject enemyPrefab)
-    {
-        GameObject enemy = Instantiate(enemyPrefab, transform.position, Quaternion.identity, transform);
+        [SerializeField]
+        private Transform target = null;
 
-
-        Pathfinding[] enemyPaths = enemy.GetComponentsInChildren<Pathfinding>();
-        foreach (Pathfinding enemyPath in enemyPaths)
+        public void Spawn (GameObject enemyPrefab)
         {
-            enemyPath.Init(target, grid);
+            GameObject enemy = Instantiate (enemyPrefab, transform.position, Quaternion.identity, transform);
+
+            Pathfinding[] enemyPaths = enemy.GetComponentsInChildren<Pathfinding> ();
+            foreach (Pathfinding enemyPath in enemyPaths)
+            {
+                enemyPath.Init (target, grid);
+            }
+        }
+
+        private void Awake ()
+        {
+            grid = FindObjectOfType<Gridmanager> ();
+
+            pathfinding = GetComponent<Pathfinding> ();
+
+            pathfinding.Init (target, grid);
         }
     }
 }

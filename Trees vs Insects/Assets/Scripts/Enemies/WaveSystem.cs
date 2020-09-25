@@ -1,88 +1,81 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-[System.Serializable]
-public struct Wave
+namespace Bogadanul.Assets.Scripts.Enemies
 {
-    public float duration;
-    public int weight;
-
-    public Wave (float _duration, int _weight)
+    public class WaveSystem : MonoBehaviour
     {
-        duration = _duration;
-        weight = _weight;
-    }
-}
+        private int count;
 
-public class WaveSystem : MonoBehaviour
-{
-    private int count;
-    private Seed seed;
-    private EnemyChooser enemyChooser;
-    private TriggerSpawner trigger;
-    private EnemyListChecker enemyListChecker;
+        private int currentWave = 0;
 
-    [Header ("Waves")]
-    [SerializeField]
-    private Wave[] waves = null;
+        private EnemyChooser enemyChooser;
 
-    private int currentWave = 0;
+        private EnemyListChecker enemyListChecker;
 
-    [Header ("Enemies")]
-    [SerializeField]
-    private EnemySpawnable[] enemySpawnable = null;
+        [Header ("Enemies")]
+        [SerializeField]
+        private EnemySpawnable[] enemySpawnable = null;
 
-    [SerializeField]
-    private int MaxEnemyWeight = 10;
+        [SerializeField]
+        private int enemyWeight = 10;
 
-    private void Awake ()
-    {
-        enemyListChecker = GetComponent<EnemyListChecker> ();
-        trigger = GetComponent<TriggerSpawner> ();
-        seed = GetComponent<Seed> ();
+        private Seed seed;
 
-        //how to send some variables of arrays
-        enemyChooser = GetComponent<EnemyChooser> ();
-        enemyChooser.Init (enemySpawnable);
-    }
+        private TriggerSpawner trigger;
 
-    private void OnEnable ()
-    {
-        enemyListChecker.OnNoEnemies += randomSpawner;
-    }
+        [Header ("Waves")]
+        [SerializeField]
+        private Wave[] waves = null;
 
-    private void OnDisable ()
-    {
-        enemyListChecker.OnNoEnemies -= randomSpawner;
-    }
-
-    public void randomSpawner ()
-    {
-        if (currentWave < waves.Length)
+        public void RandomSpawner ()
         {
-            MaxEnemyWeight = waves[currentWave].weight;
+            if (currentWave < waves.Length)
+            {
+                enemyWeight = waves[currentWave].weight;
 
-            StartCoroutine (RandomSpawner (MaxEnemyWeight));
-            currentWave++;
+                StartCoroutine (RandomSpawner (enemyWeight));
+                currentWave++;
+            }
         }
-    }
 
-    public IEnumerator RandomSpawner (int enemyWeight)
-    {
-        while (enemyWeight >= 0)
+        public IEnumerator RandomSpawner (int enemyWeight)
         {
-            EnemySpawner spawner = trigger.ChooseASpawner ();
+            while (enemyWeight >= 0)
+            {
+                EnemySpawner spawner = trigger.ChooseASpawner ();
 
-            int index = enemyChooser.ChooseEnemy (enemyWeight);
+                int index = enemyChooser.ChooseEnemy (enemyWeight);
 
-            enemyWeight -= enemySpawnable[index].weight;
-            if (enemyWeight < 0)
-                continue;
+                enemyWeight -= enemySpawnable[index].weight;
+                if (enemyWeight < 0)
+                    continue;
 
-            GameObject enemy = enemySpawnable[index].enemyGameObject;
-            spawner.Spawn (enemy);
+                GameObject enemy = enemySpawnable[index].enemyGameObject;
+                spawner.Spawn (enemy);
 
-            yield return new WaitForSeconds (.5f);
+                yield return new WaitForSeconds (.5f);
+            }
+        }
+
+        private void Awake ()
+        {
+            enemyListChecker = GetComponent<EnemyListChecker> ();
+            trigger = GetComponent<TriggerSpawner> ();
+            seed = GetComponent<Seed> ();
+
+            enemyChooser = GetComponent<EnemyChooser> ();
+            enemyChooser.Init (enemySpawnable);
+        }
+
+        private void OnDisable ()
+        {
+            enemyListChecker.OnNoEnemies -= RandomSpawner;
+        }
+
+        private void OnEnable ()
+        {
+            enemyListChecker.OnNoEnemies += RandomSpawner;
         }
     }
 }

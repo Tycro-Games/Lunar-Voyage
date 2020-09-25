@@ -1,55 +1,54 @@
 ﻿using UnityEngine;
-using System.Collections;
 
-
-public class Node : IHeapItem<Node>
+namespace Bogadanul.Assets.Scripts.Grid
 {
-
-    public bool walkable;
-    public Vector3 worldPosition;
-    public int gridX;
-    public int gridY;
-
-    public int gCost;
-    public int hCost;
-    public Node parent;
-    int heapIndex;
-
-    public Node(bool _walkable, Vector3 _worldPos, int _gridX, int _gridY)
+    public class Node : IHeapItem<Node>
     {
-        walkable = _walkable;
-        worldPosition = _worldPos;
-        gridX = _gridX;
-        gridY = _gridY;
-    }
+        public int gCost;
+        public int gridX;
+        public int gridY;
+        public int hCost;
+        public Node parent;
+        public bool walkable;
+        public Vector3 worldPosition;
+        private int heapIndex;
 
-    public int fCost
-    {
-        get
+        public Node (bool _walkable, Vector3 _worldPos, int _gridX, int _gridY)
         {
-            return gCost + hCost;
+            walkable = _walkable;
+            worldPosition = _worldPos;
+            gridX = _gridX;
+            gridY = _gridY;
         }
-    }
 
-    public int HeapIndex
-    {
-        get
+        public int fCost
         {
-            return heapIndex;
+            get
+            {
+                return gCost + hCost;
+            }
         }
-        set
-        {
-            heapIndex = value;
-        }
-    }
 
-    public int CompareTo(Node nodeToCompare)
-    {
-        int compare = fCost.CompareTo(nodeToCompare.fCost);
-        if (compare == 0)
+        public int HeapIndex
         {
-            compare = hCost.CompareTo(nodeToCompare.hCost);
+            get
+            {
+                return heapIndex;
+            }
+            set
+            {
+                heapIndex = value;
+            }
         }
-        return -compare;
+
+        public int CompareTo (Node nodeToCompare)
+        {
+            int compare = fCost.CompareTo (nodeToCompare.fCost);
+            if (compare == 0)
+            {
+                compare = hCost.CompareTo (nodeToCompare.hCost);
+            }
+            return -compare;
+        }
     }
 }

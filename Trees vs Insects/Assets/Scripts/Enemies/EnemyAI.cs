@@ -1,14 +1,19 @@
 ﻿using UnityEngine;
 
-public class EnemyAI : MonoBehaviour
+namespace Bogadanul.Assets.Scripts.Enemies
 {
-    private EnemyHealth enemyHP;
-    private void Start()
+    public class EnemyAI : MonoBehaviour
     {
-        enemyHP = GetComponent<EnemyHealth>();
-    }
-    public void TakeDamage(int dg)
-    {
-        enemyHP.TakeDamage(dg);
+        private EnemyHealth enemyHP;
+
+        public void TakeDamage (int dg)
+        {
+            enemyHP.TakeDamage (dg);
+        }
+
+        private void Start ()
+        {
+            enemyHP = GetComponent<EnemyHealth> ();
+        }
     }
 }

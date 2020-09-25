@@ -1,12 +1,14 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using Bogadanul.Assets.Scripts.Enemies;
 using UnityEngine;
 
-public class DestroyTree : MonoBehaviour
+namespace Bogadanul.Assets.Scripts.Tree
 {
-    public void DestroyTheTree()
+    public class DestroyTree : MonoBehaviour
     {
-        Destroy(gameObject);
-        EnemyManager.CheckSpace();
+        public void DestroyTheTree ()
+        {
+            Destroy (gameObject);
+            EnemyManager.CheckSpace ();
+        }
     }
 }

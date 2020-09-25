@@ -1,21 +1,22 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyHealth : MonoBehaviour
+namespace Bogadanul.Assets.Scripts.Enemies
 {
-    public event Action OnDead;
-    [SerializeField]
-    private int health = 0;
-    public void TakeDamage(int dg)
+    public class EnemyHealth : MonoBehaviour
     {
-        health -= dg;
-        if (health <= 0)
+        [SerializeField]
+        private int health = 0;
+
+        public event Action OnDead;
+
+        public void TakeDamage (int dg)
         {
-            OnDead?.Invoke();
+            health -= dg;
+            if (health <= 0)
+            {
+                OnDead?.Invoke ();
+            }
         }
-
     }
-
 }

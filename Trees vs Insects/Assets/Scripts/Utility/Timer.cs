@@ -1,36 +1,37 @@
-﻿
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Timer : MonoBehaviour
+namespace Bogadanul.Assets.Scripts.Utility
 {
-    [SerializeField]
-    private float TimeToWait = 0;
-
-    [SerializeField]
-    private bool loop = false;
-
-    [SerializeField]
-    private UnityEvent OnTimerFinished = null;
-
-
-
-    private void OnEnable ()
+    public class Timer : MonoBehaviour
     {
-        StartCoroutine (TimerLoop ());
-    }
-    private void OnDisable ()
-    {
-        StopCoroutine (TimerLoop ());
-    }
-    IEnumerator TimerLoop ()
-    {
-        yield return new WaitForSeconds (TimeToWait);
-        OnTimerFinished?.Invoke ();
+        [SerializeField]
+        private bool loop = false;
 
-        if (loop)
-            StartCoroutine (TimerLoop());
-    }
+        [SerializeField]
+        private UnityEvent OnTimerFinished = null;
 
+        [SerializeField]
+        private float TimeToWait = 0;
+
+        private void OnDisable ()
+        {
+            StopCoroutine (TimerLoop ());
+        }
+
+        private void OnEnable ()
+        {
+            StartCoroutine (TimerLoop ());
+        }
+
+        private IEnumerator TimerLoop ()
+        {
+            yield return new WaitForSeconds (TimeToWait);
+            OnTimerFinished?.Invoke ();
+
+            if (loop)
+                StartCoroutine (TimerLoop ());
+        }
+    }
 }

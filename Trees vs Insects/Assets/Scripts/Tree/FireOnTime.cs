@@ -1,14 +1,16 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class FireOnTime : MonoBehaviour, IFireRater
+namespace Bogadanul.Assets.Scripts.Tree
 {
-    [SerializeField]
-    private float time = 0;
-
-    public IEnumerator Wait ()
+    public class FireOnTime : MonoBehaviour, IFireRater
     {
-        yield return new WaitForSeconds (time);
+        [SerializeField]
+        private float time = 0;
+
+        public IEnumerator Wait ()
+        {
+            yield return new WaitForSeconds (time);
+        }
     }
 }

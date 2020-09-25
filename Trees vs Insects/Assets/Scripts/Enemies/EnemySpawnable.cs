@@ -1,13 +1,11 @@
-
 using UnityEngine;
 
-
-
-[CreateAssetMenu(fileName = "EnemySpawnable", menuName = "Create/EnemySpawnable", order = 0)]
-public class EnemySpawnable : ScriptableObject
+namespace Bogadanul.Assets.Scripts.Enemies
 {
-    public GameObject enemyGameObject;
-    public int weight;
+    [CreateAssetMenu (fileName = "EnemySpawnable", menuName = "Create/EnemySpawnable", order = 0)]
+    public class EnemySpawnable : ScriptableObject
+    {
+        public GameObject enemyGameObject;
+        public int weight;
+    }
 }
-
-

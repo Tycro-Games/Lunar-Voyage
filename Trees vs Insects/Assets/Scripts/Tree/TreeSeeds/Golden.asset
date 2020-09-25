@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2440719c713eda543af74407f0ec8d21, type: 3}
   m_Name: Golden
   m_EditorClassIdentifier: 
+  icon: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  price: 5
+  sprite: {fileID: -749024654251515319, guid: 7a72458cc65ff4543932868093139ea4, type: 3}
   TreeGameObject: {fileID: 7935677415777961333, guid: 22f0588ec5c83f0469ad6617dfec3dcf,
     type: 3}
-  icon: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  price: 5

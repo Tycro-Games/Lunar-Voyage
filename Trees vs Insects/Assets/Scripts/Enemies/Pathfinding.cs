@@ -1,117 +1,115 @@
-﻿using System.Collections.Generic;
+﻿using Bogadanul.Assets.Scripts.Grid;
+using System.Collections.Generic;
 using UnityEngine;
-public class Pathfinding : MonoBehaviour
+
+namespace Bogadanul.Assets.Scripts.Enemies
 {
-    protected TracePathCheck path;
-    protected Transform seeker, target = null;
-    protected Grid grid;
-
-    protected List<Node> pathCurrent = new List<Node>();
-    public void Awake()
+    public class Pathfinding : MonoBehaviour
     {
-        seeker = transform;
+        private Gridmanager grid;
+        private TracePathCheck path;
+        private List<Node> pathCurrent = new List<Node> ();
+        private Transform seeker, target = null;
 
-        path = GetComponent<TracePathCheck>();
-
-        EnemyManager.pathfindings.Add(path, this);
-    }
-    public void Init(Transform Target, Grid grid)
-    {
-        target = Target;
-        this.grid = grid;
-    }
-    public void Start()
-    {
-        if (seeker != null && target != null)
-            FindPath();
-    }
-
-    #region  checkSpace
-    public bool FindPath()
-    {
-        grid.UpdateGrid();
-
-
-
-        Node startNode = grid.NodeFromWorldPoint(seeker.position);
-        Node targetNode = grid.NodeFromWorldPoint(target.position);
-
-        Heap<Node> openSet = new Heap<Node>(grid.MaxSize);
-        HashSet<Node> closedSet = new HashSet<Node>();
-        openSet.Add(startNode);
-
-        while (openSet.Count > 0)
+        public void Awake ()
         {
-            Node currentNode = openSet.RemoveFirst();
-            closedSet.Add(currentNode);
+            seeker = transform;
 
-            if (currentNode == targetNode)
+            path = GetComponent<TracePathCheck> ();
+
+            EnemyManager.pathfindings.Add (path, this);
+        }
+
+        public int GetDistance (Node nodeA, Node nodeB)
+        {
+            int dstX = Mathf.Abs (nodeA.gridX - nodeB.gridX);
+            int dstY = Mathf.Abs (nodeA.gridY - nodeB.gridY);
+
+            if (dstX > dstY)
+                return 14 * dstY + 10 * (dstX - dstY);
+            return 14 * dstX + 10 * (dstY - dstX);
+        }
+
+        public void Init (Transform Target, Gridmanager grid)
+        {
+            target = Target;
+            this.grid = grid;
+        }
+
+        public void Start ()
+        {
+            if (seeker != null && target != null)
+                FindPath ();
+        }
+
+        #region checkSpace
+
+        public bool FindPath ()
+        {
+            grid.UpdateGrid ();
+
+            Node startNode = grid.NodeFromWorldPoint (seeker.position);
+            Node targetNode = grid.NodeFromWorldPoint (target.position);
+
+            Heap<Node> openSet = new Heap<Node> (grid.MaxSize);
+            HashSet<Node> closedSet = new HashSet<Node> ();
+            openSet.Add (startNode);
+
+            while (openSet.Count > 0)
             {
+                Node currentNode = openSet.RemoveFirst ();
+                closedSet.Add (currentNode);
 
-                RetracePath(startNode, targetNode);
-                return true;
-            }
-
-            foreach (Node neighbour in grid.GetNeighbours(currentNode))
-            {
-                if (!neighbour.walkable || closedSet.Contains(neighbour))
+                if (currentNode == targetNode)
                 {
-                    continue;
+                    RetracePath (startNode, targetNode);
+                    return true;
                 }
-                int newMovementCostToNeighbour = currentNode.gCost + GetDistance(currentNode, neighbour);
-                if (newMovementCostToNeighbour < neighbour.gCost || !openSet.Contains(neighbour))
-                {
-                    neighbour.gCost = newMovementCostToNeighbour;
-                    neighbour.hCost = GetDistance(neighbour, targetNode);
-                    neighbour.parent = currentNode;
 
-                    if (!openSet.Contains(neighbour))
-                        openSet.Add(neighbour);
-                    else
+                foreach (Node neighbour in grid.GetNeighbours (currentNode))
+                {
+                    if (!neighbour.walkable || closedSet.Contains (neighbour))
                     {
-                        openSet.UpdateItem(neighbour);
+                        continue;
+                    }
+                    int newMovementCostToNeighbour = currentNode.gCost + GetDistance (currentNode, neighbour);
+                    if (newMovementCostToNeighbour < neighbour.gCost || !openSet.Contains (neighbour))
+                    {
+                        neighbour.gCost = newMovementCostToNeighbour;
+                        neighbour.hCost = GetDistance (neighbour, targetNode);
+                        neighbour.parent = currentNode;
+
+                        if (!openSet.Contains (neighbour))
+                            openSet.Add (neighbour);
+                        else
+                        {
+                            openSet.UpdateItem (neighbour);
+                        }
                     }
                 }
             }
-        }
-        return false;
-    }
-    #endregion
-    protected void RetracePath(Node startNode, Node endNode)
-    {
-        pathCurrent = new List<Node>();
-        pathCurrent.Add(grid.NodeFromWorldPoint(target.position));
-        Node currentNode = endNode;
-
-        while (currentNode != startNode)
-        {
-            pathCurrent.Add(currentNode);
-            currentNode = currentNode.parent;
+            return false;
         }
 
-        pathCurrent.Reverse();
+        #endregion checkSpace
 
-        path.SetPath = pathCurrent;
-
-    }
-    public int GetDistance(Node nodeA, Node nodeB)
-    {
-        int dstX = Mathf.Abs(nodeA.gridX - nodeB.gridX);
-        int dstY = Mathf.Abs(nodeA.gridY - nodeB.gridY);
-
-        if (dstX > dstY)
-            return 14 * dstY + 10 * (dstX - dstY);
-        return 14 * dstX + 10 * (dstY - dstX);
-    }
-    private void OnDrawGizmos()
-    {
-        if (path != null)
+        protected void RetracePath (Node startNode, Node endNode)
         {
-            foreach (Node n in path.SetPath)
+            pathCurrent = new List<Node> ();
+
+            grid.NodeFromWorldPoint (target.position);
+
+            Node currentNode = endNode;
+
+            while (currentNode != startNode)
             {
-                Gizmos.color = Color.black;
-                Gizmos.DrawCube(n.worldPosition, Vector3.one * 1.25f);
+                pathCurrent.Add (currentNode);
+                currentNode = currentNode.parent;
             }
+
+            pathCurrent.Reverse ();
+
+            path.SetPath = pathCurrent;
         }
     }
 }

@@ -1,43 +1,51 @@
-﻿using System;
+﻿using Bogadanul.Assets.Scripts.Tree;
 using UnityEngine;
 
-public class Market : MonoBehaviour
+namespace Bogadanul.Assets.Scripts.Player
 {
-    [SerializeField]
-    private int startWater = 0;
-    private int lastPrice = 0;
-    private void Awake()
+    public class Market : MonoBehaviour
     {
-        MarketIntro.Init(startWater);
-    }
-    private void OnEnable()
-    {
-        TreePlacer.OnBuyCheck += Substract;
-    }
-    private void OnDisable()
-    {
-        TreePlacer.OnBuyCheck -= Substract;
-    }
-    public bool CheckPrice(int price)
-    {
-        int energy = MarketIntro.WaterInst;
+        private int lastPrice = 0;
 
-        if (energy - price < 0)
-            return false;
-        else
+        [SerializeField]
+        private int startWater = 0;
+
+        public void Add ()
         {
-            lastPrice = price;
-            return true;
+            MarketIntro.WaterInst += lastPrice;
+        }
+
+        public bool CheckPrice (int price)
+        {
+            int energy = MarketIntro.WaterInst;
+
+            if (energy - price < 0)
+                return false;
+            else
+            {
+                lastPrice = price;
+                return true;
+            }
+        }
+
+        public void Substract ()
+        {
+            MarketIntro.WaterInst -= lastPrice;
+        }
+
+        private void Awake ()
+        {
+            MarketIntro.Init (startWater);
+        }
+
+        private void OnDisable ()
+        {
+            TreePlacer.OnBuyCheck -= Substract;
+        }
+
+        private void OnEnable ()
+        {
+            TreePlacer.OnBuyCheck += Substract;
         }
     }
-    public void Substract()
-    {
-        MarketIntro.WaterInst -= lastPrice;
-    }
-
-    public void Add()
-    {
-        MarketIntro.WaterInst += lastPrice;
-    }
-
 }

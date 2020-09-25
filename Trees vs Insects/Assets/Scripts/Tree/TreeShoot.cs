@@ -1,60 +1,63 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class TreeShoot : MonoBehaviour, ITreeShoot
+namespace Bogadanul.Assets.Scripts.Tree
 {
-    [SerializeField]
-    private GameObject projectileObject = null;
-
-    private IProjectile Currentprojectile = null;
-    private IFireRater fireRater = null;
-
-    private GameObject instance = null;
-
-    public bool CanShoot { get; private set; } = true;
-
-    public void CacheProjectile (GameObject projectileObject)
+    public class TreeShoot : MonoBehaviour, ITreeShoot
     {
-        Currentprojectile = projectileObject.GetComponent<IProjectile> ();
-    }
+        private IProjectile Currentprojectile = null;
 
-    public bool NullProjectile ()
-    {
-        return instance == null ? true : false;
-    }
+        private IFireRater fireRater = null;
 
-    private void Awake ()
-    {
-        fireRater = GetComponent<IFireRater> ();
-    }
+        private GameObject instance = null;
 
-    private void Start ()
-    {
-        CacheProjectile (projectileObject);
-    }
+        [SerializeField]
+        private GameObject projectileObject = null;
 
-    public void Shoot (Transform target)
-    {
-        if (CanShoot)
-            StartCoroutine (Shooting (target));
-    }
+        public bool CanShoot { get; private set; } = true;
 
-    private IEnumerator Shooting (Transform target)
-    {
-        if (target != null)
+        public void CacheProjectile (GameObject projectileObject)
         {
-            CanShoot = false;
+            Currentprojectile = projectileObject.GetComponent<IProjectile> ();
+        }
 
-            instance = Instantiate (projectileObject, transform.position, Quaternion.identity, transform);
-            CacheProjectile (instance);
-            Currentprojectile.Init (target);
+        public bool NullProjectile ()
+        {
+            return instance == null ? true : false;
+        }
 
-            yield return StartCoroutine (fireRater.Wait ());
+        public void Shoot (Transform target)
+        {
+            if (CanShoot)
+                StartCoroutine (Shooting (target));
+        }
 
-            CanShoot = true;
+        private void Awake ()
+        {
+            fireRater = GetComponent<IFireRater> ();
+        }
 
-            Destroy (instance, 10.0f);
+        private IEnumerator Shooting (Transform target)
+        {
+            if (target != null)
+            {
+                CanShoot = false;
+
+                instance = Instantiate (projectileObject, transform.position, Quaternion.identity, transform);
+                CacheProjectile (instance);
+                Currentprojectile.Init (target);
+
+                yield return StartCoroutine (fireRater.Wait ());
+
+                CanShoot = true;
+
+                Destroy (instance, 10.0f);
+            }
+        }
+
+        private void Start ()
+        {
+            CacheProjectile (projectileObject);
         }
     }
 }

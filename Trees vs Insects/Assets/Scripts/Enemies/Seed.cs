@@ -1,22 +1,26 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using Bogadanul.Assets.Scripts.Utility;
 using UnityEngine;
 
-public class Seed : MonoBehaviour
+namespace Bogadanul.Assets.Scripts.Enemies
 {
-    [SerializeField]
-    private int seed = 0;
-    private RandomNumberGenerator random;
-    private void Start()
+    public class Seed : MonoBehaviour
     {
-        NewGenerator();
-    }
-    public void NewGenerator()
-    {
-        if (seed != 0)
-            random = new RandomNumberGenerator(seed);
-        else
-            random = new RandomNumberGenerator();
+        [SerializeField]
+        private readonly int seed = 0;
+
+        private RandomNumberGenerator random;
+
+        public void NewGenerator ()
+        {
+            if (seed != 0)
+                random = new RandomNumberGenerator (seed);
+            else
+                random = new RandomNumberGenerator ();
+        }
+
+        private void Start ()
+        {
+            NewGenerator ();
+        }
     }
 }
-

@@ -1,14 +1,15 @@
 ﻿using UnityEngine;
 
-
-public class GoldenTree : MonoBehaviour
+namespace Bogadanul.Assets.Scripts.Tree
 {
-    [SerializeField]
-    private int energyGain = 1;
-
-    public void AddEnergy()
+    public class GoldenTree : MonoBehaviour
     {
-        MarketIntro.Add(energyGain);
-    }
+        [SerializeField]
+        private int energyGain = 1;
 
+        public void AddEnergy ()
+        {
+            MarketIntro.Add (energyGain);
+        }
+    }
 }

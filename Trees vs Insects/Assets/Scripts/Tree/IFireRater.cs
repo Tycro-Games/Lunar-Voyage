@@ -1,7 +1,9 @@
-
 using System.Collections;
 
-public interface IFireRater
+namespace Bogadanul.Assets.Scripts.Tree
 {
-    IEnumerator Wait();
+    public interface IFireRater
+    {
+        IEnumerator Wait ();
+    }
 }

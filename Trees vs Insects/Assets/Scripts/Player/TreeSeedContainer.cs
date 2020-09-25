@@ -1,30 +1,34 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using Bogadanul.Assets.Scripts.Tree;
 using UnityEngine;
 
-public class TreeSeedContainer : MonoBehaviour
+namespace Bogadanul.Assets.Scripts.Player
 {
-    [SerializeField]
-    private TreeSeed treeSeed = null;
-    private TreeSeedSender treeSeedSender = null;
-
-    private TreeSeedDisplay treeSeedDisplay = null;
-    private void Start()
+    public class TreeSeedContainer : MonoBehaviour
     {
-        treeSeedDisplay = GetComponent<TreeSeedDisplay>();
-        treeSeedSender = GetComponentInParent<TreeSeedSender>();
+        [SerializeField]
+        private TreeSeed treeSeed = null;
 
-        Displaying();
-    }
-    void Displaying()
-    {
-        treeSeedDisplay.DisplaySprite(treeSeed.icon);
-        treeSeedDisplay.DisplayPrice(treeSeed.price);
-    }
+        private TreeSeedDisplay treeSeedDisplay = null;
+        private TreeSeedSender treeSeedSender = null;
 
-    public void OnClick()
-    {
-        if (treeSeedSender.market.CheckPrice(treeSeed.price))
-            treeSeedSender.ChangeCurrentSeed(treeSeed);
+        public void OnClick ()
+        {
+            if (treeSeedSender.market.CheckPrice (treeSeed.price))
+                treeSeedSender.ChangeCurrentSeed (treeSeed);
+        }
+
+        private void Displaying ()
+        {
+            treeSeedDisplay.DisplaySprite (treeSeed.icon);
+            treeSeedDisplay.DisplayPrice (treeSeed.price);
+        }
+
+        private void Start ()
+        {
+            treeSeedDisplay = GetComponent<TreeSeedDisplay> ();
+            treeSeedSender = GetComponentInParent<TreeSeedSender> ();
+
+            Displaying ();
+        }
     }
 }

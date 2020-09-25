@@ -1,20 +1,22 @@
-﻿
-using System;
+﻿using System.Linq;
 using UnityEngine;
-using System.Linq;
-public class EnemyChooser : MonoBehaviour
+
+namespace Bogadanul.Assets.Scripts.Enemies
 {
-    private EnemySpawnable[] enemies = null;
-    public void Init(EnemySpawnable[] _enemies)
+    public class EnemyChooser : MonoBehaviour
     {
-        enemies = _enemies;
-    }
-    public int ChooseEnemy(int maxWeight)
-    {
-        EnemySpawnable[] temp = enemies.Where(en => en.weight <= maxWeight).ToArray();
+        private EnemySpawnable[] enemies = null;
 
-        int index = UnityEngine.Random.Range(0, temp.Length);
+        public int ChooseEnemy (int maxWeight)
+        {
+            EnemySpawnable[] temp = enemies.Where (en => en.weight <= maxWeight).ToArray ();
 
-        return index;
+            return Random.Range (0, temp.Length);
+        }
+
+        public void Init (EnemySpawnable[] _enemies)
+        {
+            enemies = _enemies;
+        }
     }
 }
