@@ -189,7 +189,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  TimeToWait: 20
+  TimeToWait: 2
 --- !u!65 &8330554719374839517
 BoxCollider:
   m_ObjectHideFlags: 0

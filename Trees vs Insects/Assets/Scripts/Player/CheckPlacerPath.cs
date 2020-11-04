@@ -1,5 +1,5 @@
 ﻿using Bogadanul.Assets.Scripts.Enemies;
-using Bogadanul.Assets.Scripts.Grid;
+using Bogadanul.Assets.Scripts.Player;
 using UnityEngine;
 
 namespace Bogadanul.Assets.Scripts.Player
@@ -20,7 +20,7 @@ namespace Bogadanul.Assets.Scripts.Player
 
         public bool CheckToPlace (Node cell, GameObject currentTree)
         {
-            if (!cell.walkable)
+            if (cell == null && !cell.walkable)
                 return false;
 
             EnemyManager.hasPath = false;
@@ -30,6 +30,7 @@ namespace Bogadanul.Assets.Scripts.Player
             if (!EnemyManager.hasPath)
             {
                 Destroy (currentPlace);
+                cell.walkable = false;
                 EnemyManager.CheckSpace ();
                 return false;
             }

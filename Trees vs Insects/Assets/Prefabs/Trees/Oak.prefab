@@ -166,7 +166,7 @@ MonoBehaviour:
   enemies:
     serializedVersion: 2
     m_Bits: 1024
-  radius: 3
+  radius: 3.5
 --- !u!114 &773390451943850926
 MonoBehaviour:
   m_ObjectHideFlags: 0

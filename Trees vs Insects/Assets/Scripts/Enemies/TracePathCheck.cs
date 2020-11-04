@@ -1,4 +1,4 @@
-﻿using Bogadanul.Assets.Scripts.Grid;
+﻿using Bogadanul.Assets.Scripts.Player;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -27,7 +27,7 @@ namespace Bogadanul.Assets.Scripts.Enemies
                 foreach (Node n in path)
                 {
                     Gizmos.color = Color.black;
-                    Gizmos.DrawCube (n.worldPosition, Vector3.one * 2);
+                    Gizmos.DrawWireCube (n.worldPosition, Vector3.one * 2);
                 }
             }
         }

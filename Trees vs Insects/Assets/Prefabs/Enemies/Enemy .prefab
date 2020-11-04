@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6206204606452546490}
   - component: {fileID: 1220222091331719159}
   - component: {fileID: 6699237311088738117}
-  - component: {fileID: 5279705317853715537}
+  - component: {fileID: 4229737262003602648}
   m_Layer: 10
   m_Name: AI
   m_TagString: Untagged
@@ -59,7 +59,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 10
---- !u!65 &5279705317853715537
+--- !u!65 &4229737262003602648
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -143,9 +143,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 266df0779cea3934bba2f3621153fbd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnDie:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &6244547422884268165
 GameObject:
   m_ObjectHideFlags: 0
@@ -224,6 +221,6 @@ SpriteRenderer:
   m_Size: {x: 6.75, y: 9}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0

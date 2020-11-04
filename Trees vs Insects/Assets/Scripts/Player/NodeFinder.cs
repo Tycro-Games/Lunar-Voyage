@@ -1,4 +1,4 @@
-﻿using Bogadanul.Assets.Scripts.Grid;
+﻿using Bogadanul.Assets.Scripts.Player;
 using UnityEngine;
 
 namespace Bogadanul.Assets.Scripts.Player
@@ -7,13 +7,27 @@ namespace Bogadanul.Assets.Scripts.Player
     {
         private Gridmanager theGrid = null;
 
+        [SerializeField]
+        private LayerMask layerToPlace = 0;
+
+        private Camera cam;
+
         public Node NodeFromPoint (Vector2 position)
         {
-            return theGrid.NodeFromWorldPoint (Camera.main.ScreenToWorldPoint (position));
+            if (Physics.Raycast (cam.ScreenPointToRay (position), out RaycastHit hit, 50, layerToPlace)
+                &&
+                hit.collider.gameObject.CompareTag ("grid"))
+            {
+                Node n = hit.collider.GetComponent<NodeInstance> ().node;
+                if (!n.ocupied)
+                    return n;
+            }
+            return null;
         }
 
         private void Start ()
         {
+            cam = Camera.main;
             theGrid = FindObjectOfType<Gridmanager> ();
         }
     }

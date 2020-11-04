@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Bogadanul.Assets.Scripts.Grid
+namespace Bogadanul.Assets.Scripts.Player
 {
     public interface IHeapItem<T> : IComparable<T>
     {

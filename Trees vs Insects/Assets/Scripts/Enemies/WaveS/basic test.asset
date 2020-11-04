@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 974f4f2793bde504a9fd5bd6ab5c92e1, type: 3}
   m_Name: basic test
   m_EditorClassIdentifier: 
-  duration: 10
-  weight: 5
+  duration: 43
+  weight: 20

@@ -1,5 +1,4 @@
-﻿using Bogadanul.Assets.Scripts.Grid;
-using Bogadanul.Assets.Scripts.Tree;
+﻿using Bogadanul.Assets.Scripts.Tree;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -8,22 +7,28 @@ namespace Bogadanul.Assets.Scripts.Player
     public class CurrentSeedDisplay : MonoBehaviour, ICurrentSeedDisplay<Sprite>
     {
         [SerializeField]
-        private Transform cursor = null;
+        private SpriteRenderer cursor = null;
+
+        [SerializeField]
+        private Sprite cursorSprite;
 
         private NodeFinder node;
         private SpriteRenderer spriteRen = null;
+
+        private Camera cam;
 
         public void MoveSprite (InputAction.CallbackContext ctx)
         {
             Vector2 mouse = ctx.ReadValue<Vector2> ();
             if (mouse == Vector2.zero)
                 return;
-
             if (spriteRen.sprite != null)
             {
-                Node n = node.NodeFromPoint (mouse);
-                if (n.walkable)
+                Node n = node.NodeFromPoint (Input.mousePosition);
+                if (n?.ocupied == false)
+                {
                     transform.position = n.worldPosition;
+                }
             }
         }
 
@@ -31,20 +36,28 @@ namespace Bogadanul.Assets.Scripts.Player
         {
             spriteRen.sprite = null;
 
-            cursor.GetChild (0).gameObject.SetActive (true);
+            cursor.sprite = cursorSprite;
         }
 
         public void UpdateSprite (Sprite seed)
         {
-            spriteRen.sprite = seed;
+            if (seed)
+            {
+                spriteRen.sprite = seed;
 
-            transform.position = cursor.position;
+                transform.position = cursor.transform.position;
 
-            cursor.GetChild (0).gameObject.SetActive (false);
+                cursor.sprite = spriteRen.sprite;
+            }
+            else
+            {
+                ResetSprite ();
+            }
         }
 
         private void Awake ()
         {
+            cam = Camera.main;
             spriteRen = GetComponent<SpriteRenderer> ();
         }
 

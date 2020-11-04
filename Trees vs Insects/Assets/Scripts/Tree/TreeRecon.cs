@@ -12,18 +12,16 @@ namespace Bogadanul.Assets.Scripts.Tree
         [SerializeField]
         private float radius = 5.0f;
 
-        private Vector3 radiusVect;
-
         public bool CheckDist (BoxCollider col)
         {
-            if (radius >= dist (col.transform.position))
+            if (radius * radius >= dist (col.transform.position))
                 return true;
             return false;
         }
 
         public BoxCollider CheckSorounding ()
         {
-            int count = Physics.OverlapBoxNonAlloc (transform.position, radiusVect, colliders, Quaternion.identity, enemies);
+            int count = Physics.OverlapSphereNonAlloc (transform.position, radius, colliders, enemies);
             if (count > 0)
             {
                 BoxCollider col = colliders[0];
@@ -46,11 +44,6 @@ namespace Bogadanul.Assets.Scripts.Tree
             return null;
         }
 
-        private void Awake ()
-        {
-            radiusVect = new Vector3 (radius / 2, radius / 2, 1);
-        }
-
         private float dist (Vector3 col)
         {
             Vector2 dist = transform.position - col;
@@ -59,7 +52,7 @@ namespace Bogadanul.Assets.Scripts.Tree
 
         private void OnDrawGizmosSelected ()
         {
-            Gizmos.DrawWireCube (transform.position, new Vector3 (radius, radius));
+            Gizmos.DrawWireSphere (transform.position, radius);
         }
     }
 }

@@ -129,13 +129,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 010ae7f4fad4608478968acf2b4eddff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waves:
-  - duration: 10
-    weight: 5
-  - duration: 10
-    weight: 10
   enemySpawnable: []
-  MaxEnemyWeight: 10
+  enemyWeight: 10
+  waves:
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &3896848579017657747
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -148,7 +146,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2ccb094d10f1e3458a50810049b14c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  seed: 0
 --- !u!1 &4830277979645973455
 GameObject:
   m_ObjectHideFlags: 0
@@ -287,14 +284,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e98edcfad9fcb3e42a2fb67744fbca5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gridWorldSize: {x: 17, y: 8}
+  nodeRadius: 0.5
   unwalkableMask:
     serializedVersion: 2
     m_Bits: 256
-  gridWorldSize: {x: 17, y: 8}
-  nodeRadius: 0.5
+  nodeCol: {fileID: 4388357516766586266, guid: 0bf87547f4fce5e4ea7707ee0150535c, type: 3}
   noDiagonal: 1
-  prefabToPlace: {fileID: 4388357516766586266, guid: 0bf87547f4fce5e4ea7707ee0150535c,
-    type: 3}
 --- !u!1 &4830277980343188934
 GameObject:
   m_ObjectHideFlags: 0

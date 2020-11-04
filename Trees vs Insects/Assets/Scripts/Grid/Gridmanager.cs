@@ -1,14 +1,22 @@
-﻿using System.Collections.Generic;
+﻿using Bogadanul.Assets.Scripts.Player;
+using System.Collections.Generic;
 using UnityEngine;
 
-namespace Bogadanul.Assets.Scripts.Grid
+namespace Bogadanul.Assets.Scripts.Player
 {
     public class Gridmanager : MonoBehaviour
     {
         public Vector2 gridWorldSize;
+
         public float nodeRadius;
+
         public List<Node> path;
+
         public LayerMask unwalkableMask;
+
+        [SerializeField]
+        private GameObject nodeCol = null;
+
         private Node[,] grid;
 
         private int gridSizeX, gridSizeY;
@@ -58,12 +66,12 @@ namespace Bogadanul.Assets.Scripts.Grid
         {
             float percentX = (worldPosition.x + gridWorldSize.x / 2) / gridWorldSize.x;
             float percentY = (worldPosition.y + gridWorldSize.y / 2) / gridWorldSize.y;
-
             percentX = Mathf.Clamp01 (percentX);
             percentY = Mathf.Clamp01 (percentY);
 
             int x = Mathf.RoundToInt ((gridSizeX - 1) * percentX);
             int y = Mathf.RoundToInt ((gridSizeY - 1) * percentY);
+
             return grid[x, y];
         }
 
@@ -96,10 +104,20 @@ namespace Bogadanul.Assets.Scripts.Grid
                 for (int y = 0; y < gridSizeY; y++)
                 {
                     Vector3 worldPoint = worldBottomLeft + Vector3.right * (x * nodeDiameter + nodeRadius) + Vector3.up * (y * nodeDiameter + nodeRadius);
+
                     bool walkable = !Physics.CheckSphere (worldPoint, nodeRadius, unwalkableMask);
                     grid[x, y] = new Node (walkable, worldPoint, x, y);
+                    SpawnCols (grid[x, y]);
                 }
             }
+        }
+
+        private void SpawnCols (Node node)
+        {
+            GameObject col = Instantiate (nodeCol, node.worldPosition, Quaternion.identity, transform);
+
+            NodeInstance instance = col.GetComponent<NodeInstance> ();
+            instance.Init (node);
         }
 
         private void OnDrawGizmos ()
@@ -113,7 +131,7 @@ namespace Bogadanul.Assets.Scripts.Grid
                     if (!grid[x, y].walkable)
                     {
                         Gizmos.color = Color.red;
-                        Gizmos.DrawWireCube (grid[x, y].worldPosition, new Vector2 (nodeDiameter, nodeDiameter));
+                        Gizmos.DrawCube (grid[x, y].worldPosition, new Vector2 (nodeDiameter, nodeDiameter));
                     }
                     else
                     {

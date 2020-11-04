@@ -6,7 +6,7 @@ namespace Bogadanul.Assets.Scripts.Enemies
     public class EnemyDead : MonoBehaviour
     {
         [SerializeField]
-        private readonly UnityEvent OnDie = null;
+        private UnityEvent OnDie = null;
 
         private EnemyHealth enemyHealth;
 

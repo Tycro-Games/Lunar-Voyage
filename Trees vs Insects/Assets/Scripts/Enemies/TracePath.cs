@@ -1,4 +1,4 @@
-﻿using Bogadanul.Assets.Scripts.Grid;
+﻿using Bogadanul.Assets.Scripts.Player;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -37,6 +37,7 @@ namespace Bogadanul.Assets.Scripts.Enemies
             while (i < path.Count)
             {
                 yield return StartCoroutine (Move (path[i].worldPosition));
+                
                 i++;
             }
         }

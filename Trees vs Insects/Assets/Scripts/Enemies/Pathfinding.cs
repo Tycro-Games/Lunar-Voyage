@@ -1,4 +1,4 @@
-﻿using Bogadanul.Assets.Scripts.Grid;
+﻿using Bogadanul.Assets.Scripts.Player;
 using System.Collections.Generic;
 using UnityEngine;
 

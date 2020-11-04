@@ -227,9 +227,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7e88bcdbb8138d47bdbff825e6c4886, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grid:
+  layerToPlace:
     serializedVersion: 2
-    m_Bits: 1536
+    m_Bits: 3584
 --- !u!114 &1518370455002664304
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -242,6 +242,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7f44e6dff15b514cba035675b107db5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomNumbers:
+    Maxx: 0.1
+    Maxy: 0.1
+    Minx: -0.1
+    Miny: -0.1
 --- !u!1 &1518370455450868719
 GameObject:
   m_ObjectHideFlags: 0

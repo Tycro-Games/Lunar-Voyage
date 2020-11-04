@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Bogadanul.Assets.Scripts.Grid
+namespace Bogadanul.Assets.Scripts.Player
 {
     public class Node : IHeapItem<Node>
     {
@@ -10,6 +10,7 @@ namespace Bogadanul.Assets.Scripts.Grid
         public int hCost;
         public Node parent;
         public bool walkable;
+        public bool ocupied;
         public Vector3 worldPosition;
         private int heapIndex;
 
