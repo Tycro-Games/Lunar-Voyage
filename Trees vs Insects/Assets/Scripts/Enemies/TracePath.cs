@@ -37,7 +37,7 @@ namespace Bogadanul.Assets.Scripts.Enemies
             while (i < path.Count)
             {
                 yield return StartCoroutine (Move (path[i].worldPosition));
-                
+
                 i++;
             }
         }

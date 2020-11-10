@@ -14,10 +14,6 @@ namespace Bogadanul.Assets.Scripts.Enemies
         private EnemyListChecker enemyListChecker;
 
         [Header ("Enemies")]
-        [SerializeField]
-        private EnemySpawnable[] enemySpawnable = null;
-
-        [SerializeField]
         private int enemyWeight = 10;
 
         private Seed seed;
@@ -34,8 +30,9 @@ namespace Bogadanul.Assets.Scripts.Enemies
             {
                 enemyWeight = waves[currentWave].weight;
 
+                enemyChooser.Init (waves[currentWave].enemies);
+
                 StartCoroutine (RandomSpawner (enemyWeight));
-                currentWave++;
             }
         }
 
@@ -47,15 +44,16 @@ namespace Bogadanul.Assets.Scripts.Enemies
 
                 int index = enemyChooser.ChooseEnemy (enemyWeight);
 
-                enemyWeight -= enemySpawnable[index].weight;
+                enemyWeight -= waves[currentWave].enemies[index].weight;
                 if (enemyWeight < 0)
                     continue;
 
-                GameObject enemy = enemySpawnable[index].enemyGameObject;
+                GameObject enemy = waves[currentWave].enemies[index].enemyGameObject;
                 spawner.Spawn (enemy);
 
-                yield return new WaitForSeconds (.5f);
+                yield return new WaitForSeconds (waves[currentWave].durationBetweenEnemies);
             }
+            currentWave++;
         }
 
         private void Awake ()
@@ -65,7 +63,6 @@ namespace Bogadanul.Assets.Scripts.Enemies
             seed = GetComponent<Seed> ();
 
             enemyChooser = GetComponent<EnemyChooser> ();
-            enemyChooser.Init (enemySpawnable);
         }
 
         private void OnDisable ()

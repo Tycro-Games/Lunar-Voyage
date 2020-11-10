@@ -7,6 +7,11 @@ namespace Bogadanul.Assets.Scripts.Enemies
     {
         public event Action OnNoEnemies;
 
+        public void StartCheckingForEnemies ()
+        {
+            CheckList ();
+        }
+
         private void CheckList ()
         {
             OnNoEnemies?.Invoke ();
@@ -20,11 +25,6 @@ namespace Bogadanul.Assets.Scripts.Enemies
         private void OnEnable ()
         {
             EnemyList.OnNoEnemies += CheckList;
-        }
-
-        private void Start ()
-        {
-            CheckList ();
         }
     }
 }

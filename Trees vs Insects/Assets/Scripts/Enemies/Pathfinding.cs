@@ -1,4 +1,5 @@
 ﻿using Bogadanul.Assets.Scripts.Player;
+using Bogadanul.Assets.Scripts.Tree;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -49,7 +50,7 @@ namespace Bogadanul.Assets.Scripts.Enemies
             grid.UpdateGrid ();
 
             Node startNode = grid.NodeFromWorldPoint (seeker.position);
-            Node targetNode = grid.NodeFromWorldPoint (target.position);
+            Node targetNode = AncientTree.currentNodes[0];
 
             Heap<Node> openSet = new Heap<Node> (grid.MaxSize);
             HashSet<Node> closedSet = new HashSet<Node> ();
@@ -68,7 +69,7 @@ namespace Bogadanul.Assets.Scripts.Enemies
 
                 foreach (Node neighbour in grid.GetNeighbours (currentNode))
                 {
-                    if (!neighbour.walkable || closedSet.Contains (neighbour))
+                    if (!neighbour.Walkable || closedSet.Contains (neighbour))
                     {
                         continue;
                     }
@@ -96,8 +97,6 @@ namespace Bogadanul.Assets.Scripts.Enemies
         protected void RetracePath (Node startNode, Node endNode)
         {
             pathCurrent = new List<Node> ();
-
-            grid.NodeFromWorldPoint (target.position);
 
             Node currentNode = endNode;
 

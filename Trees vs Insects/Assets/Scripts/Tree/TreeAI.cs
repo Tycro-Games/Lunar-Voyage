@@ -10,8 +10,7 @@ namespace Bogadanul.Assets.Scripts.Tree
 
         public void GetBoxCol ()
         {
-            BoxCollider colTarget = treeRecon.CheckSorounding ();
-            target = colTarget;
+            target = treeRecon.CheckSorounding ();
         }
 
         private void OnDisable ()

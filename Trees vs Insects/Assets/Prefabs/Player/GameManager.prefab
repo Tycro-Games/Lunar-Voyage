@@ -290,4 +290,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30d639162cda6f94db2436b05ec58a99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startWater: 100
+  startWater: 10

@@ -20,7 +20,7 @@ namespace Bogadanul.Assets.Scripts.Player
 
         public bool CheckToPlace (Node cell, GameObject currentTree)
         {
-            if (cell == null && !cell.walkable)
+            if (cell == null && !cell.Walkable)
                 return false;
 
             EnemyManager.hasPath = false;
@@ -30,7 +30,7 @@ namespace Bogadanul.Assets.Scripts.Player
             if (!EnemyManager.hasPath)
             {
                 Destroy (currentPlace);
-                cell.walkable = false;
+                cell.Walkable = false;
                 EnemyManager.CheckSpace ();
                 return false;
             }

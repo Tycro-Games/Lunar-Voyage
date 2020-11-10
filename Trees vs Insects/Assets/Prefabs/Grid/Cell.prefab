@@ -59,4 +59,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ocupieable:
     serializedVersion: 2
-    m_Bits: 1024
+    m_Bits: 5120

@@ -13,6 +13,7 @@ namespace Bogadanul.Assets.Scripts.Player
         public List<Node> path;
 
         public LayerMask unwalkableMask;
+        public LayerMask ocupiedMask;
 
         [SerializeField]
         private GameObject nodeCol = null;
@@ -81,7 +82,7 @@ namespace Bogadanul.Assets.Scripts.Player
             {
                 for (int y = 0; y < gridSizeY; y++)
                 {
-                    grid[x, y].walkable = !Physics.CheckSphere (grid[x, y].worldPosition, nodeRadius, unwalkableMask);
+                    grid[x, y].Walkable = !Physics.CheckSphere (grid[x, y].worldPosition, nodeRadius, unwalkableMask);
                 }
             }
         }
@@ -106,7 +107,9 @@ namespace Bogadanul.Assets.Scripts.Player
                     Vector3 worldPoint = worldBottomLeft + Vector3.right * (x * nodeDiameter + nodeRadius) + Vector3.up * (y * nodeDiameter + nodeRadius);
 
                     bool walkable = !Physics.CheckSphere (worldPoint, nodeRadius, unwalkableMask);
+
                     grid[x, y] = new Node (walkable, worldPoint, x, y);
+
                     SpawnCols (grid[x, y]);
                 }
             }
@@ -128,7 +131,7 @@ namespace Bogadanul.Assets.Scripts.Player
             {
                 for (int y = 0; y < gridSizeY; y++)
                 {
-                    if (!grid[x, y].walkable)
+                    if (!grid[x, y].Walkable)
                     {
                         Gizmos.color = Color.red;
                         Gizmos.DrawCube (grid[x, y].worldPosition, new Vector2 (nodeDiameter, nodeDiameter));

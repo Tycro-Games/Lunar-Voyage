@@ -23,16 +23,16 @@ namespace Bogadanul.Assets.Scripts.Player
             int count = Physics.OverlapSphereNonAlloc (transform.position, 1, res, ocupieable);
             if (count > 0)
             {
-                node.ocupied = true;
+                node.Ocupied = true;
             }
             else
-                node.ocupied = false;
+                node.Ocupied = false;
         }
 
         private void OnDrawGizmos ()
         {
             Gizmos.color = Color.red;
-            if (node.ocupied)
+            if (node?.Ocupied == true)
                 Gizmos.DrawWireCube (transform.position, Vector2.one * 2);
         }
     }

@@ -10,7 +10,7 @@ namespace Bogadanul.Assets.Scripts.Player
         private SpriteRenderer cursor = null;
 
         [SerializeField]
-        private Sprite cursorSprite;
+        private Sprite cursorSprite = null;
 
         private NodeFinder node;
         private SpriteRenderer spriteRen = null;
@@ -24,8 +24,8 @@ namespace Bogadanul.Assets.Scripts.Player
                 return;
             if (spriteRen.sprite != null)
             {
-                Node n = node.NodeFromPoint (Input.mousePosition);
-                if (n?.ocupied == false)
+                Node n = node.NodeFromPoint (mouse);
+                if (n?.Placeable () == true)
                 {
                     transform.position = n.worldPosition;
                 }

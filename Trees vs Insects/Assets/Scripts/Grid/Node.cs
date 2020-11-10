@@ -9,14 +9,15 @@ namespace Bogadanul.Assets.Scripts.Player
         public int gridY;
         public int hCost;
         public Node parent;
-        public bool walkable;
-        public bool ocupied;
         public Vector3 worldPosition;
+        public bool Walkable;
+
+        public bool Ocupied;
         private int heapIndex;
 
         public Node (bool _walkable, Vector3 _worldPos, int _gridX, int _gridY)
         {
-            walkable = _walkable;
+            Walkable = _walkable;
             worldPosition = _worldPos;
             gridX = _gridX;
             gridY = _gridY;
@@ -40,6 +41,13 @@ namespace Bogadanul.Assets.Scripts.Player
             {
                 heapIndex = value;
             }
+        }
+
+        public bool Placeable ()
+        {
+            if (Walkable && !Ocupied)
+                return true;
+            return false;
         }
 
         public int CompareTo (Node nodeToCompare)
