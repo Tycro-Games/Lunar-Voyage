@@ -5,15 +5,20 @@ using UnityEngine;
 
 namespace Bogadanul.Assets.Scripts.Enemies
 {
+    [RequireComponent (typeof (NodeFinder))]
     public class Pathfinding : MonoBehaviour
     {
         private Gridmanager grid;
         private TracePathCheck path;
         private List<Node> pathCurrent = new List<Node> ();
         private Transform seeker, target = null;
+        private AncientTree ancientTree;
+        private NodeFinder node;
 
         public void Awake ()
         {
+            node = FindObjectOfType<NodeFinder> ();
+            ancientTree = FindObjectOfType<AncientTree> ();
             seeker = transform;
 
             path = GetComponent<TracePathCheck> ();
@@ -37,9 +42,27 @@ namespace Bogadanul.Assets.Scripts.Enemies
             this.grid = grid;
         }
 
-        public void Start ()
+        protected void RetracePath (Node startNode, Node endNode)
         {
-            if (seeker != null && target != null)
+            pathCurrent = new List<Node> ();
+
+            Node currentNode = endNode;
+
+            while (currentNode != startNode)
+            {
+                pathCurrent.Add (currentNode);
+                currentNode = currentNode.parent;
+            }
+
+            pathCurrent.Reverse ();
+
+            path.SetPath = pathCurrent;
+        }
+
+        private void Start ()
+        {
+            ancientTree.CheckSpace ();
+            if (seeker != null && target != null && node != null)
                 FindPath ();
         }
 
@@ -49,11 +72,14 @@ namespace Bogadanul.Assets.Scripts.Enemies
         {
             grid.UpdateGrid ();
 
-            Node startNode = grid.NodeFromWorldPoint (seeker.position);
-            Node targetNode = AncientTree.currentNodes[0];
+            Node startNode = node.NodeFromPoint ();
+            if (startNode == null)
+                return false;
+            Node targetNode = ancientTree.currentNodes[0];
 
             Heap<Node> openSet = new Heap<Node> (grid.MaxSize);
             HashSet<Node> closedSet = new HashSet<Node> ();
+
             openSet.Add (startNode);
 
             while (openSet.Count > 0)
@@ -93,22 +119,5 @@ namespace Bogadanul.Assets.Scripts.Enemies
         }
 
         #endregion checkSpace
-
-        protected void RetracePath (Node startNode, Node endNode)
-        {
-            pathCurrent = new List<Node> ();
-
-            Node currentNode = endNode;
-
-            while (currentNode != startNode)
-            {
-                pathCurrent.Add (currentNode);
-                currentNode = currentNode.parent;
-            }
-
-            pathCurrent.Reverse ();
-
-            path.SetPath = pathCurrent;
-        }
     }
 }

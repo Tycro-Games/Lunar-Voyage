@@ -5,14 +5,12 @@ namespace Bogadanul.Assets.Scripts.Player
 {
     public class NodeFinder : MonoBehaviour
     {
-        private Gridmanager theGrid = null;
-
         [SerializeField]
         private LayerMask layerToPlace = 0;
 
         private Camera cam;
 
-        public Node NodeFromPoint (Vector2 position)
+        public Node NodeFromInput (Vector2 position)
         {
             if (Physics.Raycast (cam.ScreenPointToRay (position), out RaycastHit hit, 50, layerToPlace)
                 &&
@@ -25,10 +23,19 @@ namespace Bogadanul.Assets.Scripts.Player
             return null;
         }
 
+        public Node NodeFromPoint ()
+        {
+            Node node = null;
+            Collider[] cols = new Collider[1];
+            int count = Physics.OverlapBoxNonAlloc (transform.position, Vector3.zero, cols, Quaternion.identity, layerToPlace);
+            if (count != 0)
+                node = cols[0].gameObject.GetComponent<NodeInstance> ().node;
+            return node;
+        }
+
         private void Start ()
         {
             cam = Camera.main;
-            theGrid = FindObjectOfType<Gridmanager> ();
         }
     }
 }

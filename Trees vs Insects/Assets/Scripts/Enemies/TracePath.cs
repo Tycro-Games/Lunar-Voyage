@@ -8,7 +8,7 @@ namespace Bogadanul.Assets.Scripts.Enemies
     public class TracePath : TracePathCheck
     {
         [SerializeField]
-        private float speed = 1.0f;
+        private float unitsPerSec = 1.0f;
 
         public override List<Node> SetPath
         {
@@ -46,7 +46,7 @@ namespace Bogadanul.Assets.Scripts.Enemies
         {
             while (transform.position != node)
             {
-                transform.position = Vector3.MoveTowards (transform.position, node, speed * Time.deltaTime);
+                transform.position = Vector3.MoveTowards (transform.position, node, unitsPerSec * Time.deltaTime);
 
                 Debug.DrawLine (transform.position, transform.position + Dir (node));
                 yield return null;

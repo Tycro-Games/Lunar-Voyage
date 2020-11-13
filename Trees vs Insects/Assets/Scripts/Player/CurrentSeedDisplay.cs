@@ -24,7 +24,7 @@ namespace Bogadanul.Assets.Scripts.Player
                 return;
             if (spriteRen.sprite != null)
             {
-                Node n = node.NodeFromPoint (mouse);
+                Node n = node.NodeFromInput (mouse);
                 if (n?.Placeable () == true)
                 {
                     transform.position = n.worldPosition;

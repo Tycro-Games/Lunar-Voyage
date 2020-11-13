@@ -11,12 +11,20 @@ namespace Bogadanul.Assets.Scripts.Player
         public float Maxy;
         public float Minx;
         public float Miny;
+
+        public RandomNumbers (float maxx, float maxy, float minx, float miny)
+        {
+            Maxx = maxx;
+            Maxy = maxy;
+            Minx = minx;
+            Miny = miny;
+        }
     }
 
     public class CheckPlacerPath : MonoBehaviour
     {
         [SerializeField]
-        private RandomNumbers randomNumbers;
+        private RandomNumbers randomNumbers = new RandomNumbers ();
 
         public bool CheckToPlace (Node cell, GameObject currentTree)
         {

@@ -5,22 +5,26 @@ namespace Bogadanul.Assets.Scripts.Player
 {
     public class Market : MonoBehaviour
     {
+        private MarketIntro marketIntro;
+
         private int lastPrice = 0;
 
         [SerializeField]
-        private int startWater = 0;
+        private int energyStart = 50;
 
         public void Add ()
         {
-            MarketIntro.WaterInst += lastPrice;
+            marketIntro.WaterInst += lastPrice;
         }
 
         public bool CheckPrice (int price)
         {
-            int energy = MarketIntro.WaterInst;
+            int energy = marketIntro.WaterInst;
 
             if (energy - price < 0)
+            {
                 return false;
+            }
             else
             {
                 lastPrice = price;
@@ -30,12 +34,17 @@ namespace Bogadanul.Assets.Scripts.Player
 
         public void Substract ()
         {
-            MarketIntro.WaterInst -= lastPrice;
+            marketIntro.WaterInst -= lastPrice;
         }
 
         private void Awake ()
         {
-            MarketIntro.Init (startWater);
+            marketIntro = GetComponent<MarketIntro> ();
+        }
+
+        private void Start ()
+        {
+            marketIntro.Init (energyStart);
         }
 
         private void OnDisable ()

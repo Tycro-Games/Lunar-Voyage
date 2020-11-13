@@ -19,7 +19,7 @@ namespace Bogadanul.Assets.Scripts.Player
         {
             if (currentTree != null)
             {
-                Node n = raycaster.NodeFromPoint (Input.mousePosition);
+                Node n = raycaster.NodeFromInput (Input.mousePosition);
                 if (n?.Placeable () == true && checkPlacer.CheckToPlace (n, currentTree))
                 {
                     currentTree = null;

@@ -257,6 +257,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1518370455450868718}
   - component: {fileID: 1518370455450868716}
+  - component: {fileID: 4146199714974070836}
   m_Layer: 0
   m_Name: Economy
   m_TagString: Untagged
@@ -290,4 +291,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30d639162cda6f94db2436b05ec58a99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startWater: 10
+  energyStart: 75
+--- !u!114 &4146199714974070836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1518370455450868719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75625e967fac2a348a5555e08f94e3dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

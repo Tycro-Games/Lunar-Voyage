@@ -7,13 +7,14 @@ namespace Bogadanul.Assets.Scripts.Tree
 {
     public class AncientTree : MonoBehaviour
     {
-        public static List<Node> currentNodes = new List<Node> ();
+        public List<Node> currentNodes = new List<Node> ();
 
         [SerializeField]
         private LayerMask cellsLayer = 0;
 
-        private void CheckSpace ()
+        public void CheckSpace ()
         {
+            currentNodes = new List<Node> ();
             Collider[] cols = new Collider[8];
             int count = Physics.OverlapBoxNonAlloc (transform.position, Vector2.zero, cols, Quaternion.identity, cellsLayer);
             if (count > 0)
@@ -23,12 +24,6 @@ namespace Bogadanul.Assets.Scripts.Tree
                     currentNodes.Add (cols[i].gameObject.GetComponent<NodeInstance> ().node);
                 }
             }
-        }
-
-        private void Awake ()
-        {
-            currentNodes = new List<Node> ();
-            CheckSpace ();
         }
 
         private void OnDrawGizmos ()

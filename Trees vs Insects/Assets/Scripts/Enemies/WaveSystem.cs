@@ -38,7 +38,7 @@ namespace Bogadanul.Assets.Scripts.Enemies
 
         public IEnumerator RandomSpawner (int enemyWeight)
         {
-            while (enemyWeight >= 0)
+            while (enemyWeight > 0)
             {
                 EnemySpawner spawner = trigger.ChooseASpawner ();
 
