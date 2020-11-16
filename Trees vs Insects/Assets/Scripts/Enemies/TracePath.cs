@@ -1,4 +1,6 @@
 ﻿using Bogadanul.Assets.Scripts.Player;
+using Bogadanul.Assets.Scripts.Tree;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,6 +11,8 @@ namespace Bogadanul.Assets.Scripts.Enemies
     {
         [SerializeField]
         private float unitsPerSec = 1.0f;
+
+        private ReachAncientTree reachAncient = null;
 
         public override List<Node> SetPath
         {
@@ -23,6 +27,11 @@ namespace Bogadanul.Assets.Scripts.Enemies
         {
             StopAllCoroutines ();
             StartCoroutine (FollowPath (path));
+        }
+
+        private void Start ()
+        {
+            reachAncient = GetComponent<ReachAncientTree> ();
         }
 
         private Vector3 Dir (Vector3 thingTolookAt)
@@ -40,6 +49,7 @@ namespace Bogadanul.Assets.Scripts.Enemies
 
                 i++;
             }
+            reachAncient.Reached ();
         }
 
         private IEnumerator Move (Vector3 node)

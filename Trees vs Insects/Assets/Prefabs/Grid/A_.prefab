@@ -100,7 +100,9 @@ GameObject:
   - component: {fileID: 434980776340564489}
   - component: {fileID: 1176542769}
   - component: {fileID: 6240288622177121739}
-  m_Layer: 12
+  - component: {fileID: 389067251773988506}
+  - component: {fileID: 7994270909626967359}
+  m_Layer: 13
   m_Name: Finish
   m_TagString: Untagged
   m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
@@ -162,6 +164,46 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   energyGain: 50
+--- !u!114 &389067251773988506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4830277979645973455}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbf410a1446c5664887077c11041397f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7994270909626967359
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4830277979645973455}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2174729f36d955848af18fb955156f80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  loop: 1
+  OnTimerFinished:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6240288622177121739}
+        m_MethodName: AddEnergy
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  TimeToWait: 10
 --- !u!1 &4830277980041357211
 GameObject:
   m_ObjectHideFlags: 0

@@ -24,15 +24,32 @@ namespace Bogadanul.Assets.Scripts.Enemies
         [SerializeField]
         private Wave[] waves = null;
 
+        private bool IsWaveStarted = false;
+        private int tempWeight = 0;
+
         public void RandomSpawner ()
         {
             if (currentWave < waves.Length)
             {
-                enemyWeight = waves[currentWave].weight;
+                if (!IsWaveStarted)
+                {
+                    IsWaveStarted = true;
 
-                enemyChooser.Init (waves[currentWave].enemies);
+                    enemyWeight = waves[currentWave].weight;
 
-                StartCoroutine (RandomSpawner (enemyWeight));
+                    enemyChooser.Init (waves[currentWave].enemies);
+                    StartCoroutine (RandomSpawner (enemyWeight));
+                }
+                else
+                {
+                    if (tempWeight <= 0)
+                    {
+                        StopCoroutine (RandomSpawner (tempWeight));
+                        IsWaveStarted = false;
+                        currentWave++;
+                        RandomSpawner ();
+                    }
+                }
             }
         }
 
@@ -40,20 +57,26 @@ namespace Bogadanul.Assets.Scripts.Enemies
         {
             while (enemyWeight > 0)
             {
-                EnemySpawner spawner = trigger.ChooseASpawner ();
-
                 int index = enemyChooser.ChooseEnemy (enemyWeight);
-
                 enemyWeight -= waves[currentWave].enemies[index].weight;
+
                 if (enemyWeight < 0)
                     continue;
 
-                GameObject enemy = waves[currentWave].enemies[index].enemyGameObject;
-                spawner.Spawn (enemy);
+                tempWeight = enemyWeight;
+                SpawnEnemies (index);
 
                 yield return new WaitForSeconds (waves[currentWave].durationBetweenEnemies);
             }
+            IsWaveStarted = false;
             currentWave++;
+        }
+
+        private void SpawnEnemies (int index)
+        {
+            EnemySpawner spawner = trigger.ChooseASpawner ();
+            GameObject enemy = waves[currentWave].enemies[index].enemyGameObject;
+            spawner.Spawn (enemy);
         }
 
         private void Awake ()

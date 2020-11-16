@@ -12,13 +12,13 @@ namespace Bogadanul.Assets.Scripts.Enemies
         private TracePathCheck path;
         private List<Node> pathCurrent = new List<Node> ();
         private Transform seeker, target = null;
-        private AncientTree ancientTree;
+        private AncientTreeSpaceChecker ancientTree;
         private NodeFinder node;
 
         public void Awake ()
         {
             node = FindObjectOfType<NodeFinder> ();
-            ancientTree = FindObjectOfType<AncientTree> ();
+            ancientTree = FindObjectOfType<AncientTreeSpaceChecker> ();
             seeker = transform;
 
             path = GetComponent<TracePathCheck> ();

@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Bogadanul.Assets.Scripts.Tree
 {
-    public class AncientTree : MonoBehaviour
+    public class AncientTreeSpaceChecker : MonoBehaviour
     {
         public List<Node> currentNodes = new List<Node> ();
 
