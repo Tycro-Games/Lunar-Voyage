@@ -7,6 +7,7 @@ namespace Bogadanul.Assets.Scripts.Tree
     {
         public void OnTreeReach ()
         {
+            Debug.Log ("tree has taken damage");
         }
     }
 }

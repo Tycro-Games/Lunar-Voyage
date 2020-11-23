@@ -2,7 +2,7 @@
 
 namespace Bogadanul.Assets.Scripts.Tree
 {
-    public class TreeRecon : MonoBehaviour
+    public class TreeRecon : MonoBehaviour, ITreeRecon
     {
         private BoxCollider[] colliders = new BoxCollider[10];
 
@@ -11,13 +11,6 @@ namespace Bogadanul.Assets.Scripts.Tree
 
         [SerializeField]
         private float radius = 5.0f;
-
-        public bool CheckDist (BoxCollider col)
-        {
-            if (radius * radius >= dist (col.transform.position))
-                return true;
-            return false;
-        }
 
         public BoxCollider CheckSorounding ()
         {
@@ -42,6 +35,13 @@ namespace Bogadanul.Assets.Scripts.Tree
                 return col;
             }
             return null;
+        }
+
+        public bool CheckDist (BoxCollider col)
+        {
+            if (radius * radius >= dist (col.transform.position))
+                return true;
+            return false;
         }
 
         private float dist (Vector3 col)
