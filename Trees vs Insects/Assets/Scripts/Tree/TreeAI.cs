@@ -5,7 +5,7 @@ namespace Bogadanul.Assets.Scripts.Tree
     public class TreeAI : MonoBehaviour
     {
         private BoxCollider target;
-        private TreeRecon treeRecon;
+        private ITreeRecon treeRecon;
         private ITreeShoot treeShoot;
 
         public void GetBoxCol ()
@@ -27,7 +27,7 @@ namespace Bogadanul.Assets.Scripts.Tree
         private void Start ()
         {
             treeShoot = GetComponent<ITreeShoot> ();
-            treeRecon = GetComponent<TreeRecon> ();
+            treeRecon = GetComponent<ITreeRecon> ();
         }
 
         private void Update ()
