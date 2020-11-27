@@ -19,7 +19,7 @@ namespace Bogadanul.Assets.Scripts.Tree
         {
             market.OnEnergyChange -= UpdateText;
         }
-
+        
         private void UpdateText (int value)
         {
             text.text = value.ToString ();

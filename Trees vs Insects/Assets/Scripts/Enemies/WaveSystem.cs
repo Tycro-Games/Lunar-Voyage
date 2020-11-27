@@ -51,6 +51,7 @@ namespace Bogadanul.Assets.Scripts.Enemies
                     }
                 }
             }
+            Debug.Log("end");//add the next level here
         }
 
         public IEnumerator RandomSpawner (int enemyWeight)
