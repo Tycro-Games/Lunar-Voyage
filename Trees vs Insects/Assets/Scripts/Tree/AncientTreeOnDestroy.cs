@@ -1,13 +1,32 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Bogadanul.Assets.Scripts.Tree
 {
     public class AncientTreeOnDestroy : MonoBehaviour
     {
-        public void OnTreeReach ()
+        [SerializeField]
+        private int health = 2;
+
+        [SerializeField]
+        private UnityEvent OnDead = null;
+
+        public void OnTreeReach (int healthlost)
         {
-            Debug.Log ("tree has taken damage");
+            health -= healthlost;
+            //some effect on enemies explosion
+            if (health <= 0)
+            {
+                Dead ();
+            }
+        }
+
+        public void Dead ()
+        {
+            OnDead?.Invoke ();
+            Debug.Log ("Lost");
+            //scene manager pops up
         }
     }
 }

@@ -16,6 +16,9 @@ namespace Bogadanul.Assets.Scripts.Player
         public LayerMask ocupiedMask;
 
         [SerializeField]
+        private Transform collParent = null;
+
+        [SerializeField]
         private GameObject nodeCol = null;
 
         private Node[,] grid;
@@ -117,7 +120,7 @@ namespace Bogadanul.Assets.Scripts.Player
 
         private void SpawnCols (Node node)
         {
-            GameObject col = Instantiate (nodeCol, node.worldPosition, Quaternion.identity, transform);
+            GameObject col = Instantiate (nodeCol, node.worldPosition, Quaternion.identity, collParent);
 
             NodeInstance instance = col.GetComponent<NodeInstance> ();
             instance.Init (node);

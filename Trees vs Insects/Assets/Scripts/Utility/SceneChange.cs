@@ -5,12 +5,9 @@ namespace Bogadanul.Assets.Scripts.Utility
 {
     public class SceneChange : MonoBehaviour
     {
-        private void Update ()
+        public void ReloadScene ()
         {
-            if (Input.GetMouseButtonDown (1))
-            {
-                SceneManager.LoadScene (SceneManager.GetActiveScene ().name);
-            }
+            SceneManager.LoadScene (SceneManager.GetActiveScene ().name);
         }
     }
 }
