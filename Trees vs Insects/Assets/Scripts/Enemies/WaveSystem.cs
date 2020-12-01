@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Bogadanul.Assets.Scripts.Enemies
 {
@@ -27,6 +28,9 @@ namespace Bogadanul.Assets.Scripts.Enemies
         private bool IsWaveStarted = false;
         private int tempWeight = 0;
 
+        [SerializeField]
+        private UnityEvent OnLevelEnd = null;
+
         public void RandomSpawner ()
         {
             if (currentWave < waves.Length)
@@ -51,7 +55,7 @@ namespace Bogadanul.Assets.Scripts.Enemies
                     }
                 }
             }
-            Debug.Log("end");//add the next level here
+            OnLevelEnd?.Invoke ();
         }
 
         public IEnumerator RandomSpawner (int enemyWeight)
