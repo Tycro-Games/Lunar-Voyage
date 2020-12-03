@@ -18,9 +18,9 @@ namespace Bogadanul.Assets.Scripts.Utility
             return CursorPos;
         }
 
-        private void FixedUpdate ()
+        private void Update ()
         {
-            transform.position = Vector2.SmoothDamp (transform.position, MousePosition (), ref velocity, smooth);
+            transform.position = Vector2.Lerp (transform.position, MousePosition (), smooth * Time.unscaledDeltaTime);
         }
 
         private void Start ()

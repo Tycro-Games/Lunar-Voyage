@@ -20,25 +20,25 @@ public class Pause : MonoBehaviour
 
     public void ToPause (string name)
     {
-        if (!isPaused)
+        if (!IsPaused)
         {
             sceneChange.LoadSceneAd (name);
-            isPaused = true;
+            IsPaused = true;
         }
     }
 
     public void ToUnpause (string name)
     {
-        if (isPaused)
+        if (IsPaused)
         {
             sceneChange.UnloadScene (name);
-            isPaused = false;
+            IsPaused = false;
         }
     }
 
     private void SetTime ()
     {
-        if (isPaused)
+        if (IsPaused)
             Time.timeScale = 0;
         else
             Time.timeScale = 1;
