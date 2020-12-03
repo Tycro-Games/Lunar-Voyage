@@ -9,13 +9,25 @@ namespace Bogadanul.Assets.Scripts.Utility
         {
             SceneManager.LoadScene (SceneManager.GetActiveScene ().name);
         }
-        public void LoadSceneSi(string name)
+
+        public void LoadSceneSi (string name)
         {
-            SceneManager.LoadScene(name);
+            SceneManager.LoadScene (name);
         }
-        public void LoadNextLevel()
+
+        public void LoadSceneAd (string name)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
+            SceneManager.LoadScene (name, LoadSceneMode.Additive);
+        }
+
+        public void UnloadScene (string name)
+        {
+            SceneManager.UnloadSceneAsync (name);
+        }
+
+        public void LoadNextLevel ()
+        {
+            SceneManager.LoadScene (SceneManager.GetActiveScene ().buildIndex + 1);
         }
     }
 }

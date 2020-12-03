@@ -2,7 +2,7 @@
     "name": "Player",
     "maps": [
         {
-            "name": "Mouse",
+            "name": "Keyboard",
             "id": "1891be02-8b04-419f-b11e-1e21bcd21210",
             "actions": [
                 {
@@ -26,6 +26,14 @@
                     "type": "PassThrough",
                     "id": "59d29164-2fbf-4535-a800-f149f1184cbf",
                     "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Esc",
+                    "type": "Button",
+                    "id": "fc5fd069-bb16-433e-8e85-88d138dbeebc",
+                    "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
                 }
@@ -61,6 +69,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6c62ff89-75ea-4844-a2ec-ddbc299819ac",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Esc",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

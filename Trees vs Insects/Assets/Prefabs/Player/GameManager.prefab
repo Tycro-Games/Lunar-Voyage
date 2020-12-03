@@ -87,6 +87,36 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: f0386fb4-94a4-4deb-9c21-41669d39e3ae
     m_ActionName: Mouse/Deselect[/Mouse/rightButton]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_MethodName: CancelCurrentSeed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: f0386fb4-94a4-4deb-9c21-41669d39e3ae
+    m_ActionName: Mouse/Deselect[/Mouse/rightButton]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5333537932189755588}
+        m_MethodName: LoadSceneAd
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: PauseMenu
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: fc5fd069-bb16-433e-8e85-88d138dbeebc
+    m_ActionName: Mouse/New action
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Mouse
@@ -137,6 +167,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1518370454432785298}
   - component: {fileID: 1518370454432785297}
+  - component: {fileID: 5333537932189755588}
   m_Layer: 0
   m_Name: Utility
   m_TagString: Untagged
@@ -168,6 +199,18 @@ MonoBehaviour:
   m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6d7d58d3cb9171544a95b7fc2ba04c87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5333537932189755588
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1518370454432785299}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 119609ced02360c4982f063876fdc9df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1518370455002664305
