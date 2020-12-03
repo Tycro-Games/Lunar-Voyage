@@ -41,6 +41,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Tile
+    uniqueID: 3810370291
+    locked: 0
   - name: Tree
     uniqueID: 2210551455
     locked: 0

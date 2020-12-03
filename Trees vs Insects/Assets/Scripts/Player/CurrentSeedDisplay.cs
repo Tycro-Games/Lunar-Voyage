@@ -25,10 +25,12 @@ namespace Bogadanul.Assets.Scripts.Player
             if (spriteRen.sprite != null)
             {
                 Node n = node.NodeFromInput (mouse);
-                if (n?.Placeable () == true)
+                bool hasPlace = n?.Placeable () == true;
+                if (hasPlace)
                 {
                     transform.position = n.worldPosition;
                 }
+                spriteRen.enabled = hasPlace;
             }
         }
 

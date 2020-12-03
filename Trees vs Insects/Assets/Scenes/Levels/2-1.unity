@@ -233,6 +233,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1941249974602904823, guid: 7d0592356c2fbe84aaa524842882651c,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 910654967}
     - target: {fileID: 1941249974602904824, guid: 7d0592356c2fbe84aaa524842882651c,
         type: 3}
       propertyPath: m_Name
@@ -295,7 +300,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 895169652}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 962624162}
@@ -442,11 +447,6 @@ PrefabInstance:
       propertyPath: cursor
       value: 
       objectReference: {fileID: 962624161}
-    - target: {fileID: 1518370454936563844, guid: 2d2288358d54cb949a246a78f82ad470,
-        type: 3}
-      propertyPath: energyStart
-      value: 10000000
-      objectReference: {fileID: 0}
     - target: {fileID: 4830277980041357211, guid: 2d2288358d54cb949a246a78f82ad470,
         type: 3}
       propertyPath: m_Name
