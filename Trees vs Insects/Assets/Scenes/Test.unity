@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -233,10 +233,40 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1941249974602904820, guid: 7d0592356c2fbe84aaa524842882651c,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1941249974602904820, guid: 7d0592356c2fbe84aaa524842882651c,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1941249974602904820, guid: 7d0592356c2fbe84aaa524842882651c,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1941249974602904823, guid: 7d0592356c2fbe84aaa524842882651c,
+        type: 3}
+      propertyPath: m_RenderMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1941249974602904823, guid: 7d0592356c2fbe84aaa524842882651c,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 910654967}
     - target: {fileID: 1941249974602904824, guid: 7d0592356c2fbe84aaa524842882651c,
         type: 3}
       propertyPath: m_Name
       value: UI
+      objectReference: {fileID: 0}
+    - target: {fileID: 1941249975009520932, guid: 7d0592356c2fbe84aaa524842882651c,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 54.5
       objectReference: {fileID: 0}
     - target: {fileID: 5371944495148191951, guid: 7d0592356c2fbe84aaa524842882651c,
         type: 3}
@@ -438,10 +468,31 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 190975968, guid: 2d2288358d54cb949a246a78f82ad470, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 256791376, guid: 2d2288358d54cb949a246a78f82ad470, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 869282387, guid: 2d2288358d54cb949a246a78f82ad470, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1149903896, guid: 2d2288358d54cb949a246a78f82ad470, type: 3}
       propertyPath: cursor
       value: 
       objectReference: {fileID: 962624161}
+    - target: {fileID: 1657383531, guid: 2d2288358d54cb949a246a78f82ad470, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 119772059123318044, guid: 2d2288358d54cb949a246a78f82ad470,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1518370454936563844, guid: 2d2288358d54cb949a246a78f82ad470,
         type: 3}
       propertyPath: energyStart
@@ -564,7 +615,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1935742771
   m_SortingLayer: 1
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

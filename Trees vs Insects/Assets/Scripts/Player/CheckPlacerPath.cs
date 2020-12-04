@@ -26,13 +26,19 @@ namespace Bogadanul.Assets.Scripts.Player
         [SerializeField]
         private RandomNumbers randomNumbers = new RandomNumbers ();
 
+        [SerializeField]
+        private float multiplier = 1f;
+
         public bool CheckToPlace (Node cell, GameObject currentTree)
         {
             if (cell == null && !cell.Walkable)
                 return false;
 
             EnemyManager.hasPath = false;
-            Vector2 pos = cell.worldPosition + new Vector3 (Random.Range (randomNumbers.Minx, randomNumbers.Maxx), Random.Range (randomNumbers.Miny, randomNumbers.Maxy), 0);
+            Vector2 pos = cell.worldPosition + new Vector3 (Random.Range (randomNumbers.Minx * multiplier,
+                randomNumbers.Maxx * multiplier), Random.Range (randomNumbers.Miny * multiplier,
+                randomNumbers.Maxy * multiplier),
+                0);
             GameObject currentPlace = Instantiate (currentTree, pos, Quaternion.identity, transform);
             EnemyManager.CheckSpace ();
             if (!EnemyManager.hasPath)

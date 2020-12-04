@@ -17,7 +17,7 @@ namespace Bogadanul.Assets.Scripts.Enemies
 
         public void Awake ()
         {
-            node = FindObjectOfType<NodeFinder> ();
+            node = GetComponent<NodeFinder> ();
             ancientTree = FindObjectOfType<AncientTreeSpaceChecker> ();
             seeker = transform;
 
@@ -73,8 +73,7 @@ namespace Bogadanul.Assets.Scripts.Enemies
             grid.UpdateGrid ();
 
             Node startNode = node.NodeFromPoint ();
-            if (startNode == null)
-                return false;
+            if (startNode == null) return false;
             Node targetNode = ancientTree.currentNodes[0];
 
             Heap<Node> openSet = new Heap<Node> (grid.MaxSize);

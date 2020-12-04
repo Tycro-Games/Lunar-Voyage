@@ -16,8 +16,7 @@ namespace Bogadanul.Assets.Scripts.Enemies
         {
             GameObject enemy = Instantiate (enemyPrefab, transform.position, Quaternion.identity, transform);
 
-            Pathfinding[] enemyPaths = enemy.GetComponentsInChildren<Pathfinding> ();
-            foreach (Pathfinding enemyPath in enemyPaths)
+            foreach (Pathfinding enemyPath in enemy.GetComponentsInChildren<Pathfinding> ())
             {
                 enemyPath.Init (target, grid);
             }
