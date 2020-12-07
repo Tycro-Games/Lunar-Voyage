@@ -42,6 +42,7 @@ namespace Bogadanul.Assets.Scripts.Tree
         private void MoveToTarget ()
         {
             transform.position = Vector2.MoveTowards (transform.position, target.position, Time.deltaTime * speed);
+            transform.rotation = Quaternion.LookRotation (Vector3.forward, (target.position - transform.position).normalized);
         }
 
         private void Update ()

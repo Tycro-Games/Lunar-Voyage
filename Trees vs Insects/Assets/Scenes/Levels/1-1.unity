@@ -447,6 +447,16 @@ PrefabInstance:
       propertyPath: cursor
       value: 
       objectReference: {fileID: 962624161}
+    - target: {fileID: 389067251773988506, guid: 2d2288358d54cb949a246a78f82ad470,
+        type: 3}
+      propertyPath: OnDead.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 389067251773988506, guid: 2d2288358d54cb949a246a78f82ad470,
+        type: 3}
+      propertyPath: OnDead.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: LoseScreen
+      objectReference: {fileID: 0}
     - target: {fileID: 1518370454250224657, guid: 2d2288358d54cb949a246a78f82ad470,
         type: 3}
       propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.size
@@ -481,6 +491,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_BoolArgument
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2313814056617838248, guid: 2d2288358d54cb949a246a78f82ad470,
+        type: 3}
+      propertyPath: waves.Array.size
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4830277980041357211, guid: 2d2288358d54cb949a246a78f82ad470,
         type: 3}

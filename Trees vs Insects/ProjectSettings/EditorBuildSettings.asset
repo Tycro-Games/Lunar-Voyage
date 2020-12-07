@@ -6,9 +6,21 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Levels/1-1.unity
+    guid: 3c51d655cf0b9904481579468927e8ec
+  - enabled: 1
+    path: Assets/Scenes/Levels/1-2.unity
+    guid: 0b4e99dd8c377334abaceb92cb4c2a65
+  - enabled: 1
     path: Assets/Scenes/UI/PauseMenu.unity
     guid: 7e3463bcccd667c42893d532c458f6c7
   - enabled: 1
-    path: Assets/Scenes/Levels/1-1.unity
-    guid: 3c51d655cf0b9904481579468927e8ec
+    path: Assets/Scenes/UI/LoseScreen.unity
+    guid: 0148e0fb62160e64db0471b948fa77c9
+  - enabled: 1
+    path: Assets/Scenes/UI/MainMenu.unity
+    guid: 20ae1f4823ac72646a709b7aab7dd6ef
+  - enabled: 1
+    path: Assets/Scenes/UI/WinScreen.unity
+    guid: 2ee97ded04946f241980fc489e3ab86e
   m_configObjects: {}

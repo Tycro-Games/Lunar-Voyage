@@ -44,18 +44,16 @@ namespace Bogadanul.Assets.Scripts.Enemies
                     enemyChooser.Init (waves[currentWave].enemies);
                     StartCoroutine (RandomSpawner (enemyWeight));
                 }
-                else
+                else if (tempWeight <= 0)
                 {
-                    if (tempWeight <= 0)
-                    {
-                        StopCoroutine (RandomSpawner (tempWeight));
-                        IsWaveStarted = false;
-                        currentWave++;
-                        RandomSpawner ();
-                    }
+                    StopCoroutine (RandomSpawner (tempWeight));
+                    IsWaveStarted = false;
+                    currentWave++;
+                    RandomSpawner ();
                 }
             }
-            OnLevelEnd?.Invoke ();
+            else
+                OnLevelEnd?.Invoke ();
         }
 
         public IEnumerator RandomSpawner (int enemyWeight)
