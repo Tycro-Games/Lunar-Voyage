@@ -8,7 +8,7 @@ namespace Bogadanul.Assets.Scripts.Enemies
     {
         protected List<Node> path = new List<Node> ();
 
-        public virtual List<Node> SetPath
+        public virtual List<Node> Path
         {
             get
             {

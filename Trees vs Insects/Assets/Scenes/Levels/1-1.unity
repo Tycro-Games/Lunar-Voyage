@@ -243,6 +243,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI
       objectReference: {fileID: 0}
+    - target: {fileID: 1941249975009520933, guid: 7d0592356c2fbe84aaa524842882651c,
+        type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5371944494031401433, guid: 7d0592356c2fbe84aaa524842882651c,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 12.260002
+      objectReference: {fileID: 0}
     - target: {fileID: 5371944495148191951, guid: 7d0592356c2fbe84aaa524842882651c,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -491,6 +501,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_BoolArgument
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1518370454250224657, guid: 2d2288358d54cb949a246a78f82ad470,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: Options
       objectReference: {fileID: 0}
     - target: {fileID: 2313814056617838248, guid: 2d2288358d54cb949a246a78f82ad470,
         type: 3}

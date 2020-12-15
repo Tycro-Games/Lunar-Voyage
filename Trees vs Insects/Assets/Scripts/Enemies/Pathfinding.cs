@@ -11,6 +11,7 @@ namespace Bogadanul.Assets.Scripts.Enemies
         private Gridmanager grid;
         private TracePathCheck path;
         private List<Node> pathCurrent = new List<Node> ();
+       
         private Transform seeker, target = null;
         private AncientTreeSpaceChecker ancientTree;
         private NodeFinder node;
@@ -53,10 +54,14 @@ namespace Bogadanul.Assets.Scripts.Enemies
                 pathCurrent.Add (currentNode);
                 currentNode = currentNode.parent;
             }
+           
+                pathCurrent.Add (startNode);
+
+            
 
             pathCurrent.Reverse ();
 
-            path.SetPath = pathCurrent;
+            path.Path = pathCurrent;
         }
 
         private void Start ()

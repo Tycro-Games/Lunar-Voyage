@@ -9,8 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1060800208333605968}
-  - component: {fileID: 1215575100298438836}
-  - component: {fileID: 4346614480980944686}
   m_Layer: 0
   m_Name: MenuFunctionability
   m_TagString: Untagged
@@ -32,30 +30,6 @@ Transform:
   m_Father: {fileID: 7439754339964150006}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1215575100298438836
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1060800208333605998}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d7d58d3cb9171544a95b7fc2ba04c87, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &4346614480980944686
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1060800208333605998}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 119609ced02360c4982f063876fdc9df, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &7439754339964150010
 GameObject:
   m_ObjectHideFlags: 0

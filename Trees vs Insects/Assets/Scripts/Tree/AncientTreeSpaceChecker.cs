@@ -21,7 +21,7 @@ namespace Bogadanul.Assets.Scripts.Tree
             {
                 for (int i = 0; i < count; i++)
                 {
-                    currentNodes.Add (cols[i].gameObject.GetComponent<NodeInstance> ().node);
+                    currentNodes.Add (cols[i].gameObject.GetComponent<NodeInstance> ().Nodey);
                 }
             }
         }

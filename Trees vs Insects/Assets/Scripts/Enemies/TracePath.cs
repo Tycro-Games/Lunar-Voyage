@@ -9,16 +9,15 @@ namespace Bogadanul.Assets.Scripts.Enemies
 {
     public class TracePath : TracePathCheck
     {
-        [SerializeField]
-        private float unitsPerSec = 1.0f;
-
         private ReachAncientTree reachAncient = null;
+        private Move move;
 
-        public override List<Node> SetPath
+        public override List<Node> Path
         {
             set
             {
                 path = value;
+
                 StartPath ();
             }
         }
@@ -31,36 +30,17 @@ namespace Bogadanul.Assets.Scripts.Enemies
 
         private void Start ()
         {
+            move = GetComponent<Move> ();
             reachAncient = GetComponent<ReachAncientTree> ();
-        }
-
-        private Vector3 Dir (Vector3 thingTolookAt)
-        {
-            Vector2 dir = (thingTolookAt - transform.position).normalized;
-            return dir;
         }
 
         private IEnumerator FollowPath (List<Node> path)
         {
-            int i = 0;
-            while (i < path.Count)
+            for (int i = 0; i < path.Count; i++)
             {
-                yield return StartCoroutine (Move (path[i].worldPosition));
-
-                i++;
+                yield return StartCoroutine (move.MoveTo (path[i].worldPosition));
             }
             reachAncient.Reached ();
-        }
-
-        private IEnumerator Move (Vector3 node)
-        {
-            while (transform.position != node)
-            {
-                transform.position = Vector3.MoveTowards (transform.position, node, unitsPerSec * Time.deltaTime);
-
-                Debug.DrawLine (transform.position, transform.position + Dir (node));
-                yield return null;
-            }
         }
     }
 }

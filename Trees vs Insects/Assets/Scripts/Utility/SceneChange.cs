@@ -29,5 +29,10 @@ namespace Bogadanul.Assets.Scripts.Utility
         {
             SceneManager.LoadScene (SceneManager.GetActiveScene ().buildIndex + 1);
         }
+
+        public void Quit ()
+        {
+            Application.Quit ();
+        }
     }
 }

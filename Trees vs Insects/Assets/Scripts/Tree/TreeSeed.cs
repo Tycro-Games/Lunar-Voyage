@@ -7,6 +7,7 @@ namespace Bogadanul.Assets.Scripts.Tree
     {
         public Sprite icon;
         public int price;
+        public float cooldown;
         public Sprite sprite;
         public GameObject TreeGameObject;
     }

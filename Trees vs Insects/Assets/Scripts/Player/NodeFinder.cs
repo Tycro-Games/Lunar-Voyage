@@ -16,7 +16,7 @@ namespace Bogadanul.Assets.Scripts.Player
                 &&
                 hit.collider.gameObject.CompareTag ("grid"))
             {
-                Node n = hit.collider.GetComponent<NodeInstance> ().node;
+                Node n = hit.collider.GetComponent<NodeInstance> ().Nodey;
                 if (!n.Ocupied)
                     return n;
             }
@@ -29,7 +29,7 @@ namespace Bogadanul.Assets.Scripts.Player
             Collider[] cols = new Collider[1];
             int count = Physics.OverlapBoxNonAlloc (transform.position, Vector3.zero, cols, Quaternion.identity, layerToPlace);
             if (count != 0)
-                node = cols[0].gameObject.GetComponent<NodeInstance> ().node;
+                node = cols[0].gameObject.GetComponent<NodeInstance> ().Nodey;
             return node;
         }
 
