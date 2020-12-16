@@ -10,7 +10,8 @@ namespace Bogadanul.Assets.Scripts.Enemies
     public class TracePath : TracePathCheck
     {
         private ReachAncientTree reachAncient = null;
-        private Move move;
+        private Move move = null;
+        private Node lastNode = null;
 
         public override List<Node> Path
         {
@@ -25,6 +26,7 @@ namespace Bogadanul.Assets.Scripts.Enemies
         public void StartPath ()
         {
             StopAllCoroutines ();
+
             StartCoroutine (FollowPath (path));
         }
 
@@ -36,9 +38,18 @@ namespace Bogadanul.Assets.Scripts.Enemies
 
         private IEnumerator FollowPath (List<Node> path)
         {
-            for (int i = 0; i < path.Count; i++)
+            int i = 0;
+            if (lastNode == null)
+                lastNode = path[i];
+            else if (path[i] == lastNode)
+            {
+                i++;
+            }
+
+            for (; i < path.Count; i++)
             {
                 yield return StartCoroutine (move.MoveTo (path[i].worldPosition));
+                lastNode = path[i];
             }
             reachAncient.Reached ();
         }

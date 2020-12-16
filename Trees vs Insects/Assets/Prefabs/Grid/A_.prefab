@@ -4674,6 +4674,28 @@ MonoBehaviour:
           m_StringArgument: LoseScreen
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 1518370455516882463}
+        m_MethodName: Reset
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: LoseScreen
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1149903896}
+        m_MethodName: ResetSprite
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: LoseScreen
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!1 &4830277980041357211
 GameObject:
   m_ObjectHideFlags: 0
@@ -5113,7 +5135,7 @@ PrefabInstance:
     - target: {fileID: 7030771875118139074, guid: cf22c1a3814e5ad49a0afe51a265f37c,
         type: 3}
       propertyPath: OnLevelEnd.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7030771875118139074, guid: cf22c1a3814e5ad49a0afe51a265f37c,
         type: 3}
@@ -5149,6 +5171,66 @@ PrefabInstance:
     - target: {fileID: 7030771875118139074, guid: cf22c1a3814e5ad49a0afe51a265f37c,
         type: 3}
       propertyPath: OnLevelEnd.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7030771875118139074, guid: cf22c1a3814e5ad49a0afe51a265f37c,
+        type: 3}
+      propertyPath: OnLevelEnd.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1518370455516882463}
+    - target: {fileID: 7030771875118139074, guid: cf22c1a3814e5ad49a0afe51a265f37c,
+        type: 3}
+      propertyPath: OnLevelEnd.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: Reset
+      objectReference: {fileID: 0}
+    - target: {fileID: 7030771875118139074, guid: cf22c1a3814e5ad49a0afe51a265f37c,
+        type: 3}
+      propertyPath: OnLevelEnd.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7030771875118139074, guid: cf22c1a3814e5ad49a0afe51a265f37c,
+        type: 3}
+      propertyPath: OnLevelEnd.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 7030771875118139074, guid: cf22c1a3814e5ad49a0afe51a265f37c,
+        type: 3}
+      propertyPath: OnLevelEnd.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_StringArgument
+      value: WinScreen
+      objectReference: {fileID: 0}
+    - target: {fileID: 7030771875118139074, guid: cf22c1a3814e5ad49a0afe51a265f37c,
+        type: 3}
+      propertyPath: OnLevelEnd.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7030771875118139074, guid: cf22c1a3814e5ad49a0afe51a265f37c,
+        type: 3}
+      propertyPath: OnLevelEnd.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 1149903896}
+    - target: {fileID: 7030771875118139074, guid: cf22c1a3814e5ad49a0afe51a265f37c,
+        type: 3}
+      propertyPath: OnLevelEnd.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: ResetSprite
+      objectReference: {fileID: 0}
+    - target: {fileID: 7030771875118139074, guid: cf22c1a3814e5ad49a0afe51a265f37c,
+        type: 3}
+      propertyPath: OnLevelEnd.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7030771875118139074, guid: cf22c1a3814e5ad49a0afe51a265f37c,
+        type: 3}
+      propertyPath: OnLevelEnd.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 7030771875118139074, guid: cf22c1a3814e5ad49a0afe51a265f37c,
+        type: 3}
+      propertyPath: OnLevelEnd.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_StringArgument
+      value: WinScreen
+      objectReference: {fileID: 0}
+    - target: {fileID: 7030771875118139074, guid: cf22c1a3814e5ad49a0afe51a265f37c,
+        type: 3}
+      propertyPath: OnLevelEnd.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
       value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []

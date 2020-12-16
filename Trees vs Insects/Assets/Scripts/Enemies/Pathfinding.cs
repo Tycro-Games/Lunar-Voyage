@@ -11,7 +11,7 @@ namespace Bogadanul.Assets.Scripts.Enemies
         private Gridmanager grid;
         private TracePathCheck path;
         private List<Node> pathCurrent = new List<Node> ();
-       
+
         private Transform seeker, target = null;
         private AncientTreeSpaceChecker ancientTree;
         private NodeFinder node;
@@ -54,14 +54,23 @@ namespace Bogadanul.Assets.Scripts.Enemies
                 pathCurrent.Add (currentNode);
                 currentNode = currentNode.parent;
             }
-           
-                pathCurrent.Add (startNode);
 
-            
+            pathCurrent.Add (startNode);
 
             pathCurrent.Reverse ();
 
             path.Path = pathCurrent;
+        }
+
+        private bool CloserFirst (Node first, Node second)
+        {
+            Vector2 pos = transform.position;
+            float distf = (pos - (Vector2)first.worldPosition).magnitude;
+            float dists = (pos - (Vector2)second.worldPosition).magnitude;
+            if (distf < dists)
+                return true;
+            else
+                return false;
         }
 
         private void Start ()
