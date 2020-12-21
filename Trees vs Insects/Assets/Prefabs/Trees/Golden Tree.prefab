@@ -149,7 +149,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c944fb629ac85cb4b86ac5c0e0fd2bec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  energyGain: 1
+  energyGain: 20
 --- !u!114 &5977206656215406353
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -189,7 +189,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  TimeToWait: 2
+  TimeToWait: 20
 --- !u!65 &8330554719374839517
 BoxCollider:
   m_ObjectHideFlags: 0

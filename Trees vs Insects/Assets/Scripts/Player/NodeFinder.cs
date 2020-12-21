@@ -23,11 +23,11 @@ namespace Bogadanul.Assets.Scripts.Player
             return null;
         }
 
-        public Node NodeFromPoint ()
+        public Node NodeFromPoint (Transform trans)
         {
             Node node = null;
             Collider[] cols = new Collider[1];
-            int count = Physics.OverlapBoxNonAlloc (transform.position, Vector3.zero, cols, Quaternion.identity, layerToPlace);
+            int count = Physics.OverlapBoxNonAlloc (trans.position, Vector3.zero, cols, Quaternion.identity, layerToPlace);
             if (count != 0)
                 node = cols[0].gameObject.GetComponent<NodeInstance> ().Nodey;
             return node;

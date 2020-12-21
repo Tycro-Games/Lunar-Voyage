@@ -13,9 +13,7 @@ namespace Bogadanul.Assets.Scripts.Utility
 
         public Vector2 MousePosition ()
         {
-            Vector2 CursorPos = Camera.main.ScreenToWorldPoint (Input.mousePosition);
-
-            return CursorPos;
+            return Camera.main.ScreenToWorldPoint (Input.mousePosition);
         }
 
         private void Update ()

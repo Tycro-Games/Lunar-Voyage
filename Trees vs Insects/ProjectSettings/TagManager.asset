@@ -50,6 +50,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: BeforeOver
+    uniqueID: 2466477851
+    locked: 0
   - name: Overlay
     uniqueID: 1935742771
     locked: 0

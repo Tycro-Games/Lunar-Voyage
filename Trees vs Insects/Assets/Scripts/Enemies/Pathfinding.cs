@@ -62,17 +62,6 @@ namespace Bogadanul.Assets.Scripts.Enemies
             path.Path = pathCurrent;
         }
 
-        private bool CloserFirst (Node first, Node second)
-        {
-            Vector2 pos = transform.position;
-            float distf = (pos - (Vector2)first.worldPosition).magnitude;
-            float dists = (pos - (Vector2)second.worldPosition).magnitude;
-            if (distf < dists)
-                return true;
-            else
-                return false;
-        }
-
         private void Start ()
         {
             ancientTree.CheckSpace ();
@@ -86,7 +75,7 @@ namespace Bogadanul.Assets.Scripts.Enemies
         {
             grid.UpdateGrid ();
 
-            Node startNode = node.NodeFromPoint ();
+            Node startNode = node.NodeFromPoint (transform);
             if (startNode == null) return false;
             Node targetNode = ancientTree.currentNodes[0];
 

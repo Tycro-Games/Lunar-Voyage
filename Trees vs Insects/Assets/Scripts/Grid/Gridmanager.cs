@@ -15,15 +15,16 @@ namespace Bogadanul.Assets.Scripts.Player
         public LayerMask unwalkableMask;
         public LayerMask ocupiedMask;
 
+        [HideInInspector]
+        public int gridSizeX, gridSizeY;
+
+        public Node[,] grid;
+
         [SerializeField]
         private Transform collParent = null;
 
         [SerializeField]
         private GameObject nodeCol = null;
-
-        private Node[,] grid;
-
-        private int gridSizeX, gridSizeY;
 
         private float nodeDiameter;
 

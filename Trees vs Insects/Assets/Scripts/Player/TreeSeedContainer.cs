@@ -5,6 +5,8 @@ namespace Bogadanul.Assets.Scripts.Player
 {
     public class TreeSeedContainer : MonoBehaviour
     {
+        public static TreeSeedContainer treeSeedContainer;
+
         [SerializeField]
         private TreeSeed treeSeed = null;
 
@@ -19,6 +21,16 @@ namespace Bogadanul.Assets.Scripts.Player
             {
                 treeSeedSender.ChangeCurrentSeed (treeSeed);
                 selected = true;
+                treeSeedContainer = this;
+            }
+        }
+
+        public void ActivateDown ()
+        {
+            if (selected)
+            {
+                cooldown.ResetT ();
+                selected = false;
             }
         }
 
@@ -30,11 +42,7 @@ namespace Bogadanul.Assets.Scripts.Player
 
         private void ActivateCoolDown ()
         {
-            if (selected)
-            {
-                cooldown.ResetT ();
-                selected = false;
-            }
+            treeSeedContainer.ActivateDown ();
         }
 
         private void OnEnable ()

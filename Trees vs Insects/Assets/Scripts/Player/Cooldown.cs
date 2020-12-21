@@ -12,10 +12,10 @@ namespace Bogadanul.Assets.Scripts.Player
         private float currentT = 0;
 
         [SerializeField]
-        private Image coolDownEf;
+        private Image coolDownEf = null;
 
         [SerializeField]
-        private Button button;
+        private Button button = null;
 
         public void Init (float count)
         {

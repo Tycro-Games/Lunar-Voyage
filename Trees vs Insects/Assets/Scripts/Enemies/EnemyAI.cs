@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Bogadanul.Assets.Scripts.Player;
+using UnityEngine;
 
 namespace Bogadanul.Assets.Scripts.Enemies
 {

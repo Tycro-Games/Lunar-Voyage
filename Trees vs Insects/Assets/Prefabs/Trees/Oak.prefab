@@ -116,6 +116,7 @@ GameObject:
   - component: {fileID: 1518710009124534350}
   - component: {fileID: 792551126891858832}
   - component: {fileID: 8964490059589244520}
+  - component: {fileID: 3791582654633530137}
   m_Layer: 8
   m_Name: Oak
   m_TagString: Untagged
@@ -165,7 +166,7 @@ MonoBehaviour:
   enemies:
     serializedVersion: 2
     m_Bits: 1024
-  radius: 4
+  radius: {x: 6, y: 6, z: 0}
 --- !u!114 &1520608499490192641
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -218,3 +219,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   time: 1.5
+--- !u!114 &3791582654633530137
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7935677415777961333}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7e88bcdbb8138d47bdbff825e6c4886, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  layerToPlace:
+    serializedVersion: 2
+    m_Bits: 2048
