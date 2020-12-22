@@ -12,6 +12,7 @@ namespace Bogadanul.Assets.Scripts.Enemies
         private ReachAncientTree reachAncient = null;
         private Move move = null;
         private Node lastNode = null;
+        private RandomPos pos = null;
 
         public override List<Node> Path
         {
@@ -30,9 +31,10 @@ namespace Bogadanul.Assets.Scripts.Enemies
             StartCoroutine (FollowPath (path));
         }
 
-        private void Start ()
+        private void Awake ()
         {
             move = GetComponent<Move> ();
+            pos = GetComponent<RandomPos> ();
             reachAncient = GetComponent<ReachAncientTree> ();
         }
 
@@ -48,7 +50,8 @@ namespace Bogadanul.Assets.Scripts.Enemies
 
             for (; i < path.Count; i++)
             {
-                yield return StartCoroutine (move.MoveTo (path[i].worldPosition));
+                yield return StartCoroutine (move.MoveTo ((Vector2)path[i].worldPosition + pos.offset));
+
                 lastNode = path[i];
             }
             reachAncient.Reached ();

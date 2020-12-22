@@ -15,8 +15,13 @@ namespace Bogadanul.Assets.Scripts.Enemies
             health -= dg;
             if (health <= 0)
             {
-                OnDead?.Invoke ();
+                Dead ();
             }
+        }
+
+        public void Dead ()
+        {
+            OnDead?.Invoke ();
         }
     }
 }

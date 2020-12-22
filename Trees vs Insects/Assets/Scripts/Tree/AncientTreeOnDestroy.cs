@@ -12,6 +12,9 @@ namespace Bogadanul.Assets.Scripts.Tree
         [SerializeField]
         private UnityEvent OnDead = null;
 
+        [SerializeField]
+        private UnityEvent OnDamage = null;
+
         public void OnTreeReach (int healthlost)
         {
             health -= healthlost;
@@ -20,6 +23,8 @@ namespace Bogadanul.Assets.Scripts.Tree
             {
                 Dead ();
             }
+            else
+                OnDamage?.Invoke ();
         }
 
         public void Dead ()
