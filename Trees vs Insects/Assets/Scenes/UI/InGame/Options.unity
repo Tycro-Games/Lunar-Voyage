@@ -424,7 +424,7 @@ RectTransform:
   m_GameObject: {fileID: 825744783}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.016873337, y: 0.016873337, z: 0.016873337}
+  m_LocalScale: {x: 0.011908857, y: 0.011908857, z: 0.011908857}
   m_Children:
   - {fileID: 1396183523}
   m_Father: {fileID: 0}
@@ -432,8 +432,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0.5, y: -0.5}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 4, y: 0.84}
+  m_SizeDelta: {x: 1920, y: 1080.2147}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &825744785
 MonoBehaviour:
@@ -493,7 +493,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 31
   m_SortingLayerID: 1935742771
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_TargetDisplay: 0
 --- !u!1001 &840495613
 PrefabInstance:
@@ -1166,11 +1166,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Graphics
-      objectReference: {fileID: 0}
-    - target: {fileID: 450777468391994472, guid: 6b71287d9880fe44fbf7d2fc9538af2b,
-        type: 3}
-      propertyPath: m_OverrideSorting
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 450777468391994475, guid: 6b71287d9880fe44fbf7d2fc9538af2b,
         type: 3}

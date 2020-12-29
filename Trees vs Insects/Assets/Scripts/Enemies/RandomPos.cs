@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Bogadanul.Assets.Scripts.Player;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,16 +7,39 @@ namespace Bogadanul.Assets.Scripts.Enemies
 {
     public class RandomPos : MonoBehaviour
     {
-        [HideInInspector]
-        public Vector2 offset = Vector2.zero;
+        private UpdateOffset[] SubChilds = null;
+        private Vector2 Offset = Vector2.zero;
 
         [SerializeField]
         private float range = 1.0f;
 
-        public void Randomize ()
+        [SerializeField]
+        private float step = .25f;
+
+        [SerializeField]
+        private float multiplier = 1.0f;
+
+        public void SetRanPos ()
+
         {
-            offset = Random.insideUnitCircle * range * Mathf.Sin (Time.time);
-            transform.position = (Vector2)transform.position + offset;
+            float r = Random.Range (1, 10);
+            foreach (UpdateOffset offset in SubChilds)
+            {
+                offset.StartPos (Offset + new Vector2 (Mathf.Sin (r), Mathf.Cos (r) * multiplier));
+
+                r = r + step;
+            }
+        }
+
+        private void Randomize ()
+        {
+            Offset = (Random.insideUnitCircle * range);
+        }
+
+        private void Awake ()
+        {
+            SubChilds = GetComponentsInChildren<UpdateOffset> ();
+            Randomize ();
         }
 
         private void OnDrawGizmosSelected ()

@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1734835950978540410}
   - component: {fileID: 8447104300188657173}
+  - component: {fileID: 1104428095918543430}
+  - component: {fileID: 4067582495094200209}
   m_Layer: 9
   m_Name: Enemy
   m_TagString: Untagged
@@ -58,6 +60,49 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1104428095918543430
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1734835950978540414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e371018c29039914fbf6d5ce33c97318, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  range: 0.25
+  step: 1
+  multiplier: 0.6
+--- !u!114 &4067582495094200209
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1734835950978540414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2174729f36d955848af18fb955156f80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  loop: 0
+  OnTimerFinished:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1104428095918543430}
+        m_MethodName: SetRanPos
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  TimeToWait: 0
 --- !u!1 &4424071315473148248
 GameObject:
   m_ObjectHideFlags: 0
@@ -114,7 +159,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 0.01, y: 0.01, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &5329262216516617789
 PrefabInstance:

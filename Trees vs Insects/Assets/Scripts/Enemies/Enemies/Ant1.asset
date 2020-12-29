@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9046605c4f61b1843bb89be2d88996d8, type: 3}
   m_Name: Ant1
   m_EditorClassIdentifier: 
-  enemyGameObject: {fileID: 981597826267937009, guid: 58111b5c8fb6a2c438257d4ef6b64e4a,
+  enemyGameObject: {fileID: 4424071315473148248, guid: 6b39a6825fc8505419350ae2c4a189c1,
     type: 3}
   weight: 1

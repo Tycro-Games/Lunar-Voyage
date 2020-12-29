@@ -9,12 +9,17 @@ namespace Bogadanul.Assets.Scripts.Enemies
         [SerializeField]
         private float unitsPerSec = 1.0f;
 
+        [SerializeField]
+        private float rotsPerSec = 1.0f;
+
         public IEnumerator MoveTo (Vector3 node)
         {
-            transform.rotation = Quaternion.LookRotation (Vector3.forward, Dir (node));
+            Quaternion rot = Quaternion.LookRotation (Vector3.forward, Dir (node));
+
             Debug.DrawLine (transform.position, transform.position + Dir (node));
             while (transform.position != node)
             {
+                transform.rotation = Quaternion.RotateTowards (transform.rotation, rot, rotsPerSec * Time.deltaTime);
                 transform.position = Vector3.MoveTowards (transform.position, node, unitsPerSec * Time.deltaTime);
 
                 yield return null;

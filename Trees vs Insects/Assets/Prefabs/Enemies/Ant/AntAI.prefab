@@ -12,15 +12,15 @@ GameObject:
   - component: {fileID: 1702422877218472409}
   - component: {fileID: 6608849691764257131}
   - component: {fileID: 4466491872692865782}
-  - component: {fileID: 1664330081542723166}
   - component: {fileID: 2897860881846533333}
   - component: {fileID: 8133914412937774115}
   - component: {fileID: 5405915055043320369}
-  - component: {fileID: 5982088493462963644}
   - component: {fileID: 5472074812369632171}
+  - component: {fileID: 6063775529988493794}
+  - component: {fileID: 5706844641641194817}
   m_Layer: 10
   m_Name: AntAI
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -78,19 +78,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.5, y: 0.5, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1664330081542723166
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 802527507774405971}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e371018c29039914fbf6d5ce33c97318, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  range: 1
 --- !u!114 &2897860881846533333
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -130,34 +117,6 @@ MonoBehaviour:
   layerToPlace:
     serializedVersion: 2
     m_Bits: 2048
---- !u!114 &5982088493462963644
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 802527507774405971}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2174729f36d955848af18fb955156f80, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  loop: 0
-  OnTimerFinished:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1664330081542723166}
-        m_MethodName: Randomize
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  TimeToWait: 0
 --- !u!114 &5472074812369632171
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -171,6 +130,35 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitsPerSec: 0.5
+  rotsPerSec: 200
+--- !u!114 &6063775529988493794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 802527507774405971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9954622ec86ab3b4dbfad7829ee168ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ancientTreeHealthLost: 1
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 8192
+--- !u!114 &5706844641641194817
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 802527507774405971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e85554b0ce301074682c84e7788702ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5901465777179674283
 GameObject:
   m_ObjectHideFlags: 0

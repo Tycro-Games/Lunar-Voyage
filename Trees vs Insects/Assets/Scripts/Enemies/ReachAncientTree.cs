@@ -13,15 +13,16 @@ namespace Bogadanul.Assets.Scripts.Enemies
         [SerializeField]
         private LayerMask layerMask = 0;
 
+        public int AncientTreeHealthLost { get => ancientTreeHealthLost; set => ancientTreeHealthLost = value; }
+
         public void Reached ()
+
         {
-            Collider[] col = new Collider[1];
-            int count = Physics.OverlapBoxNonAlloc (transform.position, Vector3.one, col, Quaternion.identity, layerMask);
-            if (count != 0)
-                col[0].GetComponent<AncientTreeOnDestroy> ().OnTreeReach (ancientTreeHealthLost);
-            else
-                Debug.LogError ("There is no tree");
             Destroy (gameObject);
+        }
+
+        private void Start ()
+        {
         }
     }
 }
