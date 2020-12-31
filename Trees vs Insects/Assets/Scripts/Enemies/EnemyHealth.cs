@@ -10,10 +10,12 @@ namespace Bogadanul.Assets.Scripts.Enemies
 
         public event Action OnDead;
 
+        public int Health { get => health; set => health = value; }
+
         public void TakeDamage (int dg)
         {
-            health -= dg;
-            if (health <= 0)
+            Health -= dg;
+            if (Health <= 0)
             {
                 Dead ();
             }
@@ -21,6 +23,7 @@ namespace Bogadanul.Assets.Scripts.Enemies
 
         public void Dead ()
         {
+            Destroy (gameObject);
             OnDead?.Invoke ();
         }
     }

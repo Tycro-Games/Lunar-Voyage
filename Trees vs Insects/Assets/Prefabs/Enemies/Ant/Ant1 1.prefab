@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1734835950978540410}
-  - component: {fileID: 8447104300188657173}
+  - component: {fileID: 3224542586313616964}
   - component: {fileID: 1104428095918543430}
   - component: {fileID: 4067582495094200209}
   m_Layer: 9
@@ -34,7 +34,7 @@ Transform:
   m_Father: {fileID: 4424071315473148247}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8447104300188657173
+--- !u!114 &3224542586313616964
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -173,6 +173,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: AI
       objectReference: {fileID: 0}
+    - target: {fileID: 3321144114356356747, guid: 5c18978e35bef8e4ca4c856923bfd9c0,
+        type: 3}
+      propertyPath: OnDie.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 8130101501574187341}
     - target: {fileID: 5868189376014284180, guid: 5c18978e35bef8e4ca4c856923bfd9c0,
         type: 3}
       propertyPath: m_LocalPosition.x

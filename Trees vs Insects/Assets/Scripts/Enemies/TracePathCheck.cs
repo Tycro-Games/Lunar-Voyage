@@ -1,5 +1,7 @@
 ﻿using Bogadanul.Assets.Scripts.Player;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace Bogadanul.Assets.Scripts.Enemies
@@ -20,6 +22,14 @@ namespace Bogadanul.Assets.Scripts.Enemies
             }
         }
 
+        public List<Node> PathNoEnds ()
+        {
+            List<Node> p = Path;
+            p.Remove (Path[0]);
+            p.Remove (Path[Path.Count - 1]);
+            return p;
+        }
+
         private void OnDrawGizmosSelected ()
         {
             if (path != null)
@@ -27,7 +37,7 @@ namespace Bogadanul.Assets.Scripts.Enemies
                 foreach (Node n in path)
                 {
                     Gizmos.color = Color.black;
-                    Gizmos.DrawWireCube (n.worldPosition, Vector3.one * 2);
+                    Gizmos.DrawWireCube (n.worldPosition, Vector3.one);
                 }
             }
         }

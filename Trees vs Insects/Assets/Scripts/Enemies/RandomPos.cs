@@ -25,7 +25,7 @@ namespace Bogadanul.Assets.Scripts.Enemies
             float r = Random.Range (1, 10);
             foreach (UpdateOffset offset in SubChilds)
             {
-                offset.StartPos (Offset + new Vector2 (Mathf.Sin (r), Mathf.Cos (r) * multiplier));
+                offset.StartPos (Offset + new Vector2 (Mathf.Sin (r), Mathf.Cos (r)) * multiplier);
 
                 r = r + step;
             }

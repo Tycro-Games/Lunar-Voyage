@@ -40,15 +40,20 @@ namespace Bogadanul.Assets.Scripts.Player
                 randomNumbers.Maxy * multiplier),
                 0);
             GameObject currentPlace = Instantiate (currentTree, pos, Quaternion.identity, transform);
-            EnemyManager.CheckSpace ();
+            CallEnemyManager ();
             if (!EnemyManager.hasPath)
             {
                 Destroy (currentPlace);
                 cell.Walkable = false;
-                EnemyManager.CheckSpace ();
+                CallEnemyManager ();
                 return false;
             }
             return true;
+        }
+
+        public void CallEnemyManager ()
+        {
+            EnemyManager.CheckSpace ();
         }
     }
 }

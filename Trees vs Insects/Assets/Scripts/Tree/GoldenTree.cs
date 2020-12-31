@@ -1,6 +1,4 @@
-﻿using Bogadanul.Assets.Scripts.Player;
-using UnityEngine;
-using UnityEngine.Timeline;
+﻿using UnityEngine;
 
 namespace Bogadanul.Assets.Scripts.Tree
 {

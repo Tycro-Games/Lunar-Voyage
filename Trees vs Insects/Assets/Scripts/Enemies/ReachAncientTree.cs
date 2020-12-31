@@ -20,9 +20,5 @@ namespace Bogadanul.Assets.Scripts.Enemies
         {
             Destroy (gameObject);
         }
-
-        private void Start ()
-        {
-        }
     }
 }

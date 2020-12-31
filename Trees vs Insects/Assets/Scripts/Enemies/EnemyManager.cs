@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Bogadanul.Assets.Scripts.Player;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Bogadanul.Assets.Scripts.Enemies
@@ -20,20 +21,21 @@ namespace Bogadanul.Assets.Scripts.Enemies
         {
             if (CheckForNullPaths ())
                 return;
-
+            HashSet<Node> allPaths = new HashSet<Node> ();
             foreach (TracePathCheck path in pathfindings.Keys)
             {
                 if (path == null)
                     continue;
 
                 hasPath = pathfindings[path].FindPath ();
-
+                allPaths.UnionWith (path.PathNoEnds ());
                 if (!hasPath)
                 {
                     Debug.Log ("not enough space");
                     return;
                 }
             }
+            DisplayPathManager.AddPaths (allPaths);
         }
     }
 }
