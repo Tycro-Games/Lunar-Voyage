@@ -1,7 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using Bogadanul.Assets.Scripts.Enemies;
+using Bogadanul.Assets.Scripts.Utility;
 using NUnit.Framework;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.TestTools;
 
@@ -14,16 +16,9 @@ namespace Tests
         [UnityTest]
         public IEnumerator EnemyWithEnumeratorPasses ()
         {
-            var game = new GameObject ();
-            var s = game.AddComponent<EnemyAI> ();
-            var h = game.AddComponent<EnemyHealth> ();
-
-            h.Health = 100;
+            var g = new GameObject ();
+            var par = g.AddComponent<EnemyParentChecker> ();
             yield return null;
-            s.TakeDamage (5);
-            // Use the Assert class to test conditions. Use yield to skip a frame.
-            yield return null;
-            Assert.AreEqual (95, h.Health);
         }
     }
 }

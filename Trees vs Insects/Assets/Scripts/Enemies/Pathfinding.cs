@@ -14,11 +14,11 @@ namespace Bogadanul.Assets.Scripts.Enemies
 
         private Transform seeker, target = null;
         private AncientTreeSpaceChecker ancientTree;
-        private NodeFinder node;
+        private NodeFinder nodeFind;
 
         public void Awake ()
         {
-            node = GetComponent<NodeFinder> ();
+            nodeFind = GetComponent<NodeFinder> ();
             ancientTree = FindObjectOfType<AncientTreeSpaceChecker> ();
             seeker = transform;
 
@@ -65,7 +65,7 @@ namespace Bogadanul.Assets.Scripts.Enemies
         private void Start ()
         {
             ancientTree.CheckSpace ();
-            if (seeker != null && target != null && node != null)
+            if (seeker != null && target != null && nodeFind != null)
                 FindPath ();
         }
 
@@ -75,7 +75,7 @@ namespace Bogadanul.Assets.Scripts.Enemies
         {
             grid.UpdateGrid ();
 
-            Node startNode = node.NodeFromPoint (transform);
+            Node startNode = nodeFind.NodeFromPoint (transform);
             if (startNode == null) return false;
             Node targetNode = ancientTree.currentNodes[0];
 

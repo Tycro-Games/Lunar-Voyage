@@ -58,6 +58,7 @@ namespace Bogadanul.Assets.Scripts.Enemies
 
         public IEnumerator RandomSpawner (int enemyWeight)
         {
+
             while (enemyWeight > 0)
             {
                 int index = enemyChooser.ChooseEnemy (enemyWeight);
@@ -71,6 +72,7 @@ namespace Bogadanul.Assets.Scripts.Enemies
 
                 yield return new WaitForSeconds (waves[currentWave].durationBetweenEnemies);
             }
+            
             IsWaveStarted = false;
             currentWave++;
         }
@@ -80,6 +82,7 @@ namespace Bogadanul.Assets.Scripts.Enemies
             EnemySpawner spawner = trigger.ChooseASpawner ();
             GameObject enemy = waves[currentWave].enemies[index].enemyGameObject;
             spawner.Spawn (enemy);
+            
         }
 
         private void Awake ()

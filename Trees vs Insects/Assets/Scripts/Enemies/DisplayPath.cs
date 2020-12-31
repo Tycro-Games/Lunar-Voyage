@@ -20,10 +20,10 @@ namespace Bogadanul.Assets.Scripts.Enemies
         public void Display ()
         {
             int i = 0;
-            foreach (Vector2 node in DisplayPathManager.nodes)
+            foreach (Node node in DisplayPathManager.nodes)
             {
                 sprites[i].SetActive (true);
-                sprites[i++].transform.position = node;
+                sprites[i++].transform.position = node.worldPosition;
             }
 
             for (; i < lasti; i++)

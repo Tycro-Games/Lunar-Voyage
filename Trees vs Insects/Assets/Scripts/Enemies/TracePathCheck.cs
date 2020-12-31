@@ -19,14 +19,18 @@ namespace Bogadanul.Assets.Scripts.Enemies
             set
             {
                 path = value;
+                DisplayPathManager.AddPaths (PathNoEnds ());
             }
         }
 
         public List<Node> PathNoEnds ()
         {
             List<Node> p = Path;
-            p.Remove (Path[0]);
-            p.Remove (Path[Path.Count - 1]);
+            if (Path.Count > 1)
+            {
+                p.Remove (Path[0]);
+                p.Remove (Path[Path.Count - 1]);
+            }
             return p;
         }
 

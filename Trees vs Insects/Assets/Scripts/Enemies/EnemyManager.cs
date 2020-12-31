@@ -21,21 +21,41 @@ namespace Bogadanul.Assets.Scripts.Enemies
         {
             if (CheckForNullPaths ())
                 return;
-            HashSet<Node> allPaths = new HashSet<Node> ();
+            DisplayPathManager.Reset ();
             foreach (TracePathCheck path in pathfindings.Keys)
             {
                 if (path == null)
                     continue;
 
                 hasPath = pathfindings[path].FindPath ();
-                allPaths.UnionWith (path.PathNoEnds ());
+
                 if (!hasPath)
                 {
                     Debug.Log ("not enough space");
                     return;
                 }
             }
-            DisplayPathManager.AddPaths (allPaths);
         }
+
+        //public static void CheckSpaceDisplay ()
+        //{
+        //    if (CheckForNullPaths ())
+        //        return;
+        //    HashSet<Node> allPaths = new HashSet<Node> ();
+        //    foreach (TracePathCheck path in pathfindings.Keys)
+        //    {
+        //        if (path == null)
+        //            continue;
+
+        //        hasPath = pathfindings[path].FindPath ();
+        //        allPaths.UnionWith (path.PathNoEnds ());
+        //        if (!hasPath)
+        //        {
+        //            Debug.Log ("not enough space");
+        //            return;
+        //        }
+        //    }
+        //    DisplayPathManager.AddPaths (allPaths);
+        //}
     }
 }

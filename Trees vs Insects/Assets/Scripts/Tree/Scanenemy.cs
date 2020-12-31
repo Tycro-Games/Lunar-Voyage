@@ -27,7 +27,7 @@ namespace Bogadanul.Assets.Scripts.Tree
         private void Scan ()
         {
             Collider[] collider = new Collider[1];
-            int count = Physics.OverlapBoxNonAlloc (transform.position, radius / 2, collider, Quaternion.identity, enemies);
+            int count = Physics.OverlapBoxNonAlloc (transform.position, radius/2 , collider, Quaternion.identity, enemies);
             if (count != 0)
             {
                 EnemyInteract (collider[0]);

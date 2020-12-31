@@ -11,6 +11,9 @@ namespace Bogadanul.Assets.Scripts.Enemies
         [HideInInspector]
         private Vector2 offset = Vector2.zero;
 
+        [SerializeField]
+        private float maxMagn = 1;
+
         public Vector2 Offset
         {
             get => offset;
@@ -23,7 +26,7 @@ namespace Bogadanul.Assets.Scripts.Enemies
         public void UpdateOffsets ()
         {
             Node currentNode = nodeFinder.NodeFromPoint (transform);
-            Offset = transform.position - currentNode.worldPosition;
+            Offset = Vector2.ClampMagnitude (transform.position - currentNode.worldPosition, maxMagn);
         }
 
         public void StartPos (Vector2 pos)

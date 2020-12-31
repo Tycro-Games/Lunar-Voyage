@@ -7,16 +7,37 @@ using UnityEngine;
 
 public static class DisplayPathManager
 {
-    public static HashSet<Vector2> nodes = new HashSet<Vector2> ();
+    public static HashSet<Node> nodes = new HashSet<Node> ();
 
     public static event Action OnChange = null;
 
-    public static void AddPaths (HashSet<Node> path)
+    public static void Reset ()
     {
-        HashSet<Vector2> node = new HashSet<Vector2> ();
+        nodes = new HashSet<Node> ();
+    }
+
+    public static void AddPaths (List<Node> path)
+    {
         foreach (Node n in path)
-            node.Add (n.worldPosition);
-        nodes = node;
+            nodes.Add (n);
+
+        OnChange?.Invoke ();
+    }
+
+    public static IEnumerator AddPathsTimed (List<Node> path, float time)
+    {
+        foreach (Node n in path)
+            nodes.Add (n);
+
+        OnChange?.Invoke ();
+        yield return new WaitForSeconds (time);
+        RemovePaths (path);
+    }
+
+    public static void RemovePaths (List<Node> path)
+    {
+        foreach (Node n in path)
+            nodes.Remove (n);
         OnChange?.Invoke ();
     }
 }

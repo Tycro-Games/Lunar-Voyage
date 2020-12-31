@@ -18,6 +18,7 @@ namespace Bogadanul.Assets.Scripts.Enemies
         public void Reached ()
 
         {
+            
             Destroy (gameObject);
         }
     }

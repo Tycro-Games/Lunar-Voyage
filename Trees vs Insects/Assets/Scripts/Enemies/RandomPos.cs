@@ -45,7 +45,7 @@ namespace Bogadanul.Assets.Scripts.Enemies
         private void OnDrawGizmosSelected ()
         {
             Gizmos.color = Color.red;
-            Gizmos.DrawWireSphere (transform.position, range);
+            Gizmos.DrawWireSphere (transform.position, range+multiplier);
         }
     }
 }

@@ -13,13 +13,18 @@ namespace Bogadanul.Assets.Scripts.Enemies
         private Move move = null;
         private Node lastNode = null;
         private UpdateOffset pos = null;
+        private NodeFinder nodeFinder = null;
 
         public override List<Node> Path
         {
+            get
+            {
+                return path;
+            }
             set
             {
                 path = value;
-
+                StartCoroutine (DisplayPathManager.AddPathsTimed (path, 5f));
                 StartPath ();
             }
         }
@@ -38,6 +43,7 @@ namespace Bogadanul.Assets.Scripts.Enemies
             move = GetComponent<Move> ();
             pos = GetComponent<UpdateOffset> ();
             reachAncient = GetComponent<ReachAncientTree> ();
+            nodeFinder = GetComponent<NodeFinder> ();
         }
 
         private IEnumerator FollowPath (List<Node> path)
@@ -49,14 +55,12 @@ namespace Bogadanul.Assets.Scripts.Enemies
             {
                 i++;
             }
-
             for (; i < path.Count; i++)
             {
                 yield return StartCoroutine (move.MoveTo ((Vector2)path[i].worldPosition + pos.Offset));
-
                 lastNode = path[i];
             }
-            reachAncient.Reached ();
+            Debug.LogError ("End path");
         }
     }
 }

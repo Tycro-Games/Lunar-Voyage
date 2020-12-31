@@ -23,8 +23,16 @@ namespace Bogadanul.Assets.Scripts.Enemies
 
         public void Dead ()
         {
-            Destroy (gameObject);
+            EnemyList.List.Remove (gameObject);
+            EnemyList.CheckEnemies ();
+
             OnDead?.Invoke ();
+            Destroy (gameObject);
+        }
+
+        private void OnEnable ()
+        {
+            EnemyList.List.Add (gameObject);
         }
     }
 }

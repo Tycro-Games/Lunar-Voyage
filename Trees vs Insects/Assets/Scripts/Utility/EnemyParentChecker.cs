@@ -5,19 +5,29 @@ namespace Bogadanul.Assets.Scripts.Utility
 {
     public class EnemyParentChecker : MonoBehaviour
     {
+        private Transform child = null;
+        private EnemyHealth[] enemyHealth;
         public void CheckChildren ()
         {
-            if (transform.GetChild (0).childCount == 1)
-            {//this is fucked up but if this is called that means the enemy will die so it s fine
-                EnemyList.CheckEnemies ();
-                EnemyList.List.Remove (gameObject);
+            if (child.childCount == 1)
+            {
                 Destroy (gameObject);
             }
         }
-
-        private void OnEnable ()
+        private void OnDisable ()
         {
-            EnemyList.List.Add (gameObject);
+            foreach (EnemyHealth health in enemyHealth)
+                health.OnDead -= CheckChildren;
         }
+        
+        private void Start ()
+        {
+            enemyHealth = GetComponentsInChildren<EnemyHealth> ();
+            foreach (EnemyHealth health in enemyHealth)
+                health.OnDead += CheckChildren;
+            child = transform.GetChild (0);
+        }
+
+        
     }
 }

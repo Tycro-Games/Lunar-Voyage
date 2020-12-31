@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1734835950978540410}
-  - component: {fileID: 3224542586313616964}
   - component: {fileID: 1104428095918543430}
   - component: {fileID: 4067582495094200209}
   m_Layer: 9
@@ -34,32 +33,6 @@ Transform:
   m_Father: {fileID: 4424071315473148247}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3224542586313616964
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1734835950978540414}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 266df0779cea3934bba2f3621153fbd4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OnDie:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 8130101501574187341}
-        m_MethodName: CheckChildren
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &1104428095918543430
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -74,7 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   range: 0.25
   step: 1
-  multiplier: 0.6
+  multiplier: 0.25
 --- !u!114 &4067582495094200209
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -159,7 +132,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.01, y: 0.01, z: 1}
+  m_Size: {x: 0.1, y: 0.1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &5329262216516617789
 PrefabInstance:
@@ -178,6 +151,16 @@ PrefabInstance:
       propertyPath: OnDie.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 8130101501574187341}
+    - target: {fileID: 4466491872692865782, guid: 5c18978e35bef8e4ca4c856923bfd9c0,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4466491872692865782, guid: 5c18978e35bef8e4ca4c856923bfd9c0,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.25
+      objectReference: {fileID: 0}
     - target: {fileID: 5868189376014284180, guid: 5c18978e35bef8e4ca4c856923bfd9c0,
         type: 3}
       propertyPath: m_LocalPosition.x
