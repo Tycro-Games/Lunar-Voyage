@@ -15,6 +15,6 @@ MonoBehaviour:
   icon: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   price: 100
   cooldown: 15
-  sprite: {fileID: 585489585357299884, guid: 648a5117ddc94044d8197d0b81ea326f, type: 3}
+  sprite: {fileID: 21300000, guid: c56cbdd6e799b33439ac4afc745177ec, type: 3}
   TreeGameObject: {fileID: 7935677415777961333, guid: 638a3a3c62e04394a82929e82b7fa79f,
     type: 3}
