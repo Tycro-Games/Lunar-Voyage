@@ -17,7 +17,6 @@ GameObject:
   - component: {fileID: 5405915055043320369}
   - component: {fileID: 5472074812369632171}
   - component: {fileID: 6063775529988493794}
-  - component: {fileID: 5706844641641194817}
   m_Layer: 10
   m_Name: AntAI
   m_TagString: Enemy
@@ -147,19 +146,6 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 8192
---- !u!114 &5706844641641194817
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 802527507774405971}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e85554b0ce301074682c84e7788702ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxMagn: 0.75
 --- !u!1 &5901465777179674283
 GameObject:
   m_ObjectHideFlags: 0

@@ -6,7 +6,7 @@ namespace Bogadanul.Assets.Scripts.Enemies
     public class Seed : MonoBehaviour
     {
         [SerializeField]
-        private readonly int seed = 0;
+        private int seed = 0;
 
         private RandomNumberGenerator random;
 

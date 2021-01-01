@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Bogadanul.Assets.Scripts.Tree
+namespace Bogadanul.Assets.Scripts.Player
 {
     public class TreeSeedDisplay : MonoBehaviour
     {

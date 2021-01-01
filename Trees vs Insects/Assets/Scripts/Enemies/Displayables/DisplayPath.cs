@@ -25,7 +25,6 @@ namespace Bogadanul.Assets.Scripts.Enemies
                 sprites[i].SetActive (true);
                 sprites[i++].transform.position = node.worldPosition;
             }
-
             for (; i < lasti; i++)
             {
                 sprites[i].SetActive (false);
@@ -33,14 +32,14 @@ namespace Bogadanul.Assets.Scripts.Enemies
             lasti = i;
         }
 
-        private void OnEnable ()
-        {
-            DisplayPathManager.OnChange += Display;
-        }
-
         private void OnDisable ()
         {
             DisplayPathManager.OnChange -= Display;
+        }
+
+        private void OnEnable ()
+        {
+            DisplayPathManager.OnChange += Display;
         }
 
         private void Start ()

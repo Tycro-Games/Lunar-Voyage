@@ -24,7 +24,6 @@ namespace Bogadanul.Assets.Scripts.Enemies
             set
             {
                 path = value;
-                StartCoroutine (DisplayPathManager.AddPathsTimed (path, 5f));
                 StartPath ();
             }
         }
@@ -32,8 +31,6 @@ namespace Bogadanul.Assets.Scripts.Enemies
         public void StartPath ()
         {
             StopAllCoroutines ();
-
-            pos.UpdateOffsets ();
 
             StartCoroutine (FollowPath (path));
         }
@@ -57,7 +54,7 @@ namespace Bogadanul.Assets.Scripts.Enemies
             }
             for (; i < path.Count; i++)
             {
-                yield return StartCoroutine (move.MoveTo ((Vector2)path[i].worldPosition + pos.Offset));
+                yield return StartCoroutine (move.MoveTo (path[i].worldPosition));
                 lastNode = path[i];
             }
             Debug.LogError ("End path");

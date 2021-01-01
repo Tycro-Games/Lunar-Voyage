@@ -6,10 +6,10 @@ namespace Bogadanul.Assets.Scripts.Enemies
     public class EnemyCommon : ScriptableObject
     {
         [SerializeField]
-        private readonly int damage = 1;
+        private int damage = 1;
 
         [SerializeField]
-        private readonly int health = 10;
+        private int health = 10;
 
         public int Getdamage
         {

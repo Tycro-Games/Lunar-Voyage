@@ -19,19 +19,8 @@ namespace Bogadanul.Assets.Scripts.Enemies
             set
             {
                 path = value;
-                DisplayPathManager.AddPaths (PathNoEnds ());
+                DisplayPathManager.AddPaths (path);
             }
-        }
-
-        public List<Node> PathNoEnds ()
-        {
-            List<Node> p = Path;
-            if (Path.Count > 1)
-            {
-                p.Remove (Path[0]);
-                p.Remove (Path[Path.Count - 1]);
-            }
-            return p;
         }
 
         private void OnDrawGizmosSelected ()
