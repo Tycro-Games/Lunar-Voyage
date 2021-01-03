@@ -5,7 +5,7 @@ namespace Bogadanul.Assets.Scripts.Tree
 {
     public class FireUntill : MonoBehaviour, IFireRater
     {
-        private TreeShoot treeShoot = null;
+        private TreeShootTarget treeShoot = null;
 
         public IEnumerator Wait ()
         {
@@ -14,7 +14,7 @@ namespace Bogadanul.Assets.Scripts.Tree
 
         private void Awake ()
         {
-            treeShoot = GetComponent<TreeShoot> ();
+            treeShoot = GetComponent<TreeShootTarget> ();
         }
     }
 }

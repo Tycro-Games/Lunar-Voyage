@@ -21,7 +21,7 @@ namespace Bogadanul.Assets.Scripts.Enemies
         {
             if (CheckForNullPaths ())
                 return;
-            DisplayPathManager.Reset ();
+
             foreach (TracePathCheck path in pathfindings.Keys)
             {
                 if (path == null)

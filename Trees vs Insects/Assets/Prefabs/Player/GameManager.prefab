@@ -752,6 +752,9 @@ MonoBehaviour:
           m_StringArgument: LoseScreen
           m_BoolArgument: 1
         m_CallState: 2
+  OnDamage:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &4723713493643275010
 PrefabInstance:
   m_ObjectHideFlags: 0

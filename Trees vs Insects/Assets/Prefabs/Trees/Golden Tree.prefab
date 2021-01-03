@@ -111,10 +111,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7935677415777961335}
-  - component: {fileID: 6849496084709485304}
   - component: {fileID: 5977206656215406353}
   - component: {fileID: 3831769811946877183}
   - component: {fileID: 8330554719374839517}
+  - component: {fileID: 4367531766411706794}
   m_Layer: 8
   m_Name: Golden Tree
   m_TagString: GoldenTree
@@ -137,19 +137,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6849496084709485304
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7935677415777961333}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c944fb629ac85cb4b86ac5c0e0fd2bec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  energyGain: 20
 --- !u!114 &5977206656215406353
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -178,8 +165,8 @@ MonoBehaviour:
   OnTimerFinished:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6849496084709485304}
-        m_MethodName: AddEnergy
+      - m_Target: {fileID: 4367531766411706794}
+        m_MethodName: Spawn
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -203,3 +190,17 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.5, y: 0.5, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &4367531766411706794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7935677415777961333}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e75d16123ca23bc48b35adc71117853c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waterPrefab: {fileID: 7802668631942595373, guid: c56671422744dbb4fb293140b4fbeb48,
+    type: 3}

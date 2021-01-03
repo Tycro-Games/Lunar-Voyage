@@ -40,6 +40,7 @@ namespace Bogadanul.Assets.Scripts.Player
                 randomNumbers.Maxy * multiplier),
                 0);
             GameObject currentPlace = Instantiate (currentTree, pos, Quaternion.identity, transform);
+            DisplayPathManager.Reset ();
             EnemyManager.CheckSpace ();
 
             if (!EnemyManager.hasPath)

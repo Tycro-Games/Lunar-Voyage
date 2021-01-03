@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Bogadanul.Assets.Scripts.Player;
+using System.Collections.Generic;
 
 namespace Bogadanul.Assets.Scripts.Tree
 {
@@ -7,6 +9,6 @@ namespace Bogadanul.Assets.Scripts.Tree
     {
         bool CheckDist (BoxCollider col);
 
-        BoxCollider CheckSorounding ();
+        BoxCollider CheckForEnemies ();
     }
 }

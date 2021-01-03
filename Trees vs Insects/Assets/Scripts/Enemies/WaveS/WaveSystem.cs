@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -6,6 +7,9 @@ namespace Bogadanul.Assets.Scripts.Enemies
 {
     public class WaveSystem : MonoBehaviour
     {
+        [Header ("Waves")]
+        public Wave[] waves = null;
+
         private int count;
 
         private int currentWave = 0;
@@ -21,15 +25,16 @@ namespace Bogadanul.Assets.Scripts.Enemies
 
         private TriggerSpawner trigger;
 
-        [Header ("Waves")]
-        [SerializeField]
-        private Wave[] waves = null;
-
         private bool IsWaveStarted = false;
+
         private int tempWeight = 0;
 
         [SerializeField]
         private UnityEvent OnLevelEnd = null;
+
+        public event Action<int> OnSpawn;
+
+        public int EnemyWeight { get => enemyWeight; set { enemyWeight = value; } }
 
         public void RandomSpawner ()
         {
@@ -39,10 +44,11 @@ namespace Bogadanul.Assets.Scripts.Enemies
                 {
                     IsWaveStarted = true;
 
-                    enemyWeight = waves[currentWave].weight;
+                    EnemyWeight = waves[currentWave].weight;
 
                     enemyChooser.Init (waves[currentWave].enemies);
-                    StartCoroutine (RandomSpawner (enemyWeight));
+
+                    StartCoroutine (RandomSpawner (EnemyWeight));
                 }
                 else if (tempWeight <= 0)
                 {
@@ -58,21 +64,21 @@ namespace Bogadanul.Assets.Scripts.Enemies
 
         public IEnumerator RandomSpawner (int enemyWeight)
         {
-
             while (enemyWeight > 0)
             {
                 int index = enemyChooser.ChooseEnemy (enemyWeight);
-                enemyWeight -= waves[currentWave].enemies[index].weight;
+                int currentW = waves[currentWave].enemies[index].weight;
+                enemyWeight -= currentW;
 
                 if (enemyWeight < 0)
                     continue;
 
                 tempWeight = enemyWeight;
                 SpawnEnemies (index);
-
+                OnSpawn?.Invoke (currentW);
                 yield return new WaitForSeconds (waves[currentWave].durationBetweenEnemies);
             }
-            
+
             IsWaveStarted = false;
             currentWave++;
         }
@@ -82,7 +88,6 @@ namespace Bogadanul.Assets.Scripts.Enemies
             EnemySpawner spawner = trigger.ChooseASpawner ();
             GameObject enemy = waves[currentWave].enemies[index].enemyGameObject;
             spawner.Spawn (enemy);
-            
         }
 
         private void Awake ()
@@ -90,7 +95,6 @@ namespace Bogadanul.Assets.Scripts.Enemies
             enemyListChecker = GetComponent<EnemyListChecker> ();
             trigger = GetComponent<TriggerSpawner> ();
             seed = GetComponent<Seed> ();
-
             enemyChooser = GetComponent<EnemyChooser> ();
         }
 

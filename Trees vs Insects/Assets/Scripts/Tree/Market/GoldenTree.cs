@@ -12,6 +12,12 @@ namespace Bogadanul.Assets.Scripts.Tree
             market.Add (energyGain);
         }
 
+        public void OnMouseDown ()
+        {
+            AddEnergy ();
+            Destroy (gameObject);
+        }
+
         private void Awake ()
         {
             GetMarket ();
