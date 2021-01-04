@@ -188,7 +188,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2e268f83e1e4344ab1684324f2a6878, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  time: 7
+  time: 5
 --- !u!114 &3791582654633530137
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -233,4 +233,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectileObject: {fileID: 4138705543927219697, guid: 4375ad4695aa7054a9c7d26486d1390b,
     type: 3}
-  dir: {x: 0, y: 0}
+  dir:
+  - {x: 1, y: 0}
+  - {x: 0, y: 1}
+  - {x: -1, y: 0}
+  - {x: 0, y: -1}

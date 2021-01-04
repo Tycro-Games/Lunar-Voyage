@@ -27,7 +27,10 @@ namespace Bogadanul.Assets.Scripts.Player
                 }
             }
         }
-
+        public void Reset ()
+        {
+            currentTree = null;
+        }
         public void UpdateSprite (GameObject seed)
         {
             currentTree = seed;

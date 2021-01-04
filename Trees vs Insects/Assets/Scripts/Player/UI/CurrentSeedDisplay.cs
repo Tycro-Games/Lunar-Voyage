@@ -30,9 +30,10 @@ namespace Bogadanul.Assets.Scripts.Player
                 if (hasPlace)
                 {
                     //update display range
-                    displayRange.DisplayTheRange (n);
+                   
                     transform.position = n.worldPosition;
                 }
+                displayRange.DisplayTheRange (n);
                 spriteRen.enabled = hasPlace;
             }
         }

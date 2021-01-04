@@ -8,36 +8,22 @@ namespace Bogadanul.Assets.Scripts.Utility
 {
     public static class UtilityRecon
     {
-        public static addDir SetDirFromAncient (Vector2 transform, Transform tree, addDir direction)
+        public static List<Node> GetLines (Node node, Gridmanager gridmanager)
         {
-            Vector2 dir = (transform - (Vector2)tree.position).normalized;
-
-            if (Mathf.Abs (dir.x) != Mathf.Abs (dir.y))
-            {
-                direction = new addDir (dir);
-            }
-
-            return direction;
-        }
-
-        public static List<Node> GetLine (Node node, addDir coord, Gridmanager gridmanager)
-        {
-            if (coord.x == 0 && coord.y == 0)
-            {
-                Debug.LogError ("InfiniteLoop");
-                return null;
-            }
             List<Node> line = new List<Node> ();
-
             int xGrid = node.gridX;
             int yGrid = node.gridY;
+            for (int x = xGrid; x < gridmanager.gridSizeX; x++)
+                line.Add (gridmanager.grid[x, yGrid]);
 
-            while (xGrid >= 0 && xGrid < gridmanager.gridSizeX && yGrid >= 0 && yGrid < gridmanager.gridSizeY)
-            {
-                line.Add (gridmanager.grid[xGrid, yGrid]);
-                xGrid += coord.x;
-                yGrid += coord.y;
-            }
+            for (int y = yGrid; y < gridmanager.gridSizeY; y++)
+                line.Add (gridmanager.grid[xGrid, y]);
+
+            for (int x = xGrid; x >= 0; x--)
+                line.Add (gridmanager.grid[x, yGrid]);
+
+            for (int y = yGrid; y >= 0; y--)
+                line.Add (gridmanager.grid[xGrid, y]);
             return line;
         }
 

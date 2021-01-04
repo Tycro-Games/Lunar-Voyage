@@ -18,6 +18,11 @@ namespace Bogadanul.Assets.Scripts.Player
         {
             if (treeRecon != null && pos != null)
                 nodes = treeRecon.GetNodeRange (pos);
+            else if(pos == null)
+            {
+                Reset ();
+            }
+
         }
 
         public void UpdateG (TreeSeed obj)

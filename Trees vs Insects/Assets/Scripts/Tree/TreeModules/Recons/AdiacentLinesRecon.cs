@@ -19,11 +19,9 @@ namespace Bogadanul.Assets.Scripts.Tree
         }
     }
 
-    public class SingleLineRecon : BaseRecon, ITreeRecon
+    public class AdiacentLinesRecon : BaseRecon, ITreeRecon
     {
         private addDir direction = new addDir (new Vector2 (1, 0));
-
-        private TreeShotNoTarget treeShot = null;
 
         public BoxCollider CheckForEnemies ()
         {
@@ -39,17 +37,12 @@ namespace Bogadanul.Assets.Scripts.Tree
 
         public List<Node> GetNodeRange (Node pos)
         {
-            direction = UtilityRecon.SetDirFromAncient (pos.worldPosition, AncientTreeSpaceChecker.ancient, direction);
-
-            return UtilityRecon.GetLine (pos, direction, Gridmanager.gridmanager);
+            return UtilityRecon.GetLines (pos, Gridmanager.gridmanager);
         }
 
         private void Start ()
         {
-            treeShot = GetComponent<TreeShotNoTarget> ();
             GetRefs ();
-
-            treeShot.dir = new Vector2 (direction.x, direction.y);
         }
 
         private void OnDrawGizmosSelected ()
