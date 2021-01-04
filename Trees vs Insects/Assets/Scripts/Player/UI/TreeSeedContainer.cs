@@ -1,5 +1,6 @@
 ﻿using Bogadanul.Assets.Scripts.Tree;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Bogadanul.Assets.Scripts.Player
 {
@@ -14,6 +15,8 @@ namespace Bogadanul.Assets.Scripts.Player
         private TreeSeedSender treeSeedSender = null;
         private Cooldown cooldown;
         private bool selected = false;
+        private Button button = null;
+        private Market market = null;
 
         public void OnClick ()
         {
@@ -40,6 +43,16 @@ namespace Bogadanul.Assets.Scripts.Player
             }
         }
 
+        public void Onvalue (int current)
+        {
+            if (treeSeed.price > current)
+                button.interactable = false;
+            else if (cooldown.IsDone)
+            {
+                button.interactable = true;
+            }
+        }
+
         private void Displaying ()
         {
             treeSeedDisplay.DisplaySprite (treeSeed.icon);
@@ -59,10 +72,14 @@ namespace Bogadanul.Assets.Scripts.Player
         private void OnDisable ()
         {
             TreePlacer.OnBuyCheck -= ActivateCoolDown;
+            market.marketIntro.OnEnergyChange -= Onvalue;
         }
 
         private void Start ()
         {
+            button = GetComponent<Button> ();
+            market = FindObjectOfType<Market> ();
+            market.marketIntro.OnEnergyChange += Onvalue;
             treeSeedDisplay = GetComponent<TreeSeedDisplay> ();
             treeSeedSender = GetComponentInParent<TreeSeedSender> ();
             cooldown = GetComponent<Cooldown> ();

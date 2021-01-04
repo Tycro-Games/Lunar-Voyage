@@ -5,7 +5,8 @@ namespace Bogadanul.Assets.Scripts.Player
 {
     public class Market : MonoBehaviour
     {
-        private MarketIntro marketIntro;
+        [HideInInspector]
+        public MarketIntro marketIntro;
 
         private int lastPrice = 0;
 

@@ -7,6 +7,7 @@ namespace Bogadanul.Assets.Scripts.Player
 {
     public class Cooldown : MonoBehaviour
     {
+        public bool IsDone = true;
         private float CountDown = 10;
 
         private float currentT = 0;
@@ -41,7 +42,7 @@ namespace Bogadanul.Assets.Scripts.Player
                 coolDownEf.fillAmount = Mathf.InverseLerp (0, CountDown, currentT);
             }
             else
-                button.interactable = true;
+                IsDone = true;
         }
     }
 }
