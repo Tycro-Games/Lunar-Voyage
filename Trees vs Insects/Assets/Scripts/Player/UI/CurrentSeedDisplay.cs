@@ -16,6 +16,7 @@ namespace Bogadanul.Assets.Scripts.Player
         private SpriteRenderer spriteRen = null;
 
         private Camera cam;
+        private DisplayRange displayRange = null;
 
         public void MoveSprite (InputAction.CallbackContext ctx)
         {
@@ -28,6 +29,8 @@ namespace Bogadanul.Assets.Scripts.Player
                 bool hasPlace = n?.Placeable () == true;
                 if (hasPlace)
                 {
+                    //update display range
+                    displayRange.DisplayTheRange (n);
                     transform.position = n.worldPosition;
                 }
                 spriteRen.enabled = hasPlace;
@@ -61,16 +64,7 @@ namespace Bogadanul.Assets.Scripts.Player
         {
             cam = Camera.main;
             spriteRen = GetComponent<SpriteRenderer> ();
-        }
-
-        private void OnDisable ()
-        {
-            TreePlacer.OnBuyCheck -= ResetSprite;
-        }
-
-        private void OnEnable ()
-        {
-            TreePlacer.OnBuyCheck += ResetSprite;
+            displayRange = GetComponent<DisplayRange> ();
         }
 
         private void Start ()

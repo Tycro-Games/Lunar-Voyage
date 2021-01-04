@@ -10,5 +10,7 @@ namespace Bogadanul.Assets.Scripts.Tree
         bool CheckDist (BoxCollider col);
 
         BoxCollider CheckForEnemies ();
+
+        List<Node> GetNodeRange (Node pos);
     }
 }

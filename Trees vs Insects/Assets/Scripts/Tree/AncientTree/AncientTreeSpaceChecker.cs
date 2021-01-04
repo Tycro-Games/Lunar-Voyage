@@ -7,6 +7,7 @@ namespace Bogadanul.Assets.Scripts.Tree
 {
     public class AncientTreeSpaceChecker : MonoBehaviour
     {
+        public static Transform ancient;
         public List<Node> currentNodes = new List<Node> ();
 
         [SerializeField]
@@ -24,6 +25,11 @@ namespace Bogadanul.Assets.Scripts.Tree
                     currentNodes.Add (cols[i].gameObject.GetComponent<NodeInstance> ().Nodey);
                 }
             }
+        }
+
+        private void Awake ()
+        {
+            ancient = transform;
         }
 
         private void OnDrawGizmos ()

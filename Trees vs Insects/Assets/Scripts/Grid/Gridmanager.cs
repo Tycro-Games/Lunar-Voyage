@@ -6,6 +6,7 @@ namespace Bogadanul.Assets.Scripts.Player
 {
     public class Gridmanager : MonoBehaviour
     {
+        public static Gridmanager gridmanager;
         public Vector2 gridWorldSize;
 
         public float nodeRadius;
@@ -93,6 +94,7 @@ namespace Bogadanul.Assets.Scripts.Player
 
         private void Awake ()
         {
+            gridmanager = this;
             nodeDiameter = nodeRadius * 2;
             gridSizeX = Mathf.RoundToInt (gridWorldSize.x / nodeDiameter);
             gridSizeY = Mathf.RoundToInt (gridWorldSize.y / nodeDiameter);

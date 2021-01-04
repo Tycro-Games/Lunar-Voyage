@@ -32,6 +32,9 @@ namespace Bogadanul.Assets.Scripts.Tree
         protected void GetRefs ()
         {
             nodeFinder = GetComponent<NodeFinder> ();
+            DisplayRange display = FindObjectOfType<DisplayRange> ();
+            nodes = display.nodes;
+            display.Reset ();
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Bogadanul.Assets.Scripts.Player;
+using Bogadanul.Assets.Scripts.Utility;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,19 +14,16 @@ namespace Bogadanul.Assets.Scripts.Tree
 
         public addDir (Vector2 dir)
         {
-            this.x = Mathf.RoundToInt (dir.x);
-            this.y = Mathf.RoundToInt (dir.y);
+            x = Mathf.RoundToInt (dir.x);
+            y = Mathf.RoundToInt (dir.y);
         }
     }
 
     public class SingleLineRecon : BaseRecon, ITreeRecon
     {
-        private addDir direction;
+        private addDir direction = new addDir (new Vector2 (1, 0));
 
-        private Gridmanager gridmanager;
-        private Transform tree = null;
         private TreeShotNoTarget treeShot = null;
-        public addDir Direction { get => direction; set => direction = value; }
 
         public BoxCollider CheckForEnemies ()
         {
@@ -39,39 +37,19 @@ namespace Bogadanul.Assets.Scripts.Tree
             return hits[0];
         }
 
-        private void SetDir ()
+        public List<Node> GetNodeRange (Node pos)
         {
-            Vector2 dir = transform.position - tree.position;
-            dir.x *= 2;
-            direction = new addDir (dir.normalized);
-            treeShot.dir = new Vector2 (direction.x, direction.y);
+            direction = UtilityRecon.SetDirFromAncient (pos.worldPosition, AncientTreeSpaceChecker.ancient, direction);
+
+            return UtilityRecon.GetLine (pos, direction, Gridmanager.gridmanager);
         }
 
         private void Start ()
         {
             treeShot = GetComponent<TreeShotNoTarget> ();
             GetRefs ();
-            tree = GameObject.Find ("AncientTree").transform;
-            gridmanager = FindObjectOfType<Gridmanager> ();
 
-            SetDir ();
-            nodes = GetLine (nodeFinder.NodeFromPoint (transform), Direction);
-        }
-
-        private List<Node> GetLine (Node node, addDir coord)
-        {
-            List<Node> line = new List<Node> ();
-
-            int xGrid = node.gridX;
-            int yGrid = node.gridY;
-
-            while (xGrid >= 0 && xGrid < gridmanager.gridSizeX && yGrid >= 0 && yGrid < gridmanager.gridSizeY)
-            {
-                line.Add (gridmanager.grid[xGrid, yGrid]);
-                xGrid += coord.x;
-                yGrid += coord.y;
-            }
-            return line;
+            treeShot.dir = new Vector2 (direction.x, direction.y);
         }
 
         private void OnDrawGizmosSelected ()

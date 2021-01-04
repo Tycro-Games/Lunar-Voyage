@@ -1,4 +1,5 @@
 ﻿using Bogadanul.Assets.Scripts.Tree;
+using System;
 using UnityEngine;
 
 namespace Bogadanul.Assets.Scripts.Player
@@ -8,14 +9,20 @@ namespace Bogadanul.Assets.Scripts.Player
         [HideInInspector]
         public Market market = null;
 
-        private bool hasSeed = false;
         private ICurrentSeedDisplay<Sprite> seedDisplay;
+
         private ICurrentSeedDisplay<GameObject> treePlacer;
+        private bool hasSeed = false;
+
+        public event Action<TreeSeed> OnChangeSeed = null;
+
+        public event Action OnResetSeed = null;
 
         public void CancelCurrentSeed ()
         {
             if (hasSeed)
             {
+                OnResetSeed?.Invoke ();
                 hasSeed = false;
 
                 seedDisplay.UpdateSprite (null);
@@ -27,8 +34,19 @@ namespace Bogadanul.Assets.Scripts.Player
         {
             hasSeed = true;
 
+            OnChangeSeed?.Invoke (seed);
             seedDisplay.UpdateSprite (seed.sprite);
             treePlacer.UpdateSprite (seed.TreeGameObject);
+        }
+
+        private void OnEnable ()
+        {
+            TreePlacer.OnBuyCheck += CancelCurrentSeed;
+        }
+
+        private void OnDisable ()
+        {
+            TreePlacer.OnBuyCheck -= CancelCurrentSeed;
         }
 
         private void Awake ()

@@ -1,4 +1,5 @@
 ﻿using Bogadanul.Assets.Scripts.Player;
+using Bogadanul.Assets.Scripts.Utility;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,8 +12,6 @@ namespace Bogadanul.Assets.Scripts.Tree
 
         [SerializeField]
         private Vector3 radius = Vector3.zero;
-
-        private Node currentNode = null;
 
         private Color GizCol = Color.white;
 
@@ -41,27 +40,9 @@ namespace Bogadanul.Assets.Scripts.Tree
             return null;
         }
 
-        public List<Node> GetNeighbours (Node node)
+        public List<Node> GetNodeRange (Node pos)
         {
-            List<Node> neighbours = new List<Node> ();
-
-            for (int x = -1; x <= 1; x++)
-            {
-                for (int y = -1; y <= 1; y++)
-                {
-                    if (x == 0 && y == 0)
-                        continue;
-
-                    int checkX = node.gridX + x;
-                    int checkY = node.gridY + y;
-                    if (checkX >= 0 && checkX < gridmanager.gridSizeX && checkY >= 0 && checkY < gridmanager.gridSizeY)
-                    {
-                        neighbours.Add (gridmanager.grid[checkX, checkY]);
-                    }
-                }
-            }
-
-            return neighbours;
+            return UtilityRecon.GetNeighbours (pos, Gridmanager.gridmanager);
         }
 
         protected BoxCollider FindClosestEnemy (BoxCollider[] colliders)
@@ -92,10 +73,6 @@ namespace Bogadanul.Assets.Scripts.Tree
         private void Start ()
         {
             GetRefs ();
-            gridmanager = FindObjectOfType<Gridmanager> ();
-
-            currentNode = nodeFinder.NodeFromPoint (transform);
-            nodes = GetNeighbours (currentNode);
         }
 
         private void OnDrawGizmosSelected ()

@@ -17,6 +17,12 @@ namespace Bogadanul.Assets.Scripts.Player
 
         public void OnClick ()
         {
+            if (selected)
+            {
+                treeSeedSender.CancelCurrentSeed ();
+                selected = false;
+                return;
+            }
             if (treeSeedSender.market.CheckPrice (treeSeed.price))
             {
                 treeSeedSender.ChangeCurrentSeed (treeSeed);

@@ -50,7 +50,7 @@ namespace Bogadanul.Assets.Scripts.Tree
         {
             Gizmos.DrawWireSphere (transform.position, radius);
             Gizmos.color = Color.green;
-            Gizmos.DrawLine (transform.position, Vector2.right * maxDist);
+            Gizmos.DrawLine (transform.position, (Vector2)transform.position + Vector2.right * maxDist);
         }
     }
 }
