@@ -585,6 +585,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30d639162cda6f94db2436b05ec58a99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  marketIntro: {fileID: 0}
   energyStart: 75
 --- !u!114 &4146199714974070836
 MonoBehaviour:
@@ -612,6 +613,7 @@ GameObject:
   - component: {fileID: 6240288622177121739}
   - component: {fileID: 7994270909626967359}
   - component: {fileID: 389067251773988506}
+  - component: {fileID: 1150628553527279065}
   m_Layer: 13
   m_Name: AncientTree
   m_TagString: Finish
@@ -660,8 +662,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 4.481682, y: 0.9713855, z: 1}
+  m_Center: {x: 0.03746462, y: 0.07718277, z: 0}
 --- !u!114 &6240288622177121739
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -755,6 +757,19 @@ MonoBehaviour:
   OnDamage:
     m_PersistentCalls:
       m_Calls: []
+--- !u!65 &1150628553527279065
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4830277979645973455}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.2158871, y: 3.2801704, z: 1}
+  m_Center: {x: -0.052256107, y: -0.14412618, z: 0}
 --- !u!1001 &4723713493643275010
 PrefabInstance:
   m_ObjectHideFlags: 0

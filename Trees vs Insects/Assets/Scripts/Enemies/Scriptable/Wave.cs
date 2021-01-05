@@ -12,5 +12,7 @@ namespace Bogadanul.Assets.Scripts.Enemies
 
         [Range (1, 100)]
         public int weight;
+
+        public float durationBetweenWaves;
     }
 }

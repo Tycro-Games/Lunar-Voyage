@@ -219,6 +219,7 @@ MonoBehaviour:
   enemies:
     serializedVersion: 2
     m_Bits: 1024
+  SizeOfCheck: 0.25
 --- !u!114 &243732108707045663
 MonoBehaviour:
   m_ObjectHideFlags: 0

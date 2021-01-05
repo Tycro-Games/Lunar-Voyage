@@ -18,6 +18,9 @@ namespace Bogadanul.Assets.Scripts.Player
         [SerializeField]
         private Button button = null;
 
+        private Market market = null;
+        private TreeSeedContainer treeSeed = null;
+
         public void Init (float count)
         {
             CountDown = count;
@@ -26,12 +29,36 @@ namespace Bogadanul.Assets.Scripts.Player
         public void ResetT ()
         {
             currentT = CountDown;
-            button.interactable = false;
+            IsDone = false;
+        }
+
+        public void Onvalue (int current)
+        {
+            if (!IsDone || treeSeed.treeSeed.price > current)
+                button.interactable = false;
+            else
+            {
+                button.interactable = true;
+            }
         }
 
         private void Update ()
         {
             TimeDrain ();
+        }
+
+        private void Start ()
+        {
+            treeSeed = GetComponent<TreeSeedContainer> ();
+            market = FindObjectOfType<Market> ();
+
+            market.marketIntro.OnEnergyChange += Onvalue;
+            IsDone = true;
+        }
+
+        private void OnDisable ()
+        {
+            market.marketIntro.OnEnergyChange -= Onvalue;
         }
 
         private void TimeDrain ()
@@ -42,7 +69,11 @@ namespace Bogadanul.Assets.Scripts.Player
                 coolDownEf.fillAmount = Mathf.InverseLerp (0, CountDown, currentT);
             }
             else
+            {
                 IsDone = true;
+                Onvalue (market.marketIntro.WaterInst);
+               
+            }
         }
     }
 }

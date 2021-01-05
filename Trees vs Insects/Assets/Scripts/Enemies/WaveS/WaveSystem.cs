@@ -25,10 +25,6 @@ namespace Bogadanul.Assets.Scripts.Enemies
 
         private TriggerSpawner trigger;
 
-        private bool IsWaveStarted = false;
-
-        private int tempWeight = 0;
-
         [SerializeField]
         private UnityEvent OnLevelEnd = null;
 
@@ -36,30 +32,23 @@ namespace Bogadanul.Assets.Scripts.Enemies
 
         public int EnemyWeight { get => enemyWeight; set { enemyWeight = value; } }
 
-        public void RandomSpawner ()
+        public void StartWave ()
         {
-            if (currentWave < waves.Length)
+            StartCoroutine (WaveCounter ());
+        }
+
+        public IEnumerator WaveCounter ()
+        {
+            while (currentWave < waves.Length)
             {
-                if (!IsWaveStarted)
-                {
-                    IsWaveStarted = true;
+                EnemyWeight = waves[currentWave].weight;
 
-                    EnemyWeight = waves[currentWave].weight;
+                enemyChooser.Init (waves[currentWave].enemies);
 
-                    enemyChooser.Init (waves[currentWave].enemies);
+                yield return StartCoroutine (RandomSpawner (EnemyWeight));
 
-                    StartCoroutine (RandomSpawner (EnemyWeight));
-                }
-                else if (tempWeight <= 0)
-                {
-                    StopCoroutine (RandomSpawner (tempWeight));
-                    IsWaveStarted = false;
-                    currentWave++;
-                    RandomSpawner ();
-                }
+                currentWave++;
             }
-            else
-                OnLevelEnd?.Invoke ();
         }
 
         public IEnumerator RandomSpawner (int enemyWeight)
@@ -70,17 +59,18 @@ namespace Bogadanul.Assets.Scripts.Enemies
                 int currentW = waves[currentWave].enemies[index].weight;
                 enemyWeight -= currentW;
 
-                if (enemyWeight < 0)
-                    continue;
-
-                tempWeight = enemyWeight;
                 SpawnEnemies (index);
                 OnSpawn?.Invoke (currentW);
                 yield return new WaitForSeconds (waves[currentWave].durationBetweenEnemies);
             }
+        }
 
-            IsWaveStarted = false;
-            currentWave++;
+        private void SkipToNext ()
+        {
+            if (currentWave == waves.Length)
+            {
+                OnLevelEnd?.Invoke ();
+            }
         }
 
         private void SpawnEnemies (int index)
@@ -100,12 +90,12 @@ namespace Bogadanul.Assets.Scripts.Enemies
 
         private void OnDisable ()
         {
-            enemyListChecker.OnNoEnemies -= RandomSpawner;
+            enemyListChecker.OnNoEnemies -= SkipToNext;
         }
 
         private void OnEnable ()
         {
-            enemyListChecker.OnNoEnemies += RandomSpawner;
+            enemyListChecker.OnNoEnemies += SkipToNext;
         }
     }
 }

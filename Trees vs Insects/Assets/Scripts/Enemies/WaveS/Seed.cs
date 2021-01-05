@@ -18,7 +18,7 @@ namespace Bogadanul.Assets.Scripts.Enemies
                 random = new RandomNumberGenerator ();
         }
 
-        private void Start ()
+        private void Awake ()
         {
             NewGenerator ();
         }

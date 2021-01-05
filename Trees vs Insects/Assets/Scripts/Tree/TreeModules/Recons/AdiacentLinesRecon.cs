@@ -23,12 +23,15 @@ namespace Bogadanul.Assets.Scripts.Tree
     {
         private addDir direction = new addDir (new Vector2 (1, 0));
 
+        [SerializeField]
+        private float SizeOfCheck = .5f;
+
         public BoxCollider CheckForEnemies ()
         {
             BoxCollider[] hits = new BoxCollider[1];
             for (int i = 0; i < nodes.Count; i++)
             {
-                int c = Physics.OverlapBoxNonAlloc (nodes[i].worldPosition, Vector2.one, hits, Quaternion.identity, enemies);
+                int c = Physics.OverlapBoxNonAlloc (nodes[i].worldPosition, Vector2.one * SizeOfCheck, hits, Quaternion.identity, enemies);
                 if (c > 0)
                     break;
             }
