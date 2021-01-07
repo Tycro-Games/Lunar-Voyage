@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9046605c4f61b1843bb89be2d88996d8, type: 3}
-  m_Name: Ant
+  m_Name: Mk2
   m_EditorClassIdentifier: 
-  enemyGameObject: {fileID: 4424071315473148248, guid: 6b39a6825fc8505419350ae2c4a189c1,
+  enemyGameObject: {fileID: 632630455505894542, guid: 808b307ac5f2dd64590d1a7e62aa9f4a,
     type: 3}
-  weight: 1
+  weight: 3
