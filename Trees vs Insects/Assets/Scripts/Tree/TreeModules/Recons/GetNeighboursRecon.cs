@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Bogadanul.Assets.Scripts.Tree
 {
-    public class TreeReconGetNeighbours : BaseRecon, ITreeRecon
+    public class GetNeighboursRecon : BaseRecon, ITreeRecon
     {
         private BoxCollider[] colliders = new BoxCollider[32];
         private Gridmanager gridmanager;

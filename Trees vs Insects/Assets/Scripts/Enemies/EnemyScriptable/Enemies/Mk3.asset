@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9046605c4f61b1843bb89be2d88996d8, type: 3}
-  m_Name: Mk2
+  m_Name: Mk3
   m_EditorClassIdentifier: 
-  enemyGameObject: {fileID: 632630455505894542, guid: 808b307ac5f2dd64590d1a7e62aa9f4a,
+  enemyGameObject: {fileID: 632630455505894542, guid: 881e431926be1264c8e785247c59977e,
     type: 3}
-  weight: 3
+  weight: 5

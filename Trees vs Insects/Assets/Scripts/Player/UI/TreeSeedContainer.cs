@@ -1,5 +1,7 @@
 ﻿using Bogadanul.Assets.Scripts.Tree;
+using System;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 namespace Bogadanul.Assets.Scripts.Player
@@ -7,6 +9,8 @@ namespace Bogadanul.Assets.Scripts.Player
     public class TreeSeedContainer : MonoBehaviour
     {
         public static TreeSeedContainer treeSeedContainer;
+
+        public static Action OnChange;
 
         [SerializeField]
         public TreeSeed treeSeed = null;
@@ -29,6 +33,7 @@ namespace Bogadanul.Assets.Scripts.Player
             if (treeSeedSender.market.CheckPrice (treeSeed.price))
             {
                 treeSeedSender.ChangeCurrentSeed (treeSeed);
+
                 selected = true;
                 treeSeedContainer = this;
             }
@@ -41,6 +46,11 @@ namespace Bogadanul.Assets.Scripts.Player
                 cooldown.ResetT ();
                 selected = false;
             }
+        }
+
+        public void Deselect ()
+        {
+            selected = false;
         }
 
         private void Displaying ()
@@ -63,6 +73,7 @@ namespace Bogadanul.Assets.Scripts.Player
         private void OnDisable ()
         {
             TreePlacer.OnBuyCheck -= ActivateCoolDown;
+            treeSeedSender.OnResetSeed -= Deselect;
         }
 
         private void Start ()
@@ -72,6 +83,7 @@ namespace Bogadanul.Assets.Scripts.Player
 
             treeSeedDisplay = GetComponent<TreeSeedDisplay> ();
             treeSeedSender = GetComponentInParent<TreeSeedSender> ();
+            treeSeedSender.OnResetSeed += Deselect;
             cooldown = GetComponent<Cooldown> ();
             cooldown.Init (treeSeed.cooldown);
             Displaying ();

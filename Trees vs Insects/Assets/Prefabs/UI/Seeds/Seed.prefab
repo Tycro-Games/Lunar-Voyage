@@ -304,6 +304,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0eff3ae6868f9a43a11394dfb27698f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsDone: 1
   coolDownEf: {fileID: 4299939328049693462}
   button: {fileID: 2313433652235107738}
 --- !u!1 &8305569605575287097

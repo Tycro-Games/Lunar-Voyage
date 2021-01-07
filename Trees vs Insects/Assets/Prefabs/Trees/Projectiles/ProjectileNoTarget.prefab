@@ -125,10 +125,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4137926c4753c02429fdb4843402e7af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 10
+  damage: 5
   speed: 10
   enemies:
     serializedVersion: 2
     m_Bits: 1024
-  radius: 0.21
-  maxDist: 0.25
+  radius: 0.1
+  maxDist: 0.1

@@ -33,7 +33,7 @@ namespace Bogadanul.Assets.Scripts.Player
         public void ChangeCurrentSeed (TreeSeed seed)
         {
             hasSeed = true;
-
+            OnResetSeed?.Invoke ();
             OnChangeSeed?.Invoke (seed);
             seedDisplay.UpdateSprite (seed.sprite);
             treePlacer.UpdateSprite (seed.TreeGameObject);
