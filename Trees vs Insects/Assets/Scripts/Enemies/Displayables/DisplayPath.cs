@@ -42,7 +42,7 @@ namespace Bogadanul.Assets.Scripts.Enemies
             DisplayPathManager.OnChange += Display;
         }
 
-        private void Start ()
+        private void Awake ()
         {
             DisplayPathManager.Reset ();
             sprites = new GameObject[count];
