@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 316753804652462999, guid: 641d9d9b89c5e06439368219f558849a, type: 3}
   price: 50
-  cooldown: 15
+  cooldown: 10
   sprite: {fileID: -749024654251515319, guid: 7a72458cc65ff4543932868093139ea4, type: 3}
   TreeGameObject: {fileID: 7935677415777961333, guid: 22f0588ec5c83f0469ad6617dfec3dcf,
     type: 3}

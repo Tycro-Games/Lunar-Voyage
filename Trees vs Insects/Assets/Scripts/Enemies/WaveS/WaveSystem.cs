@@ -10,7 +10,7 @@ namespace Bogadanul.Assets.Scripts.Enemies
         [Header ("Waves")]
         public Wave[] waves = null;
 
-        private int count;
+    
 
         private int currentWave = 0;
 

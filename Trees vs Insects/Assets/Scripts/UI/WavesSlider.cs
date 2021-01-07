@@ -8,13 +8,16 @@ namespace Bogadanul.Assets.Scripts.UI
     public class WavesSlider : MonoBehaviour
     {
         private int TotalWeight = 0;
-        private int currentWeight = 0;
+        private int currentWeight = 1;
         private Slider slider = null;
         private WaveSystem waveSystem = null;
 
         public void UpdateSlider (int weight)
         {
-            currentWeight += weight;
+            if (currentWeight < 1)
+                currentWeight = weight;
+            else
+                currentWeight += weight;
             slider.value = Mathf.InverseLerp (0, TotalWeight, currentWeight);
         }
 

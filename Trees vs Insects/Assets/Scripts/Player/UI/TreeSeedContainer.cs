@@ -51,6 +51,7 @@ namespace Bogadanul.Assets.Scripts.Player
 
         private void ActivateCoolDown ()
         {
+            selected = false;
             treeSeedContainer.ActivateDown ();
         }
 

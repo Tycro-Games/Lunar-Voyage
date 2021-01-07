@@ -12,7 +12,8 @@ namespace Bogadanul.Assets.Scripts.Utility
 
         public void LoadSceneSi (string name)
         {
-            SceneManager.LoadScene (name);
+            if (name.Length > 0)
+                SceneManager.LoadScene (name);
         }
 
         public void LoadSceneAd (string name)
