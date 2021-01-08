@@ -489,10 +489,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   range: 6
-  DAMAGE: 100000
   enemies:
     serializedVersion: 2
     m_Bits: 1024
+  DAMAGE: 100000
 --- !u!114 &4897151751739395710
 MonoBehaviour:
   m_ObjectHideFlags: 0
