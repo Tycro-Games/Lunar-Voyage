@@ -27,7 +27,7 @@ namespace Bogadanul.Assets.Scripts.Enemies
                 if (path == null)
                     continue;
 
-                hasPath = pathfindings[path].FindPath ();
+                hasPath = pathfindings[path].HasPath ();
 
                 if (!hasPath)
                 {
@@ -37,25 +37,18 @@ namespace Bogadanul.Assets.Scripts.Enemies
             }
         }
 
-        //public static void CheckSpaceDisplay ()
-        //{
-        //    if (CheckForNullPaths ())
-        //        return;
-        //    HashSet<Node> allPaths = new HashSet<Node> ();
-        //    foreach (TracePathCheck path in pathfindings.Keys)
-        //    {
-        //        if (path == null)
-        //            continue;
+        public static void SetSpace ()
+        {
+            if (CheckForNullPaths ())
+                return;
 
-        //        hasPath = pathfindings[path].FindPath ();
-        //        allPaths.UnionWith (path.PathNoEnds ());
-        //        if (!hasPath)
-        //        {
-        //            Debug.Log ("not enough space");
-        //            return;
-        //        }
-        //    }
-        //    DisplayPathManager.AddPaths (allPaths);
-        //}
+            foreach (TracePathCheck path in pathfindings.Keys)
+            {
+                if (path == null)
+                    continue;
+
+                pathfindings[path].FindPath ();
+            }
+        }
     }
 }

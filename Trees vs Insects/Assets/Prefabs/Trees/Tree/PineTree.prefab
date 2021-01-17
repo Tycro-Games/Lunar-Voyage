@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8143672664230976835}
   - component: {fileID: 4738497534054365458}
   - component: {fileID: 2167074741321681338}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: GPX
   m_TagString: Untagged
   m_Icon: {fileID: 0}

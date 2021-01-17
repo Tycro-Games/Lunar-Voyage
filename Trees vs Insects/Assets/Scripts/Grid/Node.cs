@@ -45,7 +45,7 @@ namespace Bogadanul.Assets.Scripts.Player
 
         public bool Placeable ()
         {
-            if (Walkable && !Ocupied)
+            if (!Ocupied)
                 return true;
             return false;
         }

@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Cherry
   m_EditorClassIdentifier: 
   icon: {fileID: 1220097820752975890, guid: 641d9d9b89c5e06439368219f558849a, type: 3}
-  price: 25
-  cooldown: 50
+  price: 175
+  cooldown: 60
   sprite: {fileID: -1025294881627752460, guid: 7a72458cc65ff4543932868093139ea4, type: 3}
   TreeGameObject: {fileID: 8976918986219011986, guid: 3cb9c641faca54c4c91e33203e96574c,
     type: 3}

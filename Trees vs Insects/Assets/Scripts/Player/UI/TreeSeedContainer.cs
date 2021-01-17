@@ -61,7 +61,6 @@ namespace Bogadanul.Assets.Scripts.Player
 
         private void ActivateCoolDown ()
         {
-            selected = false;
             treeSeedContainer.ActivateDown ();
         }
 
@@ -76,6 +75,12 @@ namespace Bogadanul.Assets.Scripts.Player
             treeSeedSender.OnResetSeed -= Deselect;
         }
 
+        private void Awake ()
+        {
+            cooldown = GetComponent<Cooldown> ();
+            cooldown.Init (treeSeed.cooldown);
+        }
+
         private void Start ()
         {
             button = GetComponent<Button> ();
@@ -84,8 +89,7 @@ namespace Bogadanul.Assets.Scripts.Player
             treeSeedDisplay = GetComponent<TreeSeedDisplay> ();
             treeSeedSender = GetComponentInParent<TreeSeedSender> ();
             treeSeedSender.OnResetSeed += Deselect;
-            cooldown = GetComponent<Cooldown> ();
-            cooldown.Init (treeSeed.cooldown);
+
             Displaying ();
         }
     }

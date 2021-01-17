@@ -71,7 +71,7 @@ namespace Bogadanul.Assets.Scripts.Enemies
 
         #region checkSpace
 
-        public bool FindPath ()
+        public bool HasPath ()
         {
             grid.UpdateGrid ();
 
@@ -91,7 +91,6 @@ namespace Bogadanul.Assets.Scripts.Enemies
 
                 if (currentNode == targetNode)
                 {
-                    RetracePath (startNode, targetNode);
                     return true;
                 }
 
@@ -118,6 +117,54 @@ namespace Bogadanul.Assets.Scripts.Enemies
                 }
             }
             return false;
+        }
+
+        public void FindPath ()
+        {
+            grid.UpdateGrid ();
+
+            Node startNode = nodeFind.NodeFromPoint (transform);
+            if (startNode == null) return;
+            Node targetNode = ancientTree.currentNodes[0];
+
+            Heap<Node> openSet = new Heap<Node> (grid.MaxSize);
+            HashSet<Node> closedSet = new HashSet<Node> ();
+
+            openSet.Add (startNode);
+
+            while (openSet.Count > 0)
+            {
+                Node currentNode = openSet.RemoveFirst ();
+                closedSet.Add (currentNode);
+
+                if (currentNode == targetNode)
+                {
+                    RetracePath (startNode, targetNode);
+                    return;
+                }
+
+                foreach (Node neighbour in grid.GetNeighbours (currentNode))
+                {
+                    if (!neighbour.Walkable || closedSet.Contains (neighbour))
+                    {
+                        continue;
+                    }
+                    int newMovementCostToNeighbour = currentNode.gCost + GetDistance (currentNode, neighbour);
+                    if (newMovementCostToNeighbour < neighbour.gCost || !openSet.Contains (neighbour))
+                    {
+                        neighbour.gCost = newMovementCostToNeighbour;
+                        neighbour.hCost = GetDistance (neighbour, targetNode);
+                        neighbour.parent = currentNode;
+
+                        if (!openSet.Contains (neighbour))
+                            openSet.Add (neighbour);
+                        else
+                        {
+                            openSet.UpdateItem (neighbour);
+                        }
+                    }
+                }
+            }
         }
 
         #endregion checkSpace

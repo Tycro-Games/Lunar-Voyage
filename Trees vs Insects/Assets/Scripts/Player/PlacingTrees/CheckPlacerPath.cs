@@ -46,16 +46,15 @@ namespace Bogadanul.Assets.Scripts.Player
             if (!EnemyManager.hasPath)
             {
                 Destroy (currentPlace);
-                cell.Walkable = false;
-                EnemyManager.CheckSpace ();
                 return false;
             }
+            EnemyManager.SetSpace ();
             return true;
         }
 
         public void CallEnemyManager ()
         {
-            EnemyManager.CheckSpace ();
+            EnemyManager.SetSpace ();
         }
     }
 }

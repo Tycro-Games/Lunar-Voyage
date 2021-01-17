@@ -32,7 +32,7 @@ namespace Bogadanul.Assets.Scripts.Player
                 node = cols[0].gameObject.GetComponent<NodeInstance> ().Nodey;
             return node;
         }
-       
+
         private void Start ()
         {
             cam = Camera.main;
