@@ -10,8 +10,6 @@ namespace Bogadanul.Assets.Scripts.Enemies
         [Header ("Waves")]
         public Wave[] waves = null;
 
-    
-
         private int currentWave = 0;
 
         private EnemyChooser enemyChooser;
@@ -27,6 +25,13 @@ namespace Bogadanul.Assets.Scripts.Enemies
 
         [SerializeField]
         private UnityEvent OnLevelEnd = null;
+
+        [SerializeField]
+        private UnityEvent OnNextWave = null;
+
+        private IEnumerator current = null;
+
+        private int currentW = 0;
 
         public event Action<int> OnSpawn;
 
@@ -45,32 +50,50 @@ namespace Bogadanul.Assets.Scripts.Enemies
 
                 enemyChooser.Init (waves[currentWave].enemies);
 
-                yield return StartCoroutine (RandomSpawner (EnemyWeight));
+                currentW = EnemyWeight;
+                ResetIen ();
+                while (current != null)
+                    yield return null;
 
+                OnNextWave?.Invoke ();
                 currentWave++;
             }
         }
 
-        public IEnumerator RandomSpawner (int enemyWeight)
+        public IEnumerator RandomSpawner ()
         {
-            while (enemyWeight > 0)
+            while (currentW > 0)
             {
-                int index = enemyChooser.ChooseEnemy (enemyWeight);
-                int currentW = waves[currentWave].enemies[index].weight;
-                enemyWeight -= currentW;
+                int index = enemyChooser.ChooseEnemy (currentW);
+                int current = waves[currentWave].enemies[index].weight;
+                currentW -= current;
 
                 SpawnEnemies (index);
-                OnSpawn?.Invoke (currentW);
+                OnSpawn?.Invoke (current);
                 yield return new WaitForSeconds (waves[currentWave].durationBetweenEnemies);
             }
         }
 
+        private void ResetIen ()
+        {
+            current = RandomSpawner ();
+            StartCoroutine (current);
+        }
+
         private void SkipToNext ()
         {
-            if (currentWave == waves.Length)
+            if (currentWave == waves.Length - 1)
             {
                 OnLevelEnd?.Invoke ();
             }
+            else if (current != null && currentW > 0)
+            {
+                StopCoroutine (current);
+                if (currentW > 0)
+                    ResetIen ();
+            }
+            else
+                current = null;
         }
 
         private void SpawnEnemies (int index)

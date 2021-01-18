@@ -19,7 +19,6 @@ namespace Bogadanul.Assets.Scripts.Enemies
             set
             {
                 path = value;
-                DisplayPathManager.AddPaths (path);
             }
         }
 
