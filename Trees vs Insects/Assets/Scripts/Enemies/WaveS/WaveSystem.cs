@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -62,13 +64,14 @@ namespace Bogadanul.Assets.Scripts.Enemies
 
         public IEnumerator RandomSpawner ()
         {
+            HashSet<EnemySpawner> spawner = trigger.RandomListOfSpawner ();
             while (currentW > 0)
             {
                 int index = enemyChooser.ChooseEnemy (currentW);
                 int current = waves[currentWave].enemies[index].weight;
                 currentW -= current;
 
-                SpawnEnemies (index);
+                SpawnEnemies (index, spawner);
                 OnSpawn?.Invoke (current);
                 yield return new WaitForSeconds (waves[currentWave].durationBetweenEnemies);
             }
@@ -96,11 +99,11 @@ namespace Bogadanul.Assets.Scripts.Enemies
                 current = null;
         }
 
-        private void SpawnEnemies (int index)
+        private void SpawnEnemies (int index, HashSet<EnemySpawner> enemySpawners)
         {
-            EnemySpawner spawner = trigger.ChooseASpawner ();
             GameObject enemy = waves[currentWave].enemies[index].enemyGameObject;
-            spawner.Spawn (enemy);
+            EnemySpawner enemySpawner = trigger.ChooseASpawner (enemySpawners.ToArray ());
+            enemySpawner.Spawn (enemy);
         }
 
         private void Awake ()
