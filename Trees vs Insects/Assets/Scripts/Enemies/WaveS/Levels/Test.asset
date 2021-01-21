@@ -16,5 +16,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: bfd12a4997d333a4eb3a6bc76244cd7f, type: 2}
   - {fileID: 11400000, guid: cdbd792f1ed4e83408f6b7e3e7b887ea, type: 2}
   - {fileID: 11400000, guid: 80d2122fe7fdf1e4686c6377f5ac1e1e, type: 2}
-  durationBetweenEnemies: 1
-  weight: 2
+  durationBetweenEnemies: 15
+  weight: 100

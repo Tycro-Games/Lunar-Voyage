@@ -58,8 +58,9 @@ namespace Bogadanul.Assets.Scripts.Enemies
             pathCurrent.Add (startNode);
 
             pathCurrent.Reverse ();
-
-            path.Path = pathCurrent;
+            if (pathCurrent.Count != path.Path.Count)
+                path.Path = pathCurrent;
+            
         }
 
         private void Start ()
