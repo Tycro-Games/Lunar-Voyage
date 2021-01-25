@@ -405,6 +405,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentTree: {fileID: 0}
+  BlockLayer:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!114 &1518370455002664309
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -419,7 +422,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   layerToPlace:
     serializedVersion: 2
-    m_Bits: 28160
+    m_Bits: 10752
 --- !u!114 &1518370455002664304
 MonoBehaviour:
   m_ObjectHideFlags: 0

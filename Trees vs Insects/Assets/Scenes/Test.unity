@@ -2725,6 +2725,10 @@ PrefabInstance:
       propertyPath: m_Center.x
       value: -2.7095704
       objectReference: {fileID: 0}
+    - target: {fileID: 1709428594, guid: 2d2288358d54cb949a246a78f82ad470, type: 3}
+      propertyPath: layerToPlace.m_Bits
+      value: 2048
+      objectReference: {fileID: 0}
     - target: {fileID: 119772059123318044, guid: 2d2288358d54cb949a246a78f82ad470,
         type: 3}
       propertyPath: m_IsActive
@@ -2814,6 +2818,11 @@ PrefabInstance:
         type: 3}
       propertyPath: energyStart
       value: 10000000
+      objectReference: {fileID: 0}
+    - target: {fileID: 1518370455516882461, guid: 2d2288358d54cb949a246a78f82ad470,
+        type: 3}
+      propertyPath: layerToPlace.m_Bits
+      value: 11776
       objectReference: {fileID: 0}
     - target: {fileID: 1941249975165462242, guid: 2d2288358d54cb949a246a78f82ad470,
         type: 3}

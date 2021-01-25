@@ -16,9 +16,7 @@ namespace Bogadanul.Assets.Scripts.Player
                 &&
                 hit.collider.gameObject.CompareTag ("grid"))
             {
-                Node n = hit.collider.GetComponent<NodeInstance> ().Nodey;
-                if (!n.Ocupied)
-                    return n;
+                return hit.collider.GetComponent<NodeInstance> ().Nodey;
             }
             return null;
         }

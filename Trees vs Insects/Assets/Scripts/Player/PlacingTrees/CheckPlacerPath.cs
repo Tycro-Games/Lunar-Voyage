@@ -35,11 +35,9 @@ namespace Bogadanul.Assets.Scripts.Player
                 return false;
 
             EnemyManager.hasPath = false;
-            Vector2 pos = cell.worldPosition + new Vector3 (Random.Range (randomNumbers.Minx * multiplier,
-                randomNumbers.Maxx * multiplier), Random.Range (randomNumbers.Miny * multiplier,
-                randomNumbers.Maxy * multiplier),
-                0);
-            GameObject currentPlace = Instantiate (currentTree, pos, Quaternion.identity, transform);
+
+            Vector2 pos = Pos (cell);
+            GameObject currentPlace = Spawn (currentTree, pos);
 
             EnemyManager.CheckSpace ();
 
@@ -52,9 +50,22 @@ namespace Bogadanul.Assets.Scripts.Player
             return true;
         }
 
+        public GameObject Spawn (GameObject currentTree, Vector2 pos)
+        {
+            return Instantiate (currentTree, pos, Quaternion.identity, transform);
+        }
+
         public void CallEnemyManager ()
         {
             EnemyManager.SetSpace ();
+        }
+
+        public Vector2 Pos (Node cell)
+        {
+            return cell.worldPosition + new Vector3 (Random.Range (randomNumbers.Minx * multiplier,
+                            randomNumbers.Maxx * multiplier), Random.Range (randomNumbers.Miny * multiplier,
+                            randomNumbers.Maxy * multiplier),
+                            0);
         }
     }
 }

@@ -18,3 +18,4 @@ MonoBehaviour:
   sprite: {fileID: 1220097820752975890, guid: 641d9d9b89c5e06439368219f558849a, type: 3}
   TreeGameObject: {fileID: 8976918986219011986, guid: 4de340657c9e125468fa4431c1d726de,
     type: 3}
+  placeableOnEnemies: 1

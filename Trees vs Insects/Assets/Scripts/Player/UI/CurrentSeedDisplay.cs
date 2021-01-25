@@ -13,9 +13,9 @@ namespace Bogadanul.Assets.Scripts.Player
         private Sprite cursorSprite = null;
 
         private NodeFinder node;
+        private TreePlacer Placer;
         private SpriteRenderer spriteRen = null;
 
-        private Camera cam;
         private DisplayRange displayRange = null;
 
         public void MoveSprite (InputAction.CallbackContext ctx)
@@ -26,15 +26,12 @@ namespace Bogadanul.Assets.Scripts.Player
             if (spriteRen.sprite != null)
             {
                 Node n = node.NodeFromInput (mouse);
-                bool hasPlace = n?.Placeable () == true;
-                if (hasPlace)
-                {
-                    //update display range
-                   
+
+                if (n != null)
                     transform.position = n.worldPosition;
-                }
+
                 displayRange.DisplayTheRange (n);
-                spriteRen.enabled = hasPlace;
+                spriteRen.enabled = n?.Placeable () == true;
             }
         }
 
@@ -63,7 +60,7 @@ namespace Bogadanul.Assets.Scripts.Player
 
         private void Awake ()
         {
-            cam = Camera.main;
+            Placer = FindObjectOfType<TreePlacer> ();
             spriteRen = GetComponent<SpriteRenderer> ();
             displayRange = GetComponent<DisplayRange> ();
         }
