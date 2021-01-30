@@ -708,6 +708,21 @@ PrefabInstance:
       propertyPath: OnLevelEnd.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 7030771875118139074, guid: cf22c1a3814e5ad49a0afe51a265f37c,
+        type: 3}
+      propertyPath: OnNextWave.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7030771875118139074, guid: cf22c1a3814e5ad49a0afe51a265f37c,
+        type: 3}
+      propertyPath: OnNextWave.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7030771875118139074, guid: cf22c1a3814e5ad49a0afe51a265f37c,
+        type: 3}
+      propertyPath: OnNextWave.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cf22c1a3814e5ad49a0afe51a265f37c, type: 3}
 --- !u!4 &1193952825 stripped

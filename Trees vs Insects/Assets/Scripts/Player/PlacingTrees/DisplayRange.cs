@@ -1,4 +1,5 @@
-﻿using Bogadanul.Assets.Scripts.Tree;
+﻿using Bogadanul.Assets.Scripts.Enemies;
+using Bogadanul.Assets.Scripts.Tree;
 
 using System.Collections;
 using System.Collections.Generic;
@@ -6,7 +7,7 @@ using UnityEngine;
 
 namespace Bogadanul.Assets.Scripts.Player
 {
-    public class DisplayRange : MonoBehaviour
+    public class DisplayRange : DisplayStuff
     {
         [HideInInspector]
         public List<Node> nodes = new List<Node> ();
@@ -16,13 +17,25 @@ namespace Bogadanul.Assets.Scripts.Player
 
         public void DisplayTheRange (Node pos)
         {
-            if (treeRecon != null && pos != null)
+            if (treeRecon != null && pos?.Placeable () == true)
+            {
                 nodes = treeRecon.GetNodeRange (pos);
-            else if(pos == null)
+                int i = 0;
+                foreach (Node n in nodes)
+                {
+                    sprites[i].SetActive (true);
+                    sprites[i++].transform.position = n.worldPosition;
+                }
+                for (; i < lasti; i++)
+                {
+                    sprites[i].SetActive (false);
+                }
+                lasti = i;
+            }
+            else
             {
                 Reset ();
             }
-
         }
 
         public void UpdateG (TreeSeed obj)
@@ -32,12 +45,21 @@ namespace Bogadanul.Assets.Scripts.Player
 
         public void Reset ()
         {
+            for (int i = 0; i < nodes.Count; i++)
+            {
+                sprites[i].SetActive (false);
+            }
             nodes = new List<Node> ();
         }
 
         private void OnDisable ()
         {
             seedSender.OnChangeSeed -= UpdateG;
+        }
+
+        private void Awake ()
+        {
+            MakeObjects ();
         }
 
         private void Start ()

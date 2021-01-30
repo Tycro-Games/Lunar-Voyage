@@ -46,6 +46,7 @@ namespace Bogadanul.Assets.Scripts.Enemies
 
         public IEnumerator WaveCounter ()
         {
+            OnNextWave?.Invoke ();
             while (currentWave < waves.Length)
             {
                 EnemyWeight = waves[currentWave].weight;

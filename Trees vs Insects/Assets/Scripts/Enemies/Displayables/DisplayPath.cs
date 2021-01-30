@@ -5,17 +5,9 @@ using UnityEngine;
 
 namespace Bogadanul.Assets.Scripts.Enemies
 {
-    public class DisplayPath : MonoBehaviour
+    public class DisplayPath : DisplayStuff
     {
-        [SerializeField]
-        private GameObject sprite = null;
-
-        private GameObject[] sprites;
-
-        [SerializeField]
-        private int count = 128;
-
-        private int lasti = 0;
+        private TracePathCheck[] tracePath;
 
         public void Display ()
         {
@@ -32,6 +24,18 @@ namespace Bogadanul.Assets.Scripts.Enemies
             lasti = i;
         }
 
+        public void Reset ()
+        {
+            DisplayPathManager.Reset ();
+        }
+
+        public void UpdateDisplays ()
+        {
+            Reset ();
+            foreach (TracePathCheck trace in tracePath)
+                DisplayPathManager.AddPaths (trace.Path);
+        }
+
         private void OnDisable ()
         {
             DisplayPathManager.OnChange -= Display;
@@ -44,14 +48,12 @@ namespace Bogadanul.Assets.Scripts.Enemies
 
         private void Awake ()
         {
-            DisplayPathManager.Reset ();
-            sprites = new GameObject[count];
-            for (int i = 0; i < count; i++)
-            {
-                GameObject s = Instantiate (sprite, transform);
-                s.SetActive (false);
-                sprites[i] = s;
-            }
+            MakeObjects ();
+        }
+
+        private void Start ()
+        {
+            tracePath = FindObjectsOfType<TracePathCheck> ();
         }
     }
 }

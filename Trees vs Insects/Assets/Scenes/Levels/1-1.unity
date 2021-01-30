@@ -2175,6 +2175,11 @@ PrefabInstance:
       propertyPath: m_ChunkCullingBounds.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 3896848579017657747, guid: 2d2288358d54cb949a246a78f82ad470,
+        type: 3}
+      propertyPath: seed
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 4830277980041357211, guid: 2d2288358d54cb949a246a78f82ad470,
         type: 3}
       propertyPath: m_Name

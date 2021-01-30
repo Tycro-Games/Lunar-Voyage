@@ -28,8 +28,9 @@ namespace Bogadanul.Assets.Scripts.Player
                 Node n = node.NodeFromInput (mouse);
 
                 if (n != null)
+                {
                     transform.position = n.worldPosition;
-
+                }
                 displayRange.DisplayTheRange (n);
                 spriteRen.enabled = n?.Placeable () == true;
             }

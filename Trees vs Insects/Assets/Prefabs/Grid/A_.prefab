@@ -308,6 +308,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1097aec242223634aba75fc4101458f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sprite: {fileID: 4663047864313584066, guid: c2d5121816e6bc24a8ca27e5c2328df9, type: 3}
+  count: 32
 --- !u!1 &119772059123318044
 GameObject:
   m_ObjectHideFlags: 0
@@ -893,6 +895,16 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: 1935742771
       objectReference: {fileID: 0}
+    - target: {fileID: 2313814057144741312, guid: a7b09197468d2db4c93e5ff7a0fd0e00,
+        type: 3}
+      propertyPath: OnNextWave.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2313814057144741312, guid: a7b09197468d2db4c93e5ff7a0fd0e00,
+        type: 3}
+      propertyPath: OnNextWave.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 3048339898836379502}
     - target: {fileID: 6526017579774721404, guid: a7b09197468d2db4c93e5ff7a0fd0e00,
         type: 3}
       propertyPath: m_RootOrder
