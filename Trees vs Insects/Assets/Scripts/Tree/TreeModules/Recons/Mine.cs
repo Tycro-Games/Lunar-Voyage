@@ -6,19 +6,10 @@ using UnityEngine.Events;
 
 namespace Bogadanul.Assets.Scripts.Tree.TreeModules.Recons
 {
-    [RequireComponent (typeof (Explode))]
-    [RequireComponent (typeof (DestroyTree))]
     public class Mine : BaseRangeSearch
     {
-        private DestroyTree destroyTree = null;
-
         [SerializeField]
         private UnityEvent OnDetect = null;
-
-        private void Start ()
-        {
-            destroyTree = GetComponent<DestroyTree> ();
-        }
 
         private void Update ()
         {
