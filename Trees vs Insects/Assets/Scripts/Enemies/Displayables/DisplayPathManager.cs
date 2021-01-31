@@ -17,7 +17,11 @@ public static class DisplayPathManager
             nodes.Remove (n);
         OnChange?.Invoke ();
     }
-
+    public static void ActivateDisplay()
+    {
+        
+        OnChange?.Invoke();
+    }
     public static void Reset ()
     {
         nodes = new HashSet<Node> ();

@@ -31,7 +31,8 @@ namespace Bogadanul.Assets.Scripts.Enemies
 
                 if (!hasPath)
                 {
-                    Debug.Log ("not enough space");
+
+                    DisplayPathManager.ActivateDisplay();
                     return;
                 }
             }

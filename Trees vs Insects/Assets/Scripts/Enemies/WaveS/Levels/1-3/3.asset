@@ -15,4 +15,4 @@ MonoBehaviour:
   enemies:
   - {fileID: 11400000, guid: bfd12a4997d333a4eb3a6bc76244cd7f, type: 2}
   durationBetweenEnemies: 3
-  weight: 15
+  weight: 10
