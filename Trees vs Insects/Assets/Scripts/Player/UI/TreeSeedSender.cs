@@ -9,9 +9,9 @@ namespace Bogadanul.Assets.Scripts.Player
         [HideInInspector]
         public Market market = null;
 
-        private ICurrentSeedDisplay<Sprite> seedDisplay;
+        private CurrentSeedDisplay seedDisplay;
 
-        private ICurrentSeedDisplay<GameObject> treePlacer;
+        private TreePlacer treePlacer;
         private bool hasSeed = false;
 
         public event Action<TreeSeed> OnChangeSeed = null;
@@ -35,8 +35,8 @@ namespace Bogadanul.Assets.Scripts.Player
             hasSeed = true;
             OnResetSeed?.Invoke ();
             OnChangeSeed?.Invoke (seed);
-            seedDisplay.UpdateSprite (seed.sprite);
-            treePlacer.UpdateSprite (seed.TreeGameObject);
+            seedDisplay.UpdateSprite (seed.sprite, seed.canBePlacedAnywhere);
+            treePlacer.UpdateSprite (seed.TreeGameObject, seed.canBePlacedAnywhere);
         }
 
         private void OnEnable ()

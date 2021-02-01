@@ -35,9 +35,7 @@ namespace Bogadanul.Assets.Scripts.Player
                 return false;
 
             EnemyManager.hasPath = false;
-
-            Vector2 pos = Pos (cell);
-            GameObject currentPlace = Spawn (currentTree, pos);
+            GameObject currentPlace = ToSpawn (cell, currentTree);
 
             EnemyManager.CheckSpace ();
 
@@ -66,6 +64,12 @@ namespace Bogadanul.Assets.Scripts.Player
                             randomNumbers.Maxx * multiplier), Random.Range (randomNumbers.Miny * multiplier,
                             randomNumbers.Maxy * multiplier),
                             0);
+        }
+
+        public GameObject ToSpawn (Node cell, GameObject currentTree)
+        {
+            Vector2 pos = Pos (cell);
+            return Spawn (currentTree, pos);
         }
     }
 }

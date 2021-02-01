@@ -2,8 +2,10 @@
 using Bogadanul.Assets.Scripts.Tree;
 using UnityEngine;
 
-namespace Bogadanul.Assets.Scripts.Player {
-    public class TreePlacer : MonoBehaviour, ICurrentSeedDisplay<GameObject> {
+namespace Bogadanul.Assets.Scripts.Player
+{
+    public class TreePlacer : MonoBehaviour
+    {
         private static int layer;
         private CheckPlacerPath checkPlacer;
 
@@ -15,42 +17,62 @@ namespace Bogadanul.Assets.Scripts.Player {
         [SerializeField]
         private LayerMask BlockLayer = 0;
 
+        private bool canBe = false;
+
         public static event Action OnBuyCheck;
 
-        public bool UnWalkable () {
+        public bool UnWalkable ()
+        {
             if (currentTree.layer == layer)
                 return true;
             return false;
         }
 
-        public void Place () {
-            if (currentTree != null) {
+        public void Place ()
+        {
+            if (currentTree != null)
+            {
                 Node n = raycaster.NodeFromInput (Input.mousePosition);
                 if (n == null)
                     return;
-
-                if (n.Placeable () && checkPlacer.CheckToPlace (n, currentTree)) {
+                if (!canBe)
+                    CheckNode (n);
+                else
+                {
+                    checkPlacer.ToSpawn (n, currentTree);
                     Placing ();
                 }
-
             }
         }
 
-        public void Reset () {
+        public void Reset ()
+        {
             currentTree = null;
         }
 
-        public void UpdateSprite (GameObject seed) {
+        public void UpdateSprite (GameObject seed, bool canBeAny = false)
+        {
             currentTree = seed;
+            canBe = canBeAny;
         }
 
-        private void Placing () {
+        private void CheckNode (Node n)
+        {
+            if (n.Placeable () && checkPlacer.CheckToPlace (n, currentTree))
+            {
+                Placing ();
+            }
+        }
+
+        private void Placing ()
+        {
             currentTree = null;
             OnBuyCheck?.Invoke ();
         }
 
-        private void Start () {
-            layer = (int) Mathf.Log (BlockLayer.value, 2);
+        private void Start ()
+        {
+            layer = (int)Mathf.Log (BlockLayer.value, 2);
             checkPlacer = GetComponent<CheckPlacerPath> ();
             raycaster = GetComponent<NodeFinder> ();
         }

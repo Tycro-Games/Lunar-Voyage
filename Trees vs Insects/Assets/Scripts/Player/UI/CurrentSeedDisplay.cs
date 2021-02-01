@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 
 namespace Bogadanul.Assets.Scripts.Player
 {
-    public class CurrentSeedDisplay : MonoBehaviour, ICurrentSeedDisplay<Sprite>
+    public class CurrentSeedDisplay : MonoBehaviour
     {
         [SerializeField]
         private SpriteRenderer cursor = null;
@@ -13,10 +13,11 @@ namespace Bogadanul.Assets.Scripts.Player
         private Sprite cursorSprite = null;
 
         private NodeFinder node;
-        private TreePlacer Placer;
+
         private SpriteRenderer spriteRen = null;
 
         private DisplayRange displayRange = null;
+        private bool canBePlaced = false;
 
         public void MoveSprite (InputAction.CallbackContext ctx)
         {
@@ -32,7 +33,10 @@ namespace Bogadanul.Assets.Scripts.Player
                     transform.position = n.worldPosition;
                 }
                 displayRange.DisplayTheRange (n);
-                spriteRen.enabled = n?.Placeable () == true;
+                if (!canBePlaced)
+                    spriteRen.enabled = n?.Placeable () == true;
+                else
+                    spriteRen.enabled = n != null;
             }
         }
 
@@ -43,10 +47,11 @@ namespace Bogadanul.Assets.Scripts.Player
             cursor.sprite = cursorSprite;
         }
 
-        public void UpdateSprite (Sprite seed)
+        public void UpdateSprite (Sprite seed, bool canBeP = false)
         {
             if (seed)
             {
+                canBePlaced = canBeP;
                 spriteRen.sprite = seed;
 
                 transform.position = cursor.transform.position;
@@ -61,7 +66,6 @@ namespace Bogadanul.Assets.Scripts.Player
 
         private void Awake ()
         {
-            Placer = FindObjectOfType<TreePlacer> ();
             spriteRen = GetComponent<SpriteRenderer> ();
             displayRange = GetComponent<DisplayRange> ();
         }
