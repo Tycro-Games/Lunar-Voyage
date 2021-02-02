@@ -22,6 +22,9 @@ namespace Bogadanul.Assets.Scripts.Player
         public Node[,] grid;
 
         [SerializeField]
+        private Vector3 offset = Vector3.zero;
+
+        [SerializeField]
         private Transform collParent = null;
 
         [SerializeField]
@@ -104,7 +107,7 @@ namespace Bogadanul.Assets.Scripts.Player
         private void CreateGrid ()
         {
             grid = new Node[gridSizeX, gridSizeY];
-            Vector3 worldBottomLeft = transform.position - Vector3.right * gridWorldSize.x / 2 - Vector3.up * gridWorldSize.y / 2;
+            Vector3 worldBottomLeft = transform.position - Vector3.right * gridWorldSize.x / 2 - Vector3.up * gridWorldSize.y / 2 + offset;
 
             for (int x = 0; x < gridSizeX; x++)
             {
@@ -131,7 +134,8 @@ namespace Bogadanul.Assets.Scripts.Player
 
         private void OnDrawGizmos ()
         {
-            Gizmos.DrawWireCube (transform.position, new Vector3 (gridWorldSize.x, gridWorldSize.y, 0));
+            Gizmos.color = Color.black;
+            Gizmos.DrawWireCube (transform.position + offset, new Vector3 (gridWorldSize.x, gridWorldSize.y, 0));
 
             for (int x = 0; x < gridSizeX; x++)
             {
