@@ -12,7 +12,7 @@ namespace Bogadanul.Assets.Scripts.Tree
         [SerializeField]
         protected float speed = 0;
 
-        protected EnemyAI enemyAI;
+        protected IEnemyAI enemyAI;
 
         public virtual void DestroyProjectile ()
         {

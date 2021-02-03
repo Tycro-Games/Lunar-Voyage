@@ -22,13 +22,13 @@ namespace Bogadanul.Assets.Scripts.Tree
             {
                 BoxCollider col = colliders[0];
 
-                float currentDist = dist (col.transform.position);
+                float currentDist = transform.Dist (col.transform.position);
                 foreach (BoxCollider c in colliders)
                 {
                     if (c == null)
                         continue;
 
-                    float Dist = dist (c.transform.position);
+                    float Dist = transform.Dist (c.transform.position);
                     if (Dist < currentDist)
                     {
                         col = c;
@@ -43,26 +43,6 @@ namespace Bogadanul.Assets.Scripts.Tree
         public List<Node> GetNodeRange (Node pos)
         {
             return UtilityRecon.GetNeighbours (pos, Gridmanager.gridmanager);
-        }
-
-        protected BoxCollider FindClosestEnemy (BoxCollider[] colliders)
-        {
-            BoxCollider col = colliders[0];
-
-            float currentDist = dist (col.transform.position);
-            foreach (BoxCollider c in colliders)
-            {
-                if (c == null)
-                    continue;
-
-                float Dist = dist (c.transform.position);
-                if (Dist < currentDist)
-                {
-                    col = c;
-                    currentDist = Dist;
-                }
-            }
-            return col;
         }
 
         private void Awake ()

@@ -29,7 +29,7 @@ namespace Bogadanul.Assets.Scripts.Tree
             int count = Physics.SphereCastNonAlloc (ray, radius, colliders, maxDist, enemies);
             if (count > 0)
             {
-                colliders[0].collider.GetComponent<EnemyAI> ().TakeDamage (damage);
+                colliders[0].collider.GetComponent<IEnemyAI> ().TakeDamage (damage);
 
                 DestroyProjectile ();
             }

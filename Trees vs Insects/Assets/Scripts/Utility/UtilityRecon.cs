@@ -49,5 +49,11 @@ namespace Bogadanul.Assets.Scripts.Utility
 
             return neighbours;
         }
+
+        public static float Dist (this Transform transform, Vector3 col)
+        {
+            Vector2 dist = transform.position - col;
+            return dist.sqrMagnitude;
+        }
     }
 }

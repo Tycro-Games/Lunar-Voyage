@@ -37,7 +37,7 @@ namespace Bogadanul.Assets.Scripts.Tree
         private void EnemyInteract (Collider other)
         {
             ReachAncientTree RancientTree = other.GetComponent<ReachAncientTree> ();
-            ancientTree.OnTreeReach (RancientTree.AncientTreeHealthLost);
+            ancientTree.TakeDG (RancientTree.AncientTreeHealthLost);
             RancientTree.Reached ();
         }
 

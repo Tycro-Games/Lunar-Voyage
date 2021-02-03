@@ -672,6 +672,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75f1e7d94b9c0294c9aa97a282e41780, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  seeker: {fileID: 0}
+  target: {fileID: 0}
+  grid: {fileID: 0}
 --- !u!114 &756978548
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2687,7 +2690,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 669466316, guid: 2d2288358d54cb949a246a78f82ad470, type: 3}
       propertyPath: TimeToWait
-      value: 0
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 869282387, guid: 2d2288358d54cb949a246a78f82ad470, type: 3}
       propertyPath: m_IsActive
@@ -2742,6 +2745,11 @@ PrefabInstance:
         type: 3}
       propertyPath: health
       value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 389067251221804530, guid: 2d2288358d54cb949a246a78f82ad470,
+        type: 3}
+      propertyPath: hp
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 389067251773988506, guid: 2d2288358d54cb949a246a78f82ad470,
         type: 3}
@@ -2944,6 +2952,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: A_
       objectReference: {fileID: 0}
+    - target: {fileID: 4830277980041357212, guid: 2d2288358d54cb949a246a78f82ad470,
+        type: 3}
+      propertyPath: unwalkableMask.m_Bits
+      value: 16640
+      objectReference: {fileID: 0}
     - target: {fileID: 4830277980041357213, guid: 2d2288358d54cb949a246a78f82ad470,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3002,7 +3015,7 @@ PrefabInstance:
     - target: {fileID: 4830277980168747224, guid: 2d2288358d54cb949a246a78f82ad470,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 5371944494537735427, guid: 2d2288358d54cb949a246a78f82ad470,
         type: 3}
@@ -3304,6 +3317,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75f1e7d94b9c0294c9aa97a282e41780, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  seeker: {fileID: 0}
+  target: {fileID: 0}
+  grid: {fileID: 0}
 --- !u!114 &1065933406
 MonoBehaviour:
   m_ObjectHideFlags: 0

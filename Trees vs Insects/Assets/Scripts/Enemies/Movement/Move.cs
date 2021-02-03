@@ -9,6 +9,11 @@ namespace Bogadanul.Assets.Scripts.Enemies
         [SerializeField]
         private float unitsPerSec = 1.0f;
 
+        public float UnitsPerSec { get => unitsPerSec; set => unitsPerSec = value; }
+        public void Reset ()
+        {
+            StopAllCoroutines ();
+        }
         public IEnumerator MoveTo (Vector3 node)
         {
             Quaternion rot = Quaternion.LookRotation (Vector3.forward, Dir (node));
@@ -16,7 +21,7 @@ namespace Bogadanul.Assets.Scripts.Enemies
             Debug.DrawLine (transform.position, transform.position + Dir (node));
             while (transform.position != node)
             {
-                transform.position = Vector3.MoveTowards (transform.position, node, unitsPerSec * Time.deltaTime);
+                transform.position = Vector3.MoveTowards (transform.position, node, UnitsPerSec * Time.deltaTime);
 
                 yield return null;
             }

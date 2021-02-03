@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1101677643}
   - component: {fileID: 1101677644}
   - component: {fileID: 1472381722629884886}
-  m_Layer: 12
+  m_Layer: 14
   m_Name: GPX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -106,7 +106,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7711567145854874151}
   - component: {fileID: 4541084501480790532}
-  m_Layer: 12
+  m_Layer: 14
   m_Name: DestroyTimne
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -170,7 +170,7 @@ GameObject:
   - component: {fileID: 830405554182518472}
   - component: {fileID: 3297613584555094711}
   - component: {fileID: 5235577648872938533}
-  m_Layer: 12
+  m_Layer: 14
   m_Name: Mine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -205,6 +205,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bba2f0e1f4172fc4faaedc59fbdf9fb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hp: 100
 --- !u!114 &830405554182518472
 MonoBehaviour:
   m_ObjectHideFlags: 0

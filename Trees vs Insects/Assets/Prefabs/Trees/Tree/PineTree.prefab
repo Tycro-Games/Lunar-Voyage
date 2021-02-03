@@ -111,7 +111,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2684935499657457317}
   - component: {fileID: 5225318132373012993}
-  m_Layer: 12
+  m_Layer: 14
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -161,7 +161,7 @@ GameObject:
   - component: {fileID: 3791582654633530137}
   - component: {fileID: 2467764175328860721}
   - component: {fileID: 243732108707045663}
-  m_Layer: 8
+  m_Layer: 14
   m_Name: PineTree
   m_TagString: Untagged
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
@@ -208,6 +208,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bba2f0e1f4172fc4faaedc59fbdf9fb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hp: 100
 --- !u!65 &792551126891858832
 BoxCollider:
   m_ObjectHideFlags: 0

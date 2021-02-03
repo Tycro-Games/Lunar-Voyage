@@ -86,7 +86,7 @@ namespace Bogadanul.Assets.Scripts.Enemies
 
         private void SkipToNext ()
         {
-            if (currentWave == waves.Length - 1)
+            if (currentWave == waves.Length - 1&&currentW<=0)
             {
                 OnLevelEnd?.Invoke ();
             }

@@ -11,8 +11,8 @@ namespace Bogadanul.Assets.Scripts.Enemies
 
         public void Display ()
         {
-            if (DisplayPathManager.nodes.Count == 0) 
-                UpdateDisplays();
+            if (DisplayPathManager.nodes.Count == 0)
+                UpdateDisplays ();
             int i = 0;
             foreach (Node node in DisplayPathManager.nodes)
             {

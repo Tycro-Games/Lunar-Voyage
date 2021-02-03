@@ -16,7 +16,7 @@ namespace Bogadanul.Assets.Scripts.Tree
         {
             hasTarget = true;
             target = Target;
-            enemyAI = target.GetComponent<EnemyAI> ();
+            enemyAI = target.GetComponent<IEnemyAI> ();
         }
 
         private void CheckSpace ()

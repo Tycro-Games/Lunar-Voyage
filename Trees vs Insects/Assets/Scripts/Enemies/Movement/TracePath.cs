@@ -9,6 +9,7 @@ namespace Bogadanul.Assets.Scripts.Enemies
 {
     public class TracePath : TracePathCheck
     {
+        public bool IsActive = true;
         private ReachAncientTree reachAncient = null;
         private Move move = null;
         private Node lastNode = null;
@@ -24,14 +25,15 @@ namespace Bogadanul.Assets.Scripts.Enemies
             set
             {
                 path = value;
-                StartPath ();
+                if (IsActive)
+                    StartPath ();
             }
         }
 
         public void StartPath ()
         {
             StopAllCoroutines ();
-
+            move.Reset ();
             StartCoroutine (FollowPath (path));
         }
 

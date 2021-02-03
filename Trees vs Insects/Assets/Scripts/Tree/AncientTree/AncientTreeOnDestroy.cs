@@ -4,10 +4,9 @@ using UnityEngine.Events;
 
 namespace Bogadanul.Assets.Scripts.Tree
 {
-    public class AncientTreeOnDestroy : MonoBehaviour
+    public class AncientTreeOnDestroy : DestroyTree
     {
-        [SerializeField]
-        private int health = 2;
+       
 
         [SerializeField]
         private UnityEvent OnDead = null;
@@ -15,17 +14,20 @@ namespace Bogadanul.Assets.Scripts.Tree
         [SerializeField]
         private UnityEvent OnDamage = null;
 
-        public void OnTreeReach (int healthlost)
+        public override void TakeDG (int dg)
         {
-            health -= healthlost;
+         
+            hp -= dg;
             //some effect on enemies explosion
-            if (health <= 0)
+            if (hp <= 0)
             {
                 Dead ();
             }
             else
                 OnDamage?.Invoke ();
         }
+         
+        
 
         public void Dead ()
         {

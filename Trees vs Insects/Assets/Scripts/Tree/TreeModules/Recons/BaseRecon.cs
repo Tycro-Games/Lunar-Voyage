@@ -23,12 +23,6 @@ namespace Bogadanul.Assets.Scripts.Tree
             return false;
         }
 
-        public float dist (Vector3 col)
-        {
-            Vector2 dist = transform.position - col;
-            return dist.sqrMagnitude;
-        }
-
         protected void GetRefs ()
         {
             nodeFinder = GetComponent<NodeFinder> ();

@@ -16,7 +16,7 @@ namespace Bogadanul.Assets.Scripts.Enemies
             {
                 for (int i = 0; i < count; i++)
                 {
-                    colliders[i].GetComponent<EnemyAI> ().TakeDamage (DAMAGE);
+                    colliders[i].GetComponent<IEnemyAI> ().TakeDamage (DAMAGE);
                 }
             }
         }

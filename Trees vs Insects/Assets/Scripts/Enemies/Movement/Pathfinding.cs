@@ -8,11 +8,14 @@ namespace Bogadanul.Assets.Scripts.Enemies
     [RequireComponent (typeof (NodeFinder))]
     public class Pathfinding : MonoBehaviour
     {
-        private Gridmanager grid;
+        [HideInInspector]
+        public Transform seeker, target = null;
+
+        [HideInInspector]
+        public Gridmanager grid;
+
         private TracePathCheck path;
         private List<Node> pathCurrent = new List<Node> ();
-
-        private Transform seeker, target = null;
         private AncientTreeSpaceChecker ancientTree;
         private NodeFinder nodeFind;
 
@@ -58,9 +61,8 @@ namespace Bogadanul.Assets.Scripts.Enemies
             pathCurrent.Add (startNode);
 
             pathCurrent.Reverse ();
-         
-                path.Path = pathCurrent;
-            
+
+            path.Path = pathCurrent;
         }
 
         private void Start ()

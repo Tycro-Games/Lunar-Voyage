@@ -5,10 +5,20 @@ namespace Bogadanul.Assets.Scripts.Tree
 {
     public class DestroyTree : MonoBehaviour
     {
-        public void DestroyTheTree ()
+        [SerializeField]
+        protected int hp = 1;
+
+        public virtual void DestroyTheTree ()
         {
             Destroy (gameObject);
-            EnemyManager.CheckSpace ();
+            EnemyManager.SetSpace ();
+        }
+
+        public virtual void TakeDG (int dg)
+        {
+            hp -= dg;
+            if (hp <= 0)
+                DestroyTheTree ();
         }
     }
 }
