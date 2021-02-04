@@ -10,13 +10,15 @@ namespace Bogadanul.Assets.Scripts.Enemies
         private float unitsPerSec = 1.0f;
 
         public float UnitsPerSec { get => unitsPerSec; set => unitsPerSec = value; }
+
         public void Reset ()
         {
             StopAllCoroutines ();
         }
+
         public IEnumerator MoveTo (Vector3 node)
         {
-            Quaternion rot = Quaternion.LookRotation (Vector3.forward, Dir (node));
+            // Quaternion rot = Quaternion.LookRotation (Vector3.forward, Dir (node));
 
             Debug.DrawLine (transform.position, transform.position + Dir (node));
             while (transform.position != node)

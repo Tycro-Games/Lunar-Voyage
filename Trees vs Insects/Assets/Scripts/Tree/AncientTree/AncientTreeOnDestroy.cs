@@ -6,8 +6,6 @@ namespace Bogadanul.Assets.Scripts.Tree
 {
     public class AncientTreeOnDestroy : DestroyTree
     {
-       
-
         [SerializeField]
         private UnityEvent OnDead = null;
 
@@ -16,7 +14,6 @@ namespace Bogadanul.Assets.Scripts.Tree
 
         public override void TakeDG (int dg)
         {
-         
             hp -= dg;
             //some effect on enemies explosion
             if (hp <= 0)
@@ -26,8 +23,6 @@ namespace Bogadanul.Assets.Scripts.Tree
             else
                 OnDamage?.Invoke ();
         }
-         
-        
 
         public void Dead ()
         {
