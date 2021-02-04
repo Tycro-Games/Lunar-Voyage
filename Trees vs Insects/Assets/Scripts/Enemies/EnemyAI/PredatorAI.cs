@@ -36,6 +36,7 @@ namespace Bogadanul.Assets.Scripts.Enemies
         private Transform ancientTree = null;
         private Gridmanager grid = null;
         private Collider target = null;
+        private IEnumerator Move;
 
         public override void Init (Transform Target, Gridmanager grid)
         {
@@ -48,7 +49,8 @@ namespace Bogadanul.Assets.Scripts.Enemies
             trace = GetComponent<TracePath> ();
             trace.IsActive = false;
             target = GetPrey ();
-            StartCoroutine (move.MoveTo (target.transform.position));
+            Move = move.MoveTo (target.transform.position);
+            StartCoroutine (Move);
         }
 
         public void DestroyTree (DestroyTree destroyTree)
@@ -65,31 +67,39 @@ namespace Bogadanul.Assets.Scripts.Enemies
 
         private void Update ()
         {
-            if (target == null && charging)
-                StopCharge ();
             if (charging)
             {
+                if (target == null)
+                {
+                    StartCoroutine (StopCharge ());
+                    return;
+                }
                 Collider[] collider = new Collider[1];
                 int count = Physics.OverlapBoxNonAlloc (transform.position, scan / 2, collider, Quaternion.identity, trees);
                 if (count > 0)
                 {
-                    StopCharge (collider);
+                    StartCoroutine (StopCharge (collider));
                 }
             }
         }
 
-        private void StopCharge (Collider[] collider = null)
+        private IEnumerator StopCharge (Collider[] collider = null)
         {
             charging = false;
             //anim and stuff
-            if (collider != null)
-                DestroyTree (collider[0].GetComponent<DestroyTree> ());
 
             move.UnitsPerSec = normalSpeed;
-            move.Reset ();
+            StopCoroutine (Move);
             base.Init (ancientTree, grid);
             trace.IsActive = true;
-            pathfinding.FindPath ();
+            if (collider != null)
+            {
+                DestroyTree (collider[0].GetComponent<DestroyTree> ());
+                yield return null;
+                pathfinding.FindPath ();
+            }
+            else
+                pathfinding.FindPath ();
         }
 
         private Collider GetPrey ()
