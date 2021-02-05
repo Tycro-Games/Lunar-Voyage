@@ -11,6 +11,9 @@ namespace Bogadanul.Assets.Scripts.Player
         [SerializeField]
         private LayerMask ocupieable = 0;
 
+        [SerializeField]
+        private LayerMask trees = 0;
+
         private Collider[] res = new Collider[1];
 
         public Node Nodey
@@ -36,6 +39,14 @@ namespace Bogadanul.Assets.Scripts.Player
             }
             else
                 Nodey.Ocupied = false;
+
+            bool plant = Physics.OverlapSphereNonAlloc (transform.position, 1, res, trees) > 0;
+            if (plant)
+            {
+                Nodey.plant = true;
+            }
+            else
+                Nodey.plant = false;
         }
 
         private void OnDrawGizmos ()

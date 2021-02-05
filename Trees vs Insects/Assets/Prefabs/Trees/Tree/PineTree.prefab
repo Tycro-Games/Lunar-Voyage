@@ -219,7 +219,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemies:
     serializedVersion: 2
-    m_Bits: 1024
+    m_Bits: 66560
   SizeOfCheck: 0.25
 --- !u!114 &243732108707045663
 MonoBehaviour:

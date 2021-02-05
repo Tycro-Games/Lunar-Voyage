@@ -59,4 +59,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ocupieable:
     serializedVersion: 2
-    m_Bits: 29696
+    m_Bits: 62464
+  trees:
+    serializedVersion: 2
+    m_Bits: 49152

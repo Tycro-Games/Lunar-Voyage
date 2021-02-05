@@ -33,6 +33,9 @@ namespace Bogadanul.Assets.Scripts.Enemies
         [SerializeField]
         private LayerMask trees = 0;
 
+        [SerializeField]
+        private LayerMask EnemyLayer = 0;
+
         private Transform ancientTree = null;
         private Gridmanager grid = null;
         private Collider target = null;
@@ -100,6 +103,7 @@ namespace Bogadanul.Assets.Scripts.Enemies
             }
             else
                 pathfinding.FindPath ();
+            gameObject.layer = (int)Mathf.Log (EnemyLayer.value, 2);
         }
 
         private Collider GetPrey ()

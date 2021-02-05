@@ -36,7 +36,7 @@ namespace Bogadanul.Assets.Scripts.Player
                 if (!canBePlaced)
                     spriteRen.enabled = n?.Placeable () == true;
                 else
-                    spriteRen.enabled = n != null;
+                    spriteRen.enabled = n?.CanBePlaced () == true;
             }
         }
 

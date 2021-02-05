@@ -165,7 +165,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemies:
     serializedVersion: 2
-    m_Bits: 1024
+    m_Bits: 66560
   radius: {x: 6, y: 6, z: 0}
 --- !u!114 &1520608499490192641
 MonoBehaviour:

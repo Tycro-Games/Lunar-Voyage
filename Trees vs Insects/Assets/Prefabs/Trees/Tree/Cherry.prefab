@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1101677643}
   - component: {fileID: 1101677644}
   - component: {fileID: 3502565598358487945}
-  m_Layer: 14
+  m_Layer: 15
   m_Name: GPX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -109,7 +109,7 @@ GameObject:
   - component: {fileID: 830405554182518472}
   - component: {fileID: 5235577648872938533}
   - component: {fileID: 916711291337144241}
-  m_Layer: 14
+  m_Layer: 15
   m_Name: Cherry
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -143,6 +143,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bba2f0e1f4172fc4faaedc59fbdf9fb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hp: 1
 --- !u!114 &830405554182518472
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -158,7 +159,7 @@ MonoBehaviour:
   range: 2.87
   enemies:
     serializedVersion: 2
-    m_Bits: 1024
+    m_Bits: 66560
   DAMAGE: 100
 --- !u!114 &5235577648872938533
 MonoBehaviour:

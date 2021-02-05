@@ -13,6 +13,7 @@ namespace Bogadanul.Assets.Scripts.Player
         public bool Walkable;
 
         public bool Ocupied;
+        public bool plant = false;
         private int heapIndex;
 
         public Node (bool _walkable, Vector3 _worldPos, int _gridX, int _gridY)
@@ -46,6 +47,13 @@ namespace Bogadanul.Assets.Scripts.Player
         public bool Placeable ()
         {
             if (!Ocupied)
+                return true;
+            return false;
+        }
+
+        public bool CanBePlaced ()
+        {
+            if (!plant)
                 return true;
             return false;
         }

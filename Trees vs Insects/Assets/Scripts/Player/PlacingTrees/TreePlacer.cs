@@ -37,7 +37,7 @@ namespace Bogadanul.Assets.Scripts.Player
                     return;
                 if (!canBe)
                     CheckNode (n);
-                else
+                else if (n.CanBePlaced ())
                 {
                     checkPlacer.ToSpawn (n, currentTree);
                     Placing ();

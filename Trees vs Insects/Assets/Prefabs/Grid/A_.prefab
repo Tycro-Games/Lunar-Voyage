@@ -567,7 +567,7 @@ MonoBehaviour:
   range: 6
   enemies:
     serializedVersion: 2
-    m_Bits: 1024
+    m_Bits: 66560
   DAMAGE: 100000
 --- !u!114 &4897151751739395710
 MonoBehaviour:

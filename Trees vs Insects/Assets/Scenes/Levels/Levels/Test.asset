@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Test
   m_EditorClassIdentifier: 
   enemies:
-  - {fileID: 11400000, guid: bfd12a4997d333a4eb3a6bc76244cd7f, type: 2}
-  durationBetweenEnemies: 1
-  weight: 1
-  CountSpawners: 1
+  - {fileID: 11400000, guid: c5a03eb2dfffd2544b065bd3d68c64d2, type: 2}
+  durationBetweenEnemies: 15
+  weight: 100
+  CountSpawners: 3

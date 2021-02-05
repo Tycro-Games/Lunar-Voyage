@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1473516892544216046}
   - component: {fileID: 3648446591457249742}
   - component: {fileID: 4243632962811877595}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: Beatle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -75,7 +75,7 @@ GameObject:
   - component: {fileID: 5716173628679942492}
   - component: {fileID: 4401455933841014885}
   - component: {fileID: 3644458382945821899}
-  m_Layer: 10
+  m_Layer: 16
   m_Name: AI
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -202,6 +202,9 @@ MonoBehaviour:
   trees:
     serializedVersion: 2
     m_Bits: 24576
+  EnemyLayer:
+    serializedVersion: 2
+    m_Bits: 1024
 --- !u!65 &3644458382945821899
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -224,7 +227,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7986615865521076561}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -256,7 +259,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5373640763780146706}
   - component: {fileID: 1785917062120207204}
-  m_Layer: 9
+  m_Layer: 16
   m_Name: Gpx
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -129,6 +129,6 @@ MonoBehaviour:
   speed: 10
   enemies:
     serializedVersion: 2
-    m_Bits: 1024
+    m_Bits: 66560
   radius: 0.1
   maxDist: 0.1
