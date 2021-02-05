@@ -46,7 +46,7 @@ namespace Bogadanul.Assets.Scripts.Enemies
             this.grid = grid;
         }
 
-        protected void RetracePath (Node startNode, Node endNode)
+        protected List<Node> RetracePath (Node startNode, Node endNode)
         {
             pathCurrent = new List<Node> ();
 
@@ -62,7 +62,7 @@ namespace Bogadanul.Assets.Scripts.Enemies
 
             pathCurrent.Reverse ();
 
-            path.Path = pathCurrent;
+            return pathCurrent;
         }
 
         private void Start ()
@@ -142,7 +142,7 @@ namespace Bogadanul.Assets.Scripts.Enemies
 
                 if (currentNode == targetNode)
                 {
-                    RetracePath (startNode, targetNode);
+                    path.Path = RetracePath (startNode, targetNode);
                     return;
                 }
 

@@ -12,12 +12,14 @@ namespace Bogadanul.Assets.Scripts.Enemies
             return enemies[Random.Range (0, enemies.Length)];
         }
 
-        public HashSet<EnemySpawner> RandomListOfSpawner ()
+        public HashSet<EnemySpawner> RandomListOfSpawner (int count)
         {
             HashSet<EnemySpawner> spawners = new HashSet<EnemySpawner> ();
-            for (int i = 0; i < enemySpawners.Length; i++)
+            for (int i = 0; i < enemySpawners.Length && i < count; i++)
             {
-                spawners.Add (enemySpawners[Random.Range (0, enemySpawners.Length)]);
+                EnemySpawner enemySpawner = enemySpawners[Random.Range (0, enemySpawners.Length)];
+                if ()
+                    spawners.Add (enemySpawner);
             }
             return spawners;
         }

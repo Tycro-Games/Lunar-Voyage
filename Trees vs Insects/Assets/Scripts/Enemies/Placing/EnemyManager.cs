@@ -1,4 +1,5 @@
 ﻿using Bogadanul.Assets.Scripts.Player;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,6 +9,7 @@ namespace Bogadanul.Assets.Scripts.Enemies
     {
         public static bool hasPath;
         public static Dictionary<TracePathCheck, Pathfinding> pathfindings = new Dictionary<TracePathCheck, Pathfinding> ();
+        public static Action<List<Node>> OnNoSpace;
 
         public static bool CheckForNullPaths ()
         {
@@ -31,8 +33,7 @@ namespace Bogadanul.Assets.Scripts.Enemies
 
                 if (!hasPath)
                 {
-
-                    DisplayPathManager.ActivateDisplay();
+                    OnNoSpace?.Invoke (path.Path);
                     return;
                 }
             }

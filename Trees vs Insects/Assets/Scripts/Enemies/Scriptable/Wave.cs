@@ -13,6 +13,7 @@ namespace Bogadanul.Assets.Scripts.Enemies
         [Range (1, 100)]
         public int weight;
 
+        public int CountSpawners = 1;
         // public float durationBetweenWaves;
     }
 }

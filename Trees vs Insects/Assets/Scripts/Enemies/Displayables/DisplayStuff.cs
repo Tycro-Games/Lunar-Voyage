@@ -12,6 +12,12 @@ namespace Bogadanul.Assets.Scripts.Enemies
 
         protected GameObject[] sprites;
         protected int lasti = 0;
+        protected DisplayPathManager displayPathManager = new DisplayPathManager ();
+
+        public void Reset ()
+        {
+            displayPathManager.Reset ();
+        }
 
         protected void MakeObjects ()
         {

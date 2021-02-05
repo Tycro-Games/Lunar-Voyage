@@ -528,12 +528,13 @@ MonoBehaviour:
   nodeRadius: 1
   unwalkableMask:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 16640
   ocupiedMask:
     serializedVersion: 2
     m_Bits: 4096
   gridSizeX: 0
   gridSizeY: 0
+  offset: {x: 0, y: 0, z: 0}
   collParent: {fileID: 3620895835857646858}
   nodeCol: {fileID: 4388357516766586266, guid: 0bf87547f4fce5e4ea7707ee0150535c, type: 3}
   noDiagonal: 1
@@ -669,6 +670,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3556521992980966175}
   - component: {fileID: 3048339898836379502}
+  - component: {fileID: 4138606132001192916}
   m_Layer: 0
   m_Name: DisplayPath
   m_TagString: Untagged
@@ -700,6 +702,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 13f729fd18be8b34d995b35ce5a7ec0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprite: {fileID: 4663047864313584066, guid: 0fef4a53b17e5b247b22928e090fc8e2, type: 3}
+  count: 128
+--- !u!114 &4138606132001192916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8562152187112421324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4faa60e5a91585845b045d9310a74806, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   sprite: {fileID: 4663047864313584066, guid: 3e152931224843f4984a748ebc9e9694, type: 3}
@@ -904,7 +920,12 @@ PrefabInstance:
         type: 3}
       propertyPath: OnNextWave.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 3048339898836379502}
+      objectReference: {fileID: 4138606132001192916}
+    - target: {fileID: 2313814057144741312, guid: a7b09197468d2db4c93e5ff7a0fd0e00,
+        type: 3}
+      propertyPath: OnNextWave.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Display
+      objectReference: {fileID: 0}
     - target: {fileID: 6526017579774721404, guid: a7b09197468d2db4c93e5ff7a0fd0e00,
         type: 3}
       propertyPath: m_RootOrder

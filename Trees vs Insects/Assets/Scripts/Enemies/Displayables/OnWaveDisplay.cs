@@ -1,15 +1,16 @@
 ﻿using Bogadanul.Assets.Scripts.Player;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Bogadanul.Assets.Scripts.Enemies
 {
-    public class DisplayPath : DisplayStuff
+    public class OnWaveDisplay : DisplayStuff
     {
-        public void Display (List<Node> nodes)
+        private WaveSystem wave;
+
+        public void Display ()
         {
-            UpdateDisplays (nodes);
+            UpdateDisplays ();
             int i = 0;
             foreach (Node node in displayPathManager.nodes)
             {
@@ -23,26 +24,18 @@ namespace Bogadanul.Assets.Scripts.Enemies
             lasti = i;
         }
 
-        public void UpdateDisplays (List<Node> nodes)
+        public void UpdateDisplays ()
         {
             Reset ();
-            displayPathManager.AddPaths (nodes);
-        }
-
-        private void OnDisable ()
-        {
-            EnemyManager.OnNoSpace -= Display;
-        }
-
-        private void OnEnable ()
-        {
-            EnemyManager.OnNoSpace += Display;
+            foreach (EnemySpawner trace in wave.currenSelection)
+                displayPathManager.AddPaths (trace.GetComponent<TracePathCheck> ().Path);
         }
 
         private void Awake ()
         {
             MakeObjects ();
             displayPathManager = new DisplayPathManager ();
+            wave = FindObjectOfType<WaveSystem> ();
         }
     }
 }

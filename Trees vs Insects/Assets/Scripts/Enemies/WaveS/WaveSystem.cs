@@ -12,6 +12,7 @@ namespace Bogadanul.Assets.Scripts.Enemies
         [Header ("Waves")]
         public Wave[] waves = null;
 
+        public HashSet<EnemySpawner> currenSelection = new HashSet<EnemySpawner> ();
         private int currentWave = 0;
 
         private EnemyChooser enemyChooser;
@@ -46,7 +47,6 @@ namespace Bogadanul.Assets.Scripts.Enemies
 
         public IEnumerator WaveCounter ()
         {
-            OnNextWave?.Invoke ();
             while (currentWave < waves.Length)
             {
                 EnemyWeight = waves[currentWave].weight;
@@ -65,14 +65,15 @@ namespace Bogadanul.Assets.Scripts.Enemies
 
         public IEnumerator RandomSpawner ()
         {
-            HashSet<EnemySpawner> spawner = trigger.RandomListOfSpawner ();
+            currenSelection = trigger.RandomListOfSpawner (waves[currentWave].CountSpawners);
+            OnNextWave?.Invoke ();
             while (currentW > 0)
             {
                 int index = enemyChooser.ChooseEnemy (currentW);
                 int current = waves[currentWave].enemies[index].weight;
                 currentW -= current;
 
-                SpawnEnemies (index, spawner);
+                SpawnEnemies (index, currenSelection);
                 OnSpawn?.Invoke (current);
                 yield return new WaitForSeconds (waves[currentWave].durationBetweenEnemies);
             }
@@ -86,7 +87,7 @@ namespace Bogadanul.Assets.Scripts.Enemies
 
         private void SkipToNext ()
         {
-            if (currentWave == waves.Length - 1&&currentW<=0)
+            if (currentWave == waves.Length - 1 && currentW <= 0)
             {
                 OnLevelEnd?.Invoke ();
             }

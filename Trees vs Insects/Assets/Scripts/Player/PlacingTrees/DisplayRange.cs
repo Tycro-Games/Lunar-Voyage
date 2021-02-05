@@ -43,7 +43,7 @@ namespace Bogadanul.Assets.Scripts.Player
             treeRecon = obj.TreeGameObject.GetComponent<ITreeRecon> ();
         }
 
-        public void Reset ()
+        private new void Reset ()
         {
             for (int i = 0; i < nodes.Count; i++)
             {
