@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4663047864313584067}
   - component: {fileID: 88062757955701696}
   m_Layer: 0
-  m_Name: towerDefense_tilesheet@2_132
+  m_Name: WavePath
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -110,4 +110,4 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  TimeToWait: 5
+  TimeToWait: 1

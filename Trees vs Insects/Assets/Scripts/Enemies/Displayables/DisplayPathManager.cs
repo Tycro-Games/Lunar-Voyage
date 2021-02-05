@@ -11,9 +11,10 @@ public class DisplayPathManager
 
     public void Reset () => nodes = new HashSet<Node> ();
 
-    public void AddPaths (List<Node> path)
+    public void AddPaths (List<Node> path, bool noEnds = false)
     {
-        path = PathNoEnds (path);
+        if (noEnds)
+            path = PathNoEnds (path);
         foreach (Node n in path)
             nodes.Add (n);
     }

@@ -28,7 +28,7 @@ namespace Bogadanul.Assets.Scripts.Enemies
         {
             Reset ();
             foreach (EnemySpawner trace in wave.currenSelection)
-                displayPathManager.AddPaths (trace.GetComponent<TracePathCheck> ().Path);
+                displayPathManager.AddPaths (trace.GetComponent<TracePathCheck> ().Path, true);
         }
 
         private void Awake ()

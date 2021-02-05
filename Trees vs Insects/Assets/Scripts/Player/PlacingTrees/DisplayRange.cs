@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace Bogadanul.Assets.Scripts.Player
 {
-    public class DisplayRange : DisplayStuff
+    public class DisplayRange : DisplayStuffBase
     {
         [HideInInspector]
         public List<Node> nodes = new List<Node> ();
@@ -43,7 +43,7 @@ namespace Bogadanul.Assets.Scripts.Player
             treeRecon = obj.TreeGameObject.GetComponent<ITreeRecon> ();
         }
 
-        private new void Reset ()
+        public void Reset ()
         {
             for (int i = 0; i < nodes.Count; i++)
             {

@@ -111,7 +111,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  TimeToWait: 5
+  TimeToWait: 0.5
 --- !u!95 &176179383023435324
 Animator:
   serializedVersion: 3

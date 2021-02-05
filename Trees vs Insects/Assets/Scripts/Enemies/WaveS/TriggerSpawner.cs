@@ -15,11 +15,12 @@ namespace Bogadanul.Assets.Scripts.Enemies
         public HashSet<EnemySpawner> RandomListOfSpawner (int count)
         {
             HashSet<EnemySpawner> spawners = new HashSet<EnemySpawner> ();
-            for (int i = 0; i < enemySpawners.Length && i < count; i++)
+            for (int i = 0, j = 0; i < enemySpawners.Length && j < count; i++)
             {
                 EnemySpawner enemySpawner = enemySpawners[Random.Range (0, enemySpawners.Length)];
-                if ()
-                    spawners.Add (enemySpawner);
+                if (!spawners.Contains (enemySpawner))
+                    j++;
+                spawners.Add (enemySpawner);
             }
             return spawners;
         }
