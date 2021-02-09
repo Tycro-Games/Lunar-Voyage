@@ -238,7 +238,7 @@ MonoBehaviour:
   range: 0.9
   enemies:
     serializedVersion: 2
-    m_Bits: 1024
+    m_Bits: 66560
   OnDetect:
     m_PersistentCalls:
       m_Calls:
