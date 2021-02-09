@@ -4,15 +4,18 @@ using UnityEngine.Events;
 
 namespace Bogadanul.Assets.Scripts.Tree
 {
-    public class AncientTreeOnDestroy : DestroyTree
+    public class AncientTreeOnDestroy : MonoBehaviour
     {
+        [SerializeField]
+        private float hp = 2;
+
         [SerializeField]
         private UnityEvent OnDead = null;
 
         [SerializeField]
         private UnityEvent OnDamage = null;
 
-        public override void TakeDG (int dg)
+        public void TakeDG (int dg)
         {
             hp -= dg;
             //some effect on enemies explosion

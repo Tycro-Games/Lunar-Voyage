@@ -58,7 +58,8 @@ namespace Bogadanul.Assets.Scripts.Enemies
 
         public void DestroyTree (DestroyTree destroyTree)
         {
-            destroyTree.TakeDG (damage);
+            if (destroyTree != null)
+                destroyTree.TakeDG (damage);
         }
 
         protected override void Start ()
