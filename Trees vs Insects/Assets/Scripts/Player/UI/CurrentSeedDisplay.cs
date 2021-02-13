@@ -18,26 +18,11 @@ namespace Bogadanul.Assets.Scripts.Player
 
         private DisplayRange displayRange = null;
         private bool canBePlaced = false;
+        private Vector2 mouse;
 
         public void MoveSprite (InputAction.CallbackContext ctx)
         {
-            Vector2 mouse = ctx.ReadValue<Vector2> ();
-            if (mouse == Vector2.zero)
-                return;
-            if (spriteRen.sprite != null)
-            {
-                Node n = node.NodeFromInput (mouse);
-
-                if (n != null)
-                {
-                    transform.position = n.worldPosition;
-                }
-                displayRange.DisplayTheRange (n);
-                if (!canBePlaced)
-                    spriteRen.enabled = n?.Placeable () == true;
-                else
-                    spriteRen.enabled = n?.CanBePlaced () == true;
-            }
+            mouse = ctx.ReadValue<Vector2> ();
         }
 
         public void ResetSprite ()
@@ -61,6 +46,26 @@ namespace Bogadanul.Assets.Scripts.Player
             else
             {
                 ResetSprite ();
+            }
+        }
+
+        private void Update ()
+        {
+            if (mouse == Vector2.zero)
+                return;
+            if (spriteRen.sprite != null)
+            {
+                Node n = node.NodeFromInput (mouse);
+
+                if (n != null)
+                {
+                    transform.position = n.worldPosition;
+                }
+                displayRange.DisplayTheRange (n);
+                if (!canBePlaced)
+                    spriteRen.enabled = n?.Placeable () == true;
+                else
+                    spriteRen.enabled = n?.CanBePlaced () == true;
             }
         }
 
