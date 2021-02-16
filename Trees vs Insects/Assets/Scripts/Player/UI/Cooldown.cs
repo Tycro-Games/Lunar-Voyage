@@ -69,7 +69,7 @@ namespace Bogadanul.Assets.Scripts.Player
                 currentT -= Time.deltaTime;
                 coolDownEf.fillAmount = Mathf.InverseLerp (0, CountDown, currentT);
             }
-            else if (IsDone != true)
+            else
             {
                 IsDone = true;
                 Onvalue (market.marketIntro.WaterInst);

@@ -67,6 +67,7 @@ namespace Bogadanul.Assets.Scripts.Player
         private void Placing ()
         {
             currentTree = null;
+            TreeSeedContainer.ActivateCoolDown ();
             OnBuyCheck?.Invoke ();
         }
 

@@ -23,6 +23,7 @@ namespace Bogadanul.Assets.Scripts.Player
             if (hasSeed)
             {
                 OnResetSeed?.Invoke ();
+
                 hasSeed = false;
 
                 seedDisplay.UpdateSprite (null);

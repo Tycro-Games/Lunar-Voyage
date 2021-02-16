@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Bogadanul.Assets.Scripts.Tree
 {
-    public class TreeShotNoTarget : TreeShootBase, ITreeShoot
+    public class TreeShotNoTarget : TreeShootBase
     {
         public Vector2[] dir;
 

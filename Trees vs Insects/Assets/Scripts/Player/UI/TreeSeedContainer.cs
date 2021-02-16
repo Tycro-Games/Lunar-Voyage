@@ -10,8 +10,6 @@ namespace Bogadanul.Assets.Scripts.Player
     {
         public static TreeSeedContainer treeSeedContainer;
 
-        public static Action OnChange;
-
         [SerializeField]
         public TreeSeed treeSeed = null;
 
@@ -21,6 +19,11 @@ namespace Bogadanul.Assets.Scripts.Player
         private bool selected = false;
         private Button button = null;
         private Market market = null;
+
+        public static void ActivateCoolDown ()
+        {
+            treeSeedContainer.ActivateDown ();
+        }
 
         public void OnClick ()
         {
@@ -41,8 +44,11 @@ namespace Bogadanul.Assets.Scripts.Player
 
         public void ActivateDown ()
         {
-            cooldown.ResetT ();
-            selected = false;
+            if (selected)
+            {
+                cooldown.ResetT ();
+                selected = false;
+            }
         }
 
         public void Deselect ()
@@ -56,19 +62,8 @@ namespace Bogadanul.Assets.Scripts.Player
             treeSeedDisplay.DisplayPrice (treeSeed.price);
         }
 
-        private void ActivateCoolDown ()
-        {
-            treeSeedContainer.ActivateDown ();
-        }
-
-        private void OnEnable ()
-        {
-            TreePlacer.OnBuyCheck += ActivateCoolDown;
-        }
-
         private void OnDisable ()
         {
-            TreePlacer.OnBuyCheck -= ActivateCoolDown;
             treeSeedSender.OnResetSeed -= Deselect;
         }
 
