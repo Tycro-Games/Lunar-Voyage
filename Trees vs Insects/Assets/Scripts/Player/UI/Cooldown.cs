@@ -54,6 +54,7 @@ namespace Bogadanul.Assets.Scripts.Player
 
             market.marketIntro.OnEnergyChange += Onvalue;
             IsDone = true;
+            currentT = 0;
         }
 
         private void OnDisable ()
@@ -68,11 +69,10 @@ namespace Bogadanul.Assets.Scripts.Player
                 currentT -= Time.deltaTime;
                 coolDownEf.fillAmount = Mathf.InverseLerp (0, CountDown, currentT);
             }
-            else
+            else if (IsDone != true)
             {
                 IsDone = true;
                 Onvalue (market.marketIntro.WaterInst);
-               
             }
         }
     }

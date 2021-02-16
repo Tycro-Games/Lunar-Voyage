@@ -52,6 +52,8 @@ namespace Bogadanul.Assets.Scripts.Enemies
             trace = GetComponent<TracePath> ();
             trace.IsActive = false;
             target = GetPrey ();
+            if (target == null)
+                target = FindObjectOfType<AncientTreeOnDestroy> ().gameObject.GetComponent<Collider> ();
             Move = move.MoveTo (target.transform.position);
             StartCoroutine (Move);
         }

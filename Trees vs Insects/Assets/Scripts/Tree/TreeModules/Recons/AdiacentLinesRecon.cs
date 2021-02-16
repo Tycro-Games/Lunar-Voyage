@@ -43,7 +43,7 @@ namespace Bogadanul.Assets.Scripts.Tree
             return UtilityRecon.GetLines (pos, Gridmanager.gridmanager);
         }
 
-        private void Start ()
+        private void Awake ()
         {
             GetRefs ();
         }

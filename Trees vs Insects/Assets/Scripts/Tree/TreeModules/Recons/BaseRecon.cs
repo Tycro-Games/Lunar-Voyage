@@ -12,6 +12,7 @@ namespace Bogadanul.Assets.Scripts.Tree
 
         protected NodeFinder nodeFinder = null;
         protected List<Node> nodes = new List<Node> ();
+        private DisplayRange display;
 
         public bool CheckDist (BoxCollider col)
         {
@@ -26,7 +27,7 @@ namespace Bogadanul.Assets.Scripts.Tree
         protected void GetRefs ()
         {
             nodeFinder = GetComponent<NodeFinder> ();
-            DisplayRange display = FindObjectOfType<DisplayRange> ();
+            display = FindObjectOfType<DisplayRange> ();
             nodes = display.nodes;
             display.Reset ();
         }
