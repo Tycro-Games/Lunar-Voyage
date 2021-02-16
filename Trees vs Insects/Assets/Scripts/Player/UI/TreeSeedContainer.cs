@@ -41,11 +41,8 @@ namespace Bogadanul.Assets.Scripts.Player
 
         public void ActivateDown ()
         {
-            if (selected)
-            {
-                cooldown.ResetT ();
-                selected = false;
-            }
+            cooldown.ResetT ();
+            selected = false;
         }
 
         public void Deselect ()
