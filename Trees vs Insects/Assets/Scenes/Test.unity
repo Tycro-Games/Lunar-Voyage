@@ -626,7 +626,7 @@ GameObject:
   - component: {fileID: 756978546}
   m_Layer: 9
   m_Name: Spawner (1)
-  m_TagString: Untagged
+  m_TagString: Respawn
   m_Icon: {fileID: -5938655980376293919, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2948,6 +2948,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2313814056617838248, guid: 2d2288358d54cb949a246a78f82ad470,
         type: 3}
+      propertyPath: OnNextWave.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2313814056617838248, guid: 2d2288358d54cb949a246a78f82ad470,
+        type: 3}
       propertyPath: waves.Array.data[0]
       value: 
       objectReference: {fileID: 11400000, guid: 47779d4dd62dcfd4b88a9498b3f0e2f5,
@@ -3306,7 +3311,7 @@ GameObject:
   - component: {fileID: 1065933404}
   m_Layer: 9
   m_Name: Spawner (2)
-  m_TagString: Untagged
+  m_TagString: Respawn
   m_Icon: {fileID: -5938655980376293919, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

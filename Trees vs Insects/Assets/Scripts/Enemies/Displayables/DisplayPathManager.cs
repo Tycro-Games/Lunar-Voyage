@@ -13,21 +13,13 @@ public class DisplayPathManager
 
     public void AddPaths (List<Node> path, bool noEnds = false)
     {
-        if (noEnds)
-            path = PathNoEnds (path);
-        foreach (Node n in path)
-            nodes.Add (n);
-    }
-
-    public List<Node> PathNoEnds (List<Node> Path)
-    {
-        List<Node> p = Path;
-        if (Path.Count > 1)
+        for (int i = 1; i < path.Count - 1; i++)
+            nodes.Add (path[i]);
+        if (!noEnds)
         {
-            p.Remove (Path[0]);
-            p.Remove (Path[Path.Count - 1]);
+            nodes.Add (path[0]);
+            nodes.Add (path[path.Count - 1]);
         }
-        return p;
     }
 
     public void RemovePaths (List<Node> path)

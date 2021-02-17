@@ -1,6 +1,7 @@
 ﻿using Bogadanul.Assets.Scripts.Player;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace Bogadanul.Assets.Scripts.Enemies
@@ -24,9 +25,9 @@ namespace Bogadanul.Assets.Scripts.Enemies
             if (CheckForNullPaths ())
                 return;
 
-            foreach (TracePathCheck path in pathfindings.Keys)
+            foreach (TracePathCheck path in pathfindings.Keys.ToList ())
             {
-                if (path == null)
+                if (CheckPath (path))
                     continue;
 
                 hasPath = pathfindings[path].HasPath ();
@@ -44,13 +45,22 @@ namespace Bogadanul.Assets.Scripts.Enemies
             if (CheckForNullPaths ())
                 return;
 
-            foreach (TracePathCheck path in pathfindings.Keys)
+            foreach (TracePathCheck path in pathfindings.Keys.ToList ())
             {
-                if (path == null)
+                if (CheckPath (path))
+                {
                     continue;
-
+                }
                 pathfindings[path].FindPath ();
             }
+        }
+
+        private static bool CheckPath (TracePathCheck path)
+        {
+            bool NoPath = path == null;
+            if (NoPath)
+                pathfindings.Remove (path);
+            return NoPath;
         }
     }
 }

@@ -1,5 +1,8 @@
-﻿using Bogadanul.Assets.Scripts.Tree;
+﻿using Bogadanul.Assets.Scripts.Enemies;
+using Bogadanul.Assets.Scripts.Tree;
+using System;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 namespace Bogadanul.Assets.Scripts.Player
@@ -17,8 +20,14 @@ namespace Bogadanul.Assets.Scripts.Player
         private SpriteRenderer spriteRen = null;
 
         private DisplayRange displayRange = null;
+
         private bool canBePlaced = false;
+
         private Vector2 mouse;
+
+        private Node lastnode = null;
+
+        public event Action<bool> OnRangeDisplay = null;
 
         public void MoveSprite (InputAction.CallbackContext ctx)
         {
@@ -27,8 +36,8 @@ namespace Bogadanul.Assets.Scripts.Player
 
         public void ResetSprite ()
         {
+            OnRangeDisplay?.Invoke (false);
             spriteRen.sprite = null;
-
             cursor.sprite = cursorSprite;
         }
 
@@ -57,11 +66,14 @@ namespace Bogadanul.Assets.Scripts.Player
             {
                 Node n = node.NodeFromInput (mouse);
 
-                if (n != null)
+                if (n != null && n != lastnode)
                 {
+                    lastnode = n;
                     transform.position = n.worldPosition;
                 }
+                OnRangeDisplay?.Invoke (true);
                 displayRange.DisplayTheRange (n);
+
                 if (!canBePlaced)
                     spriteRen.enabled = n?.Placeable () == true;
                 else

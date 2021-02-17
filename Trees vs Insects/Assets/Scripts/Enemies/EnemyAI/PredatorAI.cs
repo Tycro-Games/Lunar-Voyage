@@ -3,6 +3,7 @@ using Bogadanul.Assets.Scripts.Tree;
 using Bogadanul.Assets.Scripts.Utility;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Bogadanul.Assets.Scripts.Enemies
 {
@@ -35,6 +36,9 @@ namespace Bogadanul.Assets.Scripts.Enemies
 
         [SerializeField]
         private LayerMask EnemyLayer = 0;
+
+        [SerializeField]
+        private UnityEvent OnEndCharge = null;
 
         private Transform ancientTree = null;
         private Gridmanager grid = null;
@@ -106,6 +110,7 @@ namespace Bogadanul.Assets.Scripts.Enemies
             }
             else
                 pathfinding.FindPath ();
+            OnEndCharge?.Invoke ();
             gameObject.layer = (int)Mathf.Log (EnemyLayer.value, 2);
         }
 

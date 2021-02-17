@@ -913,11 +913,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2313814057144741312, guid: a7b09197468d2db4c93e5ff7a0fd0e00,
         type: 3}
-      propertyPath: OnNextWave.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2313814057144741312, guid: a7b09197468d2db4c93e5ff7a0fd0e00,
-        type: 3}
       propertyPath: OnNextWave.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 4138606132001192916}
