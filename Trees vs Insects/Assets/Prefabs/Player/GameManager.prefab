@@ -182,6 +182,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 8426440921942192936}
+        m_MethodName: DisplayPlaceable
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 05fcfcf0-72a3-41ee-b2f2-5e92c1cb9adb
     m_ActionName: Mouse/New action[/Mouse/leftButton]
   - m_PersistentCalls:
@@ -452,6 +463,7 @@ GameObject:
   - component: {fileID: 1518370455450868718}
   - component: {fileID: 1518370455450868716}
   - component: {fileID: 4146199714974070836}
+  - component: {fileID: 8426440921942192936}
   m_Layer: 0
   m_Name: EconomyManager
   m_TagString: Untagged
@@ -500,6 +512,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75625e967fac2a348a5555e08f94e3dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8426440921942192936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1518370455450868719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7a8b6afd6783e949ae08178eec7f6ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprite: {fileID: 4663047864313584066, guid: b8db923a16e0c7a40a5c4054ba783c7d, type: 3}
+  count: 128
 --- !u!1001 &4723713493643275010
 PrefabInstance:
   m_ObjectHideFlags: 0
