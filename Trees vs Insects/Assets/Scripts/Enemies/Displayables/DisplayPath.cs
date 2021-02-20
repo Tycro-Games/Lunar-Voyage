@@ -2,17 +2,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace Bogadanul.Assets.Scripts.Enemies
 {
     public class DisplayPath : DisplayStuff
     {
+        private Node currentNode = null;
+        private NodeFinder nodeFinder = null;
+
         public void Display (List<Node> nodes)
         {
             UpdateDisplays (nodes);
             int i = 0;
             foreach (Node node in displayPathManager.nodes)
             {
+                if (node == currentNode)
+                    break;
                 sprites[i].SetActive (true);
                 sprites[i++].transform.position = node.worldPosition;
             }
@@ -27,6 +33,7 @@ namespace Bogadanul.Assets.Scripts.Enemies
         {
             Reset ();
             displayPathManager.AddPaths (nodes);
+            currentNode = nodeFinder.NodeFromInput (Pointer.current.position.ReadUnprocessedValue ());
         }
 
         private void OnDisable ()
@@ -41,6 +48,7 @@ namespace Bogadanul.Assets.Scripts.Enemies
 
         private void Awake ()
         {
+            nodeFinder = GetComponent<NodeFinder> ();
             MakeObjects ();
             displayPathManager = new DisplayPathManager ();
         }

@@ -7,6 +7,7 @@ namespace Bogadanul.Assets.Scripts.Player
     public class Gridmanager : MonoBehaviour
     {
         public static Gridmanager gridmanager;
+        public static Dictionary<Node, GameObject> Nodes = new Dictionary<Node, GameObject> ();
         public Vector2 gridWorldSize;
 
         public float nodeRadius;
@@ -119,17 +120,18 @@ namespace Bogadanul.Assets.Scripts.Player
 
                     grid[x, y] = new Node (walkable, worldPoint, x, y);
 
-                    SpawnCols (grid[x, y]);
+                    Nodes.Add (grid[x, y], SpawnCols (grid[x, y]));
                 }
             }
         }
 
-        private void SpawnCols (Node node)
+        private GameObject SpawnCols (Node node)
         {
             GameObject col = Instantiate (nodeCol, node.worldPosition, Quaternion.identity, collParent);
 
             NodeInstance instance = col.GetComponent<NodeInstance> ();
             instance.Init (node);
+            return col;
         }
 
         private void OnDrawGizmos ()

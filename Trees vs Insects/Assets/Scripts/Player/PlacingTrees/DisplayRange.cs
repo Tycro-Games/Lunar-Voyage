@@ -23,6 +23,8 @@ namespace Bogadanul.Assets.Scripts.Player
                 int i = 0;
                 foreach (Node n in nodes)
                 {
+                    if (!n.Walkable || n.plant)
+                        continue;
                     sprites[i].SetActive (true);
                     sprites[i++].transform.position = n.worldPosition;
                 }

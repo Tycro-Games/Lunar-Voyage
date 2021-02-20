@@ -15,10 +15,13 @@ public class DisplayPathManager
     {
         for (int i = 1; i < path.Count - 1; i++)
             nodes.Add (path[i]);
-        if (!noEnds)
+        if (path.Count > 0)
         {
-            nodes.Add (path[0]);
-            nodes.Add (path[path.Count - 1]);
+            if (!noEnds)
+            {
+                nodes.Add (path[0]);
+                nodes.Add (path[path.Count - 1]);
+            }
         }
     }
 
