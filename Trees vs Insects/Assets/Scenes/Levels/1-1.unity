@@ -2209,11 +2209,6 @@ PrefabInstance:
       propertyPath: m_NormalizedViewPortRect.height
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 3470223737304803669, guid: 2d2288358d54cb949a246a78f82ad470,
-        type: 3}
-      propertyPath: m_UpscaleRT
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3794717827458101255, guid: 2d2288358d54cb949a246a78f82ad470,
         type: 3}
       propertyPath: m_ChunkCullingBounds.x
