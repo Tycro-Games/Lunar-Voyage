@@ -91,7 +91,7 @@ namespace Bogadanul.Assets.Scripts.Player
             {
                 for (int y = 0; y < gridSizeY; y++)
                 {
-                    grid[x, y].Walkable = !Physics.CheckSphere (grid[x, y].worldPosition, nodeRadius, unwalkableMask);
+                    grid[x, y].IsWalkable = !Physics.CheckSphere (grid[x, y].worldPosition, nodeRadius, unwalkableMask);
                 }
             }
         }
@@ -143,7 +143,7 @@ namespace Bogadanul.Assets.Scripts.Player
             {
                 for (int y = 0; y < gridSizeY; y++)
                 {
-                    if (!grid[x, y].Walkable)
+                    if (!grid[x, y].IsWalkable)
                     {
                         Gizmos.color = Color.red;
                         Gizmos.DrawCube (grid[x, y].worldPosition, new Vector2 (nodeDiameter, nodeDiameter));

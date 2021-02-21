@@ -29,6 +29,8 @@ namespace Bogadanul.Assets.Scripts.Player
 
         public event Action<bool> OnRangeDisplay = null;
 
+        public bool IsFruit { get => canBePlaced; set => canBePlaced = value; }
+
         public void MoveSprite (InputAction.CallbackContext ctx)
         {
             mouse = ctx.ReadValue<Vector2> ();
@@ -45,7 +47,7 @@ namespace Bogadanul.Assets.Scripts.Player
         {
             if (seed)
             {
-                canBePlaced = canBeP;
+                IsFruit = canBeP;
                 spriteRen.sprite = seed;
 
                 transform.position = cursor.transform.position;
@@ -74,10 +76,10 @@ namespace Bogadanul.Assets.Scripts.Player
                 OnRangeDisplay?.Invoke (true);
                 displayRange.DisplayTheRange (n);
 
-                if (!canBePlaced)
-                    spriteRen.enabled = n?.Placeable () == true;
+                if (!IsFruit)
+                    spriteRen.enabled = n?.TowerPlaceAble () == true;
                 else
-                    spriteRen.enabled = n?.CanBePlaced () == true;
+                    spriteRen.enabled = n?.FruitPlaceable () == true;
             }
         }
 

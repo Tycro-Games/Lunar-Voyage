@@ -6,7 +6,7 @@ namespace Bogadanul.Assets.Scripts.Enemies
     {
         protected DisplayPathManager displayPathManager = new DisplayPathManager ();
 
-        public void Reset ()
+        public virtual void Reset ()
         {
             displayPathManager.Reset ();
         }

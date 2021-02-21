@@ -17,13 +17,13 @@ namespace Bogadanul.Assets.Scripts.Player
 
         public void DisplayTheRange (Node pos)
         {
-            if (treeRecon != null && pos?.Placeable () == true)
+            if (treeRecon != null && pos?.TowerPlaceAble () == true)
             {
                 nodes = treeRecon.GetNodeRange (pos);
                 int i = 0;
                 foreach (Node n in nodes)
                 {
-                    if (!n.Walkable || n.plant)
+                    if (!n.IsWalkable || n.IsPlanted)
                         continue;
                     sprites[i].SetActive (true);
                     sprites[i++].transform.position = n.worldPosition;

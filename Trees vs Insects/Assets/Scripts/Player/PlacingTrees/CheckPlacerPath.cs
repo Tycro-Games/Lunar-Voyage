@@ -31,7 +31,7 @@ namespace Bogadanul.Assets.Scripts.Player
 
         public bool CheckToPlace (Node cell, GameObject currentTree)
         {
-            if (cell == null && !cell.Walkable)
+            if (cell == null && !cell.IsWalkable)
                 return false;
 
             EnemyManager.hasPath = false;

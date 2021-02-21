@@ -35,24 +35,24 @@ namespace Bogadanul.Assets.Scripts.Player
             int count = Physics.OverlapSphereNonAlloc (transform.position, 1, res, ocupieable);
             if (count > 0)
             {
-                Nodey.Ocupied = true;
+                Nodey.IsBlocked = true;
             }
             else
-                Nodey.Ocupied = false;
+                Nodey.IsBlocked = false;
 
             bool plant = Physics.OverlapSphereNonAlloc (transform.position, 1, res, trees) > 0;
             if (plant)
             {
-                Nodey.plant = true;
+                Nodey.IsPlanted = true;
             }
             else
-                Nodey.plant = false;
+                Nodey.IsPlanted = false;
         }
 
         private void OnDrawGizmos ()
         {
             Gizmos.color = Color.red;
-            if (Nodey?.Ocupied == true)
+            if (Nodey?.IsBlocked == true)
                 Gizmos.DrawWireCube (transform.position, Vector2.one * 2);
         }
     }

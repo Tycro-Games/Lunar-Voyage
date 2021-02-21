@@ -99,7 +99,7 @@ namespace Bogadanul.Assets.Scripts.Enemies
 
                 foreach (Node neighbour in grid.GetNeighbours (currentNode))
                 {
-                    if (!neighbour.Walkable || closedSet.Contains (neighbour))
+                    if (!neighbour.IsWalkable || closedSet.Contains (neighbour))
                     {
                         continue;
                     }
@@ -148,7 +148,7 @@ namespace Bogadanul.Assets.Scripts.Enemies
 
                 foreach (Node neighbour in grid.GetNeighbours (currentNode))
                 {
-                    if (!neighbour.Walkable || closedSet.Contains (neighbour))
+                    if (!neighbour.IsWalkable || closedSet.Contains (neighbour))
                     {
                         continue;
                     }

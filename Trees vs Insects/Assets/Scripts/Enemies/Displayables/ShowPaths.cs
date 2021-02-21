@@ -39,9 +39,11 @@ namespace Bogadanul.Assets.Scripts.Enemies
             Reset ();
             foreach (GameObject trace in EnemyList.List.ToList ())
             {
-                TracePath path = trace.GetComponentInChildren<TracePath> ();
-                if (path != null)
+                if (trace != null)
+                {
+                    TracePath path = trace.GetComponentInChildren<TracePath> ();
                     displayPathManager.AddPaths (path.Path, false);
+                }
             }
         }
 

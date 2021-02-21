@@ -37,7 +37,7 @@ namespace Bogadanul.Assets.Scripts.Player
                     return;
                 if (!canBe)
                     CheckNode (n);
-                else if (n.CanBePlaced ())
+                else if (n.FruitPlaceable ())
                 {
                     checkPlacer.ToSpawn (n, currentTree);
                     Placing ();
@@ -58,7 +58,7 @@ namespace Bogadanul.Assets.Scripts.Player
 
         private void CheckNode (Node n)
         {
-            if (n.Placeable () && checkPlacer.CheckToPlace (n, currentTree))
+            if (n.TowerPlaceAble () && checkPlacer.CheckToPlace (n, currentTree))
             {
                 Placing ();
             }

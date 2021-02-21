@@ -62,4 +62,4 @@ MonoBehaviour:
     m_Bits: 62464
   trees:
     serializedVersion: 2
-    m_Bits: 49152
+    m_Bits: 57344

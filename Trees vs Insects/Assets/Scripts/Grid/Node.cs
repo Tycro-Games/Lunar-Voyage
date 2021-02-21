@@ -10,15 +10,18 @@ namespace Bogadanul.Assets.Scripts.Player
         public int hCost;
         public Node parent;
         public Vector3 worldPosition;
-        public bool Walkable;
 
-        public bool Ocupied;
-        public bool plant = false;
+        //bools
+        public bool IsWalkable;
+
+        public bool IsBlocked;
+        public bool IsPlanted = false;
+
         private int heapIndex;
 
         public Node (bool _walkable, Vector3 _worldPos, int _gridX, int _gridY)
         {
-            Walkable = _walkable;
+            IsWalkable = _walkable;
             worldPosition = _worldPos;
             gridX = _gridX;
             gridY = _gridY;
@@ -44,16 +47,16 @@ namespace Bogadanul.Assets.Scripts.Player
             }
         }
 
-        public bool Placeable ()
+        public bool TowerPlaceAble ()
         {
-            if (!Ocupied)
+            if (!IsBlocked && !IsPlanted)
                 return true;
             return false;
         }
 
-        public bool CanBePlaced ()
+        public bool FruitPlaceable ()
         {
-            if (!plant)
+            if (!IsPlanted && IsWalkable)
                 return true;
             return false;
         }
