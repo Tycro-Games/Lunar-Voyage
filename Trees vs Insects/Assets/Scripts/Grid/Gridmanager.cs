@@ -98,6 +98,7 @@ namespace Bogadanul.Assets.Scripts.Player
 
         private void Awake ()
         {
+            Nodes = new Dictionary<Node, GameObject> ();
             gridmanager = this;
             nodeDiameter = nodeRadius * 2;
             gridSizeX = Mathf.RoundToInt (gridWorldSize.x / nodeDiameter);

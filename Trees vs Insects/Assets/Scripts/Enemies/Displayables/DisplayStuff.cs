@@ -10,5 +10,11 @@ namespace Bogadanul.Assets.Scripts.Enemies
         {
             displayPathManager.Reset ();
         }
+
+        public virtual void Init ()
+        {
+            MakeObjects ();
+            displayPathManager = new DisplayPathManager ();
+        }
     }
 }

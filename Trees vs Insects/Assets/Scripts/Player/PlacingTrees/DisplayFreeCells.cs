@@ -12,7 +12,7 @@ namespace Bogadanul.Assets.Scripts.Player
     {
         private CurrentSeedDisplay currentSeedDisplay;
         private HashSet<Node> nodes = null;
-        private HashSet<Node> StartNodes = null;
+        private HashSet<Node> StartNodes;
 
         private NodeFinder nodeFinder = null;
 
@@ -46,8 +46,7 @@ namespace Bogadanul.Assets.Scripts.Player
         public void DisplayPlaceable (bool show = false)
         {
             //check
-            if (StartNodes == null)
-                Init ();
+
             if (!show)
                 Reset ();
             else
@@ -65,8 +64,9 @@ namespace Bogadanul.Assets.Scripts.Player
             lasti = i;
         }
 
-        private void Init ()
+        public override void Init ()
         {
+            base.Init ();
             StartNodes = new HashSet<Node> ();
             foreach (Node n in Gridmanager.Nodes.Keys)
             {
@@ -82,7 +82,7 @@ namespace Bogadanul.Assets.Scripts.Player
 
         private void Start ()
         {
-            MakeObjects ();
+            Init ();
             currentSeedDisplay = FindObjectOfType<CurrentSeedDisplay> ();
             currentSeedDisplay.OnRangeDisplay += DisplayPlaceable;
             nodeFinder = GetComponent<NodeFinder> ();

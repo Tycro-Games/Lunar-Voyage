@@ -123,5 +123,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: Oak
       objectReference: {fileID: 0}
+    - target: {fileID: 3340783609673867561, guid: e924ca8e88d4442409623007ef44567a,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -14118
+      objectReference: {fileID: 0}
+    - target: {fileID: 8305569605575287097, guid: e924ca8e88d4442409623007ef44567a,
+        type: 3}
+      propertyPath: m_Name
+      value: CoolDown
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e924ca8e88d4442409623007ef44567a, type: 3}

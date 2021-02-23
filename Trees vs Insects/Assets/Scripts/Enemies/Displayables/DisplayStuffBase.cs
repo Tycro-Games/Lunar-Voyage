@@ -7,7 +7,7 @@ namespace Bogadanul.Assets.Scripts.Enemies
         [SerializeField]
         protected GameObject sprite = null;
 
-        protected int lasti = 0;
+        protected int lasti;
 
         [SerializeField]
         protected int count = 128;
@@ -16,6 +16,7 @@ namespace Bogadanul.Assets.Scripts.Enemies
 
         public void MakeObjects ()
         {
+            lasti = 0;
             sprites = new GameObject[count];
             for (int i = 0; i < count; i++)
             {

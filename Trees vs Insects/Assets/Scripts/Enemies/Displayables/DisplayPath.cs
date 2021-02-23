@@ -49,8 +49,7 @@ namespace Bogadanul.Assets.Scripts.Enemies
         private void Awake ()
         {
             nodeFinder = GetComponent<NodeFinder> ();
-            MakeObjects ();
-            displayPathManager = new DisplayPathManager ();
+            Init ();
         }
     }
 }

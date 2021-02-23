@@ -54,8 +54,7 @@ namespace Bogadanul.Assets.Scripts.Enemies
 
         private void Awake ()
         {
-            MakeObjects ();
-            displayPathManager = new DisplayPathManager ();
+            Init ();
             currentSeed = FindObjectOfType<CurrentSeedDisplay> ();
             currentSeed.OnRangeDisplay += Display;
         }
