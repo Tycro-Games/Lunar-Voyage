@@ -280,6 +280,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   treeSeed: {fileID: 11400000, guid: 677ac7f1ad5fef242990b134cdeb533a, type: 2}
+  selectedColor: {r: 0.3962264, g: 0.3962264, b: 0.3962264, a: 0.5019608}
 --- !u!114 &7299411993141057362
 MonoBehaviour:
   m_ObjectHideFlags: 0

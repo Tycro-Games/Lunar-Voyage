@@ -8,6 +8,7 @@ namespace Bogadanul.Assets.Scripts.Player
     {
         private Image image;
         private TextMeshProUGUI text;
+        private Color normal;
 
         public void DisplayPrice (int price)
         {
@@ -19,9 +20,20 @@ namespace Bogadanul.Assets.Scripts.Player
             image.sprite = sprite;
         }
 
+        public void ChangeColor (Color color)
+        {
+            image.color = color;
+        }
+
+        public void ResetColor ()
+        {
+            image.color = normal;
+        }
+
         private void Awake ()
         {
             image = GetComponent<Image> ();
+            normal = image.color;
             text = GetComponentInChildren<TextMeshProUGUI> ();
         }
     }

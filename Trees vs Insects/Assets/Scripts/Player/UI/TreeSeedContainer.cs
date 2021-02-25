@@ -13,12 +13,26 @@ namespace Bogadanul.Assets.Scripts.Player
         [SerializeField]
         public TreeSeed treeSeed = null;
 
+        [SerializeField]
+        private Color selectedColor;
+
+        private Color normal;
         private TreeSeedDisplay treeSeedDisplay = null;
         private TreeSeedSender treeSeedSender = null;
         private Cooldown cooldown;
         private bool selected = false;
         private Button button = null;
         private Market market = null;
+
+        public bool Selected
+        {
+            get => selected;
+            set
+            {
+                selected = value;
+                ChangeColor ();
+            }
+        }
 
         public static void ActivateCoolDown ()
         {
@@ -27,33 +41,43 @@ namespace Bogadanul.Assets.Scripts.Player
 
         public void OnClick ()
         {
-            if (selected)
+            if (Selected)
             {
                 treeSeedSender.CancelCurrentSeed ();
-                selected = false;
+                Selected = false;
                 return;
             }
             if (treeSeedSender.market.CheckPrice (treeSeed.price))
             {
                 treeSeedSender.ChangeCurrentSeed (treeSeed);
 
-                selected = true;
+                Selected = true;
                 treeSeedContainer = this;
             }
         }
 
         public void ActivateDown ()
         {
-            if (selected)
+            if (Selected)
             {
                 cooldown.ResetT ();
-                selected = false;
+                Selected = false;
             }
         }
 
         public void Deselect ()
         {
-            selected = false;
+            Selected = false;
+        }
+
+        private void ChangeColor ()
+        {
+            if (selected)
+            {
+                treeSeedDisplay.ChangeColor (selectedColor);
+            }
+            else
+                treeSeedDisplay.ResetColor ();
         }
 
         private void Displaying ()

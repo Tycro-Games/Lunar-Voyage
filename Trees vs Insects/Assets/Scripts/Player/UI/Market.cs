@@ -15,7 +15,7 @@ namespace Bogadanul.Assets.Scripts.Player
 
         public void Add ()
         {
-            marketIntro.WaterInst += lastPrice;
+            marketIntro.Add (lastPrice);
         }
 
         public bool CheckPrice (int price)
@@ -35,7 +35,7 @@ namespace Bogadanul.Assets.Scripts.Player
 
         public void Substract ()
         {
-            marketIntro.WaterInst -= lastPrice;
+            marketIntro.Substract (lastPrice);
         }
 
         private void Awake ()
