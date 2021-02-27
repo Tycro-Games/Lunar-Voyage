@@ -14,7 +14,7 @@ namespace Bogadanul.Assets.Scripts.Player
 
         private TreeSeedSender seedSender = null;
         private ITreeRecon treeRecon = null;
-
+       
         public void DisplayTheRange (Node pos)
         {
             if (treeRecon != null && pos?.TowerPlaceAble () == true)
