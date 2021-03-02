@@ -512,6 +512,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75625e967fac2a348a5555e08f94e3dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnBuy:
+    m_PersistentCalls:
+      m_Calls: []
+  OnCollect:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &8931683170678454280
 GameObject:
   m_ObjectHideFlags: 0
@@ -596,7 +602,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8931683170678454280}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e7a8b6afd6783e949ae08178eec7f6ab, type: 3}
   m_Name: 
