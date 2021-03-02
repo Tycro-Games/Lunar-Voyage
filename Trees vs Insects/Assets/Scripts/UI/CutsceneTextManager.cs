@@ -12,9 +12,10 @@ namespace Bogadanul.Assets.Scripts.UI
 
         public void CheckChildren ()
         {
+            currentText.SetActive(false);
             if (index < texts.Count)
             {
-                currentText.SetActive (false);
+                
                 currentText = texts[index++];
             }
         }
