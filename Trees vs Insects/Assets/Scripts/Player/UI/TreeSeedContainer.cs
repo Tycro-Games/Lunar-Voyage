@@ -14,7 +14,7 @@ namespace Bogadanul.Assets.Scripts.Player
         public TreeSeed treeSeed = null;
 
         [SerializeField]
-        private Color selectedColor;
+        private Color selectedColor = Color.black;
 
         private Color normal;
         private TreeSeedDisplay treeSeedDisplay = null;
@@ -30,83 +30,83 @@ namespace Bogadanul.Assets.Scripts.Player
             set
             {
                 selected = value;
-                ChangeColor ();
+                ChangeColor();
             }
         }
 
-        public static void ActivateCoolDown ()
+        public static void ActivateCoolDown()
         {
-            treeSeedContainer.ActivateDown ();
+            treeSeedContainer.ActivateDown();
         }
 
-        public void OnClick ()
+        public void OnClick()
         {
             if (Selected)
             {
-                treeSeedSender.CancelCurrentSeed ();
+                treeSeedSender.CancelCurrentSeed();
                 Selected = false;
                 return;
             }
-            if (treeSeedSender.market.CheckPrice (treeSeed.price))
+            if (treeSeedSender.market.CheckPrice(treeSeed.price))
             {
-                treeSeedSender.ChangeCurrentSeed (treeSeed);
+                treeSeedSender.ChangeCurrentSeed(treeSeed);
 
                 Selected = true;
                 treeSeedContainer = this;
             }
         }
 
-        public void ActivateDown ()
+        public void ActivateDown()
         {
             if (Selected)
             {
-                cooldown.ResetT ();
+                cooldown.ResetT();
                 Selected = false;
             }
         }
 
-        public void Deselect ()
+        public void Deselect()
         {
             Selected = false;
         }
 
-        private void ChangeColor ()
+        private void ChangeColor()
         {
             if (selected)
             {
-                treeSeedDisplay.ChangeColor (selectedColor);
+                treeSeedDisplay.ChangeColor(selectedColor);
             }
             else
-                treeSeedDisplay.ResetColor ();
+                treeSeedDisplay.ResetColor();
         }
 
-        private void Displaying ()
+        private void Displaying()
         {
-            treeSeedDisplay.DisplaySprite (treeSeed.icon);
-            treeSeedDisplay.DisplayPrice (treeSeed.price);
+            treeSeedDisplay.DisplaySprite(treeSeed.icon);
+            treeSeedDisplay.DisplayPrice(treeSeed.price);
         }
 
-        private void OnDisable ()
+        private void OnDisable()
         {
             treeSeedSender.OnResetSeed -= Deselect;
         }
 
-        private void Awake ()
+        private void Awake()
         {
-            cooldown = GetComponent<Cooldown> ();
-            cooldown.Init (treeSeed.cooldown);
+            cooldown = GetComponent<Cooldown>();
+            cooldown.Init(treeSeed.cooldown);
         }
 
-        private void Start ()
+        private void Start()
         {
-            button = GetComponent<Button> ();
-            market = FindObjectOfType<Market> ();
+            button = GetComponent<Button>();
+            market = FindObjectOfType<Market>();
 
-            treeSeedDisplay = GetComponent<TreeSeedDisplay> ();
-            treeSeedSender = GetComponentInParent<TreeSeedSender> ();
+            treeSeedDisplay = GetComponent<TreeSeedDisplay>();
+            treeSeedSender = GetComponentInParent<TreeSeedSender>();
             treeSeedSender.OnResetSeed += Deselect;
 
-            Displaying ();
+            Displaying();
         }
     }
 }

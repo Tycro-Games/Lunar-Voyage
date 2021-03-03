@@ -9,12 +9,12 @@ namespace Bogadanul.Assets.Scripts.Tree
         private int water = 0;
 
         [SerializeField]
-        private UnityEvent OnBuy;
+        private UnityEvent OnBuy = null;
 
         private bool onBuy = true;
 
         [SerializeField]
-        private UnityEvent OnCollect;
+        private UnityEvent OnCollect = null;
 
         private bool onCollect = true;
 
@@ -26,36 +26,36 @@ namespace Bogadanul.Assets.Scripts.Tree
             set
             {
                 water = value;
-                OnEnergyChange?.Invoke (water);
+                OnEnergyChange?.Invoke(water);
             }
         }
 
-        public void Init (int statingWater)
+        public void Init(int statingWater)
         {
             WaterInst = statingWater;
         }
 
-        public void ChangeBuyEvents ()
+        public void ChangeBuyEvents()
         {
             onBuy = !onBuy;
         }
 
-        public void ChangeOnCollect ()
+        public void ChangeOnCollect()
         {
             onCollect = !onCollect;
         }
 
-        public void Add (int d)
+        public void Add(int d)
         {
             if (onCollect)
-                OnCollect?.Invoke ();
+                OnCollect?.Invoke();
             WaterInst += d;
         }
 
-        public void Substract (int d)
+        public void Substract(int d)
         {
             if (onBuy)
-                OnBuy?.Invoke ();
+                OnBuy?.Invoke();
             WaterInst -= d;
         }
     }
