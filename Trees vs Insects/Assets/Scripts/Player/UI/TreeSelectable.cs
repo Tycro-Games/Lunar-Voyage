@@ -20,7 +20,7 @@ namespace Bogadanul.Assets.Scripts.Player
         private void Display()
         {
             seedDisplay.DisplayPrice(treeSeed.price);
-            seedDisplay.DisplaySprite(treeSeed.sprite);
+            seedDisplay.DisplaySprite(treeSeed.icon);
         }
     }
 }
