@@ -708,6 +708,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SelectMenu
       objectReference: {fileID: 0}
+    - target: {fileID: 3954453280159403097, guid: 618fdf55e9611c64e9b51fca89e646f1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3954453280452114192, guid: 618fdf55e9611c64e9b51fca89e646f1,
         type: 3}
       propertyPath: m_AnchoredPosition.x
