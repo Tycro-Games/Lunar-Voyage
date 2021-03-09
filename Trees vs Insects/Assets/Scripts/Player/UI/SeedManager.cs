@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using UnityEngine.UI;
 
 namespace Bogadanul.Assets.Scripts.Player
 {
@@ -31,9 +32,10 @@ namespace Bogadanul.Assets.Scripts.Player
         {
             seeds.Remove(seed);
             List<GameObject> seedObj = seeds.Keys.ToList();
+            seedObj.Sort((p1, p2) => p1.transform.position.x.CompareTo(p2.transform.position.x));
             for (int i = 0; i < seedObj.Count; i++)
             {
-                seedObj[i].transform.position = SeedPlace[i].position;
+                StartCoroutine(MoveSeed(seedObj[i].transform, SeedPlace[i].transform.position));
             }
         }
 
@@ -55,11 +57,14 @@ namespace Bogadanul.Assets.Scripts.Player
 
         private IEnumerator MoveSeed(Transform currentSeed, Vector2 target)
         {
+            Button button = currentSeed.GetComponent<Button>();
+            button.interactable = false;
             while ((Vector2)currentSeed.position != target)
             {
                 currentSeed.position = Vector2.MoveTowards(currentSeed.position, target, Time.deltaTime * speed);
                 yield return null;
             }
+            button.interactable = true;
         }
     }
 }
