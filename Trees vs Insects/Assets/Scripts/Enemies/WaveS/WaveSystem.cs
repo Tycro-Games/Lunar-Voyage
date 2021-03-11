@@ -39,6 +39,7 @@ namespace Bogadanul.Assets.Scripts.Enemies
         public event Action<int> OnSpawn;
 
         public int EnemyWeight { get => enemyWeight; set { enemyWeight = value; } }
+        private bool waveEnd = false;
 
         public void StartWave()
         {
@@ -55,12 +56,16 @@ namespace Bogadanul.Assets.Scripts.Enemies
 
                 currentW = EnemyWeight;
                 ResetIen();
-                while (currentWaveCoroutine.Current != null)
+                while (currentWaveCoroutine.Current != null && !waveEnd)
+                {
                     yield return null;
+                }
 
                 OnNextWave?.Invoke();
                 currentWave++;
+                waveEnd = false;
             }
+            OnLevelEnd?.Invoke();
         }
 
         public IEnumerator RandomSpawner()
@@ -77,6 +82,7 @@ namespace Bogadanul.Assets.Scripts.Enemies
                 OnSpawn?.Invoke(current);
                 yield return new WaitForSeconds(waves[currentWave].durationBetweenEnemies);
             }
+            waveEnd = true;
         }
 
         private void ResetIen()
@@ -87,7 +93,7 @@ namespace Bogadanul.Assets.Scripts.Enemies
 
         private void SkipToNext()
         {
-            if (currentWave == waves.Length - 1 && currentW <= 0)
+            if (currentWave == waves.Length && currentW <= 0)
             {
                 OnLevelEnd?.Invoke();
             }
