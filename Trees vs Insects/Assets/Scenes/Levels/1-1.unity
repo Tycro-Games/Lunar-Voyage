@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -1201,6 +1201,28 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: d5dc7327bf8e9df48946f983a8eebb18,
         type: 2}
+    - target: {fileID: 7411997694482271478, guid: 35710d2da71cf39419c01abc3d9d199c,
+        type: 3}
+      propertyPath: m_text
+      value: "The ancient tree attracts insects to it via different paths, as long
+        as there is a path, nature can thrive. \nPress on the tree icon  to pick
+        up the tree"
+      objectReference: {fileID: 0}
+    - target: {fileID: 7411997694482271478, guid: 35710d2da71cf39419c01abc3d9d199c,
+        type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7411997694482271478, guid: 35710d2da71cf39419c01abc3d9d199c,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 46.55
+      objectReference: {fileID: 0}
+    - target: {fileID: 7411997694482271478, guid: 35710d2da71cf39419c01abc3d9d199c,
+        type: 3}
+      propertyPath: m_overflowMode
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8251603817612713384, guid: 35710d2da71cf39419c01abc3d9d199c,
         type: 3}
       propertyPath: m_SizeDelta.x
