@@ -7,14 +7,15 @@ namespace Bogadanul.Assets.Scripts.Enemies
     {
         private EnemySpawnable[] enemies = null;
 
-        public int ChooseEnemy (int maxWeight)
+        public EnemySpawnable ChooseEnemy(int maxWeight)
         {
-            EnemySpawnable[] temp = enemies.Where (en => en.weight <= maxWeight).ToArray ();
-
-            return Random.Range (0, temp.Length);
+            EnemySpawnable[] temp = enemies.OrderBy(x => x.weight).ToArray();
+            temp = enemies.Where(en => en.weight <= maxWeight).ToArray();
+            
+            return temp[Random.Range(0, temp.Length)]; 
         }
 
-        public void Init (EnemySpawnable[] _enemies)
+        public void Init(EnemySpawnable[] _enemies)
         {
             enemies = _enemies;
         }

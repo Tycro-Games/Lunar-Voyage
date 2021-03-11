@@ -7,27 +7,27 @@ namespace Bogadanul.Assets.Scripts.Utility
     {
         private Transform child = null;
         private EnemyHealth[] enemyHealth;
-        public void CheckChildren ()
+
+        public void CheckChildren()
         {
             if (child.childCount == 1)
             {
-                Destroy (gameObject);
+                Destroy(gameObject);
             }
         }
-        private void OnDisable ()
+
+        private void OnDisable()
         {
             foreach (EnemyHealth health in enemyHealth)
                 health.OnDead -= CheckChildren;
         }
-        
-        private void Start ()
+
+        private void Start()
         {
-            enemyHealth = GetComponentsInChildren<EnemyHealth> ();
+            enemyHealth = GetComponentsInChildren<EnemyHealth>();
             foreach (EnemyHealth health in enemyHealth)
                 health.OnDead += CheckChildren;
-            child = transform.GetChild (0);
+            child = transform.GetChild(0);
         }
-
-        
     }
 }

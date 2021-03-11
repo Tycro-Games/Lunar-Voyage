@@ -9,17 +9,17 @@ namespace Bogadanul.Assets.Scripts.Enemies
 {
     public class WaveSystem : MonoBehaviour
     {
-        [Header ("Waves")]
+        [Header("Waves")]
         public Wave[] waves = null;
 
-        public HashSet<EnemySpawner> currenSelection = new HashSet<EnemySpawner> ();
+        public HashSet<EnemySpawner> currenSelection = new HashSet<EnemySpawner>();
         private int currentWave = 0;
 
         private EnemyChooser enemyChooser;
 
         private EnemyListChecker enemyListChecker;
 
-        [Header ("Enemies")]
+        [Header("Enemies")]
         private int enemyWeight = 10;
 
         private Seed seed;
@@ -32,7 +32,7 @@ namespace Bogadanul.Assets.Scripts.Enemies
         [SerializeField]
         private UnityEvent OnNextWave = null;
 
-        private IEnumerator current = null;
+        private IEnumerator currentWaveCoroutine = null;
 
         private int currentW = 0;
 
@@ -40,88 +40,89 @@ namespace Bogadanul.Assets.Scripts.Enemies
 
         public int EnemyWeight { get => enemyWeight; set { enemyWeight = value; } }
 
-        public void StartWave ()
+        public void StartWave()
         {
-            StartCoroutine (WaveCounter ());
+            StartCoroutine(WaveCounter());
         }
 
-        public IEnumerator WaveCounter ()
+        public IEnumerator WaveCounter()
         {
             while (currentWave < waves.Length)
             {
                 EnemyWeight = waves[currentWave].weight;
 
-                enemyChooser.Init (waves[currentWave].enemies);
+                enemyChooser.Init(waves[currentWave].enemies);
 
                 currentW = EnemyWeight;
-                ResetIen ();
-                while (current != null)
+                ResetIen();
+                while (currentWaveCoroutine.Current != null)
                     yield return null;
 
-                OnNextWave?.Invoke ();
+                OnNextWave?.Invoke();
                 currentWave++;
             }
         }
 
-        public IEnumerator RandomSpawner ()
+        public IEnumerator RandomSpawner()
         {
-            currenSelection = trigger.RandomListOfSpawner (waves[currentWave].CountSpawners);
-            OnNextWave?.Invoke ();
+            currenSelection = trigger.RandomListOfSpawner(waves[currentWave].CountSpawners);
+            OnNextWave?.Invoke();
             while (currentW > 0)
             {
-                int index = enemyChooser.ChooseEnemy (currentW);
-                int current = waves[currentWave].enemies[index].weight;
+                EnemySpawnable enemy = enemyChooser.ChooseEnemy(currentW);
+                int current = enemy.weight;
                 currentW -= current;
 
-                SpawnEnemies (index, currenSelection);
-                OnSpawn?.Invoke (current);
-                yield return new WaitForSeconds (waves[currentWave].durationBetweenEnemies);
+                SpawnEnemies(enemy, currenSelection);
+                OnSpawn?.Invoke(current);
+                yield return new WaitForSeconds(waves[currentWave].durationBetweenEnemies);
             }
         }
 
-        private void ResetIen ()
+        private void ResetIen()
         {
-            current = RandomSpawner ();
-            StartCoroutine (current);
+            currentWaveCoroutine = RandomSpawner();
+            StartCoroutine(currentWaveCoroutine);
         }
 
-        private void SkipToNext ()
+        private void SkipToNext()
         {
             if (currentWave == waves.Length - 1 && currentW <= 0)
             {
-                OnLevelEnd?.Invoke ();
+                OnLevelEnd?.Invoke();
             }
-            else if (current != null && currentW > 0)
+            else if (currentW > 0)
             {
-                StopCoroutine (current);
-                if (currentW > 0)
-                    ResetIen ();
+                StopCoroutine(currentWaveCoroutine);
+                ResetIen();
             }
             else
-                current = null;
+            {
+                StopCoroutine(currentWaveCoroutine);
+                ResetIen();
+            }
         }
 
-        private void SpawnEnemies (int index, HashSet<EnemySpawner> enemySpawners)
+        private void SpawnEnemies(EnemySpawnable spawnable, HashSet<EnemySpawner> enemySpawners)
         {
-            GameObject enemy = waves[currentWave].enemies[index].enemyGameObject;
-            EnemySpawner enemySpawner = trigger.ChooseASpawner (enemySpawners.ToArray ());
-            enemySpawner.Spawn (enemy);
+            EnemySpawner enemySpawner = trigger.ChooseASpawner(enemySpawners.ToArray());
+            enemySpawner.Spawn(spawnable.enemyGameObject);
         }
 
-        private void Awake ()
+        private void Awake()
         {
-            enemyListChecker = GetComponent<EnemyListChecker> ();
-            trigger = GetComponent<TriggerSpawner> ();
-            seed = GetComponent<Seed> ();
-            enemyChooser = GetComponent<EnemyChooser> ();
+            enemyListChecker = GetComponent<EnemyListChecker>();
+            trigger = GetComponent<TriggerSpawner>();
+            seed = GetComponent<Seed>();
+            enemyChooser = GetComponent<EnemyChooser>();
         }
 
-        private void OnDisable ()
+        private void OnDisable()
         {
             enemyListChecker.OnNoEnemies -= SkipToNext;
         }
 
-        private void OnEnable ()
+        private void OnEnable()
         {
             enemyListChecker.OnNoEnemies += SkipToNext;
         }
