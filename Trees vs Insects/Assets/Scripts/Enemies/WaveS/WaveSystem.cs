@@ -10,7 +10,6 @@ namespace Bogadanul.Assets.Scripts.Enemies
     public class WaveSystem : MonoBehaviour
     {
         [Header("Waves")]
-        [Reorderable]
         public Wave[] waves = null;
 
         public HashSet<EnemySpawner> currenSelection = new HashSet<EnemySpawner>();
