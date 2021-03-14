@@ -19,7 +19,7 @@ namespace Bogadanul.Assets.Scripts.Player
 
         private int heapIndex;
 
-        public Node (bool _walkable, Vector3 _worldPos, int _gridX, int _gridY)
+        public Node(bool _walkable, Vector3 _worldPos, int _gridX, int _gridY)
         {
             IsWalkable = _walkable;
             worldPosition = _worldPos;
@@ -47,26 +47,26 @@ namespace Bogadanul.Assets.Scripts.Player
             }
         }
 
-        public bool TowerPlaceAble ()
+        public bool TowerPlaceAble()
         {
             if (!IsBlocked && !IsPlanted)
                 return true;
             return false;
         }
 
-        public bool FruitPlaceable ()
+        public bool FruitPlaceable()
         {
             if (!IsPlanted && IsWalkable)
                 return true;
             return false;
         }
 
-        public int CompareTo (Node nodeToCompare)
+        public int CompareTo(Node nodeToCompare)
         {
-            int compare = fCost.CompareTo (nodeToCompare.fCost);
+            int compare = fCost.CompareTo(nodeToCompare.fCost);
             if (compare == 0)
             {
-                compare = hCost.CompareTo (nodeToCompare.hCost);
+                compare = hCost.CompareTo(nodeToCompare.hCost);
             }
             return -compare;
         }

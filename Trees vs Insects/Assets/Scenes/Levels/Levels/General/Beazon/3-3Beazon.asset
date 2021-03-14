@@ -10,12 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 974f4f2793bde504a9fd5bd6ab5c92e1, type: 3}
-  m_Name: Mk3Mix
+  m_Name: 3-3Beazon
   m_EditorClassIdentifier: 
   enemies:
   - {fileID: 11400000, guid: c5a03eb2dfffd2544b065bd3d68c64d2, type: 2}
-  - {fileID: 11400000, guid: bfd12a4997d333a4eb3a6bc76244cd7f, type: 2}
-  - {fileID: 11400000, guid: cdbd792f1ed4e83408f6b7e3e7b887ea, type: 2}
-  durationBetweenEnemies: 2
-  weight: 10
-  CountSpawners: 1
+  durationBetweenEnemies: 3
+  weight: 9
+  CountSpawners: 2

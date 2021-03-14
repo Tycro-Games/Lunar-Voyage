@@ -25,14 +25,14 @@ namespace Bogadanul.Assets.Scripts.Player
             }
         }
 
-        public void Init (Node node)
+        public void Init(Node node)
         {
             Nodey = node;
         }
 
-        private void Update ()
+        private void Update()
         {
-            int count = Physics.OverlapSphereNonAlloc (transform.position, 1, res, ocupieable);
+            int count = Physics.OverlapSphereNonAlloc(transform.position, 1, res, ocupieable);
             if (count > 0)
             {
                 Nodey.IsBlocked = true;
@@ -40,7 +40,7 @@ namespace Bogadanul.Assets.Scripts.Player
             else
                 Nodey.IsBlocked = false;
 
-            bool plant = Physics.OverlapSphereNonAlloc (transform.position, 1, res, trees) > 0;
+            bool plant = Physics.OverlapSphereNonAlloc(transform.position, 1, res, trees) > 0;
             if (plant)
             {
                 Nodey.IsPlanted = true;
@@ -49,11 +49,12 @@ namespace Bogadanul.Assets.Scripts.Player
                 Nodey.IsPlanted = false;
         }
 
-        private void OnDrawGizmos ()
+        private void OnDrawGizmos()
         {
             Gizmos.color = Color.red;
             if (Nodey?.IsBlocked == true)
-                Gizmos.DrawWireCube (transform.position, Vector2.one * 2);
+                Gizmos.DrawWireCube(transform.position, Vector2.one * 2);
+            Gizmos.color = Color.green;
         }
     }
 }
