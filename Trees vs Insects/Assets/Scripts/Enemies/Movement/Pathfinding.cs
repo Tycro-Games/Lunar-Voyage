@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Bogadanul.Assets.Scripts.Enemies
 {
-    [RequireComponent (typeof (NodeFinder))]
+    [RequireComponent(typeof(NodeFinder))]
     public class Pathfinding : MonoBehaviour
     {
         [HideInInspector]
@@ -15,106 +15,119 @@ namespace Bogadanul.Assets.Scripts.Enemies
         public Gridmanager grid;
 
         private TracePathCheck path;
-        private List<Node> pathCurrent = new List<Node> ();
+        private List<Node> pathCurrent = new List<Node>();
         private AncientTreeSpaceChecker ancientTree;
         private NodeFinder nodeFind;
 
-        public void Awake ()
+        public void Awake()
         {
-            nodeFind = GetComponent<NodeFinder> ();
-            ancientTree = FindObjectOfType<AncientTreeSpaceChecker> ();
+            nodeFind = GetComponent<NodeFinder>();
+            ancientTree = FindObjectOfType<AncientTreeSpaceChecker>();
             seeker = transform;
 
-            path = GetComponent<TracePathCheck> ();
+            path = GetComponent<TracePathCheck>();
 
-            EnemyManager.pathfindings.Add (path, this);
+            EnemyManager.pathfindings.Add(path, this);
         }
 
-        public int GetDistance (Node nodeA, Node nodeB)
+        public int GetDistance(Node nodeA, Node nodeB)
         {
-            int dstX = Mathf.Abs (nodeA.gridX - nodeB.gridX);
-            int dstY = Mathf.Abs (nodeA.gridY - nodeB.gridY);
+            int dstX = Mathf.Abs(nodeA.gridX - nodeB.gridX);
+            int dstY = Mathf.Abs(nodeA.gridY - nodeB.gridY);
 
             if (dstX > dstY)
                 return 14 * dstY + 10 * (dstX - dstY);
             return 14 * dstX + 10 * (dstY - dstX);
         }
 
-        public void Init (Transform Target, Gridmanager grid)
+        public void Init(Transform Target, Gridmanager grid)
         {
             target = Target;
             this.grid = grid;
         }
 
-        protected List<Node> RetracePath (Node startNode, Node endNode)
+        protected List<Node> RetracePath(Node startNode, Node endNode)
         {
-            pathCurrent = new List<Node> ();
+            pathCurrent = new List<Node>();
 
             Node currentNode = endNode;
 
             while (currentNode != startNode)
             {
-                pathCurrent.Add (currentNode);
+                pathCurrent.Add(currentNode);
                 currentNode = currentNode.parent;
             }
 
-            pathCurrent.Add (startNode);
+            pathCurrent.Add(startNode);
 
-            pathCurrent.Reverse ();
+            pathCurrent.Reverse();
 
             return pathCurrent;
         }
 
-        private void Start ()
+        private void Start()
         {
-            ancientTree.CheckSpace ();
+            ancientTree.CheckSpace();
             if (seeker != null && target != null && nodeFind != null)
-                FindPath ();
+                FindPath();
         }
 
         #region checkSpace
 
-        public bool HasPath ()
+        private bool CheckCurrentPath()
         {
-            grid.UpdateGrid ();
+            if (path.Path == null)
+                return false;
+            foreach (Node n in path.Path)
+            {
+                if (n.IsWalkable != true)
+                    return false;
+            }
+            return true;
+        }
 
-            Node startNode = nodeFind.NodeFromPoint (transform);
+        public bool HasPath()
+        {
+            grid.UpdateGrid();
+            if (CheckCurrentPath())
+                return true;
+            Node startNode = nodeFind.NodeFromPoint(transform);
             if (startNode == null) return false;
             Node targetNode = ancientTree.currentNodes[0];
 
-            Heap<Node> openSet = new Heap<Node> (grid.MaxSize);
-            HashSet<Node> closedSet = new HashSet<Node> ();
+            Heap<Node> openSet = new Heap<Node>(grid.MaxSize);
+            HashSet<Node> closedSet = new HashSet<Node>();
 
-            openSet.Add (startNode);
+            openSet.Add(startNode);
 
             while (openSet.Count > 0)
             {
-                Node currentNode = openSet.RemoveFirst ();
-                closedSet.Add (currentNode);
+                Node currentNode = openSet.RemoveFirst();
+                closedSet.Add(currentNode);
 
                 if (currentNode == targetNode)
                 {
                     return true;
                 }
 
-                foreach (Node neighbour in grid.GetNeighbours (currentNode))
+                foreach (Node neighbour in grid.GetNeighbours(currentNode))
                 {
-                    if (!neighbour.IsWalkable || closedSet.Contains (neighbour))
+                    if (!neighbour.IsWalkable || closedSet.Contains(neighbour))
                     {
                         continue;
                     }
-                    int newMovementCostToNeighbour = currentNode.gCost + GetDistance (currentNode, neighbour);
-                    if (newMovementCostToNeighbour < neighbour.gCost || !openSet.Contains (neighbour))
+                    int newMovementCostToNeighbour = currentNode.gCost + GetDistance(currentNode, neighbour);
+                    if (newMovementCostToNeighbour < neighbour.gCost || !openSet.Contains(neighbour))
                     {
                         neighbour.gCost = newMovementCostToNeighbour;
-                        neighbour.hCost = GetDistance (neighbour, targetNode);
+                        neighbour.hCost = GetDistance(neighbour, targetNode);
                         neighbour.parent = currentNode;
 
-                        if (!openSet.Contains (neighbour))
-                            openSet.Add (neighbour);
+                        if (!openSet.Contains(neighbour))
+                            openSet.Add(neighbour);
                         else
                         {
-                            openSet.UpdateItem (neighbour);
+                            openSet.UpdateItem(neighbour);
                         }
                     }
                 }
@@ -122,48 +135,49 @@ namespace Bogadanul.Assets.Scripts.Enemies
             return false;
         }
 
-        public void FindPath ()
+        public void FindPath()
         {
-            grid.UpdateGrid ();
-
-            Node startNode = nodeFind.NodeFromPoint (transform);
+            grid.UpdateGrid();
+            if (CheckCurrentPath())
+                return;
+            Node startNode = nodeFind.NodeFromPoint(transform);
             if (startNode == null) return;
             Node targetNode = ancientTree.currentNodes[0];
 
-            Heap<Node> openSet = new Heap<Node> (grid.MaxSize);
-            HashSet<Node> closedSet = new HashSet<Node> ();
+            Heap<Node> openSet = new Heap<Node>(grid.MaxSize);
+            HashSet<Node> closedSet = new HashSet<Node>();
 
-            openSet.Add (startNode);
+            openSet.Add(startNode);
 
             while (openSet.Count > 0)
             {
-                Node currentNode = openSet.RemoveFirst ();
-                closedSet.Add (currentNode);
+                Node currentNode = openSet.RemoveFirst();
+                closedSet.Add(currentNode);
 
                 if (currentNode == targetNode)
                 {
-                    path.Path = RetracePath (startNode, targetNode);
+                    path.Path = RetracePath(startNode, targetNode);
                     return;
                 }
 
-                foreach (Node neighbour in grid.GetNeighbours (currentNode))
+                foreach (Node neighbour in grid.GetNeighbours(currentNode))
                 {
-                    if (!neighbour.IsWalkable || closedSet.Contains (neighbour))
+                    if (!neighbour.IsWalkable || closedSet.Contains(neighbour))
                     {
                         continue;
                     }
-                    int newMovementCostToNeighbour = currentNode.gCost + GetDistance (currentNode, neighbour);
-                    if (newMovementCostToNeighbour < neighbour.gCost || !openSet.Contains (neighbour))
+                    int newMovementCostToNeighbour = currentNode.gCost + GetDistance(currentNode, neighbour);
+                    if (newMovementCostToNeighbour < neighbour.gCost || !openSet.Contains(neighbour))
                     {
                         neighbour.gCost = newMovementCostToNeighbour;
-                        neighbour.hCost = GetDistance (neighbour, targetNode);
+                        neighbour.hCost = GetDistance(neighbour, targetNode);
                         neighbour.parent = currentNode;
 
-                        if (!openSet.Contains (neighbour))
-                            openSet.Add (neighbour);
+                        if (!openSet.Contains(neighbour))
+                            openSet.Add(neighbour);
                         else
                         {
-                            openSet.UpdateItem (neighbour);
+                            openSet.UpdateItem(neighbour);
                         }
                     }
                 }

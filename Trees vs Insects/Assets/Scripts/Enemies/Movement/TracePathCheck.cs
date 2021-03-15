@@ -8,7 +8,7 @@ namespace Bogadanul.Assets.Scripts.Enemies
 {
     public class TracePathCheck : MonoBehaviour
     {
-        protected List<Node> path = new List<Node> ();
+        protected List<Node> path = null;
 
         public virtual List<Node> Path
         {

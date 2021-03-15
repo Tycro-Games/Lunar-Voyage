@@ -26,26 +26,26 @@ namespace Bogadanul.Assets.Scripts.Enemies
             {
                 path = value;
                 if (IsActive)
-                    StartPath ();
+                    StartPath();
             }
         }
 
-        public void StartPath ()
+        public void StartPath()
         {
-            StopAllCoroutines ();
-            move.Reset ();
-            StartCoroutine (FollowPath (path));
+            StopAllCoroutines();
+            move.Reset();
+            StartCoroutine(FollowPath(path));
         }
 
-        private void Awake ()
+        private void Awake()
         {
-            move = GetComponent<Move> ();
-            pos = GetComponent<UpdateOffset> ();
-            reachAncient = GetComponent<ReachAncientTree> ();
-            nodeFinder = GetComponent<NodeFinder> ();
+            move = GetComponent<Move>();
+            pos = GetComponent<UpdateOffset>();
+            reachAncient = GetComponent<ReachAncientTree>();
+            nodeFinder = GetComponent<NodeFinder>();
         }
 
-        private IEnumerator FollowPath (List<Node> path)
+        private IEnumerator FollowPath(List<Node> path)
         {
             int i = 0;
             if (lastNode == null)
@@ -56,10 +56,10 @@ namespace Bogadanul.Assets.Scripts.Enemies
             }
             for (; i < path.Count; i++)
             {
-                yield return StartCoroutine (move.MoveTo (path[i].worldPosition));
+                yield return StartCoroutine(move.MoveTo(path[i].worldPosition));
                 lastNode = path[i];
             }
-            Debug.LogError ("End path");
+            Debug.LogError("End path");
         }
     }
 }
