@@ -18,6 +18,7 @@ namespace Bogadanul.Assets.Scripts.Enemies
         private List<Node> pathCurrent = new List<Node>();
         private AncientTreeSpaceChecker ancientTree;
         private NodeFinder nodeFind;
+        private bool First = false;
 
         public void Awake()
         {
@@ -76,8 +77,6 @@ namespace Bogadanul.Assets.Scripts.Enemies
 
         private bool CheckCurrentPath()
         {
-            if (path.Path == null)
-                return false;
             foreach (Node n in path.Path)
             {
                 if (n.IsWalkable != true)
@@ -89,7 +88,7 @@ namespace Bogadanul.Assets.Scripts.Enemies
         public bool HasPath()
         {
             grid.UpdateGrid();
-            if (CheckCurrentPath())
+            if (First && CheckCurrentPath())
                 return true;
             Node startNode = nodeFind.NodeFromPoint(transform);
             if (startNode == null) return false;
@@ -138,7 +137,7 @@ namespace Bogadanul.Assets.Scripts.Enemies
         public void FindPath()
         {
             grid.UpdateGrid();
-            if (CheckCurrentPath())
+            if (CheckCurrentPath() && First)
                 return;
             Node startNode = nodeFind.NodeFromPoint(transform);
             if (startNode == null) return;
@@ -182,6 +181,7 @@ namespace Bogadanul.Assets.Scripts.Enemies
                     }
                 }
             }
+            First = true;
         }
 
         #endregion checkSpace

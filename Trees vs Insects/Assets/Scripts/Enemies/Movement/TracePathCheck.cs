@@ -8,7 +8,7 @@ namespace Bogadanul.Assets.Scripts.Enemies
 {
     public class TracePathCheck : MonoBehaviour
     {
-        protected List<Node> path = null;
+        protected List<Node> path = new List<Node>();
 
         public virtual List<Node> Path
         {
@@ -22,14 +22,14 @@ namespace Bogadanul.Assets.Scripts.Enemies
             }
         }
 
-        private void OnDrawGizmosSelected ()
+        private void OnDrawGizmosSelected()
         {
             if (path != null)
             {
                 foreach (Node n in path)
                 {
                     Gizmos.color = Color.black;
-                    Gizmos.DrawWireCube (n.worldPosition, Vector3.one);
+                    Gizmos.DrawWireCube(n.worldPosition, Vector3.one);
                 }
             }
         }
