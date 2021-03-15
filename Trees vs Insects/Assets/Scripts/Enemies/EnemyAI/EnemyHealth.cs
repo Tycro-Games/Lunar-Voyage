@@ -12,27 +12,27 @@ namespace Bogadanul.Assets.Scripts.Enemies
 
         public int Health { get => health; set => health = value; }
 
-        public void TakeDamage (int dg)
+        public void TakeDamage(int dg)
         {
             Health -= dg;
             if (Health <= 0)
             {
-                Dead ();
+                Dead();
             }
         }
 
-        public void Dead ()
+        public void Dead()
         {
-            EnemyList.List.Remove (gameObject);
-            EnemyList.CheckEnemies ();
+            EnemyList.List.Remove(gameObject);
+            EnemyList.CheckEnemies();
 
-            OnDead?.Invoke ();
-            Destroy (gameObject);
+            OnDead?.Invoke();
+            Destroy(gameObject);
         }
 
-        private void OnEnable ()
+        private void Start()
         {
-            EnemyList.List.Add (gameObject);
+            EnemyList.List.Add(gameObject);
         }
     }
 }

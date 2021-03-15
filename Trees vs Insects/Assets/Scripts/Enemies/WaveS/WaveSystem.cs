@@ -65,7 +65,6 @@ namespace Bogadanul.Assets.Scripts.Enemies
                 currentWave++;
                 waveEnd = false;
             }
-            OnLevelEnd?.Invoke();
         }
 
         public IEnumerator RandomSpawner()
@@ -87,6 +86,8 @@ namespace Bogadanul.Assets.Scripts.Enemies
 
         private void ResetIen()
         {
+            if (currentWaveCoroutine != null)
+                StopCoroutine(currentWaveCoroutine);
             currentWaveCoroutine = RandomSpawner();
             StartCoroutine(currentWaveCoroutine);
         }
@@ -99,12 +100,10 @@ namespace Bogadanul.Assets.Scripts.Enemies
             }
             else if (currentW > 0)
             {
-                StopCoroutine(currentWaveCoroutine);
                 ResetIen();
             }
             else
             {
-                StopCoroutine(currentWaveCoroutine);
                 ResetIen();
             }
         }
