@@ -584,7 +584,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 928525296}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1097aec242223634aba75fc4101458f2, type: 3}
   m_Name: 
@@ -5113,6 +5113,17 @@ PrefabInstance:
       propertyPath: energyStart
       value: 175
       objectReference: {fileID: 0}
+    - target: {fileID: 1776968627982650804, guid: 2d2288358d54cb949a246a78f82ad470,
+        type: 3}
+      propertyPath: levelEndSeedDisplayable
+      value: 
+      objectReference: {fileID: 11400000, guid: 84ddc95c6a95507478e1d35167c94261,
+        type: 2}
+    - target: {fileID: 1887804386929863236, guid: 2d2288358d54cb949a246a78f82ad470,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1941249975165462243, guid: 2d2288358d54cb949a246a78f82ad470,
         type: 3}
       propertyPath: m_Enabled
@@ -5864,7 +5875,7 @@ PrefabInstance:
     - target: {fileID: 8396218869387533424, guid: 2d2288358d54cb949a246a78f82ad470,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8628413099633977891, guid: 2d2288358d54cb949a246a78f82ad470,
         type: 3}

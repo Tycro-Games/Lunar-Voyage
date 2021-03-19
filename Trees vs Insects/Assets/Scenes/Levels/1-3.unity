@@ -3760,6 +3760,12 @@ PrefabInstance:
       propertyPath: energyStart
       value: 75
       objectReference: {fileID: 0}
+    - target: {fileID: 1776968627982650804, guid: 2d2288358d54cb949a246a78f82ad470,
+        type: 3}
+      propertyPath: levelEndSeedDisplayable
+      value: 
+      objectReference: {fileID: 11400000, guid: 73440ceac5f5203468eefb900d579f53,
+        type: 2}
     - target: {fileID: 1941249975169208576, guid: 2d2288358d54cb949a246a78f82ad470,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4630,7 +4636,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2140465087}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -30, y: 0, z: 0}
+  m_LocalPosition: {x: -29.25, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1058604405}

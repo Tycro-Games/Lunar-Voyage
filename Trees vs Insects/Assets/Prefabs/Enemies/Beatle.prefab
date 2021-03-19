@@ -181,8 +181,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 2
-  chargeSpeed: 1
-  normalSpeed: 0.35
+  chargeSpeed: 0.75
+  normalSpeed: 0.3
   radius: {x: 40, y: 15}
   scan: {x: 1, y: 1}
   trees:
@@ -195,6 +195,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 4666415107998814677}
+        m_TargetAssemblyTypeName: 
         m_MethodName: set_Health
         m_Mode: 3
         m_Arguments:
@@ -295,6 +296,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:

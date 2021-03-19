@@ -48,11 +48,11 @@ namespace Bogadanul.Assets.Scripts.Tree
         private void Awake ()
         {
             GizCol = Random.ColorHSV ();
-            GetRefs ();
+            
         }
-
-        private void Start ()
+        private void Start()
         {
+            GetRefs();
         }
 
         private void OnDrawGizmosSelected ()

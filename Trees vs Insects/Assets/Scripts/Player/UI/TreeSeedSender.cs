@@ -18,44 +18,44 @@ namespace Bogadanul.Assets.Scripts.Player
 
         public event Action OnResetSeed = null;
 
-        public void CancelCurrentSeed ()
+        public void CancelCurrentSeed()
         {
             if (hasSeed)
             {
-                OnResetSeed?.Invoke ();
+                OnResetSeed?.Invoke();
 
                 hasSeed = false;
 
-                seedDisplay.UpdateSprite (null);
-                treePlacer.UpdateSprite (null);
+                seedDisplay.UpdateSprite(null);
+                treePlacer.UpdateSprite(null);
             }
         }
 
-        public void ChangeCurrentSeed (TreeSeed seed)
+        public void ChangeCurrentSeed(TreeSeed seed)
         {
             hasSeed = true;
-            OnResetSeed?.Invoke ();
-            OnChangeSeed?.Invoke (seed);
-            seedDisplay.UpdateSprite (seed.sprite, seed.canBePlacedAnywhere);
-            treePlacer.UpdateSprite (seed.TreeGameObject, seed.canBePlacedAnywhere);
+            OnResetSeed?.Invoke();
+            OnChangeSeed?.Invoke(seed);
+            seedDisplay.UpdateSprite(seed.sprite, seed.canBePlacedAnywhere);
+            treePlacer.UpdateSprite(seed.TreeGameObject, seed.canBePlacedAnywhere);
         }
 
-        private void OnEnable ()
+        private void OnEnable()
         {
             TreePlacer.OnBuyCheck += CancelCurrentSeed;
         }
 
-        private void OnDisable ()
+        private void OnDisable()
         {
             TreePlacer.OnBuyCheck -= CancelCurrentSeed;
         }
 
-        private void Awake ()
+        private void Awake()
         {
-            market = FindObjectOfType<Market> ();
+            market = FindObjectOfType<Market>();
 
-            treePlacer = FindObjectOfType<TreePlacer> ();
-            seedDisplay = FindObjectOfType<CurrentSeedDisplay> ();
+            treePlacer = FindObjectOfType<TreePlacer>();
+            seedDisplay = FindObjectOfType<CurrentSeedDisplay>();
         }
     }
 }

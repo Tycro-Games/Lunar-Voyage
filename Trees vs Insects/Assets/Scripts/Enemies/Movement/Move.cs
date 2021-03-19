@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Bogadanul.Assets.Scripts.Utility;
 
 namespace Bogadanul.Assets.Scripts.Enemies
 {
@@ -9,27 +10,35 @@ namespace Bogadanul.Assets.Scripts.Enemies
         [SerializeField]
         private float unitsPerSec = 1.0f;
 
+        [SerializeField]
+        private float randomRange = 0.0f;
+
         public float UnitsPerSec { get => unitsPerSec; set => unitsPerSec = value; }
 
-        public void Reset ()
+        public void Reset()
         {
-            StopAllCoroutines ();
+            StopAllCoroutines();
         }
 
-        public IEnumerator MoveTo (Vector3 node)
+        private void Awake()
+        {
+            unitsPerSec = RandomStuff.RandomNumber(unitsPerSec, randomRange);
+        }
+
+        public IEnumerator MoveTo(Vector3 node)
         {
             // Quaternion rot = Quaternion.LookRotation (Vector3.forward, Dir (node));
 
-            Debug.DrawLine (transform.position, transform.position + Dir (node));
+            Debug.DrawLine(transform.position, transform.position + Dir(node));
             while (transform.position != node)
             {
-                transform.position = Vector3.MoveTowards (transform.position, node, UnitsPerSec * Time.deltaTime);
+                transform.position = Vector3.MoveTowards(transform.position, node, UnitsPerSec * Time.deltaTime);
 
                 yield return null;
             }
         }
 
-        private Vector3 Dir (Vector3 thingTolookAt)
+        private Vector3 Dir(Vector3 thingTolookAt)
         {
             return (Vector2)(thingTolookAt - transform.position).normalized;
         }

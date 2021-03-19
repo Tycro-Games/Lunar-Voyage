@@ -8,36 +8,36 @@ namespace Bogadanul.Assets.Scripts.Tree
         private ITreeRecon treeRecon;
         private ITreeShoot treeShoot;
 
-        public void GetBoxCol ()
+        public void GetBoxCol()
         {
-            target = treeRecon.CheckForEnemies ();
+            target = treeRecon.CheckForEnemies();
         }
 
-        private void OnDisable ()
+        private void OnDisable()
         {
-            StopAllCoroutines ();
+            StopAllCoroutines();
         }
 
-        private void OnDrawGizmos ()
+        private void OnDrawGizmos()
         {
             if (target != null)
-                Gizmos.DrawLine (transform.position, target.transform.position);
+                Gizmos.DrawLine(transform.position, target.transform.position);
         }
 
-        private void Start ()
+        private void Start()
         {
-            treeShoot = GetComponent<ITreeShoot> ();
-            treeRecon = GetComponent<ITreeRecon> ();
+            treeShoot = GetComponent<ITreeShoot>();
+            treeRecon = GetComponent<ITreeRecon>();
         }
 
-        private void Update ()
+        private void Update()
         {
-            if (target != null && treeRecon.CheckDist (target))
+            if (target != null && treeRecon.CheckDist(target))
             {
-                treeShoot.Shoot (target.transform);
+                treeShoot.Shoot(target.transform);
                 return;
             }
-            GetBoxCol ();
+            GetBoxCol();
         }
     }
 }
