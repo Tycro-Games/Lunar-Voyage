@@ -1,4 +1,5 @@
-﻿using Bogadanul.Assets.Scripts.Utility;
+﻿using Assets.Scripts.Utility;
+using Bogadanul.Assets.Scripts.Utility;
 using UnityEngine;
 
 public class Pause : MonoBehaviour
@@ -12,38 +13,38 @@ public class Pause : MonoBehaviour
         set
         {
             isPaused = value;
-            SetTime ();
+            SetTime();
         }
     }
 
-    public void ToPause (string name)
+    public void ToPause(string name)
     {
         if (!IsPaused)
         {
-            sceneChange.LoadSceneAd (name);
+            sceneChange.LoadSceneAd(name);
             IsPaused = true;
         }
     }
 
-    public void ToUnpause (string name)
+    public void ToUnpause(string name)
     {
         if (IsPaused)
         {
-            sceneChange.UnloadScene (name);
+            sceneChange.UnloadScene(name);
             IsPaused = false;
         }
     }
 
-    private void SetTime ()
+    private void SetTime()
     {
         if (IsPaused)
-            Time.timeScale = 0;
+            TimeController.SetTime(0);
         else
-            Time.timeScale = 1;
+            TimeController.SetTime(1);
     }
 
-    private void Start ()
+    private void Start()
     {
-        sceneChange = GetComponent<SceneChange> ();
+        sceneChange = GetComponent<SceneChange>();
     }
 }

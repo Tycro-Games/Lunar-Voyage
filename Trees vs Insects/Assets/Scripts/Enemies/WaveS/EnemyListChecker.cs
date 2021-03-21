@@ -5,24 +5,24 @@ namespace Bogadanul.Assets.Scripts.Enemies
 {
     public class EnemyListChecker : MonoBehaviour
     {
-        public event Action OnNoEnemies;
+        public static event Action OnNoEnemies;
 
-        public void StartCheckingForEnemies ()
+        public void StartCheckingForEnemies()
         {
-            CheckList ();
+            CheckList();
         }
 
-        private void CheckList ()
+        private void CheckList()
         {
-            OnNoEnemies?.Invoke ();
+            OnNoEnemies?.Invoke();
         }
 
-        private void OnDisable ()
+        private void OnDisable()
         {
             EnemyList.OnNoEnemies -= CheckList;
         }
 
-        private void OnEnable ()
+        private void OnEnable()
         {
             EnemyList.OnNoEnemies += CheckList;
         }

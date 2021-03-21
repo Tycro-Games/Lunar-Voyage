@@ -19,8 +19,11 @@ namespace Bogadanul.Assets
             image = GetComponentInChildren<Image>();
             text = GetComponentInChildren<TextMeshProUGUI>();
             displayNewItem = FindObjectOfType<GetterSeedDisplayer>().LevelEndSeedDisplayable;
-            image.sprite = displayNewItem.icon;
-            text.text = displayNewItem.description;
+            if (displayNewItem.icon)
+            {
+                image.sprite = displayNewItem.icon;
+                text.text = displayNewItem.description;
+            }
         }
     }
 }

@@ -40,6 +40,7 @@ namespace Bogadanul.Assets.Scripts.Enemies
 
         public int EnemyWeight { get => enemyWeight; set { enemyWeight = value; } }
         private bool waveEnd = false;
+        private bool End = false;
 
         public void StartWave()
         {
@@ -65,6 +66,7 @@ namespace Bogadanul.Assets.Scripts.Enemies
                 currentWave++;
                 waveEnd = false;
             }
+            End = true;
         }
 
         public IEnumerator RandomSpawner()
@@ -92,20 +94,22 @@ namespace Bogadanul.Assets.Scripts.Enemies
             StartCoroutine(currentWaveCoroutine);
         }
 
+        private void Update()
+        {
+            if (End)
+            {
+                if (EnemyList.List.Count == 0)
+                {
+                    OnLevelEnd?.Invoke();
+                    End = false;
+                }
+            }
+        }
+
         private void SkipToNext()
         {
-            if (currentWave == waves.Length && currentW <= 0)
-            {
-                OnLevelEnd?.Invoke();
-            }
-            else if (currentW > 0)
-            {
+            if (currentW > 0 && currentWave != waves.Length)
                 ResetIen();
-            }
-            else
-            {
-                ResetIen();
-            }
         }
 
         private void SpawnEnemies(EnemySpawnable spawnable, HashSet<EnemySpawner> enemySpawners)
@@ -116,7 +120,6 @@ namespace Bogadanul.Assets.Scripts.Enemies
 
         private void Awake()
         {
-            enemyListChecker = GetComponent<EnemyListChecker>();
             trigger = GetComponent<TriggerSpawner>();
             seed = GetComponent<Seed>();
             enemyChooser = GetComponent<EnemyChooser>();
@@ -124,12 +127,12 @@ namespace Bogadanul.Assets.Scripts.Enemies
 
         private void OnDisable()
         {
-            enemyListChecker.OnNoEnemies -= SkipToNext;
+            EnemyListChecker.OnNoEnemies -= SkipToNext;
         }
 
         private void OnEnable()
         {
-            enemyListChecker.OnNoEnemies += SkipToNext;
+            EnemyListChecker.OnNoEnemies += SkipToNext;
         }
     }
 }
