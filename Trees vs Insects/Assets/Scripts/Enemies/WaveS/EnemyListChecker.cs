@@ -1,6 +1,6 @@
 ﻿using System;
 using UnityEngine;
-
+using System.Collections.Generic;
 namespace Bogadanul.Assets.Scripts.Enemies
 {
     public class EnemyListChecker : MonoBehaviour
@@ -24,6 +24,7 @@ namespace Bogadanul.Assets.Scripts.Enemies
 
         private void OnEnable()
         {
+            EnemyList.List = new List<GameObject>();
             EnemyList.OnNoEnemies += CheckList;
         }
     }
