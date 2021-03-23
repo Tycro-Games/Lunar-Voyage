@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprite: {fileID: 4663047864313584066, guid: c2d5121816e6bc24a8ca27e5c2328df9, type: 3}
-  count: 32
+  count: 128
 --- !u!114 &1303141624172129310
 MonoBehaviour:
   m_ObjectHideFlags: 0

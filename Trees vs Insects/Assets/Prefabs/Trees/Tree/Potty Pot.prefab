@@ -72,8 +72,8 @@ SpriteRenderer:
   m_SortingLayerID: -2084415841
   m_SortingLayer: -1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: c56cbdd6e799b33439ac4afc745177ec, type: 3}
-  m_Color: {r: 0.3251536, g: 0.5849056, b: 0.08001069, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 97b864a373dd1db43984dc7a1724e3f5, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -111,15 +111,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7935677415777961335}
-  - component: {fileID: 6223534169076217645}
   - component: {fileID: 1520608499490192641}
   - component: {fileID: 792551126891858832}
-  - component: {fileID: 8964490059589244520}
   - component: {fileID: 3791582654633530137}
-  - component: {fileID: 2467764175328860721}
-  - component: {fileID: 243732108707045663}
-  m_Layer: 14
-  m_Name: PineTree
+  - component: {fileID: 1545781233215998529}
+  m_Layer: 8
+  m_Name: Ghiveci
   m_TagString: Untagged
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -140,18 +137,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6223534169076217645
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7935677415777961333}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 66cedc0d3326d4742ac0bd774643a845, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1520608499490192641
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -178,25 +163,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.9, y: 1.9, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &8964490059589244520
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7935677415777961333}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c2e268f83e1e4344ab1684324f2a6878, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  time: 3
-  OnShoot:
-    m_PersistentCalls:
-      m_Calls: []
-  OnRecharge:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!114 &3791582654633530137
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -212,7 +178,7 @@ MonoBehaviour:
   layerToPlace:
     serializedVersion: 2
     m_Bits: 2048
---- !u!114 &2467764175328860721
+--- !u!114 &1545781233215998529
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -221,33 +187,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 7935677415777961333}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 42f537785d27c794ea5d41b5d80b8cd7, type: 3}
+  m_Script: {fileID: 11500000, guid: 2174729f36d955848af18fb955156f80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemies:
-    serializedVersion: 2
-    m_Bits: 66560
-  SizeOfCheck: 0.25
---- !u!114 &243732108707045663
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7935677415777961333}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b36cd318ee6583a449125c9e476450bd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  projectileObject: {fileID: 4138705543927219697, guid: 4375ad4695aa7054a9c7d26486d1390b,
-    type: 3}
-  dir:
-  - {x: 1, y: 0}
-  - {x: 0, y: 1}
-  - {x: -1, y: 0}
-  - {x: 0, y: -1}
-  - {x: 1, y: 1}
-  - {x: -1, y: -1}
-  - {x: 1, y: -1}
-  - {x: -1, y: 1}
+  loop: 0
+  OnTimerFinished:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1520608499490192641}
+        m_TargetAssemblyTypeName: Bogadanul.Assets.Scripts.Tree.DestroyTree, Scripts
+        m_MethodName: DestroyTheTree
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  TimeToWait: 30

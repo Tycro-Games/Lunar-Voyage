@@ -40,7 +40,7 @@ namespace Bogadanul.Assets.Scripts.Tree
 
         public List<Node> GetNodeRange (Node pos)
         {
-            return UtilityRecon.GetLines (pos, Gridmanager.gridmanager);
+            return UtilityRecon.GetLines (pos, Gridmanager.gridmanager,true);
         }
 
         private void Awake ()

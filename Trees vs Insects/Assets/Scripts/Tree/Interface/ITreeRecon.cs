@@ -7,10 +7,10 @@ namespace Bogadanul.Assets.Scripts.Tree
 {
     public interface ITreeRecon
     {
-        bool CheckDist (BoxCollider col);
+        bool CheckDist(BoxCollider col);
 
-        BoxCollider CheckForEnemies ();
+        BoxCollider CheckForEnemies();
 
-        List<Node> GetNodeRange (Node pos);
+        List<Node> GetNodeRange(Node pos);
     }
 }

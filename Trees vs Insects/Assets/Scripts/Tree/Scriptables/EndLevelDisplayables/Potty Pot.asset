@@ -9,11 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 974f4f2793bde504a9fd5bd6ab5c92e1, type: 3}
-  m_Name: Test
+  m_Script: {fileID: 11500000, guid: 45949b90be8d30e4194056f3b5335c96, type: 3}
+  m_Name: Potty Pot
   m_EditorClassIdentifier: 
-  enemies:
-  - {fileID: 11400000, guid: bfd12a4997d333a4eb3a6bc76244cd7f, type: 2}
-  durationBetweenEnemies: 2
-  weight: 99
-  CountSpawners: 100
+  icon: {fileID: 0}
+  description: 

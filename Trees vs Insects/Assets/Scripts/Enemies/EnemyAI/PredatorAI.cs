@@ -45,91 +45,97 @@ namespace Bogadanul.Assets.Scripts.Enemies
         private Collider target = null;
         private IEnumerator Move;
 
-        public override void Init (Transform Target, Gridmanager grid)
+        public override void Init(Transform Target, Gridmanager grid)
         {
-            base.Init (null, grid);
+            base.Init(null, grid);
             ancientTree = Target;
             this.grid = grid;
 
             charging = true;
-            move = GetComponent<Move> ();
-            trace = GetComponent<TracePath> ();
+            move = GetComponent<Move>();
+            trace = GetComponent<TracePath>();
             trace.IsActive = false;
-            target = GetPrey ();
-            if (target == null)
-                target = FindObjectOfType<AncientTreeOnDestroy> ().gameObject.GetComponent<Collider> ();
-            Move = move.MoveTo (target.transform.position);
-            StartCoroutine (Move);
+            FindPrey();
         }
 
-        public void DestroyTree (DestroyTree destroyTree)
+        private void FindPrey()
+        {
+            target = GetPrey();
+            if (target == null)
+                target = FindObjectOfType<AncientTreeOnDestroy>().gameObject.GetComponent<Collider>();
+            if (Move != null)
+                StopCoroutine(Move);
+            Move = move.MoveTo(target.transform.position);
+            StartCoroutine(Move);
+        }
+
+        public void DestroyTree(DestroyTree destroyTree)
         {
             if (destroyTree != null)
-                destroyTree.TakeDG (damage);
+                destroyTree.TakeDG(damage);
         }
 
-        protected override void Start ()
+        protected override void Start()
         {
-            base.Start ();
+            base.Start();
 
             move.UnitsPerSec = chargeSpeed;
         }
 
-        private void Update ()
+        private void Update()
         {
             if (charging)
             {
                 if (target == null)
                 {
-                    StartCoroutine (StopCharge ());
-                    return;
+                    FindPrey();
                 }
                 Collider[] collider = new Collider[1];
-                int count = Physics.OverlapBoxNonAlloc (transform.position, scan / 2, collider, Quaternion.identity, trees);
+                int count = Physics.OverlapBoxNonAlloc(transform.position, scan / 2, collider, Quaternion.identity, trees);
                 if (count > 0)
                 {
-                    StartCoroutine (StopCharge (collider));
+                    StartCoroutine(StopCharge(collider));
                 }
             }
         }
 
-        private IEnumerator StopCharge (Collider[] collider = null)
+        private IEnumerator StopCharge(Collider[] collider = null)
         {
             charging = false;
             //anim and stuff
 
             move.UnitsPerSec = normalSpeed;
-            StopCoroutine (Move);
-            base.Init (ancientTree, grid);
+            StopCoroutine(Move);
+            base.Init(ancientTree, grid);
             trace.IsActive = true;
             if (collider != null)
             {
-                DestroyTree (collider[0].GetComponent<DestroyTree> ());
+                DestroyTree(collider[0].GetComponent<DestroyTree>());
                 yield return null;
-                pathfinding.FindPath ();
+                pathfinding.FindPath();
             }
             else
-                pathfinding.FindPath ();
-            OnEndCharge?.Invoke ();
-            gameObject.layer = (int)Mathf.Log (EnemyLayer.value, 2);
+                pathfinding.FindPath();
+            OnEndCharge?.Invoke();
+            gameObject.layer = (int)Mathf.Log(EnemyLayer.value, 2);
         }
 
-        private Collider GetPrey ()
+        private Collider GetPrey()
         {
-            int count = Physics.OverlapBoxNonAlloc (transform.position, radius / 2, colliders,
+            int count = Physics.OverlapBoxNonAlloc(transform.position, radius / 2, colliders,
                 Quaternion.identity, trees);
             BoxCollider col;
             if (count > 0)
             {
                 col = colliders[0];
 
-                float currentDist = transform.Dist (col.transform.position);
+                float currentDist = transform.Dist(col.transform.position);
                 foreach (BoxCollider c in colliders)
                 {
                     if (c == null)
                         continue;
 
-                    float Dist = transform.Dist (c.transform.position);
+                    float Dist = transform.Dist(c.transform.position);
                     if (Dist < currentDist)
                     {
                         col = c;
@@ -141,12 +147,12 @@ namespace Bogadanul.Assets.Scripts.Enemies
             return null;
         }
 
-        private void OnDrawGizmosSelected ()
+        private void OnDrawGizmosSelected()
         {
             Gizmos.color = Color.red;
-            Gizmos.DrawWireCube (transform.position, new Vector2 (radius.x, radius.y));
+            Gizmos.DrawWireCube(transform.position, new Vector2(radius.x, radius.y));
             Gizmos.color = Color.blue;
-            Gizmos.DrawWireCube (transform.position, new Vector2 (scan.x, scan.y));
+            Gizmos.DrawWireCube(transform.position, new Vector2(scan.x, scan.y));
         }
     }
 }

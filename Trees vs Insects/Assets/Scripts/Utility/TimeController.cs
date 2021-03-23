@@ -14,8 +14,10 @@ namespace Assets.Scripts.Utility
             float time = Time.timeScale;
             time += number;
             if (time >= 0)
+            {
                 Time.timeScale = time;
-            OnTimeChange?.Invoke(time);
+                OnTimeChange?.Invoke(time);
+            }
         }
 
         public static void SetTime(float number)
