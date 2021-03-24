@@ -10,6 +10,6 @@ namespace Bogadanul.Assets.Scripts.Tree
         public float cooldown;
         public Sprite sprite;
         public GameObject TreeGameObject;
-        public bool canBePlacedAnywhere;
+        public bool fruit;
     }
 }

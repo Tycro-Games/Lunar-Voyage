@@ -1,4 +1,5 @@
 ﻿using Bogadanul.Assets.Scripts.Enemies;
+using Bogadanul.Assets.Scripts.Player;
 using UnityEngine;
 
 namespace Bogadanul.Assets.Scripts.Tree
@@ -8,17 +9,18 @@ namespace Bogadanul.Assets.Scripts.Tree
         [SerializeField]
         protected int hp = 1;
 
-        public virtual void DestroyTheTree ()
+        public virtual void DestroyTheTree()
         {
-            Destroy (gameObject);
-            EnemyManager.SetSpace ();
+            Destroy(gameObject);
+
+            EnemyManager.SetSpace();
         }
 
-        public virtual void TakeDG (int dg)
+        public virtual void TakeDG(int dg)
         {
             hp -= dg;
             if (hp <= 0)
-                DestroyTheTree ();
+                DestroyTheTree();
         }
     }
 }

@@ -47,6 +47,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -117,7 +118,7 @@ GameObject:
   - component: {fileID: 4367531766411706794}
   m_Layer: 14
   m_Name: Golden Tree
-  m_TagString: GoldenTree
+  m_TagString: Plant
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -167,6 +168,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 4367531766411706794}
+        m_TargetAssemblyTypeName: 
         m_MethodName: Spawn
         m_Mode: 1
         m_Arguments:

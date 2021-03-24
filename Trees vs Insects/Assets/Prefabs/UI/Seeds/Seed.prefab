@@ -60,6 +60,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -148,6 +149,7 @@ GameObject:
   - component: {fileID: 425442148701658508}
   - component: {fileID: 7299411993141057362}
   - component: {fileID: 164113657171562137}
+  - component: {fileID: 132511989177293563}
   m_Layer: 5
   m_Name: Seed
   m_TagString: Untagged
@@ -199,6 +201,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -227,6 +230,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Navigation:
     m_Mode: 3
+    m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
@@ -257,6 +261,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 425442148701658508}
+        m_TargetAssemblyTypeName: 
         m_MethodName: OnClick
         m_Mode: 1
         m_Arguments:
@@ -279,7 +284,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a9045cd48ea7494a8ce5f201285e778, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  treeSeed: {fileID: 11400000, guid: 677ac7f1ad5fef242990b134cdeb533a, type: 2}
+  treeSeed: {fileID: 11400000, guid: 2b972d528e347594fa6ec7689557dfd4, type: 2}
   selectedColor: {r: 0.3962264, g: 0.3962264, b: 0.3962264, a: 0.5019608}
 --- !u!114 &7299411993141057362
 MonoBehaviour:
@@ -308,6 +313,18 @@ MonoBehaviour:
   IsDone: 1
   coolDownEf: {fileID: 4299939328049693462}
   button: {fileID: 2313433652235107738}
+--- !u!114 &132511989177293563
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2313433652235107742}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37dcf086f59793d4787dfd1469492abe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8305569605575287097
 GameObject:
   m_ObjectHideFlags: 0
@@ -368,6 +385,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0, g: 0, b: 0, a: 0.6666667}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:

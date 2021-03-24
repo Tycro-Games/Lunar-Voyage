@@ -36,8 +36,17 @@ namespace Bogadanul.Assets.Scripts.Player
             hasSeed = true;
             OnResetSeed?.Invoke();
             OnChangeSeed?.Invoke(seed);
-            seedDisplay.UpdateSprite(seed.sprite, seed.canBePlacedAnywhere);
-            treePlacer.UpdateSprite(seed.TreeGameObject, seed.canBePlacedAnywhere);
+            seedDisplay.UpdateSprite(seed.sprite, seed.fruit);
+            treePlacer.UpdateSprite(seed.TreeGameObject, seed.fruit);
+        }
+
+        public void ChangeCurrent(TreeSeed seed)
+        {
+            hasSeed = true;
+            OnResetSeed?.Invoke();
+
+            seedDisplay.ChangeSprite(seed.sprite);
+            treePlacer.UpdateNonPlaceable(seed.TreeGameObject);
         }
 
         private void OnEnable()

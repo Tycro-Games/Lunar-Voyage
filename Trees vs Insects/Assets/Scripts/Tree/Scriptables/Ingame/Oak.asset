@@ -18,3 +18,4 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: c56cbdd6e799b33439ac4afc745177ec, type: 3}
   TreeGameObject: {fileID: 7935677415777961333, guid: 638a3a3c62e04394a82929e82b7fa79f,
     type: 3}
+  canBePlacedAnywhere: 0

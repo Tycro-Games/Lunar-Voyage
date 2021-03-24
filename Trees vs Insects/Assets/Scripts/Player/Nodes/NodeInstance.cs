@@ -43,6 +43,7 @@ namespace Bogadanul.Assets.Scripts.Player
             bool plant = Physics.OverlapSphereNonAlloc(transform.position, 1, res, trees) > 0;
             if (plant)
             {
+                node.currentPlant = res[0].gameObject;
                 Nodey.IsPlanted = true;
             }
             else

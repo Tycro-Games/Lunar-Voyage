@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections;
+
+using Bogadanul.Assets.Scripts.Enemies;
 using Bogadanul.Assets.Scripts.Tree;
 using UnityEngine;
 
@@ -21,61 +24,97 @@ namespace Bogadanul.Assets.Scripts.Player
 
         public static event Action OnBuyCheck;
 
-        public bool UnWalkable ()
+        private bool placeable = false;
+        private TreeSeedSender seedSender = null;
+
+        public bool UnWalkable()
         {
             if (currentTree.layer == layer)
                 return true;
             return false;
         }
 
-        public void Place ()
+        public void Place()
         {
             if (currentTree != null)
             {
-                Node n = raycaster.NodeFromInput (Input.mousePosition);
-                if (n == null)
-                    return;
-                if (!canBe)
-                    CheckNode (n);
-                else if (n.FruitPlaceable ())
+                if (placeable)
                 {
-                    checkPlacer.ToSpawn (n, currentTree);
-                    Placing ();
+                    Node n = raycaster.NodeFromInput(Input.mousePosition);
+                    if (n == null)
+                        return;
+
+                    if (!canBe)
+                        CheckNode(n);
+                    else if (n.FruitPlaceable())
+                    {
+                        checkPlacer.ToSpawn(n, currentTree);
+                        Placing();
+                    }
+                }
+                else
+                {
+                    Node n = raycaster.NodeFromInput(Input.mousePosition);
+                    if (n == null)
+                        return;
+                    GameObject ng = n.currentPlant;
+                    if (ng != null && ng.CompareTag("Plant"))
+                    {
+                        //Here you can destroy the plant;
+                        ng.GetComponent<DestroyTree>().DestroyTheTree();
+                        StartCoroutine(Counter());
+                        seedSender.CancelCurrentSeed();
+                        Reset();
+                    }
                 }
             }
         }
 
-        public void Reset ()
+        public void Reset()
         {
             currentTree = null;
         }
 
-        public void UpdateSprite (GameObject seed, bool canBeAny = false)
+        private IEnumerator Counter()
         {
+            yield return null;
+            EnemyManager.SetSpace();
+        }
+
+        public void UpdateSprite(GameObject seed, bool canBeAny = false)
+        {
+            placeable = true;
             currentTree = seed;
             canBe = canBeAny;
         }
 
-        private void CheckNode (Node n)
+        public void UpdateNonPlaceable(GameObject seed)
         {
-            if (n.TowerPlaceAble () && checkPlacer.CheckToPlace (n, currentTree))
+            placeable = false;
+            currentTree = seed;
+        }
+
+        private void CheckNode(Node n)
+        {
+            if (n.TowerPlaceAble() && checkPlacer.CheckToPlace(n, currentTree))
             {
-                Placing ();
+                Placing();
             }
         }
 
-        private void Placing ()
+        private void Placing()
         {
             currentTree = null;
-            TreeSeedContainer.ActivateCoolDown ();
-            OnBuyCheck?.Invoke ();
+            TreeSeedContainer.ActivateCoolDown();
+            OnBuyCheck?.Invoke();
         }
 
-        private void Start ()
+        private void Start()
         {
-            layer = (int)Mathf.Log (BlockLayer.value, 2);
-            checkPlacer = GetComponent<CheckPlacerPath> ();
-            raycaster = GetComponent<NodeFinder> ();
+            seedSender = FindObjectOfType<TreeSeedSender>();
+            layer = (int)Mathf.Log(BlockLayer.value, 2);
+            checkPlacer = GetComponent<CheckPlacerPath>();
+            raycaster = GetComponent<NodeFinder>();
         }
     }
 }

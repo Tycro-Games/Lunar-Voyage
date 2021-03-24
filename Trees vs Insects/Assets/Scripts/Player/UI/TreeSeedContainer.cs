@@ -6,37 +6,19 @@ using UnityEngine.UI;
 
 namespace Bogadanul.Assets.Scripts.Player
 {
-    public class TreeSeedContainer : MonoBehaviour
+    public class TreeSeedContainer : ContainerBase
     {
         public static TreeSeedContainer treeSeedContainer;
-
-        [SerializeField]
-        public TreeSeed treeSeed = null;
-
-        [SerializeField]
-        private Color selectedColor = Color.black;
-
-        private Color normal;
-        private TreeSeedDisplay treeSeedDisplay = null;
-        private TreeSeedSender treeSeedSender = null;
         private Cooldown cooldown;
-        private bool selected = false;
-        private Button button = null;
-        private Market market = null;
-
-        public bool Selected
-        {
-            get => selected;
-            set
-            {
-                selected = value;
-                ChangeColor();
-            }
-        }
 
         public static void ActivateCoolDown()
         {
             treeSeedContainer.ActivateDown();
+        }
+
+        private void OnDisable()
+        {
+            treeSeedSender.OnResetSeed -= Deselect;
         }
 
         public void OnClick()
@@ -65,32 +47,6 @@ namespace Bogadanul.Assets.Scripts.Player
             }
         }
 
-        public void Deselect()
-        {
-            Selected = false;
-        }
-
-        private void ChangeColor()
-        {
-            if (selected)
-            {
-                treeSeedDisplay.ChangeColor(selectedColor);
-            }
-            else
-                treeSeedDisplay.ResetColor();
-        }
-
-        private void Displaying()
-        {
-            treeSeedDisplay.DisplaySprite(treeSeed.icon);
-            treeSeedDisplay.DisplayPrice(treeSeed.price);
-        }
-
-        private void OnDisable()
-        {
-            treeSeedSender.OnResetSeed -= Deselect;
-        }
-
         private void Awake()
         {
             cooldown = GetComponent<Cooldown>();
@@ -99,9 +55,6 @@ namespace Bogadanul.Assets.Scripts.Player
 
         private void Start()
         {
-            button = GetComponent<Button>();
-            market = FindObjectOfType<Market>();
-
             treeSeedDisplay = GetComponent<TreeSeedDisplay>();
             treeSeedSender = GetComponentInParent<TreeSeedSender>();
             treeSeedSender.OnResetSeed += Deselect;

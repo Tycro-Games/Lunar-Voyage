@@ -8,12 +8,12 @@ namespace Bogadanul.Assets.Scripts.Enemies
         protected float range = 6.0f;
 
         [SerializeField]
-        protected LayerMask enemies = 0;
+        protected LayerMask dedectable = 0;
 
-        private void OnDrawGizmosSelected ()
+        private void OnDrawGizmosSelected()
         {
             Gizmos.color = Color.black;
-            Gizmos.DrawWireSphere (transform.position, range);
+            Gizmos.DrawWireSphere(transform.position, range);
         }
     }
 }

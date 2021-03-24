@@ -6,24 +6,24 @@ using UnityEngine.Events;
 
 namespace Bogadanul.Assets.Scripts.Tree.TreeModules.Recons
 {
-    public class Mine : BaseRangeSearch
+    public class OnDetectCol : BaseRangeSearch
     {
         [SerializeField]
         private UnityEvent OnDetect = null;
 
-        private void Update ()
+        private void Update()
         {
-            Searching ();
+            Searching();
         }
 
-        private void Searching ()
+        private void Searching()
         {
             Collider[] colliders = new Collider[1];
-            int count = Physics.OverlapSphereNonAlloc (transform.position, range, colliders, enemies);
+            int count = Physics.OverlapSphereNonAlloc(transform.position, range, colliders, dedectable);
 
             if (count != 0)
             {
-                OnDetect?.Invoke ();
+                OnDetect?.Invoke();
             }
         }
     }

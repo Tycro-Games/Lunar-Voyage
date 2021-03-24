@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45949b90be8d30e4194056f3b5335c96, type: 3}
   m_Name: Potty Pot
   m_EditorClassIdentifier: 
-  icon: {fileID: 0}
-  description: 
+  icon: {fileID: 21300000, guid: 97b864a373dd1db43984dc7a1724e3f5, type: 3}
+  description: Blocks the path for enemies. Fades if a tree is not placed on it.
+    Fruits can't be placed on it.

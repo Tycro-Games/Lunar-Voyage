@@ -10,31 +10,34 @@ namespace Bogadanul.Assets.Scripts.Player
         private TextMeshProUGUI text;
         private Color normal;
 
-        public void DisplayPrice (int price)
+        public void DisplayPrice(int price)
         {
-            text.text = price.ToString ();
+            if (price > 0)
+                text.text = price.ToString();
+            else
+                text.text = "";
         }
 
-        public void DisplaySprite (Sprite sprite)
+        public void DisplaySprite(Sprite sprite)
         {
             image.sprite = sprite;
         }
 
-        public void ChangeColor (Color color)
+        public void ChangeColor(Color color)
         {
             image.color = color;
         }
 
-        public void ResetColor ()
+        public void ResetColor()
         {
             image.color = normal;
         }
 
-        private void Awake ()
+        private void Awake()
         {
-            image = GetComponent<Image> ();
+            image = GetComponent<Image>();
             normal = image.color;
-            text = GetComponentInChildren<TextMeshProUGUI> ();
+            text = GetComponentInChildren<TextMeshProUGUI>();
         }
     }
 }

@@ -31,19 +31,21 @@ namespace Bogadanul.Assets.Scripts.Player
 
         public bool IsFruit { get => canBePlaced; set => canBePlaced = value; }
 
-        public void MoveSprite (InputAction.CallbackContext ctx)
+        public void MoveSprite(InputAction.CallbackContext ctx)
         {
-            mouse = ctx.ReadValue<Vector2> ();
+            mouse = ctx.ReadValue<Vector2>();
         }
 
-        public void ResetSprite ()
+        public void ResetSprite()
         {
-            OnRangeDisplay?.Invoke (false);
+            OnRangeDisplay?.Invoke(false);
             spriteRen.sprite = null;
             cursor.sprite = cursorSprite;
         }
 
-        public void UpdateSprite (Sprite seed, bool canBeP = false)
+        private bool placeable = false;
+
+        public void UpdateSprite(Sprite seed, bool canBeP = false)
         {
             if (seed)
             {
@@ -53,45 +55,90 @@ namespace Bogadanul.Assets.Scripts.Player
                 transform.position = cursor.transform.position;
 
                 cursor.sprite = spriteRen.sprite;
+                placeable = true;
             }
             else
             {
-                ResetSprite ();
+                placeable = false;
+                ResetSprite();
             }
         }
 
-        private void Update ()
+        public void ChangeSprite(Sprite seed)
+        {
+            if (seed)
+            {
+                spriteRen.sprite = seed;
+                transform.position = cursor.transform.position;
+
+                cursor.sprite = spriteRen.sprite;
+                placeable = false;
+            }
+        }
+
+        private void Update()
+        {
+            if (placeable)
+                CheckPlaceables();
+            else if (spriteRen.sprite != null)
+            {
+                CheckForPlants();
+            }
+        }
+
+        private void CheckForPlants()
+        {
+            if (mouse == Vector2.zero)
+                return;
+
+            Node n = node.NodeFromInput(mouse);
+
+            if (n != null && n != lastnode)
+            {
+                lastnode = n;
+                transform.position = n.worldPosition;
+            }
+            if (n == null)
+                return;
+            GameObject ng = n.currentPlant;
+            if (ng != null && ng.CompareTag("Plant"))
+                spriteRen.enabled = true;
+            else
+                spriteRen.enabled = false;
+        }
+
+        private void CheckPlaceables()
         {
             if (mouse == Vector2.zero)
                 return;
             if (spriteRen.sprite != null)
             {
-                Node n = node.NodeFromInput (mouse);
+                Node n = node.NodeFromInput(mouse);
 
                 if (n != null && n != lastnode)
                 {
                     lastnode = n;
                     transform.position = n.worldPosition;
                 }
-                OnRangeDisplay?.Invoke (true);
-                displayRange.DisplayTheRange (n);
+                OnRangeDisplay?.Invoke(true);
+                displayRange.DisplayTheRange(n);
 
                 if (!IsFruit)
-                    spriteRen.enabled = n?.TowerPlaceAble () == true;
+                    spriteRen.enabled = n?.TowerPlaceAble() == true;
                 else
-                    spriteRen.enabled = n?.FruitPlaceable () == true;
+                    spriteRen.enabled = n?.FruitPlaceable() == true;
             }
         }
 
-        private void Awake ()
+        private void Awake()
         {
-            spriteRen = GetComponent<SpriteRenderer> ();
-            displayRange = GetComponent<DisplayRange> ();
+            spriteRen = GetComponent<SpriteRenderer>();
+            displayRange = GetComponent<DisplayRange>();
         }
 
-        private void Start ()
+        private void Start()
         {
-            node = GetComponent<NodeFinder> ();
+            node = GetComponent<NodeFinder>();
         }
     }
 }

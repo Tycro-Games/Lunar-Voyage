@@ -9,10 +9,10 @@ namespace Bogadanul.Assets.Scripts.Enemies
     public static class EnemyManager
     {
         public static bool hasPath;
-        public static Dictionary<TracePathCheck, Pathfinding> pathfindings = new Dictionary<TracePathCheck, Pathfinding> ();
+        public static Dictionary<TracePathCheck, Pathfinding> pathfindings = new Dictionary<TracePathCheck, Pathfinding>();
         public static Action<List<Node>> OnNoSpace;
 
-        public static bool CheckForNullPaths ()
+        public static bool CheckForNullPaths()
         {
             if (pathfindings == null)
                 return true;
@@ -20,46 +20,46 @@ namespace Bogadanul.Assets.Scripts.Enemies
                 return false;
         }
 
-        public static void CheckSpace ()
+        public static void CheckSpace()
         {
-            if (CheckForNullPaths ())
+            if (CheckForNullPaths())
                 return;
 
-            foreach (TracePathCheck path in pathfindings.Keys.ToList ())
+            foreach (TracePathCheck path in pathfindings.Keys.ToList())
             {
-                if (CheckPath (path))
+                if (CheckPath(path))
                     continue;
 
-                hasPath = pathfindings[path].HasPath ();
+                hasPath = pathfindings[path].HasPath();
 
                 if (!hasPath)
                 {
-                    OnNoSpace?.Invoke (path.Path);
+                    OnNoSpace?.Invoke(path.Path);
                     return;
                 }
             }
         }
 
-        public static void SetSpace ()
+        public static void SetSpace()
         {
-            if (CheckForNullPaths ())
+            if (CheckForNullPaths())
                 return;
 
-            foreach (TracePathCheck path in pathfindings.Keys.ToList ())
+            foreach (TracePathCheck path in pathfindings.Keys.ToList())
             {
-                if (CheckPath (path))
+                if (CheckPath(path))
                 {
                     continue;
                 }
-                pathfindings[path].FindPath ();
+                pathfindings[path].FindPath();
             }
         }
 
-        private static bool CheckPath (TracePathCheck path)
+        private static bool CheckPath(TracePathCheck path)
         {
             bool NoPath = path == null;
             if (NoPath)
-                pathfindings.Remove (path);
+                pathfindings.Remove(path);
             return NoPath;
         }
     }

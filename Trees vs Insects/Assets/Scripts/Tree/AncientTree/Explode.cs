@@ -10,7 +10,7 @@ namespace Bogadanul.Assets.Scripts.Enemies
         public void Boom ()
         {
             Collider[] colliders = new Collider[256];
-            int count = Physics.OverlapSphereNonAlloc (transform.position, range, colliders, enemies);
+            int count = Physics.OverlapSphereNonAlloc (transform.position, range, colliders, dedectable);
 
             if (count != 0)
             {

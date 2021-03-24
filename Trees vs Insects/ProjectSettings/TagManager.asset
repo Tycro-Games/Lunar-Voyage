@@ -8,6 +8,7 @@ TagManager:
   - grid
   - GoldenTree
   - Enemy
+  - Plant
   layers:
   - Default
   - TransparentFX

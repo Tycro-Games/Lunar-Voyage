@@ -10,6 +10,7 @@ namespace Bogadanul.Assets.Scripts.Player
         public int hCost;
         public Node parent;
         public Vector3 worldPosition;
+        public GameObject currentPlant;
 
         //bools
         public bool IsWalkable;

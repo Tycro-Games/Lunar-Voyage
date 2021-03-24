@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1101677643}
   - component: {fileID: 1101677644}
-  - component: {fileID: 1472381722629884886}
   m_Layer: 15
   m_Name: GPX
   m_TagString: Untagged
@@ -84,19 +83,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!65 &1472381722629884886
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1101677642}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.6875, y: 1.8125, z: 0.2}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &3981511106373124973
 GameObject:
   m_ObjectHideFlags: 0
@@ -141,7 +127,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   range: 0.9
-  enemies:
+  dedectable:
     serializedVersion: 2
     m_Bits: 66560
   OnDetect:
@@ -172,9 +158,10 @@ GameObject:
   - component: {fileID: 830405554182518472}
   - component: {fileID: 3297613584555094711}
   - component: {fileID: 5235577648872938533}
+  - component: {fileID: 5153103145353331281}
   m_Layer: 15
   m_Name: Mine
-  m_TagString: Untagged
+  m_TagString: Plant
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -220,8 +207,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e5af664ebd065646b6bceb296abe4c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 0.9
-  enemies:
+  range: 1.5
+  dedectable:
     serializedVersion: 2
     m_Bits: 66560
   DAMAGE: 100
@@ -237,8 +224,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b242f51fd9b0b514b84a1d76121220ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 0.9
-  enemies:
+  range: 0.78
+  dedectable:
     serializedVersion: 2
     m_Bits: 66560
   OnDetect:
@@ -322,3 +309,16 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   TimeToWait: 10
+--- !u!65 &5153103145353331281
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8976918986219011986}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.6875, y: 1.8125, z: 0.2}
+  m_Center: {x: 0, y: 0, z: 0}

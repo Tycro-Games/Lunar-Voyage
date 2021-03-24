@@ -4848,6 +4848,16 @@ PrefabInstance:
       propertyPath: m_PreserveAspect
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1962434383749868038, guid: 2d2288358d54cb949a246a78f82ad470,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 1.6774635
+      objectReference: {fileID: 0}
+    - target: {fileID: 1962434383749868038, guid: 2d2288358d54cb949a246a78f82ad470,
+        type: 3}
+      propertyPath: m_Center.y
+      value: -6.175394
+      objectReference: {fileID: 0}
     - target: {fileID: 2171965816535469055, guid: 2d2288358d54cb949a246a78f82ad470,
         type: 3}
       propertyPath: m_PixelPerfect
@@ -5079,6 +5089,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.x
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5321974529163816540, guid: 2d2288358d54cb949a246a78f82ad470,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5371944494537735427, guid: 2d2288358d54cb949a246a78f82ad470,
         type: 3}

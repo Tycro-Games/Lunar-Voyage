@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9046605c4f61b1843bb89be2d88996d8, type: 3}
   m_Name: MK1
   m_EditorClassIdentifier: 
-  enemyGameObject: {fileID: 4424071315473148248, guid: 6b39a6825fc8505419350ae2c4a189c1,
+  enemyGameObject: {fileID: 6878061284835870183, guid: aa3936428b344d8488b8b6840aeb1a9a,
     type: 3}
   weight: 1
