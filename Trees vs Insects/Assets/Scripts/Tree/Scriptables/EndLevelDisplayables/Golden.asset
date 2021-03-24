@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Golden
   m_EditorClassIdentifier: 
   icon: {fileID: -749024654251515319, guid: 7a72458cc65ff4543932868093139ea4, type: 3}
-  description: This give you energy
+  description: This gives you energy
