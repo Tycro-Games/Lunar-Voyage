@@ -3791,6 +3791,11 @@ PrefabInstance:
       propertyPath: m_Center.y
       value: -3.0965967
       objectReference: {fileID: 0}
+    - target: {fileID: 1141873627484399671, guid: 2d2288358d54cb949a246a78f82ad470,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1518370454242268860, guid: 2d2288358d54cb949a246a78f82ad470,
         type: 3}
       propertyPath: m_Icon
@@ -4091,11 +4096,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Center.y
       value: 5.9239926
-      objectReference: {fileID: 0}
-    - target: {fileID: 3262130411453841647, guid: 2d2288358d54cb949a246a78f82ad470,
-        type: 3}
-      propertyPath: orthographic size
-      value: 7.796875
       objectReference: {fileID: 0}
     - target: {fileID: 3470223737304803669, guid: 2d2288358d54cb949a246a78f82ad470,
         type: 3}
