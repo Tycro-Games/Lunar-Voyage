@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Potty pot
   m_EditorClassIdentifier: 
   icon: {fileID: 21300000, guid: 97b864a373dd1db43984dc7a1724e3f5, type: 3}
-  price: 0
+  price: 10
   cooldown: 0
   sprite: {fileID: 21300000, guid: 97b864a373dd1db43984dc7a1724e3f5, type: 3}
   TreeGameObject: {fileID: 7935677415777961333, guid: 2718884e608b57e428e92d373598c3cd,
     type: 3}
-  canBePlacedAnywhere: 0
+  fruit: 0

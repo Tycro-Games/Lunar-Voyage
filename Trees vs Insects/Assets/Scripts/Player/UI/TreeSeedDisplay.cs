@@ -15,7 +15,7 @@ namespace Bogadanul.Assets.Scripts.Player
             if (price > 0)
                 text.text = price.ToString();
             else
-                text.text = "";
+                text.text = " ";
         }
 
         public void DisplaySprite(Sprite sprite)

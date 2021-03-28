@@ -3,26 +3,32 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 using UnityEngine.UI;
+using System;
+using Assets.Scripts.UI;
 
 namespace Bogadanul.Assets.Scripts.Player
 {
     public class SeedManager : MonoBehaviour
     {
-        private Transform[] SeedPlace;
+        private Transform[] SeedPlace = null;
 
         [SerializeField]
         private float speed = 1;
+
+        public event Action OnFull;
+
+        public event Action NotFull;
+
+        [SerializeField]
+        private int max = 8;
 
         private Dictionary<GameObject, Vector2> seeds = new Dictionary<GameObject, Vector2>();
 
         private int index = 0;
 
-        private int countChild;
-
         private void Start()
         {
-            countChild = transform.childCount;
-            SeedPlace = new Transform[countChild];
+            SeedPlace = new Transform[transform.childCount];
 
             for (int i = 0; i < transform.childCount; i++)
                 SeedPlace[i] = transform.GetChild(i);
@@ -39,6 +45,17 @@ namespace Bogadanul.Assets.Scripts.Player
             }
         }
 
+        public void SetRound()
+        {
+            for (int i = 0; i < transform.childCount; i++)
+                SeedPlace[i].gameObject.SetActive(false);
+            foreach (GameObject s in seeds.Keys)
+            {
+                Instantiate(s.GetComponent<PrefabConatiner>().Object, transform);
+                Destroy(s);
+            }
+        }
+
         public void AddSeed(GameObject seed)
         {
             if (seeds.ContainsKey(seed))
@@ -46,16 +63,30 @@ namespace Bogadanul.Assets.Scripts.Player
                 StartCoroutine(MoveSeed(seed.transform, seeds[seed]));
                 ShiftList(seed);
                 index--;
+                IsFull();
             }
-            else if (index < countChild)
+            else if (index < max)
             {
                 seeds.Add(seed, seed.transform.position);
 
                 StartCoroutine(MoveSeed(seed.transform, SeedPlace[index++].transform.position));
+                IsFull();
             }
         }
 
+        public void IsFull()
+        {
+            if (index >= max)
+            {
+                OnFull?.Invoke();
+                return;
+            }
+
+            NotFull?.Invoke();
+        }
+
         private IEnumerator MoveSeed(Transform currentSeed, Vector2 target)
+
         {
             Button button = currentSeed.GetComponent<Button>();
             button.interactable = false;
