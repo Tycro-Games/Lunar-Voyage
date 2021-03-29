@@ -5229,35 +5229,6 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   TimeToWait: 0.01
---- !u!114 &928525304
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 928525301}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2174729f36d955848af18fb955156f80, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  loop: 0
-  OnTimerFinished:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 928525298}
-        m_TargetAssemblyTypeName: Bogadanul.Assets.Scripts.Player.SeedManager, Scripts
-        m_MethodName: AddSeed
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 928525301}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  TimeToWait: 0.01
 --- !u!114 &928525305
 MonoBehaviour:
   m_ObjectHideFlags: 0
