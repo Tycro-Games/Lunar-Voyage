@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2440719c713eda543af74407f0ec8d21, type: 3}
   m_Name: Remover
   m_EditorClassIdentifier: 
-  icon: {fileID: 21300000, guid: 7e3c71a0bf8cacb45851bf257cf78278, type: 3}
+  icon: {fileID: 21300000, guid: f11b827c72245834eb88257d35fd8c94, type: 3}
   price: 0
   cooldown: 0
-  sprite: {fileID: 21300000, guid: 7e3c71a0bf8cacb45851bf257cf78278, type: 3}
+  sprite: {fileID: 21300000, guid: f11b827c72245834eb88257d35fd8c94, type: 3}
   TreeGameObject: {fileID: 3388826822612446941, guid: 2381be8b25fbe0843aa6c38330e71981,
     type: 3}
-  canBePlacedAnywhere: 0
+  fruit: 0
