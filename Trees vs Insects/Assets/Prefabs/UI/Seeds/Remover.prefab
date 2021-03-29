@@ -21,6 +21,36 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 485186394285071906, guid: e924ca8e88d4442409623007ef44567a,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 485186394285071906, guid: e924ca8e88d4442409623007ef44567a,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 485186394285071906, guid: e924ca8e88d4442409623007ef44567a,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 485186394285071906, guid: e924ca8e88d4442409623007ef44567a,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 485186394285071906, guid: e924ca8e88d4442409623007ef44567a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2313433652235107737, guid: e924ca8e88d4442409623007ef44567a,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2313433652235107738, guid: e924ca8e88d4442409623007ef44567a,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -99,7 +129,7 @@ PrefabInstance:
     - target: {fileID: 2313433652235107741, guid: e924ca8e88d4442409623007ef44567a,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.92387956
       objectReference: {fileID: 0}
     - target: {fileID: 2313433652235107741, guid: e924ca8e88d4442409623007ef44567a,
         type: 3}
@@ -114,7 +144,7 @@ PrefabInstance:
     - target: {fileID: 2313433652235107741, guid: e924ca8e88d4442409623007ef44567a,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0.38268343
       objectReference: {fileID: 0}
     - target: {fileID: 2313433652235107741, guid: e924ca8e88d4442409623007ef44567a,
         type: 3}
@@ -146,6 +176,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: Remover
       objectReference: {fileID: 0}
+    - target: {fileID: 4299939328049693462, guid: e924ca8e88d4442409623007ef44567a,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1126670867750362856, guid: 641d9d9b89c5e06439368219f558849a,
+        type: 3}
     m_RemovedComponents:
     - {fileID: 164113657171562137, guid: e924ca8e88d4442409623007ef44567a, type: 3}
     - {fileID: 425442148701658508, guid: e924ca8e88d4442409623007ef44567a, type: 3}
