@@ -54,10 +54,14 @@ namespace Bogadanul.Assets.Scripts.Enemies
             {
                 i++;
             }
+            else if (path.Count > 1 && path[i + 1] == lastNode)
+                i++;
             for (; i < path.Count; i++)
             {
+                
                 yield return StartCoroutine(move.MoveTo(path[i].worldPosition));
                 lastNode = path[i];
+
             }
             Debug.LogError("End path");
         }
