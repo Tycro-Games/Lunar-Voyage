@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2703777122580741293}
   - component: {fileID: 8637452329380473307}
+  - component: {fileID: 7020960821720931578}
   m_Layer: 10
   m_Name: Gpx
   m_TagString: Untagged
@@ -82,6 +83,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &7020960821720931578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2703777122580741290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6c4eae542845cb4880e6bbca7d4792f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9169521981558916946
 GameObject:
   m_ObjectHideFlags: 0
@@ -91,7 +104,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2669638461654732693}
-  - component: {fileID: 7188784845314653144}
   - component: {fileID: 3446609323959323498}
   - component: {fileID: 5305138781872779511}
   - component: {fileID: 6653167067058767572}
@@ -99,8 +111,9 @@ GameObject:
   - component: {fileID: 4568376483384451120}
   - component: {fileID: 4581073555106333098}
   - component: {fileID: 2325355609471347683}
+  - component: {fileID: -9023381309614512319}
   m_Layer: 10
-  m_Name: AI
+  m_Name: Mk3
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -121,18 +134,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7188784845314653144
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9169521981558916946}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ddbdb9a532b9864bbddf2204b388aaf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &3446609323959323498
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -232,3 +233,15 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 8192
+--- !u!114 &-9023381309614512319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9169521981558916946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a3de05b2fee7604ead25a46878773fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

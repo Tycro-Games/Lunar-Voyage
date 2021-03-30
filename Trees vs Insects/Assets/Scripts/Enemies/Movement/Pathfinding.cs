@@ -49,6 +49,7 @@ namespace Bogadanul.Assets.Scripts.Enemies
 
         protected List<Node> RetracePath(Node startNode, Node endNode)
         {
+            First = true;
             pathCurrent = new List<Node>();
 
             Node currentNode = endNode;
@@ -75,11 +76,11 @@ namespace Bogadanul.Assets.Scripts.Enemies
 
         #region checkSpace
 
-        private bool CheckCurrentPath()
+        private bool IsCurrentPath()
         {
             foreach (Node n in path.Path)
             {
-                if (n.IsWalkable != true)
+                if (n.IsWalkable ==false)
                     return false;
             }
             return true;
@@ -88,7 +89,7 @@ namespace Bogadanul.Assets.Scripts.Enemies
         public bool HasPath()
         {
             grid.UpdateGrid();
-            if (First && CheckCurrentPath())
+            if (First&& IsCurrentPath())
                 return true;
             Node startNode = nodeFind.NodeFromPoint(transform);
             if (startNode == null) return false;
@@ -134,10 +135,11 @@ namespace Bogadanul.Assets.Scripts.Enemies
             return false;
         }
 
-        public void FindPath()
+        public void FindPath(bool remove=false)
         {
             grid.UpdateGrid();
-            if (CheckCurrentPath() && First)
+            if(remove)
+            if (First&&IsCurrentPath() )
                 return;
             Node startNode = nodeFind.NodeFromPoint(transform);
             if (startNode == null) return;
@@ -155,6 +157,7 @@ namespace Bogadanul.Assets.Scripts.Enemies
 
                 if (currentNode == targetNode)
                 {
+
                     path.Path = RetracePath(startNode, targetNode);
                     return;
                 }
@@ -181,7 +184,7 @@ namespace Bogadanul.Assets.Scripts.Enemies
                     }
                 }
             }
-            First = true;
+            
         }
 
         #endregion checkSpace

@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6670352880608111810}
-  - component: {fileID: 1899988156089899151}
   - component: {fileID: 6217637618027718717}
   - component: {fileID: 3459344018979951520}
   - component: {fileID: 2722813695433205123}
@@ -17,8 +16,9 @@ GameObject:
   - component: {fileID: 5114838649097159527}
   - component: {fileID: 5048133532921914109}
   - component: {fileID: 6474203776965183668}
+  - component: {fileID: 7122320159257101392}
   m_Layer: 10
-  m_Name: AI
+  m_Name: Mk2
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -39,18 +39,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1899988156089899151
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 494555086965728261}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ddbdb9a532b9864bbddf2204b388aaf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &6217637618027718717
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -150,6 +138,18 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 8192
+--- !u!114 &7122320159257101392
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 494555086965728261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a3de05b2fee7604ead25a46878773fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6636074273544888317
 GameObject:
   m_ObjectHideFlags: 0
@@ -160,6 +160,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6636074273544888314}
   - component: {fileID: 1027886909257878156}
+  - component: {fileID: 6929869189821791103}
   m_Layer: 10
   m_Name: Gpx
   m_TagString: Untagged
@@ -232,3 +233,15 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &6929869189821791103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6636074273544888317}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6c4eae542845cb4880e6bbca7d4792f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

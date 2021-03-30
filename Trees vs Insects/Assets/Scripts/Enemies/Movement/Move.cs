@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Bogadanul.Assets.Scripts.Utility;
+using Assets.Scripts.Enemies.Movement;
 
 namespace Bogadanul.Assets.Scripts.Enemies
 {
@@ -13,6 +14,7 @@ namespace Bogadanul.Assets.Scripts.Enemies
         [SerializeField]
         private float randomRange = 0.0f;
 
+        private FlipSprite sprite;
         public float UnitsPerSec { get => unitsPerSec; set => unitsPerSec = value; }
 
         public void Reset()
@@ -23,13 +25,12 @@ namespace Bogadanul.Assets.Scripts.Enemies
         private void Awake()
         {
             unitsPerSec = RandomStuff.RandomNumber(unitsPerSec, randomRange);
+            sprite = GetComponentInChildren<FlipSprite>();
         }
 
         public IEnumerator MoveTo(Vector3 node)
         {
-            // Quaternion rot = Quaternion.LookRotation (Vector3.forward, Dir (node));
-
-            Debug.DrawLine(transform.position, transform.position + Dir(node));
+            sprite.ChangeDirection(transform.position, node);
             while (transform.position != node)
             {
                 transform.position = Vector3.MoveTowards(transform.position, node, UnitsPerSec * Time.deltaTime);

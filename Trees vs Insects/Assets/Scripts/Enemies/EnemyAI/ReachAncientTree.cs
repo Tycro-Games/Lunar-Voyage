@@ -15,10 +15,9 @@ namespace Bogadanul.Assets.Scripts.Enemies
 
         public int AncientTreeHealthLost { get => ancientTreeHealthLost; set => ancientTreeHealthLost = value; }
 
-        public void Reached ()
-
+        public void Reached()
         {
-            Destroy (gameObject);
+            Destroy(gameObject);
         }
     }
 }

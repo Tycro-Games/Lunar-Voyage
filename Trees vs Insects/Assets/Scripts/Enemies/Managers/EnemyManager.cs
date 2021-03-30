@@ -40,7 +40,7 @@ namespace Bogadanul.Assets.Scripts.Enemies
             }
         }
 
-        public static void SetSpace()
+        public static void SetSpace(bool remove=false)
         {
             if (CheckForNullPaths())
                 return;
@@ -51,7 +51,7 @@ namespace Bogadanul.Assets.Scripts.Enemies
                 {
                     continue;
                 }
-                pathfindings[path].FindPath();
+                pathfindings[path].FindPath(remove);
             }
         }
 

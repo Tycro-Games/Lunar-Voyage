@@ -75,7 +75,7 @@ namespace Bogadanul.Assets.Scripts.Player
             currentTree = null;
         }
 
-        private IEnumerator Counter()
+        public static IEnumerator Counter()
         {
             yield return null;
             EnemyManager.SetSpace();
