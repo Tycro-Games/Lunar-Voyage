@@ -19,10 +19,10 @@ namespace Bogadanul.Assets.Scripts.Tree
         private IEnumerator Destroy()
         {
             gameObject.SetActive(false);
-            
+            Destroy(gameObject,2);
             EnemyManager.SetSpace();
             yield return null;
-            Destroy(gameObject);
+           
             
             
 

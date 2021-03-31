@@ -63,8 +63,10 @@ namespace Bogadanul.Assets.Scripts.Enemies
             target = GetPrey();
             if (target == null)
                 target = FindObjectOfType<AncientTreeOnDestroy>().gameObject.GetComponent<Collider>();
+
             if (Move != null)
                 StopCoroutine(Move);
+
             Move = move.MoveTo(target.transform.position);
             StartCoroutine(Move);
         }
@@ -83,19 +85,18 @@ namespace Bogadanul.Assets.Scripts.Enemies
         }
 
         private void Update()
-        {
+        {           
             if (charging)
-            {
-                if (target == null)
-                {
-                    FindPrey();
-                }
+            {                                              
                 Collider[] collider = new Collider[1];
                 int count = Physics.OverlapBoxNonAlloc(transform.position, scan / 2, collider, Quaternion.identity, trees);
                 if (count > 0)
                 {
                     StartCoroutine(StopCharge(collider));
+                    return;
                 }
+                if (target == null)
+                    FindPrey();
             }
         }
 

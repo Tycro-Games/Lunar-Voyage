@@ -8,7 +8,7 @@ namespace Assets.Scripts.Enemies.Movement
         private SpriteRenderer sprite = null;
         private bool isRight = false;
 
-        private void Start()
+        private void Awake()
         {
             sprite = GetComponent<SpriteRenderer>();
         }

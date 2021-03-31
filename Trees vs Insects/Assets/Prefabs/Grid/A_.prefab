@@ -230,6 +230,10 @@ PrefabInstance:
       propertyPath: OnTimerFinished.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1002100087, guid: a7b09197468d2db4c93e5ff7a0fd0e00, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 19.75
+      objectReference: {fileID: 0}
     - target: {fileID: 1149903896, guid: a7b09197468d2db4c93e5ff7a0fd0e00, type: 3}
       propertyPath: cursor
       value: 
