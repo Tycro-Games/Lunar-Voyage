@@ -7,18 +7,18 @@ namespace Bogadanul.Assets.Scripts.Tree
     {
         private IProjectileTarget Currentprojectile = null;
 
-        public override IEnumerator Shooting (Transform target)
+        public override IEnumerator Shooting(Transform target)
         {
             CanShoot = false;
 
-            instance = Instantiate (projectileObject, transform.position, Quaternion.identity, transform);
-            Currentprojectile = CacheProjectile<IProjectileTarget> (instance);
-            Currentprojectile.Init (target);
-            yield return StartCoroutine (fireRater.Wait ());
+            instance = Instantiate(projectileObject, transform.position, Quaternion.identity,transform);
+            Currentprojectile = CacheProjectile<IProjectileTarget>(instance);
+            Currentprojectile.Init(target);
+            yield return StartCoroutine(fireRater.Wait());
 
             CanShoot = true;
 
-            Destroy (instance, 10.0f);
+            Destroy(instance, 10.0f);
         }
     }
 }

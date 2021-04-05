@@ -12,49 +12,49 @@ namespace Bogadanul.Assets.Scripts.Tree
 
         private Vector2 dir = Vector2.zero;
 
-        public void Init (Transform Target)
+        public void Init(Transform Target)
         {
             hasTarget = true;
             target = Target;
-            enemyAI = target.GetComponent<IEnemyAI> ();
+            enemyAI = target.GetComponent<IEnemyAI>();
         }
 
-        private void CheckSpace ()
+        private void CheckSpace()
         {
             if (transform.position == target.position)
             {
-                enemyAI.TakeDamage (damage);
-                DestroyProjectile ();
+                enemyAI.TakeDamage(damage);
+                DestroyProjectile();
             }
         }
 
-        private void MoveToTarget ()
+        private void MoveToTarget()
         {
-            transform.position = Vector2.MoveTowards (transform.position, target.position, Time.deltaTime * speed);
-            transform.rotation = Quaternion.LookRotation (Vector3.forward, (target.position - transform.position).normalized);
+            transform.position = Vector2.MoveTowards(transform.position, target.position, Time.deltaTime * speed);
+            transform.rotation = Quaternion.LookRotation(Vector3.forward, (target.position - transform.position).normalized);
         }
 
-        private void MoveToTarget (Vector3 dir)
+        private void MoveToTarget(Vector3 dir)
         {
-            transform.position = Vector2.MoveTowards (transform.position, transform.position + dir, Time.deltaTime * speed);
+            transform.position = Vector2.MoveTowards(transform.position, transform.position + dir, Time.deltaTime * speed);
         }
 
-        private void Update ()
+        private void Update()
         {
             if (hasTarget && target == null)
             {
                 dir = transform.up;
                 hasTarget = false;
-                DestroyProjectile (20);
+                DestroyProjectile(20);
             }
             if (hasTarget)
             {
-                MoveToTarget ();
-                CheckSpace ();
+                MoveToTarget();
+                CheckSpace();
             }
             else
             {
-                MoveToTarget (dir);
+                MoveToTarget(dir);
             }
         }
     }
