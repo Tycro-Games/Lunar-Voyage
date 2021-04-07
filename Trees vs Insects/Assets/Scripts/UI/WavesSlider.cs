@@ -8,26 +8,58 @@ namespace Bogadanul.Assets.Scripts.UI
     public class WavesSlider : MonoBehaviour
     {
         private int TotalWeight = 0;
-        private int currentWeight = 0;
+        private float currentWeight = 0;
         private Slider slider = null;
         private WaveSystem waveSystem = null;
-
-        public void UpdateSlider (int weight)
+        private IEnumerator currentChange;
+       private float desiredWeight;
+       [SerializeField]
+        private AnimationCurve curve;
+        [SerializeField]
+        private float baseSpeed = 1.0f;
+        public void UpdateSlider(int weight)
         {
-            currentWeight += weight;
-            slider.value = Mathf.InverseLerp (0, TotalWeight, currentWeight);
+            if (currentChange != null&& currentChange.Current!=null)
+            {
+                desiredWeight += weight;
+                
+            }
+            else
+            {
+                currentChange = UpdateOnTime(weight);
+                StartCoroutine(currentChange);
+            }
         }
 
-        private void OnDisable ()
+        private IEnumerator UpdateOnTime(int weight)
+        {
+
+            float time = 0f;
+             desiredWeight = currentWeight + weight;
+            while (currentWeight <= desiredWeight)
+            {
+                time += Time.deltaTime;
+
+                float linearT = time / weight;
+                float heightT = curve.Evaluate(linearT)* baseSpeed;
+                currentWeight += heightT;
+                slider.value = Mathf.InverseLerp (0, TotalWeight, currentWeight);
+                yield return null;
+            }
+            Debug.Log("finish");
+          
+        }
+
+        private void OnDisable()
         {
             waveSystem.OnSpawn -= UpdateSlider;
         }
 
-        private void Awake ()
+        private void Awake()
         {
-            slider = GetComponent<Slider> ();
+            slider = GetComponent<Slider>();
 
-            waveSystem = FindObjectOfType<WaveSystem> ();
+            waveSystem = FindObjectOfType<WaveSystem>();
             foreach (Wave wave in waveSystem.waves)
             {
                 TotalWeight += wave.weight;
