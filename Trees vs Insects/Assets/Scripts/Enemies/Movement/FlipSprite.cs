@@ -5,18 +5,14 @@ namespace Assets.Scripts.Enemies.Movement
 {
     public class FlipSprite : MonoBehaviour
     {
-        private SpriteRenderer sprite = null;
         private bool isRight = false;
-
-        private void Awake()
-        {
-            sprite = GetComponent<SpriteRenderer>();
-        }
 
         private void ChangeSprite()
         {
             isRight = !isRight;
-            sprite.flipX = isRight;
+            Vector3 scale = transform.localScale;
+            scale.x *= -1;
+            transform.localScale = scale;
         }
 
         public void ChangeDirection(Vector3 currentPos, Vector3 desiredPos)

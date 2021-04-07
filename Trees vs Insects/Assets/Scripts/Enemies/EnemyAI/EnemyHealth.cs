@@ -10,6 +10,8 @@ namespace Bogadanul.Assets.Scripts.Enemies
 
         public event Action OnDead;
 
+        public event Action<int> OnDamage;
+
         public int Health { get => health; set => health = value; }
 
         public void TakeDamage(int dg)
@@ -18,6 +20,10 @@ namespace Bogadanul.Assets.Scripts.Enemies
             if (Health <= 0)
             {
                 Dead();
+            }
+            else
+            {
+                OnDamage?.Invoke(dg);
             }
         }
 
