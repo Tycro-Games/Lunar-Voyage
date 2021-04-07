@@ -219,7 +219,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 1
     m_RotationOrder: 4
-  baseSpeed: 0.01
+  baseSpeed: 0.05
 --- !u!1001 &560589672
 PrefabInstance:
   m_ObjectHideFlags: 0
