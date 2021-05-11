@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Bogadanul.Assets.Scripts.Enemies
 {
@@ -9,6 +10,9 @@ namespace Bogadanul.Assets.Scripts.Enemies
         private int health = 0;
 
         public event Action OnDead;
+
+        [SerializeField]
+        private UnityEvent onDead;
 
         public event Action<int> OnDamage;
 

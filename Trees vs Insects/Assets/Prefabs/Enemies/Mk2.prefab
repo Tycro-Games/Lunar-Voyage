@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 5048133532921914109}
   - component: {fileID: 6474203776965183668}
   - component: {fileID: 7122320159257101392}
+  - component: {fileID: 7254453582311640225}
   m_Layer: 10
   m_Name: Mk2
   m_TagString: Enemy
@@ -52,6 +53,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 25
+  onDead:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1146085908174588383, guid: aa3936428b344d8488b8b6840aeb1a9a,
+          type: 3}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!65 &3459344018979951520
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -150,6 +167,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a3de05b2fee7604ead25a46878773fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7254453582311640225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 494555086965728261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af9e8146a89f7434da2a03d0cb2bb6d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeTime: 2
 --- !u!1 &6636074273544888317
 GameObject:
   m_ObjectHideFlags: 0

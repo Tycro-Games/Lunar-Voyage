@@ -113,6 +113,7 @@ GameObject:
   - component: {fileID: 244827365561655634}
   - component: {fileID: 8152426040058548331}
   - component: {fileID: 9125866277235766469}
+  - component: {fileID: 2756315948250259618}
   m_Layer: 16
   m_Name: Beatle
   m_TagString: Enemy
@@ -148,6 +149,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 25
+  onDead:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1146085908174588383, guid: aa3936428b344d8488b8b6840aeb1a9a,
+          type: 3}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &9184057455968324709
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -284,6 +301,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 0.94776106, z: 1}
   m_Center: {x: 0, y: -0.02611947, z: 0}
+--- !u!114 &2756315948250259618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6656373037260869091}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af9e8146a89f7434da2a03d0cb2bb6d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeTime: 2
 --- !u!1001 &4070695383038939734
 PrefabInstance:
   m_ObjectHideFlags: 0

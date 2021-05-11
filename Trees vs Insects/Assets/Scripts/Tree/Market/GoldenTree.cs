@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Events;
 
 namespace Bogadanul.Assets.Scripts.Tree
 {
@@ -7,20 +8,24 @@ namespace Bogadanul.Assets.Scripts.Tree
         [SerializeField]
         private int energyGain = 50;
 
-        public void AddEnergy ()
+        [SerializeField]
+        private UnityEvent OnDestroy;
+
+        public void AddEnergy()
         {
-            market.Add (energyGain);
+            market.Add(energyGain);
         }
 
-        public void OnMouseDown ()
+        public void OnMouseDown()
         {
-            AddEnergy ();
-            Destroy (gameObject);
+            AddEnergy();
+            OnDestroy?.Invoke();
+            Destroy(gameObject);
         }
 
-        private void Awake ()
+        private void Awake()
         {
-            GetMarket ();
+            GetMarket();
         }
     }
 }
