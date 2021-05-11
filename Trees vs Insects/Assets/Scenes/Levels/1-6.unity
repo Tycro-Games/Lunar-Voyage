@@ -4561,8 +4561,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4830277980041357212, guid: 2d2288358d54cb949a246a78f82ad470,
         type: 3}
-      propertyPath: offset.x
-      value: 3
+      propertyPath: gridWorldSize.y
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 4830277980041357213, guid: 2d2288358d54cb949a246a78f82ad470,
         type: 3}
