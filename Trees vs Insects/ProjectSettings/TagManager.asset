@@ -9,6 +9,7 @@ TagManager:
   - GoldenTree
   - Enemy
   - Plant
+  - Moveable
   layers:
   - Default
   - TransparentFX

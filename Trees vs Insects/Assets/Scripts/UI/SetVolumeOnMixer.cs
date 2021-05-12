@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.UI;
 
 namespace UI
 {
@@ -7,9 +8,15 @@ namespace UI
     {
         public AudioMixer audioMixer;
 
-        public void SetVolume (float volume)
+        private void Start()
         {
-            audioMixer.SetFloat ("Volume", volume);
+            audioMixer.GetFloat("Volume", out float val);
+            GetComponent<Slider>().value = val;
+        }
+
+        public void SetVolume(float volume)
+        {
+            audioMixer.SetFloat("Volume", volume);
         }
     }
 }

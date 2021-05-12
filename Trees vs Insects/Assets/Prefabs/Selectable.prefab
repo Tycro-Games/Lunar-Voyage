@@ -54,7 +54,7 @@ GameObject:
   - component: {fileID: 3168244890738038961}
   m_Layer: 5
   m_Name: MoveAble
-  m_TagString: Untagged
+  m_TagString: Moveable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

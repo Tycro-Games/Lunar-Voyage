@@ -20,7 +20,7 @@ namespace Bogadanul.Assets.Scripts.Player
         public event Action NotFull;
 
         [SerializeField]
-        private int max = 8;
+        public int max = 8;
 
         private Dictionary<GameObject, Vector2> seeds = new Dictionary<GameObject, Vector2>();
 
@@ -72,6 +72,27 @@ namespace Bogadanul.Assets.Scripts.Player
                 StartCoroutine(MoveSeed(seed.transform, SeedPlace[index++].transform.position));
                 IsFull();
             }
+        }
+
+        public void AddAll()
+        {
+            GameObject[] seeds = GameObject.FindGameObjectsWithTag("Moveable");
+            if (max >= seeds.Length)
+            {
+                StartCoroutine(Addall(seeds));
+            }
+        }
+
+        private IEnumerator Addall(GameObject[] seeds)
+        {
+            speed = 1000;
+            foreach (GameObject seed in seeds)
+            {
+                AddSeed(seed);
+                yield return null;
+            }
+            yield return new WaitForSecondsRealtime(.1f);
+            FindObjectOfType<GetRocking>().gameObject.GetComponent<Button>().onClick?.Invoke();
         }
 
         public void IsFull()

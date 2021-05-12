@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 696223117482925037}
   - component: {fileID: 1291348721885832229}
   - component: {fileID: 2253870020189367456}
-  - component: {fileID: 8990586084956243504}
+  - component: {fileID: 8736498785387785058}
   m_Layer: 0
   m_Name: GPX
   m_TagString: Untagged
@@ -103,7 +103,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!82 &8990586084956243504
+--- !u!82 &8736498785387785058
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -112,12 +112,13 @@ AudioSource:
   m_GameObject: {fileID: 2496670859465429176}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 3dd488e49d7a2ea40966e52624e09cc2,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: 7c865c2a7df54a840b14770f8b05b4ed, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
-  m_Pitch: 0.97
-  Loop: 1
+  m_Pitch: 1.96
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0

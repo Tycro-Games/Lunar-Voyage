@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2440719c713eda543af74407f0ec8d21, type: 3}
   m_Name: Pine
   m_EditorClassIdentifier: 
-  icon: {fileID: -1851102042020089604, guid: 641d9d9b89c5e06439368219f558849a, type: 3}
+  icon: {fileID: 21300000, guid: c56cbdd6e799b33439ac4afc745177ec, type: 3}
   price: 300
   cooldown: 20
   sprite: {fileID: 21300000, guid: c56cbdd6e799b33439ac4afc745177ec, type: 3}
   TreeGameObject: {fileID: 7935677415777961333, guid: 42be6b87ea0f59f48a92dd351063c592,
     type: 3}
-  canBePlacedAnywhere: 0
+  fruit: 0
