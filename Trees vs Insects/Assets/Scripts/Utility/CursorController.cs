@@ -11,17 +11,17 @@ namespace Bogadanul.Assets.Scripts.Utility
 
         private Vector2 velocity = Vector2.zero;
 
-        public Vector2 MousePosition ()
+        public Vector2 MousePosition()
         {
-            return Camera.main.ScreenToWorldPoint (Input.mousePosition);
+            return Camera.main.ScreenToWorldPoint(Input.mousePosition);
         }
 
-        private void Update ()
+        private void Update()
         {
-            transform.position = Vector2.Lerp (transform.position, MousePosition (), smooth * Time.unscaledDeltaTime);
+            transform.position = Vector2.Lerp(transform.position, MousePosition(), smooth * Time.unscaledDeltaTime);
         }
 
-        private void Start ()
+        private void Start()
         {
             cursorTransform = transform;
             Cursor.visible = false;
