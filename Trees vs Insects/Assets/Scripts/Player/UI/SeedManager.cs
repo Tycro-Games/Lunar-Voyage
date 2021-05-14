@@ -58,14 +58,14 @@ namespace Bogadanul.Assets.Scripts.Player
 
         public void AddSeed(GameObject seed)
         {
-            if (seeds.ContainsKey(seed))
+            if (seeds.ContainsKey(seed))//already here
             {
                 StartCoroutine(MoveSeed(seed.transform, seeds[seed]));
                 ShiftList(seed);
                 index--;
                 IsFull();
             }
-            else if (index < max)
+            else if (index < max)//add new
             {
                 seeds.Add(seed, seed.transform.position);
 
