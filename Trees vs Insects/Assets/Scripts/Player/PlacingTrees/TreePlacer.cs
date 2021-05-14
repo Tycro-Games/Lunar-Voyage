@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections;
-
 using Bogadanul.Assets.Scripts.Enemies;
 using Bogadanul.Assets.Scripts.Tree;
 using UnityEngine;

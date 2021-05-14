@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1291348721885832229}
   - component: {fileID: 2253870020189367456}
   - component: {fileID: 8736498785387785058}
+  - component: {fileID: 937475432732337137}
   m_Layer: 0
   m_Name: GPX
   m_TagString: Untagged
@@ -200,6 +201,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &937475432732337137
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2496670859465429176}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 446cc4d4b237fea4fa012585b8f92b3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minS: 1.9
+  maxS: 2
 --- !u!1 &7802668631942595373
 GameObject:
   m_ObjectHideFlags: 0

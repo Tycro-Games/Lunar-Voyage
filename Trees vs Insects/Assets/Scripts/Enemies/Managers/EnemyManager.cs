@@ -34,13 +34,14 @@ namespace Bogadanul.Assets.Scripts.Enemies
 
                 if (!hasPath)
                 {
+                    Debug.Log("No path");
                     OnNoSpace?.Invoke(path.Path);
                     return;
                 }
             }
         }
 
-        public static void SetSpace(bool remove=false)
+        public static void SetSpace(bool remove = false)
         {
             if (CheckForNullPaths())
                 return;

@@ -15,23 +15,23 @@ namespace Bogadanul.Assets.Scripts.Utility
         [SerializeField]
         private float TimeToWait = 0;
 
-        private void OnDisable ()
+        private void OnDisable()
         {
-            StopCoroutine (TimerLoop ());
+            StopCoroutine(TimerLoop());
         }
 
-        private void OnEnable ()
+        private void OnEnable()
         {
-            StartCoroutine (TimerLoop ());
+            StartCoroutine(TimerLoop());
         }
 
-        private IEnumerator TimerLoop ()
+        private IEnumerator TimerLoop()
         {
-            yield return new WaitForSeconds (TimeToWait);
-            OnTimerFinished?.Invoke ();
+            yield return new WaitForSeconds(TimeToWait);
+            OnTimerFinished?.Invoke();
 
             if (loop)
-                StartCoroutine (TimerLoop ());
+                StartCoroutine(TimerLoop());
         }
     }
 }

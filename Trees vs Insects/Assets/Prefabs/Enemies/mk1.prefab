@@ -295,6 +295,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifeTime: 2
+  ToSpawn: {fileID: 0}
 --- !u!1001 &8895070648298326694
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -302,6 +303,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 411755092714618392}
     m_Modifications:
+    - target: {fileID: 2906589859501156190, guid: 61e4ac2ebc38a95418a63981c1d48b7f,
+        type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3064889504973673313, guid: 61e4ac2ebc38a95418a63981c1d48b7f,
         type: 3}
       propertyPath: m_Name
