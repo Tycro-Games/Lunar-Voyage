@@ -4304,31 +4304,6 @@ PrefabInstance:
       propertyPath: m_Center.y
       value: 5.9239926
       objectReference: {fileID: 0}
-    - target: {fileID: 3262130411453841647, guid: 2d2288358d54cb949a246a78f82ad470,
-        type: 3}
-      propertyPath: orthographic size
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 3262130411453841647, guid: 2d2288358d54cb949a246a78f82ad470,
-        type: 3}
-      propertyPath: m_NormalizedViewPortRect.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3262130411453841647, guid: 2d2288358d54cb949a246a78f82ad470,
-        type: 3}
-      propertyPath: m_NormalizedViewPortRect.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3262130411453841647, guid: 2d2288358d54cb949a246a78f82ad470,
-        type: 3}
-      propertyPath: m_NormalizedViewPortRect.width
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3262130411453841647, guid: 2d2288358d54cb949a246a78f82ad470,
-        type: 3}
-      propertyPath: m_NormalizedViewPortRect.height
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3453708861896609772, guid: 2d2288358d54cb949a246a78f82ad470,
         type: 3}
       propertyPath: m_RootOrder
