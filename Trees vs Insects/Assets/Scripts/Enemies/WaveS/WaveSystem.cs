@@ -100,10 +100,14 @@ namespace Bogadanul.Assets.Scripts.Enemies
             {
                 if (EnemyList.List.Count == 0)
                 {
-                    OnLevelEnd?.Invoke();
                     End = false;
                 }
             }
+        }
+
+        public void EndTheGame()
+        {
+            OnLevelEnd?.Invoke();
         }
 
         private void SkipToNext()
@@ -127,11 +131,13 @@ namespace Bogadanul.Assets.Scripts.Enemies
 
         private void OnDisable()
         {
+            EndLevel.EndGame -= EndTheGame;
             EnemyListChecker.OnNoEnemies -= SkipToNext;
         }
 
         private void OnEnable()
         {
+            EndLevel.EndGame += EndTheGame;
             EnemyListChecker.OnNoEnemies += SkipToNext;
         }
     }

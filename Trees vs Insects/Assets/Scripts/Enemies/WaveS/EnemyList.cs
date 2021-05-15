@@ -10,10 +10,14 @@ namespace Bogadanul.Assets.Scripts.Enemies
 
         public static List<GameObject> List { get; set; } = new List<GameObject>();
 
-        public static void CheckEnemies()
+        public static bool CheckEnemies()
         {
             if (List.Count == 0)
+            {
                 OnNoEnemies?.Invoke();
+                return true;
+            }
+            return false;
         }
     }
 }

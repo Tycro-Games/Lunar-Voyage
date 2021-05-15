@@ -14,3 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: -749024654251515319, guid: 7a72458cc65ff4543932868093139ea4, type: 3}
   description: This gives you energy
+  collectable: {fileID: 7964760498876298798, guid: 11ecc1e599683f44c918d235d45efc25,
+    type: 3}

@@ -5362,6 +5362,11 @@ PrefabInstance:
       propertyPath: m_TileSpriteArray.Array.data[1].m_RefCount
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3262130411453841634, guid: 2d2288358d54cb949a246a78f82ad470,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3470223737304803669, guid: 2d2288358d54cb949a246a78f82ad470,
         type: 3}
       propertyPath: m_UpscaleRT

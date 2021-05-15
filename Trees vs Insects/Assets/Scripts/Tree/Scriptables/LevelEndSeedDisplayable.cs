@@ -8,5 +8,6 @@ namespace Bogadanul.Assets.Scripts.Tree
         public Sprite icon;
 
         public string description;
+        public GameObject collectable;
     }
 }

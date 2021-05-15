@@ -10,17 +10,17 @@ namespace Bogadanul.Assets.Scripts.Enemies
 
         private RandomNumberGenerator random;
 
-        public void NewGenerator ()
+        public void NewGenerator()
         {
             if (seed != 0)
-                random = new RandomNumberGenerator (seed);
+                random = new RandomNumberGenerator(seed);
             else
-                random = new RandomNumberGenerator ();
+                random = new RandomNumberGenerator();
         }
 
-        private void Awake ()
+        private void Awake()
         {
-            NewGenerator ();
+            NewGenerator();
         }
     }
 }

@@ -18,6 +18,8 @@ namespace Bogadanul.Assets.Scripts.Tree
 
         public void OnMouseDown()
         {
+            if (Pause.isPaused)
+                return;
             AddEnergy();
             OnDestroy?.Invoke();
             Destroy(gameObject);

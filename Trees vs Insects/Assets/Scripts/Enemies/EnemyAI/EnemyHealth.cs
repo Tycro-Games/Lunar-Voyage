@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Assets.Scripts.UI;
+using System;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -34,8 +35,13 @@ namespace Bogadanul.Assets.Scripts.Enemies
         public void Dead()
         {
             EnemyList.List.Remove(gameObject);
-            EnemyList.CheckEnemies();
+            bool Islast = EnemyList.CheckEnemies();
+            if (Islast)
+            {
+                GetterSeedDisplayer getter = FindObjectOfType<GetterSeedDisplayer>();
 
+                Instantiate(getter.LevelEndSeedDisplayable.collectable, transform.position, Quaternion.identity);
+            }
             OnDead?.Invoke();
             Destroy(gameObject);
         }
