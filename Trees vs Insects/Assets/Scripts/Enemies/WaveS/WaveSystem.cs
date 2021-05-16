@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Assets.Scripts.UI;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -40,7 +41,9 @@ namespace Bogadanul.Assets.Scripts.Enemies
 
         public int EnemyWeight { get => enemyWeight; set { enemyWeight = value; } }
         private bool waveEnd = false;
-        private bool End = false;
+
+        [HideInInspector]
+        public bool End = false;
 
         public void StartWave()
         {

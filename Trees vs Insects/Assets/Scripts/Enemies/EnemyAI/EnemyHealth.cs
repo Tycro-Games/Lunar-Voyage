@@ -17,6 +17,7 @@ namespace Bogadanul.Assets.Scripts.Enemies
 
         public event Action<int> OnDamage;
 
+        private WaveSystem wave = null;
         public int Health { get => health; set => health = value; }
 
         public void TakeDamage(int dg)
@@ -36,7 +37,7 @@ namespace Bogadanul.Assets.Scripts.Enemies
         {
             EnemyList.List.Remove(gameObject);
             bool Islast = EnemyList.CheckEnemies();
-            if (Islast)
+            if (Islast && wave.End)
             {
                 GetterSeedDisplayer getter = FindObjectOfType<GetterSeedDisplayer>();
 
@@ -48,6 +49,7 @@ namespace Bogadanul.Assets.Scripts.Enemies
 
         private void Start()
         {
+            wave = FindObjectOfType<WaveSystem>();
             EnemyList.List.Add(gameObject);
         }
     }
