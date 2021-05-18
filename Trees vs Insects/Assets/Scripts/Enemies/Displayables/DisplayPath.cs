@@ -22,8 +22,8 @@ namespace Bogadanul.Assets.Scripts.Enemies
             int i = 0;
             foreach (Node node in displayPathManager.nodes)
             {
-                if (node == currentNode)
-                    break;
+                //if (node == currentNode)
+                //    break;
                 sprites[i].SetActive(true);
                 sprites[i++].transform.position = node.worldPosition;
             }
