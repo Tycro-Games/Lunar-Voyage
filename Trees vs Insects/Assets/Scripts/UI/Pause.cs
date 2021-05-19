@@ -26,6 +26,11 @@ public class Pause : MonoBehaviour
         }
     }
 
+    public void ToUnpause()
+    {
+        IsPaused = false;
+    }
+
     public void ToUnpause(string name)
     {
         if (IsPaused)
