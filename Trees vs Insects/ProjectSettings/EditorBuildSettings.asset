@@ -21,9 +21,6 @@ EditorBuildSettings:
     path: Assets/Scenes/UI/Menu/MainMenuOptions.unity
     guid: 5a8b068075e7f29429b0183bbd437082
   - enabled: 1
-    path: Assets/Scenes/UI/InGame/WinScreen.unity
-    guid: 2ee97ded04946f241980fc489e3ab86e
-  - enabled: 1
     path: Assets/Scenes/Levels/1-1.unity
     guid: 3c51d655cf0b9904481579468927e8ec
   - enabled: 1

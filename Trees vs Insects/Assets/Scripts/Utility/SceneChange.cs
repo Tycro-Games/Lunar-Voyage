@@ -5,35 +5,35 @@ namespace Bogadanul.Assets.Scripts.Utility
 {
     public class SceneChange : MonoBehaviour
     {
-        public void ReloadScene ()
+        public void ReloadScene()
         {
-            SceneManager.LoadScene (SceneManager.GetActiveScene ().name);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
 
-        public void LoadSceneSi (string name)
+        public void LoadSceneSi(string name)
         {
             if (name.Length > 0)
-                SceneManager.LoadScene (name);
+                SceneManager.LoadScene(name);
         }
 
-        public void LoadSceneAd (string name)
+        public void LoadSceneAd(string name)
         {
-            SceneManager.LoadScene (name, LoadSceneMode.Additive);
+            SceneManager.LoadScene(name, LoadSceneMode.Additive);
         }
 
-        public void UnloadScene (string name)
+        public void UnloadScene(string name)
         {
-            SceneManager.UnloadSceneAsync (name);
+            SceneManager.UnloadSceneAsync(name);
         }
 
-        public void LoadNextLevel ()
+        public void LoadNextLevel()
         {
-            SceneManager.LoadScene (SceneManager.GetActiveScene ().buildIndex + 1);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
 
-        public void Quit ()
+        public void Quit()
         {
-            Application.Quit ();
+            Application.Quit();
         }
     }
 }
