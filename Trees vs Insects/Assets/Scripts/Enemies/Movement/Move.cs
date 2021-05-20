@@ -1,21 +1,20 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Bogadanul.Assets.Scripts.Utility;
 using Assets.Scripts.Enemies.Movement;
+using Assets.Scripts.Enemies.Scriptable;
 
 namespace Bogadanul.Assets.Scripts.Enemies
 {
     public class Move : MonoBehaviour
     {
         [SerializeField]
+        private MovementSpeeds movement = null;
+
         private float unitsPerSec = 1.0f;
 
-        [SerializeField]
-        private float randomRange = 0.0f;
-
         private FlipSprite sprite;
-        public float UnitsPerSec { get => unitsPerSec; set => unitsPerSec = value; }
+        public float UnitsPerSec { get => movement.unitsPerSec; set => movement.unitsPerSec = value; }
 
         public void Reset()
         {
@@ -24,7 +23,7 @@ namespace Bogadanul.Assets.Scripts.Enemies
 
         private void Awake()
         {
-            unitsPerSec = RandomStuff.RandomNumber(unitsPerSec, randomRange);
+            unitsPerSec += Random.Range(movement.min, movement.max);
             sprite = GetComponentInChildren<FlipSprite>();
         }
 

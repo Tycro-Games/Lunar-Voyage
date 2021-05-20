@@ -137,8 +137,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a64462329a7624b40bfc83de67daccd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitsPerSec: 0.3
-  randomRange: 0.1
+  movement: {fileID: 11400000, guid: 7676cde74310e0148b1edaffbd19ff1b, type: 2}
 --- !u!114 &6474203776965183668
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -180,6 +179,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifeTime: 2
+  ToSpawn: {fileID: 0}
 --- !u!1 &6636074273544888317
 GameObject:
   m_ObjectHideFlags: 0

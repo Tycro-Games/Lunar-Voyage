@@ -233,8 +233,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a64462329a7624b40bfc83de67daccd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitsPerSec: 0.3
-  randomRange: 0.05
+  movement: {fileID: 11400000, guid: af3c117d55207f941b6590a5a694fa43, type: 2}
 --- !u!114 &2325355609471347683
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -276,6 +275,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifeTime: 2
+  ToSpawn: {fileID: 0}
 --- !u!1001 &8105108790149767837
 PrefabInstance:
   m_ObjectHideFlags: 0
