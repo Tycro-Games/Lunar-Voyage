@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97cebcf7b30bcc042af03690620fbc67, type: 3}
   m_Name: High
   m_EditorClassIdentifier: 
-  unitsPerSec: 5.25
+  unitsPerSec: 0.9
   min: 0
-  max: 0.3
+  max: 0.15

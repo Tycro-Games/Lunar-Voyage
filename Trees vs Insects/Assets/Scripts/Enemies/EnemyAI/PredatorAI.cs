@@ -17,12 +17,6 @@ namespace Bogadanul.Assets.Scripts.Enemies
 
         private bool charging = true;
 
-        [SerializeField]
-        private float chargeSpeed = 5;
-
-        [SerializeField]
-        private float normalSpeed = 5;
-
         private BoxCollider[] colliders = new BoxCollider[32];
 
         [SerializeField]
@@ -80,14 +74,12 @@ namespace Bogadanul.Assets.Scripts.Enemies
         protected override void Start()
         {
             base.Start();
-
-            move.UnitsPerSec = chargeSpeed;
         }
 
         private void Update()
-        {           
+        {
             if (charging)
-            {                                              
+            {
                 Collider[] collider = new Collider[1];
                 int count = Physics.OverlapBoxNonAlloc(transform.position, scan / 2, collider, Quaternion.identity, trees);
                 if (count > 0)
@@ -105,18 +97,20 @@ namespace Bogadanul.Assets.Scripts.Enemies
             charging = false;
             //anim and stuff
 
-            move.UnitsPerSec = normalSpeed;
             StopCoroutine(Move);
             base.Init(ancientTree, grid);
             trace.IsActive = true;
             if (collider != null)
             {
                 DestroyTree(collider[0].GetComponent<DestroyTree>());
-                yield return null;
+
                 pathfinding.FindPath();
             }
             else
+            {
                 pathfinding.FindPath();
+            }
+            yield return null;
             OnEndCharge?.Invoke();
             gameObject.layer = (int)Mathf.Log(EnemyLayer.value, 2);
         }

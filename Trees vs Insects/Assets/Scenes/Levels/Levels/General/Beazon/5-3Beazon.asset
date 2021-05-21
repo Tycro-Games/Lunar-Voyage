@@ -16,4 +16,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c5a03eb2dfffd2544b065bd3d68c64d2, type: 2}
   durationBetweenEnemies: 5
   weight: 9
-  CountSpawners: 2
+  CountSpawners: 10

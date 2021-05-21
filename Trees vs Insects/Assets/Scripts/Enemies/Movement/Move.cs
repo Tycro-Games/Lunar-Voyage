@@ -14,17 +14,28 @@ namespace Bogadanul.Assets.Scripts.Enemies
         private float unitsPerSec = 1.0f;
 
         private FlipSprite sprite;
-        public float UnitsPerSec { get => movement.unitsPerSec; set => movement.unitsPerSec = value; }
+        public float UnitsPerSec { get => movement.unitsPerSec; }
 
         public void Reset()
         {
             StopAllCoroutines();
         }
 
+        public void ChangeMovement(MovementSpeeds newMovement)
+        {
+            movement = newMovement;
+            Init();
+        }
+
         private void Awake()
         {
-            unitsPerSec += Random.Range(movement.min, movement.max);
+            Init();
             sprite = GetComponentInChildren<FlipSprite>();
+        }
+
+        private void Init()
+        {
+            unitsPerSec += Random.Range(movement.min, movement.max);
         }
 
         public IEnumerator MoveTo(Vector3 node)
