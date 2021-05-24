@@ -47,7 +47,7 @@ namespace Bogadanul.Assets.Scripts.Player
                         CheckNode(n);
                     else if (n.FruitPlaceable())
                     {
-                        checkPlacer.ToSpawn(n, currentTree);
+                        checkPlacer.CheckToPlace(n, currentTree);
                         Placing();
                     }
                 }

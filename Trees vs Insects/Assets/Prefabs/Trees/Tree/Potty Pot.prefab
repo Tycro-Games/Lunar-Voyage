@@ -116,7 +116,7 @@ GameObject:
   - component: {fileID: 3791582654633530137}
   - component: {fileID: 1545781233215998529}
   - component: {fileID: 409418392924577796}
-  m_Layer: 8
+  m_Layer: 14
   m_Name: Potty Pot
   m_TagString: Plant
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
