@@ -15,20 +15,20 @@ namespace Bogadanul.Assets.Scripts.Tree
 
         private Color GizCol = Color.white;
 
-        public BoxCollider CheckForEnemies ()
+        public BoxCollider CheckForEnemies()
         {
-            int count = Physics.OverlapBoxNonAlloc (transform.position, radius / 2, colliders, Quaternion.identity, enemies);
+            int count = Physics.OverlapBoxNonAlloc(transform.position, radius / 2, colliders, Quaternion.identity, enemies);
             if (count > 0)
             {
                 BoxCollider col = colliders[0];
 
-                float currentDist = transform.Dist (col.transform.position);
+                float currentDist = transform.Dist(col.transform.position);
                 foreach (BoxCollider c in colliders)
                 {
                     if (c == null)
                         continue;
 
-                    float Dist = transform.Dist (c.transform.position);
+                    float Dist = transform.Dist(c.transform.position);
                     if (Dist < currentDist)
                     {
                         col = c;
@@ -40,30 +40,26 @@ namespace Bogadanul.Assets.Scripts.Tree
             return null;
         }
 
-        public List<Node> GetNodeRange (Node pos)
+        public List<Node> GetNodeRange(Node pos)
         {
-            return UtilityRecon.GetNeighbours (pos, Gridmanager.gridmanager);
+            return UtilityRecon.GetNeighbours(pos, Gridmanager.gridmanager);
         }
 
-        private void Awake ()
+        private void Awake()
         {
-            GizCol = Random.ColorHSV ();
-            
-        }
-        private void Start()
-        {
+            GizCol = Random.ColorHSV();
             GetRefs();
         }
 
-        private void OnDrawGizmosSelected ()
+        private void OnDrawGizmosSelected()
         {
             Gizmos.color = Color.red;
-            Gizmos.DrawWireCube (transform.position, new Vector2 (radius.x, radius.y));
+            Gizmos.DrawWireCube(transform.position, new Vector2(radius.x, radius.y));
             Gizmos.color = GizCol;
             if (nodes != null)
                 foreach (Node n in nodes)
                 {
-                    Gizmos.DrawCube (n.worldPosition, new Vector2 (1, 1));
+                    Gizmos.DrawCube(n.worldPosition, new Vector2(1, 1));
                 }
         }
     }

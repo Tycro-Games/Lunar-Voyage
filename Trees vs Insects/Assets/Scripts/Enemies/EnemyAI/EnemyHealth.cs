@@ -15,6 +15,9 @@ namespace Bogadanul.Assets.Scripts.Enemies
         [SerializeField]
         private UnityEvent onDead;
 
+        [SerializeField]
+        private UnityEvent onHit;
+
         public event Action<int> OnDamage;
 
         private WaveSystem wave = null;
@@ -29,6 +32,7 @@ namespace Bogadanul.Assets.Scripts.Enemies
             }
             else
             {
+                onHit?.Invoke();
                 OnDamage?.Invoke(dg);
             }
         }

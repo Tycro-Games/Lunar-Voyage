@@ -255,7 +255,7 @@ MonoBehaviour:
   radius: {x: 2, y: 2}
   enemies:
     serializedVersion: 2
-    m_Bits: 1024
+    m_Bits: 66560
 --- !u!1 &5146001152965547248
 GameObject:
   m_ObjectHideFlags: 0
