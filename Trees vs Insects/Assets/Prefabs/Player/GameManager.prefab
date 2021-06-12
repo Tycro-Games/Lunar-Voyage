@@ -585,7 +585,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8931683170678454280}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4faa60e5a91585845b045d9310a74806, type: 3}
   m_Name: 
@@ -876,6 +876,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7960950172463984931, guid: 9de5d213e95b88243809391c27d52490,
         type: 3}
+      propertyPath: OnDamage.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7960950172463984931, guid: 9de5d213e95b88243809391c27d52490,
+        type: 3}
       propertyPath: OnDead.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 5333537932189755588}
@@ -889,6 +894,36 @@ PrefabInstance:
       propertyPath: OnDead.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
       objectReference: {fileID: 1149903896}
+    - target: {fileID: 7960950172463984931, guid: 9de5d213e95b88243809391c27d52490,
+        type: 3}
+      propertyPath: OnDamage.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7960950172463984931, guid: 9de5d213e95b88243809391c27d52490,
+        type: 3}
+      propertyPath: OnDamage.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7960950172463984931, guid: 9de5d213e95b88243809391c27d52490,
+        type: 3}
+      propertyPath: OnDamage.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7960950172463984931, guid: 9de5d213e95b88243809391c27d52490,
+        type: 3}
+      propertyPath: OnDamage.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7960950172463984931, guid: 9de5d213e95b88243809391c27d52490,
+        type: 3}
+      propertyPath: OnDamage.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7960950172463984931, guid: 9de5d213e95b88243809391c27d52490,
+        type: 3}
+      propertyPath: OnDamage.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9de5d213e95b88243809391c27d52490, type: 3}
 --- !u!4 &4830277979645973424 stripped

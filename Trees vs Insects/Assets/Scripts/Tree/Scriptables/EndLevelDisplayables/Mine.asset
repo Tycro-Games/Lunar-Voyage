@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Mine
   m_EditorClassIdentifier: 
   icon: {fileID: 21300000, guid: 3e338851f166bf945af502920470d8ac, type: 3}
-  description: Needs a little time to be charged and than to explode. It is a fruit
-    so it can be placed over insects.
+  description: Needs a little time to be charged and then to explode, should be placed
+    in front of the enemies. It is a fruit so it can be placed over insects, but
+    it will instantly be destroyed.
   collectable: {fileID: 7964760498876298798, guid: 11ecc1e599683f44c918d235d45efc25,
     type: 3}

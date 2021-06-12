@@ -68,6 +68,7 @@ namespace Bogadanul.Assets.Scripts.Player
         {
             if (seed)
             {
+                spriteRen.enabled = false;
                 spriteRen.sprite = seed;
                 transform.position = cursor.transform.position;
 
