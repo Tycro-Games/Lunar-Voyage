@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1101677643}
   - component: {fileID: 1101677644}
+  - component: {fileID: 4427962008794161236}
   m_Layer: 15
   m_Name: GPX
   m_TagString: Untagged
@@ -83,6 +84,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &4427962008794161236
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1101677642}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c9fa5e4c9cc670d439fa015ef1c7d6d0, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &3981511106373124973
 GameObject:
   m_ObjectHideFlags: 0
@@ -94,7 +114,7 @@ GameObject:
   - component: {fileID: 7711567145854874151}
   - component: {fileID: 4541084501480790532}
   m_Layer: 15
-  m_Name: DestroyTimne
+  m_Name: DestroyTine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -134,15 +154,27 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 7358930138947015815}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: DestroyTheTree
-        m_Mode: 1
+        m_TargetAssemblyTypeName: Bogadanul.Assets.Scripts.Tree.DestroyTree, Scripts
+        m_MethodName: DestroyTheTreeOntime
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 1
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 4427962008794161236}
+        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+        m_MethodName: SetTrigger
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Boom
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &8976918986219011986
@@ -244,15 +276,27 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 7358930138947015815}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: DestroyTheTree
-        m_Mode: 1
+        m_TargetAssemblyTypeName: Bogadanul.Assets.Scripts.Tree.DestroyTree, Scripts
+        m_MethodName: DestroyTheTreeOntime
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 2
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 4427962008794161236}
+        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+        m_MethodName: SetTrigger
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Boom
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &5235577648872938533
@@ -295,20 +339,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1101677644}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: set_material
-        m_Mode: 2
+      - m_Target: {fileID: 4427962008794161236}
+        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+        m_MethodName: SetTrigger
+        m_Mode: 5
         m_Arguments:
-          m_ObjectArgument: {fileID: 2100000, guid: d2693a45a6ee4934da707ca9212ec141,
-            type: 2}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Material, UnityEngine
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Ready
           m_BoolArgument: 0
         m_CallState: 2
-  TimeToWait: 2.5
+  TimeToWait: 4
 --- !u!65 &5153103145353331281
 BoxCollider:
   m_ObjectHideFlags: 0
