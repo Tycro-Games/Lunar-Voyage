@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3772666519902724561}
   - component: {fileID: 6610410141345755483}
   - component: {fileID: 5993970061717573224}
+  - component: {fileID: 4886560954343573481}
   m_Layer: 16
   m_Name: Gpx
   m_TagString: Untagged
@@ -133,3 +134,22 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   speed: 1
+--- !u!95 &4886560954343573481
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7350138340451611808}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7a89d60420f22164a874c242c84e01e2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
