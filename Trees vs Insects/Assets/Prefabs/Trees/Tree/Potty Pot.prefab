@@ -115,8 +115,8 @@ GameObject:
   - component: {fileID: 792551126891858832}
   - component: {fileID: 3791582654633530137}
   - component: {fileID: 1545781233215998529}
-  - component: {fileID: 409418392924577796}
-  m_Layer: 8
+  - component: {fileID: 763512362445950027}
+  m_Layer: 14
   m_Name: Potty Pot
   m_TagString: Plant
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
@@ -208,7 +208,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   TimeToWait: 30
---- !u!114 &409418392924577796
+--- !u!114 &763512362445950027
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -217,25 +217,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 7935677415777961333}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b242f51fd9b0b514b84a1d76121220ff, type: 3}
+  m_Script: {fileID: 11500000, guid: 97e34e8911bdc8c458d82c2aace24046, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 0.69
-  dedectable:
-    serializedVersion: 2
-    m_Bits: 81920
-  OnDetect:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1520608499490192641}
-        m_TargetAssemblyTypeName: Bogadanul.Assets.Scripts.Tree.DestroyTree, Scripts
-        m_MethodName: DestroyTheTree
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2

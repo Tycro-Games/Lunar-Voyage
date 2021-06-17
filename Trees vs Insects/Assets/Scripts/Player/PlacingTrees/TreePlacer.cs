@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using Assets.Scripts.Tree.Interface;
 using Bogadanul.Assets.Scripts.Enemies;
 using Bogadanul.Assets.Scripts.Tree;
 using UnityEngine;
@@ -93,11 +94,31 @@ namespace Bogadanul.Assets.Scripts.Player
             currentTree = seed;
         }
 
+        public bool CustomChecks()
+        {
+            CustomChecks check = currentTree.GetComponent<CustomChecks>();
+            if (check != null)
+                return true;
+            return false;
+        }
+
         private void CheckNode(Node n)
         {
-            if (n.TowerPlaceAble() && checkPlacer.CheckToPlace(n, currentTree))
+            CustomChecks check = currentTree.GetComponent<CustomChecks>();
+            if (check != null)
             {
-                Placing();
+                if (n.TowerPlaceAble() && check.CustomCheck(n))
+                {
+                    if (checkPlacer.CheckToPlace(n, currentTree))
+                        Placing();
+                }
+            }
+            else
+            {
+                if (n.TowerPlaceAble() && checkPlacer.CheckToPlace(n, currentTree))
+                {
+                    Placing();
+                }
             }
         }
 

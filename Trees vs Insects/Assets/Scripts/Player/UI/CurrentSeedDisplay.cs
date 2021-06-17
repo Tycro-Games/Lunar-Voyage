@@ -1,4 +1,5 @@
-﻿using Bogadanul.Assets.Scripts.Enemies;
+﻿using Assets.Scripts.Tree.Interface;
+using Bogadanul.Assets.Scripts.Enemies;
 using Bogadanul.Assets.Scripts.Tree;
 using System;
 using UnityEngine;
@@ -30,6 +31,7 @@ namespace Bogadanul.Assets.Scripts.Player
         public event Action<bool> OnRangeDisplay = null;
 
         public bool IsFruit { get => canBePlaced; set => canBePlaced = value; }
+        private TreePlacer treePlacer;
 
         public void MoveSprite(InputAction.CallbackContext ctx)
         {
@@ -112,20 +114,31 @@ namespace Bogadanul.Assets.Scripts.Player
         {
             if (mouse == Vector2.zero)
                 return;
+
             if (spriteRen.sprite != null)
             {
                 Node n = node.NodeFromInput(mouse);
-
+                CustomChecks check = null;
                 if (n != null && n != lastnode)
                 {
                     lastnode = n;
                     transform.position = n.worldPosition;
                 }
+                if (treePlacer.CustomChecks())
+                    if (n?.currentPlant?.GetComponent<CustomChecks>() != null)
+                        check = n.currentPlant.GetComponent<CustomChecks>();
                 OnRangeDisplay?.Invoke(true);
                 displayRange.DisplayTheRange(n);
 
                 if (!IsFruit)
-                    spriteRen.enabled = n?.TowerPlaceAble() == true;
+                {
+                    if (check == null)
+                        spriteRen.enabled = n?.TowerPlaceAble() == true;
+                    else
+                    {
+                        spriteRen.enabled = n?.TowerPlaceAble() == true && check.CustomCheck(n);
+                    }
+                }
                 else
                     spriteRen.enabled = n?.FruitPlaceable() == true;
             }
@@ -140,6 +153,7 @@ namespace Bogadanul.Assets.Scripts.Player
         private void Start()
         {
             node = GetComponent<NodeFinder>();
+            treePlacer = FindObjectOfType<TreePlacer>();
         }
     }
 }

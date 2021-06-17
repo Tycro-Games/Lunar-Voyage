@@ -12,6 +12,9 @@ GameObject:
   - component: {fileID: -8875138202830992770}
   - component: {fileID: 4898288751321461171}
   - component: {fileID: 716896293667168905}
+  - component: {fileID: 288432921373657747}
+  - component: {fileID: 5237435655612436150}
+  - component: {fileID: 5237603221161734448}
   m_Layer: 8
   m_Name: Obstacle
   m_TagString: Untagged
@@ -111,3 +114,42 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 1
+--- !u!114 &288432921373657747
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6558333574259954155}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97e34e8911bdc8c458d82c2aace24046, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5237435655612436150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6558333574259954155}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7e88bcdbb8138d47bdbff825e6c4886, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  layerToPlace:
+    serializedVersion: 2
+    m_Bits: 2048
+--- !u!114 &5237603221161734448
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6558333574259954155}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 579b19f90b254ec4eb1fd1c9e8b9a18a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
