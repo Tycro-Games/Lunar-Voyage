@@ -30,7 +30,12 @@ namespace Bogadanul.Assets.Scripts.Player
             Nodey = node;
         }
 
-        private void Update()
+        private void FixedUpdate()
+        {
+            CheckPhysics();
+        }
+
+        private void CheckPhysics()
         {
             int count = Physics.OverlapSphereNonAlloc(transform.position, 1, res, ocupieable);
             if (count > 0)

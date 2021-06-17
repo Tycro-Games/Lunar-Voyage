@@ -32,6 +32,7 @@ namespace Bogadanul.Assets.Scripts.Player
 
         public bool IsFruit { get => canBePlaced; set => canBePlaced = value; }
         private TreePlacer treePlacer;
+        private CustomChecks check = null;
 
         public void MoveSprite(InputAction.CallbackContext ctx)
         {
@@ -118,15 +119,17 @@ namespace Bogadanul.Assets.Scripts.Player
             if (spriteRen.sprite != null)
             {
                 Node n = node.NodeFromInput(mouse);
-                CustomChecks check = null;
+                GameObject checkObj = null;
                 if (n != null && n != lastnode)
                 {
+                    checkObj = n.currentPlant;
+                    if (treePlacer.CustomChecks() && checkObj != null)
+                        if (checkObj.TryGetComponent(out check))
+                            check = n.currentPlant.GetComponent<CustomChecks>();
                     lastnode = n;
                     transform.position = n.worldPosition;
                 }
-                if (treePlacer.CustomChecks())
-                    if (n?.currentPlant?.GetComponent<CustomChecks>() != null)
-                        check = n.currentPlant.GetComponent<CustomChecks>();
+
                 OnRangeDisplay?.Invoke(true);
                 displayRange.DisplayTheRange(n);
 

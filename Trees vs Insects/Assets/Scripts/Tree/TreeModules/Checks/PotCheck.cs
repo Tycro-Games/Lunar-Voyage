@@ -9,10 +9,12 @@ namespace Assets.Scripts.Tree.TreeModules
     {
         public bool CustomCheck(Node n)
         {
-            if (n.currentPlant?.GetComponent<PotCheck>() != null)
-            {
-                return false;
-            }
+            GameObject obj = n.currentPlant;
+            if (obj != null)
+                if (obj.TryGetComponent(out PotCheck potCheck))
+                {
+                    return false;
+                }
             return true;
         }
     }
