@@ -19,7 +19,7 @@ GameObject:
   - component: {fileID: -9023381309614512319}
   - component: {fileID: 3854107833005718659}
   m_Layer: 10
-  m_Name: Mk3
+  m_Name: mk3
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -204,18 +204,24 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3772666519902724561, guid: 44be9c27f7006ad4dbf17419d788cc16,
         type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 2549092776074387521, guid: 688b486052beca24aaded59fa32b3b5c,
+        type: 3}
+    - target: {fileID: 3772666519902724561, guid: 44be9c27f7006ad4dbf17419d788cc16,
+        type: 3}
       propertyPath: m_Color.b
-      value: 0.29503384
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3772666519902724561, guid: 44be9c27f7006ad4dbf17419d788cc16,
         type: 3}
       propertyPath: m_Color.g
-      value: 0.29503384
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3772666519902724561, guid: 44be9c27f7006ad4dbf17419d788cc16,
         type: 3}
       propertyPath: m_Color.r
-      value: 0.9622642
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7350138340451611808, guid: 44be9c27f7006ad4dbf17419d788cc16,
         type: 3}
