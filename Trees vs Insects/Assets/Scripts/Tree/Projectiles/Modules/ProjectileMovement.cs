@@ -11,6 +11,9 @@ namespace Assets.Scripts.Tree.Projectiles
 
         private float speedTime = 0;
 
+        [SerializeField]
+        private float duration = 1.0f;
+
         private void Start()
         {
             speedTime = 0;
@@ -18,16 +21,20 @@ namespace Assets.Scripts.Tree.Projectiles
 
         public void MoveToTarget(Transform target, float speed)
         {
-            speedTime += Time.deltaTime;
+            Vector2 pos = Vector2.MoveTowards(transform.position, target.position, Time.deltaTime * speed * speedCurve.Evaluate(TimeManagement()));
+            Quaternion rot = Quaternion.LookRotation(Vector3.forward, (target.position - transform.position).normalized);
+            transform.SetPositionAndRotation(pos, rot);
+        }
 
-            transform.position = Vector2.MoveTowards(transform.position, target.position, Time.deltaTime * speed * speedCurve.Evaluate(speedTime));
-            transform.rotation = Quaternion.LookRotation(Vector3.forward, (target.position - transform.position).normalized);
+        private float TimeManagement()
+        {
+            speedTime += Time.deltaTime;
+            return speedTime / duration;
         }
 
         public void MoveToTarget(Vector3 dir, float speed)
         {
-            speedTime += Time.deltaTime;
-            transform.position = Vector2.MoveTowards(transform.position, transform.position + dir, Time.deltaTime * speed * speedCurve.Evaluate(speedTime));
+            transform.position = Vector2.MoveTowards(transform.position, transform.position + dir, Time.deltaTime * speed * speedCurve.Evaluate(TimeManagement()));
         }
     }
 }

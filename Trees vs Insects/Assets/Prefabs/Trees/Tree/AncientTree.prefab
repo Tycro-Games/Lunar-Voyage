@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 2888035109234392073}
   - component: {fileID: 7860356040566638000}
   - component: {fileID: 7718260027677847944}
-  - component: {fileID: 4433004289764514418}
   - component: {fileID: 427172993537985158}
   - component: {fileID: 7960950172463984931}
   - component: {fileID: 7271939046763336288}
+  - component: {fileID: 7160339396701814531}
   m_Layer: 13
   m_Name: AncientTree
   m_TagString: Finish
@@ -65,22 +65,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.0969224, y: 0.9713855, z: 1}
   m_Center: {x: -0.02916503, y: 0.07718277, z: 0}
---- !u!114 &4433004289764514418
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2888035109234392182}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c944fb629ac85cb4b86ac5c0e0fd2bec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  energyGain: 25
-  OnDestroy:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!114 &427172993537985158
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -97,9 +81,10 @@ MonoBehaviour:
   OnTimerFinished:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4433004289764514418}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: AddEnergy
+      - m_Target: {fileID: 7160339396701814531}
+        m_TargetAssemblyTypeName: Bogadanul.Assets.Scripts.Tree.GoldenTreeSpawn,
+          Scripts
+        m_MethodName: Spawn
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -109,7 +94,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  TimeToWait: 10
+  TimeToWait: 7
 --- !u!114 &7960950172463984931
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -203,6 +188,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.2158871, y: 1.3479252, z: 1}
   m_Center: {x: -0.052256107, y: -0.17744088, z: 0}
+--- !u!114 &7160339396701814531
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2888035109234392182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ee3002fe75252947a3060491a953fe1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waterPrefab: {fileID: 7802668631942595373, guid: c56671422744dbb4fb293140b4fbeb48,
+    type: 3}
 --- !u!1 &7904163961877848882
 GameObject:
   m_ObjectHideFlags: 0

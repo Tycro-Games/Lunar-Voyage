@@ -19,7 +19,6 @@ namespace Bogadanul.Assets.Scripts.Player
 
         public event Action NotFull;
 
-        [SerializeField]
         public int max = 8;
 
         private Dictionary<GameObject, Vector2> seeds = new Dictionary<GameObject, Vector2>();

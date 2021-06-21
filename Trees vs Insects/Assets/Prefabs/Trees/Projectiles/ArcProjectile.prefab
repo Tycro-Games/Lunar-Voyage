@@ -92,6 +92,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4138705543927219698}
   - component: {fileID: 8020060899947129138}
+  - component: {fileID: 4467198434260877344}
   m_Layer: 0
   m_Name: ArcProjectile
   m_TagString: Untagged
@@ -128,6 +129,70 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   speed: 0.25
+  curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 4.6479635
+      outSlope: 4.6479635
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.061572995
+      value: 0.28618905
+      inSlope: 2.908677
+      outSlope: 2.908677
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.5090202
+      value: 0.80942965
+      inSlope: 0.03567177
+      outSlope: 0.03567177
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.9162983
+      value: 0.36221918
+      inSlope: -2.7127733
+      outSlope: -2.7127733
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: -4.3274994
+      outSlope: -4.3274994
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  duration: 1
+--- !u!114 &4467198434260877344
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4138705543927219697}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a42dae9a0d71ef044b39eb010c304ea0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   curve:
     serializedVersion: 2
     m_Curve:

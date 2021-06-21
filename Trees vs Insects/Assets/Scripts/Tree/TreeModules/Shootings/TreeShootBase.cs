@@ -15,27 +15,27 @@ namespace Bogadanul.Assets.Scripts.Tree
 
         protected bool CanShoot { get; set; } = true;
 
-        public virtual T CacheProjectile<T> (GameObject projectileObject)
+        public virtual T CacheProjectile<T>(GameObject projectileObject)
         {
-            return projectileObject.GetComponent<T> ();
+            return projectileObject.GetComponent<T>();
         }
 
-        public bool NullProjectile ()
+        public bool NullProjectile()
         {
             return instance == null ? true : false;
         }
 
-        public void Shoot (Transform target)
+        public void Shoot(Transform target)
         {
             if (CanShoot && target != null)
-                StartCoroutine (Shooting (target));
+                StartCoroutine(Shooting(target));
         }
 
-        public abstract IEnumerator Shooting (Transform target);
+        public abstract IEnumerator Shooting(Transform target);
 
-        private void Awake ()
+        private void Awake()
         {
-            fireRater = GetComponent<IFireRater> ();
+            fireRater = GetComponent<IFireRater>();
         }
     }
 }

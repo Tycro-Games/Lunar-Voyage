@@ -1,40 +1,22 @@
-﻿using Bogadanul.Assets.Scripts.Enemies;
+﻿using Assets.Scripts.Tree.Projectiles.Modules;
+using Bogadanul.Assets.Scripts.Enemies;
 using Bogadanul.Assets.Scripts.Tree;
 using System.Collections;
 using UnityEngine;
 
 namespace Assets.Scripts.Tree.Projectiles
 {
+    [RequireComponent(typeof(ArcMovement))]
     public class ProjectileArcTarget : ProjectileBase, IProjectileTarget
     {
-        public AnimationCurve curve;
         private Transform target = null;
 
         private Vector3 start;
+        private ArcMovement arcMovement = null;
 
-        [SerializeField]
-        private float duration = 1.0f;
-
-        private IEnumerator Curve()
+        private IEnumerator Move()
         {
-            float time = 0f;
-
-            Vector2 end = target.position; // lead the target a bit to account for travel time, your math will vary
-
-            while (time < duration)
-            {
-                time += Time.deltaTime;
-
-                float linearT = time / duration;
-                float heightT = curve.Evaluate(linearT);
-
-                float height = Mathf.Lerp(0f, 3.0f, heightT); // change 3 to however tall you want the arc to be
-
-                transform.position = Vector2.Lerp(start, end, linearT) + new Vector2(0f, height);
-
-                yield return null;
-            }
-
+            yield return StartCoroutine(arcMovement.Curve(transform.position, target.position));
             DestroyProjectile();
             // impact
         }
@@ -42,10 +24,11 @@ namespace Assets.Scripts.Tree.Projectiles
         public void Init(Transform Target)
         {
             enemyAI = Target.GetComponent<IEnemyAI>();
+            arcMovement = GetComponent<ArcMovement>();
             target = Target;
             start = transform.position;
 
-            StartCoroutine(Curve());
+            StartCoroutine(Move());
         }
     }
 }

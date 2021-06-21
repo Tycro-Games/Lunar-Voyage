@@ -5,7 +5,6 @@ namespace Bogadanul.Assets.Scripts.Player
 {
     public class ContainerBase : MonoBehaviour
     {
-        [SerializeField]
         public TreeSeed treeSeed = null;
 
         protected TreeSeedSender treeSeedSender = null;

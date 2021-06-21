@@ -11,7 +11,7 @@ namespace Bogadanul.Assets.Scripts.Tree
         {
             CanShoot = false;
 
-            instance = Instantiate(projectileObject, transform.position, Quaternion.identity,transform);
+            instance = Instantiate(projectileObject, transform.position, Quaternion.identity, transform.parent);
             Currentprojectile = CacheProjectile<IProjectileTarget>(instance);
             Currentprojectile.Init(target);
             yield return StartCoroutine(fireRater.Wait());
