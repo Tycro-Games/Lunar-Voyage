@@ -1241,6 +1241,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4385483268598201640, guid: 2d2288358d54cb949a246a78f82ad470,
         type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4385483268598201640, guid: 2d2288358d54cb949a246a78f82ad470,
+        type: 3}
       propertyPath: m_CropFrameX
       value: 0
       objectReference: {fileID: 0}

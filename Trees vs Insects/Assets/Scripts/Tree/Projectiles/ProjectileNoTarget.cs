@@ -1,9 +1,11 @@
-﻿using Bogadanul.Assets.Scripts.Enemies;
+﻿using Assets.Scripts.Tree.Projectiles;
+using Bogadanul.Assets.Scripts.Enemies;
 using System.Collections;
 using UnityEngine;
 
 namespace Bogadanul.Assets.Scripts.Tree
 {
+    [RequireComponent(typeof(ProjectileMovement))]
     public class ProjectileNoTarget : ProjectileBase, IProjectileNoTarget
     {
         private Vector3 dir;
@@ -17,40 +19,38 @@ namespace Bogadanul.Assets.Scripts.Tree
         [SerializeField]
         private float maxDist = 0.25f;
 
-        public void Init (Vector2 Dir)
+        private ProjectileMovement projectileMovement;
+
+        public void Init(Vector2 Dir)
         {
             dir = Dir;
+            projectileMovement = GetComponent<ProjectileMovement>();
         }
 
-        private void CheckSpace ()
+        private void CheckSpace()
         {
             RaycastHit[] colliders = new RaycastHit[1];
-            Ray ray = new Ray (transform.position, dir);
-            int count = Physics.SphereCastNonAlloc (ray, radius, colliders, maxDist, enemies);
+            Ray ray = new Ray(transform.position, dir);
+            int count = Physics.SphereCastNonAlloc(ray, radius, colliders, maxDist, enemies);
             if (count > 0)
             {
-                colliders[0].collider.GetComponent<IEnemyAI> ().TakeDamage (damage);
+                colliders[0].collider.GetComponent<IEnemyAI>().TakeDamage(damage);
 
-                DestroyProjectile ();
+                DestroyProjectile();
             }
         }
 
-        private void MoveToTarget ()
+        private void Update()
         {
-            transform.position = Vector2.MoveTowards (transform.position, transform.position + dir, Time.deltaTime * speed);
-            CheckSpace ();
+            projectileMovement.MoveToTarget(dir, speed);
+            CheckSpace();
         }
 
-        private void Update ()
+        private void OnDrawGizmosSelected()
         {
-            MoveToTarget ();
-        }
-
-        private void OnDrawGizmosSelected ()
-        {
-            Gizmos.DrawWireSphere (transform.position, radius);
+            Gizmos.DrawWireSphere(transform.position, radius);
             Gizmos.color = Color.green;
-            Gizmos.DrawLine (transform.position, (Vector2)transform.position + Vector2.right * maxDist);
+            Gizmos.DrawLine(transform.position, (Vector2)transform.position + Vector2.right * maxDist);
         }
     }
 }

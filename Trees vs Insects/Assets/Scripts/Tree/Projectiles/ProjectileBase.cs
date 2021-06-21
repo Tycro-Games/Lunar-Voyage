@@ -14,14 +14,14 @@ namespace Bogadanul.Assets.Scripts.Tree
 
         protected IEnemyAI enemyAI;
 
-        public virtual void DestroyProjectile ()
+        public virtual void DestroyProjectile()
         {
-            Destroy (gameObject);
+            Destroy(gameObject);
         }
 
-        public virtual void DestroyProjectile (float time)
+        public virtual void DestroyProjectile(float time)
         {
-            Destroy (gameObject, time);
+            Destroy(gameObject, time);
         }
     }
 }

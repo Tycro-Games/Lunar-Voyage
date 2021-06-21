@@ -20,7 +20,7 @@ namespace Assets.Scripts.Tree.Projectiles
             float time = 0f;
 
             Vector2 end = target.position; // lead the target a bit to account for travel time, your math will vary
-           
+
             while (time < duration)
             {
                 time += Time.deltaTime;

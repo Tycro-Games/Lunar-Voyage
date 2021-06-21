@@ -1,9 +1,11 @@
-﻿using Bogadanul.Assets.Scripts.Enemies;
+﻿using Assets.Scripts.Tree.Projectiles;
+using Bogadanul.Assets.Scripts.Enemies;
 using System;
 using UnityEngine;
 
 namespace Bogadanul.Assets.Scripts.Tree
 {
+    [RequireComponent(typeof(ProjectileMovement))]
     public class ProjectileTarget : ProjectileBase, IProjectileTarget
     {
         private Transform target;
@@ -11,9 +13,11 @@ namespace Bogadanul.Assets.Scripts.Tree
         private bool hasTarget = false;
 
         private Vector2 dir = Vector2.zero;
+        private ProjectileMovement projectileMovement = null;
 
         public void Init(Transform Target)
         {
+            projectileMovement = GetComponent<ProjectileMovement>();
             hasTarget = true;
             target = Target;
             enemyAI = target.GetComponent<IEnemyAI>();
@@ -28,17 +32,6 @@ namespace Bogadanul.Assets.Scripts.Tree
             }
         }
 
-        private void MoveToTarget()
-        {
-            transform.position = Vector2.MoveTowards(transform.position, target.position, Time.deltaTime * speed);
-            transform.rotation = Quaternion.LookRotation(Vector3.forward, (target.position - transform.position).normalized);
-        }
-
-        private void MoveToTarget(Vector3 dir)
-        {
-            transform.position = Vector2.MoveTowards(transform.position, transform.position + dir, Time.deltaTime * speed);
-        }
-
         private void Update()
         {
             if (hasTarget && target == null)
@@ -49,12 +42,12 @@ namespace Bogadanul.Assets.Scripts.Tree
             }
             if (hasTarget)
             {
-                MoveToTarget();
+                projectileMovement.MoveToTarget(target, speed);
                 CheckSpace();
             }
             else
             {
-                MoveToTarget(dir);
+                projectileMovement.MoveToTarget(dir, speed);
             }
         }
     }
