@@ -14,8 +14,8 @@ namespace Assets.Scripts.Tree.Projectiles.Modules
         {
             float time = 0f;
 
-            Vector2 end = target; // lead the target a bit to account for travel time, your math will vary
-
+            Vector2 end = target;
+            //temp vars
             while (time < duration)
             {
                 time += Time.deltaTime;
@@ -23,7 +23,7 @@ namespace Assets.Scripts.Tree.Projectiles.Modules
                 float linearT = time / duration;
                 float heightT = curve.Evaluate(linearT);
 
-                float height = Mathf.Lerp(0f, heightY, heightT); // change 3 to however tall you want the arc to be
+                float height = Mathf.Lerp(0f, heightY, heightT);
 
                 transform.position = Vector2.Lerp(start, end, linearT) + new Vector2(0f, height);
 

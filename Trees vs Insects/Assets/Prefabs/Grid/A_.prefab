@@ -1099,6 +1099,11 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7689952592775722728, guid: a7b09197468d2db4c93e5ff7a0fd0e00,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8237921067524046890, guid: a7b09197468d2db4c93e5ff7a0fd0e00,
         type: 3}
       propertyPath: OnNoSpace.m_PersistentCalls.m_Calls.Array.size

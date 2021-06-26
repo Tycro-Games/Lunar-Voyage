@@ -2680,6 +2680,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: DirtSnap
       objectReference: {fileID: 0}
+    - target: {fileID: 5032017608852380450, guid: 3ad70e266b3d9bd4bb07331b42c1259c,
+        type: 3}
+      propertyPath: LifetimeByEmitterSpeedModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5032017608852380453, guid: 3ad70e266b3d9bd4bb07331b42c1259c,
         type: 3}
       propertyPath: m_RootOrder
