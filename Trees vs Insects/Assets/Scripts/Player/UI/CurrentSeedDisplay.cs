@@ -1,6 +1,7 @@
 ﻿using Assets.Scripts.Tree.Interface;
 using Bogadanul.Assets.Scripts.Enemies;
 using Bogadanul.Assets.Scripts.Tree;
+using Bogadanul.Assets.Scripts.Utility;
 using System;
 using UnityEngine;
 using UnityEngine.Events;
@@ -24,8 +25,7 @@ namespace Bogadanul.Assets.Scripts.Player
 
         private bool canBePlaced = false;
 
-        private Vector2 mouse;
-
+        private CursorController cursorController = null;
         private Node lastnode = null;
 
         public event Action<bool> OnRangeDisplay = null;
@@ -33,11 +33,6 @@ namespace Bogadanul.Assets.Scripts.Player
         public bool IsFruit { get => canBePlaced; set => canBePlaced = value; }
         private TreePlacer treePlacer;
         private CustomChecks check = null;
-
-        public void MoveSprite(InputAction.CallbackContext ctx)
-        {
-            mouse = ctx.ReadValue<Vector2>();
-        }
 
         public void ResetSprite()
         {
@@ -82,21 +77,17 @@ namespace Bogadanul.Assets.Scripts.Player
 
         private void Update()
         {
+            Node n = node.NodeFromInput(cursorController.MousePosition());
             if (placeable)
-                CheckPlaceables();
+                CheckPlaceables(n);
             else if (spriteRen.sprite != null)
             {
-                CheckForPlants();
+                CheckForPlants(n);
             }
         }
 
-        private void CheckForPlants()
+        private void CheckForPlants(Node n)
         {
-            if (mouse == Vector2.zero)
-                return;
-
-            Node n = node.NodeFromInput(mouse);
-
             if (n != null && n != lastnode)
             {
                 lastnode = n;
@@ -111,14 +102,10 @@ namespace Bogadanul.Assets.Scripts.Player
                 spriteRen.enabled = false;
         }
 
-        private void CheckPlaceables()
+        private void CheckPlaceables(Node n)
         {
-            if (mouse == Vector2.zero)
-                return;
-
             if (spriteRen.sprite != null)
             {
-                Node n = node.NodeFromInput(mouse);
                 GameObject checkObj = null;
                 if (n != null && n != lastnode)
                 {
@@ -155,6 +142,7 @@ namespace Bogadanul.Assets.Scripts.Player
 
         private void Start()
         {
+            cursorController = FindObjectOfType<CursorController>();
             node = GetComponent<NodeFinder>();
             treePlacer = FindObjectOfType<TreePlacer>();
         }

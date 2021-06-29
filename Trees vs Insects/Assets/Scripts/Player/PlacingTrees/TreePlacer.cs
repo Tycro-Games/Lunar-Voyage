@@ -3,6 +3,7 @@ using System.Collections;
 using Assets.Scripts.Tree.Interface;
 using Bogadanul.Assets.Scripts.Enemies;
 using Bogadanul.Assets.Scripts.Tree;
+using Bogadanul.Assets.Scripts.Utility;
 using UnityEngine;
 
 namespace Bogadanul.Assets.Scripts.Player
@@ -34,13 +35,15 @@ namespace Bogadanul.Assets.Scripts.Player
             return false;
         }
 
-        public void Place()
+        private CursorController cursorController = null;
+
+        public void Place(Vector3 input)
         {
             if (currentTree != null)
             {
                 if (placeable)
                 {
-                    Node n = raycaster.NodeFromInput(Input.mousePosition);
+                    Node n = raycaster.NodeFromInput(input);
                     if (n == null)
                         return;
 
@@ -54,7 +57,7 @@ namespace Bogadanul.Assets.Scripts.Player
                 }
                 else
                 {
-                    Node n = raycaster.NodeFromInput(Input.mousePosition);
+                    Node n = raycaster.NodeFromInput(input);
                     if (n == null)
                         return;
                     GameObject ng = n.currentPlant;
@@ -129,8 +132,15 @@ namespace Bogadanul.Assets.Scripts.Player
             OnBuyCheck?.Invoke();
         }
 
+        private void OnDisable()
+        {
+            cursorController.OnMovement -= Place;
+        }
+
         private void Start()
         {
+            cursorController = FindObjectOfType<CursorController>();
+            cursorController.OnMovement += Place;
             seedSender = FindObjectOfType<TreeSeedSender>();
             layer = (int)Mathf.Log(BlockLayer.value, 2);
             checkPlacer = GetComponent<CheckPlacerPath>();
