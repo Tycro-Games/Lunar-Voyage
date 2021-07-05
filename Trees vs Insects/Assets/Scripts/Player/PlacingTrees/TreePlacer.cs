@@ -28,6 +28,9 @@ namespace Bogadanul.Assets.Scripts.Player
         private bool placeable = false;
         private TreeSeedSender seedSender = null;
 
+        [SerializeField]
+        private GameObject DirtSnap = null;
+
         public bool UnWalkable()
         {
             if (currentTree.layer == layer)
@@ -55,7 +58,7 @@ namespace Bogadanul.Assets.Scripts.Player
                         Placing();
                     }
                 }
-                else
+                else //this is the shovel
                 {
                     Node n = raycaster.NodeFromInput(input);
                     if (n == null)
@@ -63,7 +66,8 @@ namespace Bogadanul.Assets.Scripts.Player
                     GameObject ng = n.currentPlant;
                     if (ng != null && ng.CompareTag("Plant"))
                     {
-                        //Here you can destroy the plant;
+                        //Here you can destroy the plant
+                        Instantiate(DirtSnap, ng.transform.position, Quaternion.identity);
                         ng.GetComponent<DestroyTree>().DestroyTheTree();
                         StartCoroutine(Counter());
                         seedSender.CancelCurrentSeed();

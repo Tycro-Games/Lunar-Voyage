@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Bogadanul.Assets.Scripts.Tree
 {
-    public class GoldenTreeSpawn : MonoBehaviour
+    public class GameObjectParentSpawner : MonoBehaviour
     {
         [SerializeField]
         private GameObject waterPrefab = null;

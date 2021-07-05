@@ -38,6 +38,8 @@ namespace Assets.Scripts.Tree.Projectiles
         public void MoveToTarget(Vector3 dir, float speed)
         {
             transform.position = Vector2.MoveTowards(transform.position, transform.position + dir, Time.deltaTime * speed * speedCurve.Evaluate(TimeManagement()));
+            if (speedCurve.Evaluate(TimeManagement()) <= 0)
+                Destroy(gameObject);
         }
     }
 }

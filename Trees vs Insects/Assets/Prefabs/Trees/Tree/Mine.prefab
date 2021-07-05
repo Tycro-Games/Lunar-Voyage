@@ -191,6 +191,7 @@ GameObject:
   - component: {fileID: 3297613584555094711}
   - component: {fileID: 5235577648872938533}
   - component: {fileID: 5153103145353331281}
+  - component: {fileID: 4891912785796722820}
   m_Layer: 15
   m_Name: Mine
   m_TagString: Plant
@@ -364,6 +365,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 4891912785796722820}
+        m_TargetAssemblyTypeName: Bogadanul.Assets.Scripts.Tree.GameObjectParentSpawner,
+          Scripts
+        m_MethodName: Spawn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   TimeToWait: 4
 --- !u!65 &5153103145353331281
 BoxCollider:
@@ -378,3 +392,17 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.6875, y: 0.93352795, z: 0.2}
   m_Center: {x: 0, y: -0.43948603, z: 0}
+--- !u!114 &4891912785796722820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8976918986219011986}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ee3002fe75252947a3060491a953fe1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waterPrefab: {fileID: 5032017608852380448, guid: 70790ac5f5595b54f941abf3f99ceef5,
+    type: 3}
