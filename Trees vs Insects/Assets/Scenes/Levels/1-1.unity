@@ -453,6 +453,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Oak
       objectReference: {fileID: 0}
+    - target: {fileID: 5371944494303682906, guid: ee65577d071945c46a3235d33eaa8100,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5371944494303682909, guid: ee65577d071945c46a3235d33eaa8100,
         type: 3}
       propertyPath: m_Color.b
@@ -490,6 +495,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5371944494303682910, guid: ee65577d071945c46a3235d33eaa8100,
         type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2007439164}
+    - target: {fileID: 5371944494303682910, guid: ee65577d071945c46a3235d33eaa8100,
+        type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 1539275098}
@@ -520,6 +530,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5371944494303682910, guid: ee65577d071945c46a3235d33eaa8100,
         type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnClick
+      objectReference: {fileID: 0}
+    - target: {fileID: 5371944494303682910, guid: ee65577d071945c46a3235d33eaa8100,
+        type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
       value: PlayNextTimeline
       objectReference: {fileID: 0}
@@ -532,6 +547,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_MethodName
       value: SetActive
+      objectReference: {fileID: 0}
+    - target: {fileID: 5371944494303682910, guid: ee65577d071945c46a3235d33eaa8100,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Bogadanul.Assets.Scripts.Player.TreeSeedContainer, Scripts
       objectReference: {fileID: 0}
     - target: {fileID: 5371944494303682910, guid: ee65577d071945c46a3235d33eaa8100,
         type: 3}
@@ -6989,6 +7009,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1959029140}
   m_CullTransparentMesh: 0
+--- !u!114 &2007439164 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8030329118155931976, guid: ee65577d071945c46a3235d33eaa8100,
+    type: 3}
+  m_PrefabInstance: {fileID: 455194941}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a9045cd48ea7494a8ce5f201285e778, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2036726909
 GameObject:
   m_ObjectHideFlags: 0

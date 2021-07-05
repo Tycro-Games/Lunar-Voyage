@@ -14,8 +14,9 @@ namespace Assets.Scripts.Player.UI
                 Selected = false;
                 return;
             }
-            Selected = true;
+
             treeSeedSender.ChangeCurrent(treeSeed);
+            Selected = true;
         }
 
         private void Start()
