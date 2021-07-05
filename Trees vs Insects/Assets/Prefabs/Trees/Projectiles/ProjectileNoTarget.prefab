@@ -128,7 +128,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 4
-  speed: 10
+  speed: 7
   enemies:
     serializedVersion: 2
     m_Bits: 66560
@@ -152,22 +152,22 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 0
       value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 34
+      inSlope: -0.98437345
+      outSlope: -0.98437345
+      tangentMode: 0
       weightedMode: 0
       inWeight: 0
-      outWeight: 0
+      outWeight: 0.06870772
     - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0
+      time: 0.5994895
+      value: 0
+      inSlope: -2.9835014
+      outSlope: -2.9835014
+      tangentMode: 0
+      weightedMode: 1
+      inWeight: 0.28816515
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  duration: 1
+  duration: 2
