@@ -17,7 +17,7 @@ namespace Bogadanul.Assets.Scripts.Utility
         public Vector2 MousePosition()
         {
             Vector2 mousePos = transform.position;
-#if UNITY_EDITOR || UNITY_STANDALONE
+#if !UNITY_ANDROID
             mousePos = Input.mousePosition;
             if (Input.GetMouseButtonDown(0))
                 OnMovement?.Invoke(mousePos);

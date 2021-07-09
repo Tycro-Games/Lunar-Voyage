@@ -10,13 +10,17 @@ namespace UI
 
         private void Start()
         {
-            audioMixer.GetFloat("Volume", out float val);
+            float val = PlayerPrefs.GetFloat(name, 0);
+            audioMixer.SetFloat("Volume", val);
+
             GetComponent<Slider>().value = val;
         }
 
         public void SetVolume(float volume)
         {
             audioMixer.SetFloat("Volume", volume);
+            PlayerPrefs.SetFloat(name, volume);
+            PlayerPrefs.Save();
         }
     }
 }

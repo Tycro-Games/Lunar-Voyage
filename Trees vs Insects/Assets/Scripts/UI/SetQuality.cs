@@ -1,12 +1,27 @@
 ﻿using UnityEngine;
+using TMPro;
 
 namespace UI
 {
     public class SetQuality : MonoBehaviour
     {
-        public void SetQualitySettings (int index)
+        private string QualityKey = "Quality";
+
+        [SerializeField]
+        private TMP_Dropdown quality;
+
+        private void Start()
         {
-            QualitySettings.SetQualityLevel (index);
+            int index = PlayerPrefs.GetInt(QualityKey, 1);
+            QualitySettings.SetQualityLevel(index);
+            quality.value = index;
+        }
+
+        public void SetQualitySettings(int index)
+        {
+            QualitySettings.SetQualityLevel(index);
+            PlayerPrefs.SetInt(QualityKey, index);
+            PlayerPrefs.Save();
         }
     }
 }
