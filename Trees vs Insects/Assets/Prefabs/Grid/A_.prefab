@@ -1289,6 +1289,18 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5032017608852380448, guid: 3ad70e266b3d9bd4bb07331b42c1259c,
         type: 3}
+    - target: {fileID: 1518370455002664311, guid: a7b09197468d2db4c93e5ff7a0fd0e00,
+        type: 3}
+      propertyPath: EffectOnPlace
+      value: 
+      objectReference: {fileID: 5032017608852380448, guid: 3ad70e266b3d9bd4bb07331b42c1259c,
+        type: 3}
+    - target: {fileID: 1518370455002664311, guid: a7b09197468d2db4c93e5ff7a0fd0e00,
+        type: 3}
+      propertyPath: EffectOnRemove
+      value: 
+      objectReference: {fileID: 5032017608852380448, guid: 3ad70e266b3d9bd4bb07331b42c1259c,
+        type: 3}
     - target: {fileID: 1518370455450868716, guid: a7b09197468d2db4c93e5ff7a0fd0e00,
         type: 3}
       propertyPath: energyStart

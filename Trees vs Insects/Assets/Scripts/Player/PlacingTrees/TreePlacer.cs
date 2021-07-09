@@ -29,7 +29,10 @@ namespace Bogadanul.Assets.Scripts.Player
         private TreeSeedSender seedSender = null;
 
         [SerializeField]
-        private GameObject DirtSnap = null;
+        private GameObject EffectOnRemove = null;
+
+        [SerializeField]
+        private GameObject EffectOnPlace = null;
 
         public bool UnWalkable()
         {
@@ -49,7 +52,7 @@ namespace Bogadanul.Assets.Scripts.Player
                     Node n = raycaster.NodeFromInput(input);
                     if (n == null)
                         return;
-
+                    Instantiate(EffectOnPlace, n.worldPosition, Quaternion.identity);
                     if (!canBe)
                         CheckNode(n);
                     else if (n.FruitPlaceable())
@@ -67,7 +70,7 @@ namespace Bogadanul.Assets.Scripts.Player
                     if (ng != null && ng.CompareTag("Plant"))
                     {
                         //Here you can destroy the plant
-                        Instantiate(DirtSnap, ng.transform.position, Quaternion.identity);
+                        Instantiate(EffectOnRemove, ng.transform.position, Quaternion.identity);
                         ng.GetComponent<DestroyTree>().DestroyTheTree();
                         StartCoroutine(Counter());
                         seedSender.CancelCurrentSeed();
