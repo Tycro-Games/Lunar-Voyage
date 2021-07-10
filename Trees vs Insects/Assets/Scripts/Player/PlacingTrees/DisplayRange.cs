@@ -23,8 +23,8 @@ namespace Bogadanul.Assets.Scripts.Player
                 int i = 0;
                 foreach (Node n in nodes)
                 {
-                    if (!n.IsWalkable || n.IsPlanted)
-                        continue;
+                    //if (!n.IsWalkable || n.IsPlanted)
+                    //    continue;
                     sprites[i].SetActive(true);
                     sprites[i++].transform.position = n.worldPosition;
                 }
