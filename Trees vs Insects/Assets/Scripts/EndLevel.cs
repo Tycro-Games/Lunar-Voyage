@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Assets.Scripts.Utility
+namespace Assets.Scripts
 {
     public class EndLevel : MonoBehaviour
     {

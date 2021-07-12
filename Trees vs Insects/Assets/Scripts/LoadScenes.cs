@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace Assets.Scripts.Utility
+namespace Assets.Scripts
 {
     public class LoadScenes : MonoBehaviour
     {

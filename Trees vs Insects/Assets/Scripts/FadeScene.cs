@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-namespace Assets.Scripts.Utility
+namespace Assets.Scripts
 {
     public class FadeScene : MonoBehaviour
     {
