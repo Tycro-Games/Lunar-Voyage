@@ -2,27 +2,27 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace Assets.Scripts
+namespace Bogadanul.Assets.Scripts.Utility
 {
     public class Timer : MonoBehaviour
     {
-        [SerializeField]
-        private float TimeToWait = 0;
-
         [SerializeField]
         private bool loop = false;
 
         [SerializeField]
         private UnityEvent OnTimerFinished = null;
 
-        private void OnEnable()
-        {
-            StartCoroutine(TimerLoop());
-        }
+        [SerializeField]
+        private float TimeToWait = 0;
 
         private void OnDisable()
         {
             StopCoroutine(TimerLoop());
+        }
+
+        private void OnEnable()
+        {
+            StartCoroutine(TimerLoop());
         }
 
         private IEnumerator TimerLoop()
@@ -30,7 +30,7 @@ namespace Assets.Scripts
             yield return new WaitForSeconds(TimeToWait);
             OnTimerFinished?.Invoke();
 
-            if (gameObject.activeInHierarchy && loop)
+            if (loop)
                 StartCoroutine(TimerLoop());
         }
     }
