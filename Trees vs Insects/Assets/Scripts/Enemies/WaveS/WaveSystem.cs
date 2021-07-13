@@ -1,5 +1,5 @@
-﻿using Assets.Scripts;
-using Assets.Scripts.UI;
+﻿using Assets.Scripts.UI;
+using Assets.Scripts.Utility;
 using System;
 using System.Collections;
 using System.Collections.Generic;

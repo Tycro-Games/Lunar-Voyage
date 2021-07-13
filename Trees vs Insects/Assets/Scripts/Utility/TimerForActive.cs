@@ -2,9 +2,9 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace Assets.Scripts
+namespace Assets.Scripts.Utility
 {
-    public class Timer : MonoBehaviour
+    public class TimerForActive : MonoBehaviour
     {
         [SerializeField]
         private float TimeToWait = 0;

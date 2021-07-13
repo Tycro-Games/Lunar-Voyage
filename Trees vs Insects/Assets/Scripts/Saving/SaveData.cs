@@ -7,7 +7,7 @@ namespace Assets.Scripts.Saving
     [Serializable]
     public struct SaveData
     {
-        public Account currentAcount;
+        public Account CurrentAcount;
         public List<Account> savedAccounts;
     }
 
@@ -16,5 +16,11 @@ namespace Assets.Scripts.Saving
     {
         public string name;
         public int currentLevel;
+
+        public Account(string Name, int CurrentLevel = 0)
+        {
+            name = Name;
+            currentLevel = CurrentLevel;
+        }
     }
 }
