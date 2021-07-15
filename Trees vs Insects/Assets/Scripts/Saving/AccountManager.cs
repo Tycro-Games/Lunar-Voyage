@@ -10,6 +10,7 @@ namespace Assets.Scripts.Saving
     {
         public static SaveData saveAccounts;
         public static Action<Account> OnAccountChange;
+        public static Action<List<Account>> OnAccountsList;
 
         [SerializeField]
         private UnityEvent OnNoAccounts;
@@ -40,10 +41,12 @@ namespace Assets.Scripts.Saving
             if (data == "")//no data
             {
                 saveAccounts.savedAccounts = new List<Account>();
+                OnAccountsList?.Invoke(saveAccounts.savedAccounts);
                 OnNoAccounts?.Invoke();
                 return;
             }
             saveAccounts = JsonUtility.FromJson<SaveData>(data);
+            OnAccountsList?.Invoke(saveAccounts.savedAccounts);
             OnAccountChange?.Invoke(saveAccounts.CurrentAcount);
         }
 
@@ -51,6 +54,7 @@ namespace Assets.Scripts.Saving
         {
             Account newAccount = new Account(nameAccount);
             saveAccounts.savedAccounts.Add(newAccount);
+            OnAccountsList?.Invoke(saveAccounts.savedAccounts);
             saveAccounts.CurrentAcount = newAccount;
             OnAccountChange?.Invoke(newAccount);
         }
