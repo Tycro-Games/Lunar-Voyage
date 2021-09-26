@@ -536,6 +536,7 @@ GameObject:
   - component: {fileID: 297545179}
   - component: {fileID: 297545178}
   - component: {fileID: 297545177}
+  - component: {fileID: 297545180}
   m_Layer: 5
   m_Name: InputField (TMP)
   m_TagString: Untagged
@@ -713,6 +714,33 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 297545175}
   m_CullTransparentMesh: 0
+--- !u!114 &297545180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 297545175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5649f45553577414ba54ce431d70e275, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unityEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 959133895}
+        m_TargetAssemblyTypeName: Bogadanul.Assets.Scripts.Utility.SceneChange, Scripts
+        m_MethodName: LoadSceneSi
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &340088432
 GameObject:
   m_ObjectHideFlags: 0
@@ -1488,6 +1516,31 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3262130411227880513, guid: 8853b91457228584fb4fc30ac25daf8e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3262130411227880515, guid: 8853b91457228584fb4fc30ac25daf8e,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.9857
+      objectReference: {fileID: 0}
+    - target: {fileID: 3262130411227880515, guid: 8853b91457228584fb4fc30ac25daf8e,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.9857
+      objectReference: {fileID: 0}
+    - target: {fileID: 3262130411227880515, guid: 8853b91457228584fb4fc30ac25daf8e,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.9857
+      objectReference: {fileID: 0}
+    - target: {fileID: 3262130411227880515, guid: 8853b91457228584fb4fc30ac25daf8e,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.0000000037253
+      objectReference: {fileID: 0}
     - target: {fileID: 3262130411343158039, guid: 8853b91457228584fb4fc30ac25daf8e,
         type: 3}
       propertyPath: m_Name
@@ -2548,8 +2601,20 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 297545180}
+        m_TargetAssemblyTypeName: Bogadanul.GetTextFromInput, Scripts
+        m_MethodName: GoToScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 1-1
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 959133895}
-        m_TargetAssemblyTypeName: 
+        m_TargetAssemblyTypeName: Bogadanul.Assets.Scripts.Utility.SceneChange, Scripts
         m_MethodName: LoadSceneSi
         m_Mode: 5
         m_Arguments:

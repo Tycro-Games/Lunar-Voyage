@@ -1,9 +1,9 @@
-﻿using System;
-using System.Collections;
-using Assets.Scripts.Tree.Interface;
+﻿using Assets.Scripts.Tree.Interface;
 using Bogadanul.Assets.Scripts.Enemies;
 using Bogadanul.Assets.Scripts.Tree;
 using Bogadanul.Assets.Scripts.Utility;
+using System;
+using System.Collections;
 using UnityEngine;
 
 namespace Bogadanul.Assets.Scripts.Player
@@ -52,13 +52,15 @@ namespace Bogadanul.Assets.Scripts.Player
                     Node n = raycaster.NodeFromInput(input);
                     if (n == null)
                         return;
-                    Instantiate(EffectOnPlace, n.worldPosition, Quaternion.identity);
+
                     if (!canBe)
                         CheckNode(n);
                     else if (n.FruitPlaceable())
                     {
                         checkPlacer.ToSpawn(n, currentTree);
-                        Placing();
+                        Instantiate(EffectOnPlace, n.worldPosition, Quaternion.identity);
+
+                        Placing(n);
                     }
                 }
                 else //this is the shovel
@@ -120,20 +122,23 @@ namespace Bogadanul.Assets.Scripts.Player
                 if (n.TowerPlaceAble() && check.CustomCheck(n))
                 {
                     if (checkPlacer.CheckToPlace(n, currentTree))
-                        Placing();
+                    {
+                        Placing(n);
+                    }
                 }
             }
             else
             {
                 if (n.TowerPlaceAble() && checkPlacer.CheckToPlace(n, currentTree))
                 {
-                    Placing();
+                    Placing(n);
                 }
             }
         }
 
-        private void Placing()
+        private void Placing(Node n)
         {
+            Instantiate(EffectOnPlace, n.worldPosition, Quaternion.identity);
             currentTree = null;
             TreeSeedContainer.ActivateCoolDown();
             OnBuyCheck?.Invoke();

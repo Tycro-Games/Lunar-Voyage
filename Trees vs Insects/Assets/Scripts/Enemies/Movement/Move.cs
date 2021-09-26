@@ -43,7 +43,10 @@ namespace Bogadanul.Assets.Scripts.Enemies
             sprite.ChangeDirection(transform.position, node);
             while (transform.position != node)
             {
+
+                transform.rotation = Quaternion.LookRotation(Vector3.forward, Dir(node));
                 transform.position = Vector3.MoveTowards(transform.position, node, UnitsPerSec * Time.deltaTime);
+                
 
                 yield return null;
             }

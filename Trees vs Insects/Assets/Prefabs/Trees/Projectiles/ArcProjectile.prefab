@@ -71,8 +71,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 4
-  m_Sprite: {fileID: 21300000, guid: c7bfcfe7eb8f14a41b9980712afa49bf, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Sprite: {fileID: 21300000, guid: bcbfc21b1e2f0b34e90d3e80a60bc2c9, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -129,58 +129,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   speed: 0.25
-  curve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 4.6479635
-      outSlope: 4.6479635
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 0.061572995
-      value: 0.28618905
-      inSlope: 2.908677
-      outSlope: 2.908677
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 0.5090202
-      value: 0.80942965
-      inSlope: 0.03567177
-      outSlope: 0.03567177
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 0.9162983
-      value: 0.36221918
-      inSlope: -2.7127733
-      outSlope: -2.7127733
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: -4.3274994
-      outSlope: -4.3274994
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  duration: 1
 --- !u!114 &4467198434260877344
 MonoBehaviour:
   m_ObjectHideFlags: 0

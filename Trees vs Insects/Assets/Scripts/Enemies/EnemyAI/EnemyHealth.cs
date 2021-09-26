@@ -48,6 +48,7 @@ namespace Bogadanul.Assets.Scripts.Enemies
                 Instantiate(getter.LevelEndSeedDisplayable.collectable, transform.position, Quaternion.identity);
             }
             OnDead?.Invoke();
+            onDead?.Invoke();
             Destroy(gameObject);
         }
 

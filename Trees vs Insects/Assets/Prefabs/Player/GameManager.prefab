@@ -254,6 +254,8 @@ MonoBehaviour:
   BlockLayer:
     serializedVersion: 2
     m_Bits: 256
+  EffectOnRemove: {fileID: 0}
+  EffectOnPlace: {fileID: 0}
 --- !u!114 &1518370455002664309
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -410,7 +412,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8931683170678454280}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4faa60e5a91585845b045d9310a74806, type: 3}
   m_Name: 

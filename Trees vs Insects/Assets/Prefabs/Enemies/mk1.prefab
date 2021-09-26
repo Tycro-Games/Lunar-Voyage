@@ -57,13 +57,13 @@ MonoBehaviour:
   onDead:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1146085908174588383}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: -7853329823428498563}
+        m_TargetAssemblyTypeName: Assets.Scripts.Enemies.EnemyAI.SpawnGameOBJ, Scripts
+        m_MethodName: Spawn
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -212,8 +212,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af9e8146a89f7434da2a03d0cb2bb6d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifeTime: 2
-  ToSpawn: {fileID: 0}
+  lifeTime: 0.5
+  ToSpawn: {fileID: 2612408486624371043, guid: 45b738fb2fd13634abf1f5d47ac4f12a, type: 3}
 --- !u!1001 &6287755100790619513
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -225,7 +225,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 2600006237487383668, guid: 688b486052beca24aaded59fa32b3b5c,
+      objectReference: {fileID: 21300000, guid: e18bb7acd3f4e7b42b75bfcab761cfd7,
         type: 3}
     - target: {fileID: 3772666519902724561, guid: 44be9c27f7006ad4dbf17419d788cc16,
         type: 3}
@@ -241,6 +241,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Color.r
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4886560954343573481, guid: 44be9c27f7006ad4dbf17419d788cc16,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7350138340451611808, guid: 44be9c27f7006ad4dbf17419d788cc16,
         type: 3}
