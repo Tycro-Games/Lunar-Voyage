@@ -1,4 +1,5 @@
-﻿using Bogadanul.Assets.Scripts.Enemies;
+﻿using Assets.Scripts.Tree.Interface;
+using Bogadanul.Assets.Scripts.Enemies;
 using System.Collections.Generic;
 using UnityEngine.InputSystem;
 
@@ -11,6 +12,9 @@ namespace Bogadanul.Assets.Scripts.Player
         private HashSet<Node> StartNodes;
 
         private NodeFinder nodeFinder = null;
+        private CustomChecks check;
+
+        private DisplayPath displayPath;
 
         public override void Reset()
 
@@ -22,20 +26,35 @@ namespace Bogadanul.Assets.Scripts.Player
         {
             Reset();
 
-            if (!currentSeedDisplay.IsFruit)
-                foreach (Node n in StartNodes)
-                {
-                    if (n.TowerPlaceAble())
-                        nodes.Add(n);
-                }
-            else
-            {
+            if (currentSeedDisplay.IsFruit)
                 foreach (Node n in StartNodes)
                 {
                     if (n.FruitPlaceable())
                         nodes.Add(n);
                 }
+            else //tree
+            {
+                foreach (Node n in StartNodes)
+                {
+                    if (n.currentPlant != null)
+                    {
+                        check = n.currentPlant.GetComponent<CustomChecks>();
+                    }
+                    if (n.TowerPlaceAble())
+                    {
+                        if (check == null)
+                        {
+                            nodes.Add(n);
+                        }
+                        else if (check != null && check.CustomCheck(n))
+                        {
+                            nodes.Add(n);
+                        }
+                    }
+                    check = null;
+                }
             }
+
             nodes.Remove(nodeFinder.NodeFromInput(Pointer.current.position.ReadUnprocessedValue()));
         }
 
@@ -63,11 +82,11 @@ namespace Bogadanul.Assets.Scripts.Player
         public override void Init()
         {
             base.Init();
+            displayPath = GetComponent<DisplayPath>();
             StartNodes = new HashSet<Node>();
             foreach (Node n in Gridmanager.Nodes.Keys)
             {
-                if (n.IsWalkable)
-                    StartNodes.Add(n);
+                StartNodes.Add(n);
             }
         }
 

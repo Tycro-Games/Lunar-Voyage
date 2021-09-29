@@ -57,7 +57,7 @@ namespace Bogadanul.Assets.Scripts.Player
                         CheckNode(n);
                     else if (n.FruitPlaceable())
                     {
-                        checkPlacer.ToSpawn(n, currentTree);
+                        CheckPlacerPath.ToSpawn(n, currentTree);
                         Instantiate(EffectOnPlace, n.worldPosition, Quaternion.identity);
 
                         Placing(n);
@@ -117,19 +117,19 @@ namespace Bogadanul.Assets.Scripts.Player
         private void CheckNode(Node n)
         {
             CustomChecks check = currentTree.GetComponent<CustomChecks>();
-            if (check != null)
+            if (check != null)//with pot
             {
                 if (n.TowerPlaceAble() && check.CustomCheck(n))
                 {
-                    if (checkPlacer.CheckToPlace(n, currentTree))
+                    if (CheckPlacerPath.CheckToPlace(n, currentTree))
                     {
                         Placing(n);
                     }
                 }
             }
-            else
+            else//no pot
             {
-                if (n.TowerPlaceAble() && checkPlacer.CheckToPlace(n, currentTree))
+                if (n.TowerPlaceAble() && CheckPlacerPath.CheckToPlace(n, currentTree))
                 {
                     Placing(n);
                 }

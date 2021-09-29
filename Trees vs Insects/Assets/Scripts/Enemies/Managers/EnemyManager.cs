@@ -12,7 +12,10 @@ namespace Bogadanul.Assets.Scripts.Enemies
         public static Dictionary<TracePathCheck, Pathfinding> pathfindings = new Dictionary<TracePathCheck, Pathfinding>();
         public static Action<List<Node>> OnNoSpace;
 
+        public static Gridmanager grid = null;
+
         public static bool CheckForNullPaths()
+
         {
             if (pathfindings == null)
                 return true;
@@ -24,7 +27,7 @@ namespace Bogadanul.Assets.Scripts.Enemies
         {
             if (CheckForNullPaths())
                 return;
-
+            hasPath = false;
             foreach (TracePathCheck path in pathfindings.Keys.ToList())
             {
                 if (CheckPath(path))
@@ -41,6 +44,29 @@ namespace Bogadanul.Assets.Scripts.Enemies
             }
         }
 
+        public static void CheckSpaceForOnlyPaths()
+        {
+            if (CheckForNullPaths())
+                return;
+            hasPath = false;
+            foreach (TracePathCheck path in pathfindings.Keys.ToList())
+            {
+                if (CheckPath(path))
+                    continue;
+
+                hasPath = pathfindings[path].HasPath();
+
+                if (!hasPath)
+                {
+                    Debug.Log("No path");
+                    return;
+                }
+            }
+        }
+        public static void UpdateGrid()
+        {
+            grid.UpdateGrid();
+        }
         public static void SetSpace(bool remove = false)
         {
             if (CheckForNullPaths())

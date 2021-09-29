@@ -1,4 +1,5 @@
-﻿using Bogadanul.Assets.Scripts.Player;
+﻿using Bogadanul.Assets.Scripts.Enemies;
+using Bogadanul.Assets.Scripts.Player;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -98,6 +99,7 @@ namespace Bogadanul.Assets.Scripts.Player
 
         private void Awake ()
         {
+            EnemyManager.grid = this;
             Nodes = new Dictionary<Node, GameObject> ();
             gridmanager = this;
             nodeDiameter = nodeRadius * 2;

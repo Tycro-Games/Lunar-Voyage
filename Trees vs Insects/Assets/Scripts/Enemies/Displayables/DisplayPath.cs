@@ -55,6 +55,7 @@ namespace Bogadanul.Assets.Scripts.Enemies
         {
             nodeFinder = GetComponent<NodeFinder>();
             Init();
+            
         }
     }
 }
