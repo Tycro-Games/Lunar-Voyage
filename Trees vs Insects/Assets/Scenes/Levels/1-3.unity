@@ -123,54 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &144517576 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 450051614, guid: 2d2288358d54cb949a246a78f82ad470,
-    type: 3}
-  m_PrefabInstance: {fileID: 1584969496}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &144517580 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 450051617, guid: 2d2288358d54cb949a246a78f82ad470,
-    type: 3}
-  m_PrefabInstance: {fileID: 1584969496}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 144517576}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 719bc013192d1d94f86d17e483815097, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &144517583
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 144517576}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2174729f36d955848af18fb955156f80, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  loop: 1
-  OnTimerFinished:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 144517580}
-        m_TargetAssemblyTypeName: Bogadanul.Assets.Scripts.Enemies.TracePathCheck,
-          Scripts
-        m_MethodName: UpdateNodes
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  TimeToWait: 5
 --- !u!1001 &502949162
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3918,6 +3870,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5371944494303682906, guid: dfc06dede08ec9a4e97c93120e364cb3,
         type: 3}
+    - target: {fileID: 6330111710608628611, guid: 2d2288358d54cb949a246a78f82ad470,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6488057111057533849, guid: 2d2288358d54cb949a246a78f82ad470,
         type: 3}
       propertyPath: m_IsActive

@@ -5,7 +5,7 @@ namespace Bogadanul.Assets.Scripts.Enemies
 {
     public class TriggerSpawner : MonoBehaviour
     {
-        private EnemySpawner[] enemySpawners;
+        public  EnemySpawner[] enemySpawners;
 
         public EnemySpawner ChooseASpawner(EnemySpawner[] enemies)
         {

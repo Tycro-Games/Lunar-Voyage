@@ -1,11 +1,7 @@
 ﻿using Assets.Scripts.Tree.Interface;
-using Bogadanul.Assets.Scripts.Enemies;
-using Bogadanul.Assets.Scripts.Tree;
 using Bogadanul.Assets.Scripts.Utility;
 using System;
 using UnityEngine;
-using UnityEngine.Events;
-using UnityEngine.InputSystem;
 
 namespace Bogadanul.Assets.Scripts.Player
 {
@@ -30,18 +26,32 @@ namespace Bogadanul.Assets.Scripts.Player
 
         public event Action<bool> OnRangeDisplay = null;
 
+        public event Action<bool> OnPlace = null;
+
+        private Node previousNode = null;
         public bool IsFruit { get => canBePlaced; set => canBePlaced = value; }
+        private bool placeable = false;
+
+        public bool Placeable
+        {
+            get => placeable;
+            set
+            {
+                placeable = value;
+                OnPlace?.Invoke(placeable);
+            }
+        }
+
         private TreePlacer treePlacer;
         private CustomChecks check = null;
 
         public void ResetSprite()
         {
             OnRangeDisplay?.Invoke(false);
+            
             spriteRen.sprite = null;
             cursor.sprite = cursorSprite;
         }
-
-        private bool placeable = false;
 
         public void UpdateSprite(Sprite seed, bool canBeP = false)
         {
@@ -53,13 +63,14 @@ namespace Bogadanul.Assets.Scripts.Player
                 transform.position = cursor.transform.position;
 
                 cursor.sprite = spriteRen.sprite;
-                placeable = true;
+                Placeable = true;
             }
             else
             {
-                placeable = false;
+                Placeable = false;
                 ResetSprite();
             }
+            
         }
 
         public void ChangeSprite(Sprite seed)
@@ -71,19 +82,27 @@ namespace Bogadanul.Assets.Scripts.Player
                 transform.position = cursor.transform.position;
 
                 cursor.sprite = spriteRen.sprite;
-                placeable = false;
+                Placeable = false;
             }
         }
 
         private void Update()
         {
             Node n = node.NodeFromInput(cursorController.MousePosition());
-            if (placeable)
+
+            if (Placeable)
+            {
                 CheckPlaceables(n);
+                
+                Debug.Log("check");
+            }
             else if (spriteRen.sprite != null)
             {
                 CheckForPlants(n);
+
             }
+
+            
         }
 
         private void CheckForPlants(Node n)

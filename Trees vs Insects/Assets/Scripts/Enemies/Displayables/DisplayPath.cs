@@ -1,5 +1,4 @@
 ﻿using Bogadanul.Assets.Scripts.Player;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
@@ -20,6 +19,7 @@ namespace Bogadanul.Assets.Scripts.Enemies
             OnNoSpace?.Invoke();
             UpdateDisplays(nodes);
             int i = 0;
+
             foreach (Node node in displayPathManager.nodes)
             {
                 //if (node == currentNode)
@@ -55,7 +55,6 @@ namespace Bogadanul.Assets.Scripts.Enemies
         {
             nodeFinder = GetComponent<NodeFinder>();
             Init();
-            
         }
     }
 }

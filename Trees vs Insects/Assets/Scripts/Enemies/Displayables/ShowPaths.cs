@@ -7,6 +7,7 @@ namespace Bogadanul.Assets.Scripts.Enemies
     public class ShowPaths : DisplayStuff
     {
         private CurrentSeedDisplay currentSeed = null;
+        private TracePathCheck[] spawners;
 
         public void Display(bool show = true)
         {
@@ -43,18 +44,31 @@ namespace Bogadanul.Assets.Scripts.Enemies
                     displayPathManager.AddPaths(path.Path, false);
                 }
             }
+            foreach (TracePathCheck trace in spawners)
+            {
+                if (trace != null)
+                {
+                    displayPathManager.AddPaths(trace.Path, false);
+                }
+            }
         }
 
         private void OnDisable()
         {
-            currentSeed.OnRangeDisplay -= Display;
+            currentSeed.OnPlace -= Display;
         }
 
         private void Awake()
         {
             Init();
             currentSeed = FindObjectOfType<CurrentSeedDisplay>();
-            currentSeed.OnRangeDisplay += Display;
+            currentSeed.OnPlace += Display;
+            spawners = FindObjectsOfType<TracePathCheck>();
+
+        }
+        private void Start()
+        {
+            Display();
         }
     }
 }

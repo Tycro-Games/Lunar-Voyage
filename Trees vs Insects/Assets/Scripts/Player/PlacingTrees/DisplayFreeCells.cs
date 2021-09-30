@@ -1,6 +1,9 @@
 ﻿using Assets.Scripts.Tree.Interface;
 using Bogadanul.Assets.Scripts.Enemies;
+using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using UnityEngine;
 using UnityEngine.InputSystem;
 
 namespace Bogadanul.Assets.Scripts.Player
@@ -14,10 +17,14 @@ namespace Bogadanul.Assets.Scripts.Player
         private NodeFinder nodeFinder = null;
         private CustomChecks check;
 
-        private DisplayPath displayPath;
+        private ShowPaths displayPath;
 
+        [SerializeField]
+        private GameObject obj;
+
+        private HashSet<Node> OnlyOnePathTiles = new HashSet<Node>();
+        
         public override void Reset()
-
         {
             nodes = new HashSet<Node>();
         }
@@ -53,9 +60,34 @@ namespace Bogadanul.Assets.Scripts.Player
                     }
                     check = null;
                 }
-            }
+                nodes.Remove(nodeFinder.NodeFromInput(Pointer.current.position.ReadUnprocessedValue()));
 
+                foreach (Node n in OnlyOnePathTiles)
+                {
+                    nodes.Remove(n);
+                }
+            }
             nodes.Remove(nodeFinder.NodeFromInput(Pointer.current.position.ReadUnprocessedValue()));
+        }
+
+        public void SetOnlyPaths(bool val)
+        {
+            if(val)
+                StartCoroutine(UpdateNodes(displayPath.displayPathManager.nodes));
+        }
+
+        private IEnumerator UpdateNodes(HashSet<Node> path)
+        {
+            OnlyOnePathTiles = new HashSet<Node>();
+            foreach (Node n in DisplayPathManager.ReturnPathWithNoHeads(path.ToList()))
+            {
+                if (!CheckPlacerPath.CheckNode(n, obj))
+                {
+                    OnlyOnePathTiles.Add(n);
+                }
+
+                yield return null;
+            }
         }
 
         public void DisplayPlaceable(bool show = false)
@@ -82,7 +114,8 @@ namespace Bogadanul.Assets.Scripts.Player
         public override void Init()
         {
             base.Init();
-            displayPath = GetComponent<DisplayPath>();
+
+            displayPath = GetComponent<ShowPaths>();
             StartNodes = new HashSet<Node>();
             foreach (Node n in Gridmanager.Nodes.Keys)
             {
@@ -93,12 +126,14 @@ namespace Bogadanul.Assets.Scripts.Player
         private void OnDisable()
         {
             currentSeedDisplay.OnRangeDisplay -= DisplayPlaceable;
+            currentSeedDisplay.OnPlace -= SetOnlyPaths;
         }
 
         private void Start()
         {
             Init();
             currentSeedDisplay = FindObjectOfType<CurrentSeedDisplay>();
+            currentSeedDisplay.OnPlace += SetOnlyPaths;
             currentSeedDisplay.OnRangeDisplay += DisplayPlaceable;
             nodeFinder = GetComponent<NodeFinder>();
         }

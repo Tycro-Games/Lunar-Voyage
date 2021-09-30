@@ -71,13 +71,17 @@ namespace Bogadanul.Assets.Scripts.Player
 
             GameObject place = ToSpawn(cell, block);
             EnemyManager.CheckSpaceForOnlyPaths();
+            bool ret;
             if (!EnemyManager.hasPath)
             {
-                Destroy(place);
-                return false;
+                ret= false;
             }
+            else
+                ret = true;
+
             Destroy(place);
-            return true;
+            EnemyManager.UpdateGrid();
+            return ret;
 
         }
         public static GameObject Spawn(GameObject currentTree, Vector2 pos)

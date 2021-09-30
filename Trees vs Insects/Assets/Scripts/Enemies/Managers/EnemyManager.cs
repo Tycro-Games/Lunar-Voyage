@@ -63,10 +63,14 @@ namespace Bogadanul.Assets.Scripts.Enemies
                 }
             }
         }
+
+        
+
         public static void UpdateGrid()
         {
             grid.UpdateGrid();
         }
+
         public static void SetSpace(bool remove = false)
         {
             if (CheckForNullPaths())
