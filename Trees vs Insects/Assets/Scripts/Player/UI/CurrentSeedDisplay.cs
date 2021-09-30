@@ -38,7 +38,7 @@ namespace Bogadanul.Assets.Scripts.Player
             set
             {
                 placeable = value;
-                OnPlace?.Invoke(placeable);
+                OnPlace?.Invoke(!IsFruit);
             }
         }
 
