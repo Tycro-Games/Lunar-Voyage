@@ -34,6 +34,8 @@ namespace Bogadanul.Assets.Scripts.Player
         [SerializeField]
         private GameObject EffectOnPlace = null;
 
+        private DisplayFreeCells freeCells = null;
+
         public bool UnWalkable()
         {
             if (currentTree.layer == layer)
@@ -55,7 +57,7 @@ namespace Bogadanul.Assets.Scripts.Player
 
                     if (!canBe)
                         CheckNode(n);
-                    else if (n.FruitPlaceable())
+                    else if (!freeCells.OnlyOnePathTiles.Contains(n))
                     {
                         CheckPlacerPath.ToSpawn(n, currentTree);
                         Instantiate(EffectOnPlace, n.worldPosition, Quaternion.identity);
@@ -116,24 +118,26 @@ namespace Bogadanul.Assets.Scripts.Player
 
         private void CheckNode(Node n)
         {
-            CustomChecks check = currentTree.GetComponent<CustomChecks>();
-            if (check != null)//with pot
-            {
-                if (n.TowerPlaceAble() && check.CustomCheck(n))
-                {
-                    if (CheckPlacerPath.CheckToPlace(n, currentTree))
-                    {
-                        Placing(n);
-                    }
-                }
-            }
-            else//no pot
-            {
-                if (n.TowerPlaceAble() && CheckPlacerPath.CheckToPlace(n, currentTree))
-                {
-                    Placing(n);
-                }
-            }
+            //CustomChecks check = currentTree.GetComponent<CustomChecks>();
+            //if (check != null)//with pot
+            //{
+            //    if (n.TowerPlaceAble() && check.CustomCheck(n))
+            //    {
+            //        if (CheckPlacerPath.CheckToPlace(n, currentTree))
+            //        {
+            //            Placing(n);
+            //        }
+            //    }
+            //}
+            //else//no pot
+            //{
+            //    if (n.TowerPlaceAble() && CheckPlacerPath.CheckToPlace(n, currentTree))
+            //    {
+            //        Placing(n);
+            //    }
+            //}
+            if (!freeCells.OnlyOnePathTiles.Contains(n) && CheckPlacerPath.CheckToPlace(n, currentTree))
+                Placing(n);
         }
 
         private void Placing(Node n)
@@ -157,6 +161,7 @@ namespace Bogadanul.Assets.Scripts.Player
             layer = (int)Mathf.Log(BlockLayer.value, 2);
             checkPlacer = GetComponent<CheckPlacerPath>();
             raycaster = GetComponent<NodeFinder>();
+            freeCells = FindObjectOfType<DisplayFreeCells>();
         }
     }
 }

@@ -44,12 +44,7 @@ namespace Bogadanul.Assets.Scripts.Player
         {
             if (cell == null && !cell.IsWalkable)
                 return false;
-
-            
-            GameObject currentPlace = null;
-
-            currentPlace = ToSpawn(cell, currentTree);
-
+            GameObject currentPlace = ToSpawn(cell, currentTree);
             EnemyManager.CheckSpace();
 
             if (!EnemyManager.hasPath)

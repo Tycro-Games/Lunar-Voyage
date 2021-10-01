@@ -18,6 +18,7 @@ namespace Bogadanul.Assets.Scripts.Player
         private SpriteRenderer spriteRen = null;
 
         private DisplayRange displayRange = null;
+        private DisplayFreeCells freeCells = null;
 
         private bool canBePlaced = false;
 
@@ -48,7 +49,7 @@ namespace Bogadanul.Assets.Scripts.Player
         public void ResetSprite()
         {
             OnRangeDisplay?.Invoke(false);
-            
+
             spriteRen.sprite = null;
             cursor.sprite = cursorSprite;
         }
@@ -70,7 +71,6 @@ namespace Bogadanul.Assets.Scripts.Player
                 Placeable = false;
                 ResetSprite();
             }
-            
         }
 
         public void ChangeSprite(Sprite seed)
@@ -93,16 +93,13 @@ namespace Bogadanul.Assets.Scripts.Player
             if (Placeable)
             {
                 CheckPlaceables(n);
-                
+
                 Debug.Log("check");
             }
             else if (spriteRen.sprite != null)
             {
                 CheckForPlants(n);
-
             }
-
-            
         }
 
         private void CheckForPlants(Node n)
@@ -138,18 +135,19 @@ namespace Bogadanul.Assets.Scripts.Player
 
                 OnRangeDisplay?.Invoke(true);
                 displayRange.DisplayTheRange(n);
+                spriteRen.enabled = !freeCells.OnlyOnePathTiles.Contains(n);
 
-                if (!IsFruit)
-                {
-                    if (check == null)
-                        spriteRen.enabled = n?.TowerPlaceAble() == true;
-                    else
-                    {
-                        spriteRen.enabled = n?.TowerPlaceAble() == true && check.CustomCheck(n);
-                    }
-                }
-                else
-                    spriteRen.enabled = n?.FruitPlaceable() == true;
+                //if (!IsFruit)
+                //{
+                //    if (check == null)
+                //        spriteRen.enabled = n?.TowerPlaceAble() == true;
+                //    else
+                //    {
+                //        spriteRen.enabled = n?.TowerPlaceAble() == true && check.CustomCheck(n);
+                //    }
+                //}
+                //else
+                //    spriteRen.enabled = n?.FruitPlaceable() == true;
             }
         }
 
@@ -157,6 +155,7 @@ namespace Bogadanul.Assets.Scripts.Player
         {
             spriteRen = GetComponent<SpriteRenderer>();
             displayRange = GetComponent<DisplayRange>();
+            freeCells = FindObjectOfType<DisplayFreeCells>();
         }
 
         private void Start()

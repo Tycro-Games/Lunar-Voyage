@@ -11,6 +11,7 @@ namespace Bogadanul.Assets.Scripts.Player
     public class DisplayFreeCells : DisplayStuff
     {
         private CurrentSeedDisplay currentSeedDisplay;
+
         private HashSet<Node> nodes = null;
         private HashSet<Node> StartNodes;
 
@@ -22,8 +23,8 @@ namespace Bogadanul.Assets.Scripts.Player
         [SerializeField]
         private GameObject obj;
 
-        private HashSet<Node> OnlyOnePathTiles = new HashSet<Node>();
-        
+        public HashSet<Node> OnlyOnePathTiles = new HashSet<Node>();
+
         public override void Reset()
         {
             nodes = new HashSet<Node>();
@@ -72,7 +73,7 @@ namespace Bogadanul.Assets.Scripts.Player
 
         public void SetOnlyPaths(bool val)
         {
-            if(val)
+            if (val)
                 StartCoroutine(UpdateNodes(displayPath.displayPathManager.nodes));
         }
 
