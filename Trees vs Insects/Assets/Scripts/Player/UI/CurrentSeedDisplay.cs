@@ -29,7 +29,6 @@ namespace Bogadanul.Assets.Scripts.Player
 
         public event Action<bool> OnPlace = null;
 
-        private Node previousNode = null;
         public bool IsFruit { get => canBePlaced; set => canBePlaced = value; }
         private bool placeable = false;
 
@@ -135,19 +134,18 @@ namespace Bogadanul.Assets.Scripts.Player
 
                 OnRangeDisplay?.Invoke(true);
                 displayRange.DisplayTheRange(n);
-                spriteRen.enabled = !freeCells.OnlyOnePathTiles.Contains(n);
 
-                //if (!IsFruit)
-                //{
-                //    if (check == null)
-                //        spriteRen.enabled = n?.TowerPlaceAble() == true;
-                //    else
-                //    {
-                //        spriteRen.enabled = n?.TowerPlaceAble() == true && check.CustomCheck(n);
-                //    }
-                //}
-                //else
-                //    spriteRen.enabled = n?.FruitPlaceable() == true;
+                if (!IsFruit)
+                {
+                    if (check == null)
+                        spriteRen.enabled = n?.TowerPlaceAble() == true && !freeCells.OnlyOnePathTiles.Contains(n);
+                    else
+                    {
+                        spriteRen.enabled = n?.TowerPlaceAble() == true && check.CustomCheck(n) && !freeCells.OnlyOnePathTiles.Contains(n);
+                    }
+                }
+                else
+                    spriteRen.enabled = n?.FruitPlaceable() == true && !freeCells.OnlyOnePathTiles.Contains(n);
             }
         }
 

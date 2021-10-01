@@ -57,7 +57,7 @@ namespace Bogadanul.Assets.Scripts.Player
 
                     if (!canBe)
                         CheckNode(n);
-                    else if (!freeCells.OnlyOnePathTiles.Contains(n))
+                    else if (!freeCells.OnlyOnePathTiles.Contains(n) && n.FruitPlaceable())
                     {
                         CheckPlacerPath.ToSpawn(n, currentTree);
                         Instantiate(EffectOnPlace, n.worldPosition, Quaternion.identity);
@@ -118,26 +118,25 @@ namespace Bogadanul.Assets.Scripts.Player
 
         private void CheckNode(Node n)
         {
-            //CustomChecks check = currentTree.GetComponent<CustomChecks>();
-            //if (check != null)//with pot
-            //{
-            //    if (n.TowerPlaceAble() && check.CustomCheck(n))
-            //    {
-            //        if (CheckPlacerPath.CheckToPlace(n, currentTree))
-            //        {
-            //            Placing(n);
-            //        }
-            //    }
-            //}
-            //else//no pot
-            //{
-            //    if (n.TowerPlaceAble() && CheckPlacerPath.CheckToPlace(n, currentTree))
-            //    {
-            //        Placing(n);
-            //    }
-            //}
-            if (!freeCells.OnlyOnePathTiles.Contains(n) && CheckPlacerPath.CheckToPlace(n, currentTree))
-                Placing(n);
+            CustomChecks check = currentTree.GetComponent<CustomChecks>();
+            if (check != null)//with pot
+            {
+                if (n.TowerPlaceAble() && check.CustomCheck(n) && !freeCells.OnlyOnePathTiles.Contains(n))
+                {
+                    if (CheckPlacerPath.CheckToPlace(n, currentTree))
+                    {
+                        Placing(n);
+                    }
+                }
+            }
+            else//no pot
+            {
+                if (n.TowerPlaceAble() && !freeCells.OnlyOnePathTiles.Contains(n))
+                {
+                    if (CheckPlacerPath.CheckToPlace(n, currentTree))
+                        Placing(n);
+                }
+            }
         }
 
         private void Placing(Node n)
