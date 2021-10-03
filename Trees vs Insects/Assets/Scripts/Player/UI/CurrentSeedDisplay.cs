@@ -145,7 +145,7 @@ namespace Bogadanul.Assets.Scripts.Player
                     }
                 }
                 else
-                    spriteRen.enabled = n?.FruitPlaceable() == true && !freeCells.OnlyOnePathTiles.Contains(n);
+                    spriteRen.enabled = n?.FruitPlaceable() == true ;
             }
         }
 
