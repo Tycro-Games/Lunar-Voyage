@@ -13,7 +13,7 @@ namespace Bogadanul.Assets.Scripts.Enemies
         public static Action<List<Node>> OnNoSpace;
 
         public static Gridmanager grid = null;
-
+        public static Action<bool> OnEnemySet;
         public static bool CheckForNullPaths()
 
         {
@@ -75,7 +75,7 @@ namespace Bogadanul.Assets.Scripts.Enemies
         {
             if (CheckForNullPaths())
                 return;
-
+            OnEnemySet?.Invoke(true);
             foreach (TracePathCheck path in pathfindings.Keys.ToList())
             {
                 if (CheckPath(path))

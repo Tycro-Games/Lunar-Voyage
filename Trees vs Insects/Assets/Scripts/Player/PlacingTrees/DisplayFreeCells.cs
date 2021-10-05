@@ -40,7 +40,7 @@ namespace Bogadanul.Assets.Scripts.Player
                     if (n.FruitPlaceable())
                         nodes.Add(n);
                 }
-            else //tree
+            else if (currentSeedDisplay.potCheck == null)//tree
             {
                 foreach (Node n in StartNodes)
                 {
@@ -54,14 +54,31 @@ namespace Bogadanul.Assets.Scripts.Player
                         {
                             nodes.Add(n);
                         }
-                        else if (check != null && check.CustomCheck(n))
+                        else if (check != null && check.SameNode(n))
                         {
                             nodes.Add(n);
                         }
                     }
                     check = null;
                 }
-                nodes.Remove(nodeFinder.NodeFromInput(Pointer.current.position.ReadUnprocessedValue()));
+                // nodes.Remove(nodeFinder.NodeFromInput(Pointer.current.position.ReadUnprocessedValue()));
+
+                foreach (Node n in OnlyOnePathTiles)
+                {
+                    nodes.Remove(n);
+                }
+            }
+            else //potty
+            {
+                foreach (Node n in StartNodes)
+                {
+
+                    if (currentSeedDisplay.potCheck.canBePlaced(n))
+                    {
+                        nodes.Add(n);
+                    }
+                }
+               // nodes.Remove(nodeFinder.NodeFromInput(Pointer.current.position.ReadUnprocessedValue()));
 
                 foreach (Node n in OnlyOnePathTiles)
                 {
@@ -128,6 +145,7 @@ namespace Bogadanul.Assets.Scripts.Player
         {
             currentSeedDisplay.OnRangeDisplay -= DisplayPlaceable;
             currentSeedDisplay.OnPlace -= SetOnlyPaths;
+            EnemyManager.OnEnemySet -= SetOnlyPaths;
         }
 
         private void Start()
@@ -135,6 +153,7 @@ namespace Bogadanul.Assets.Scripts.Player
             Init();
             currentSeedDisplay = FindObjectOfType<CurrentSeedDisplay>();
             currentSeedDisplay.OnPlace += SetOnlyPaths;
+            EnemyManager.OnEnemySet += SetOnlyPaths;
             currentSeedDisplay.OnRangeDisplay += DisplayPlaceable;
             nodeFinder = GetComponent<NodeFinder>();
         }

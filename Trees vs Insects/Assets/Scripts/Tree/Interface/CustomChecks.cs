@@ -6,6 +6,6 @@ namespace Assets.Scripts.Tree.Interface
 {
     public interface CustomChecks
     {
-        public bool CustomCheck(Node n);
+        public bool SameNode(Node n);
     }
 }

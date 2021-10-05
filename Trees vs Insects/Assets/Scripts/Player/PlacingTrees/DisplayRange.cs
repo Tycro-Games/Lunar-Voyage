@@ -1,7 +1,5 @@
 ﻿using Bogadanul.Assets.Scripts.Enemies;
 using Bogadanul.Assets.Scripts.Tree;
-
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -17,7 +15,7 @@ namespace Bogadanul.Assets.Scripts.Player
 
         public void DisplayTheRange(Node pos)
         {
-            if (treeRecon != null && pos?.TowerPlaceAble() == true)
+            if (treeRecon != null && pos!=null)
             {
                 nodes = treeRecon.GetNodeRange(pos);
                 int i = 0;

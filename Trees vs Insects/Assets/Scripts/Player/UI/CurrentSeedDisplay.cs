@@ -1,4 +1,5 @@
 ﻿using Assets.Scripts.Tree.Interface;
+using Assets.Scripts.Tree.TreeModules;
 using Bogadanul.Assets.Scripts.Utility;
 using System;
 using UnityEngine;
@@ -29,6 +30,7 @@ namespace Bogadanul.Assets.Scripts.Player
 
         public event Action<bool> OnPlace = null;
 
+        private GameObject currentSeed = null;
         public bool IsFruit { get => canBePlaced; set => canBePlaced = value; }
         private bool placeable = false;
 
@@ -45,6 +47,9 @@ namespace Bogadanul.Assets.Scripts.Player
         private TreePlacer treePlacer;
         private CustomChecks check = null;
 
+        [HideInInspector]
+        public PotCheck potCheck = null;
+
         public void ResetSprite()
         {
             OnRangeDisplay?.Invoke(false);
@@ -53,7 +58,7 @@ namespace Bogadanul.Assets.Scripts.Player
             cursor.sprite = cursorSprite;
         }
 
-        public void UpdateSprite(Sprite seed, bool canBeP = false)
+        public void UpdateSprite(Sprite seed, GameObject obj = null, bool canBeP = false)
         {
             if (seed)
             {
@@ -64,6 +69,7 @@ namespace Bogadanul.Assets.Scripts.Player
 
                 cursor.sprite = spriteRen.sprite;
                 Placeable = true;
+                potCheck = obj.GetComponent<PotCheck>();
             }
             else
             {
@@ -133,19 +139,30 @@ namespace Bogadanul.Assets.Scripts.Player
                 }
 
                 OnRangeDisplay?.Invoke(true);
-                displayRange.DisplayTheRange(n);
-
+                
                 if (!IsFruit)
                 {
-                    if (check == null)
-                        spriteRen.enabled = n?.TowerPlaceAble() == true && !freeCells.OnlyOnePathTiles.Contains(n);
+                    if (potCheck == null)
+                    {
+                        if (check == null)
+                            spriteRen.enabled = n?.TowerPlaceAble() == true && !freeCells.OnlyOnePathTiles.Contains(n);
+                        else
+                        {
+                            spriteRen.enabled = n?.TowerPlaceAble() == true && check.SameNode(n) && !freeCells.OnlyOnePathTiles.Contains(n);
+                        }
+                        if (spriteRen.enabled)
+                            displayRange.DisplayTheRange(n);
+                        else
+                            displayRange.Reset();
+
+                    }
                     else
                     {
-                        spriteRen.enabled = n?.TowerPlaceAble() == true && check.CustomCheck(n) && !freeCells.OnlyOnePathTiles.Contains(n);
+                        spriteRen.enabled = n != null && potCheck.canBePlaced(n) && !freeCells.OnlyOnePathTiles.Contains(n);
                     }
                 }
                 else
-                    spriteRen.enabled = n?.FruitPlaceable() == true ;
+                    spriteRen.enabled = n?.FruitPlaceable() == true;
             }
         }
 

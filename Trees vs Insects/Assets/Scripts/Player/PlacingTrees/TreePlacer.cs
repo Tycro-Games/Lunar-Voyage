@@ -1,4 +1,5 @@
 ﻿using Assets.Scripts.Tree.Interface;
+using Assets.Scripts.Tree.TreeModules;
 using Bogadanul.Assets.Scripts.Enemies;
 using Bogadanul.Assets.Scripts.Tree;
 using Bogadanul.Assets.Scripts.Utility;
@@ -14,7 +15,7 @@ namespace Bogadanul.Assets.Scripts.Player
         private CheckPlacerPath checkPlacer;
 
         [SerializeField]
-        private GameObject currentTree = null;
+        private  GameObject currentTree = null;
 
         private NodeFinder raycaster;
 
@@ -118,10 +119,10 @@ namespace Bogadanul.Assets.Scripts.Player
 
         private void CheckNode(Node n)
         {
-            CustomChecks check = currentTree.GetComponent<CustomChecks>();
+            PotCheck check = currentTree.GetComponent<PotCheck>();
             if (check != null)//with pot
             {
-                if (n.TowerPlaceAble() && check.CustomCheck(n) && !freeCells.OnlyOnePathTiles.Contains(n))
+                if (check.canBePlaced(n) && !freeCells.OnlyOnePathTiles.Contains(n))
                 {
                     if (CheckPlacerPath.CheckToPlace(n, currentTree))
                     {
