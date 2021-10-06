@@ -36,23 +36,12 @@ namespace Bogadanul.Assets.Scripts.Player
         {
             parent = transform;
         }
-        public void CheckSpace()
-        {
-            EnemyManager.CheckSpace();
-        }
+
         public static bool CheckToPlace(Node cell, GameObject currentTree = null)
         {
             if (cell == null && !cell.IsWalkable)
                 return false;
             GameObject currentPlace = ToSpawn(cell, currentTree);
-            EnemyManager.CheckSpace();
-
-            if (!EnemyManager.hasPath)
-            {
-                Destroy(currentPlace);
-
-                return false;
-            }
 
             EnemyManager.SetSpace();
             return true;
@@ -64,8 +53,10 @@ namespace Bogadanul.Assets.Scripts.Player
                 return false;
             }
 
-            GameObject place = ToSpawn(cell, block);
-            EnemyManager.CheckSpaceForOnlyPaths();
+            //GameObject place = ToSpawn(cell, block);
+            
+
+            EnemyManager.CheckSpaceForOnlyPaths(cell);
             bool ret;
             if (!EnemyManager.hasPath)
             {
@@ -74,8 +65,7 @@ namespace Bogadanul.Assets.Scripts.Player
             else
                 ret = true;
 
-            Destroy(place);
-            EnemyManager.UpdateGrid();
+            //Destroy(place);
             return ret;
 
         }

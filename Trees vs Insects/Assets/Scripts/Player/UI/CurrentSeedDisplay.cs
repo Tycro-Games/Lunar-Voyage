@@ -139,30 +139,35 @@ namespace Bogadanul.Assets.Scripts.Player
                 }
 
                 OnRangeDisplay?.Invoke(true);
-                
+              
                 if (!IsFruit)
                 {
                     if (potCheck == null)
                     {
+                        
                         if (check == null)
                             spriteRen.enabled = n?.TowerPlaceAble() == true && !freeCells.OnlyOnePathTiles.Contains(n);
                         else
                         {
                             spriteRen.enabled = n?.TowerPlaceAble() == true && check.SameNode(n) && !freeCells.OnlyOnePathTiles.Contains(n);
                         }
-                        if (spriteRen.enabled)
-                            displayRange.DisplayTheRange(n);
-                        else
-                            displayRange.Reset();
 
+
+                        
                     }
                     else
                     {
                         spriteRen.enabled = n != null && potCheck.canBePlaced(n) && !freeCells.OnlyOnePathTiles.Contains(n);
                     }
+                    //display the range of the tree
+                    
                 }
                 else
                     spriteRen.enabled = n?.FruitPlaceable() == true;
+
+                displayRange.DisplayTheRange(n, spriteRen.enabled);
+
+
             }
         }
 

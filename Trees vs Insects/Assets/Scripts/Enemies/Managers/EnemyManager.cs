@@ -23,7 +23,9 @@ namespace Bogadanul.Assets.Scripts.Enemies
                 return false;
         }
 
-        public static void CheckSpace()
+       
+
+        public static void CheckSpaceForOnlyPaths(Node n)
         {
             if (CheckForNullPaths())
                 return;
@@ -33,28 +35,7 @@ namespace Bogadanul.Assets.Scripts.Enemies
                 if (CheckPath(path))
                     continue;
 
-                hasPath = pathfindings[path].HasPath();
-
-                if (!hasPath)
-                {
-                    Debug.Log("No path");
-                    OnNoSpace?.Invoke(path.Path);
-                    return;
-                }
-            }
-        }
-
-        public static void CheckSpaceForOnlyPaths()
-        {
-            if (CheckForNullPaths())
-                return;
-            hasPath = false;
-            foreach (TracePathCheck path in pathfindings.Keys.ToList())
-            {
-                if (CheckPath(path))
-                    continue;
-
-                hasPath = pathfindings[path].HasPath();
+                hasPath = pathfindings[path].HasPath(n);
 
                 if (!hasPath)
                 {
@@ -73,9 +54,10 @@ namespace Bogadanul.Assets.Scripts.Enemies
 
         public static void SetSpace(bool remove = false)
         {
+            
             if (CheckForNullPaths())
                 return;
-            OnEnemySet?.Invoke(true);
+            
             foreach (TracePathCheck path in pathfindings.Keys.ToList())
             {
                 if (CheckPath(path))
@@ -84,6 +66,7 @@ namespace Bogadanul.Assets.Scripts.Enemies
                 }
                 pathfindings[path].FindPath(remove);
             }
+            OnEnemySet?.Invoke(true);
         }
 
         private static bool CheckPath(TracePathCheck path)

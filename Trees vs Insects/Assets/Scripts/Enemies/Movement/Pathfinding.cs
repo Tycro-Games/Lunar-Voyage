@@ -80,17 +80,17 @@ namespace Bogadanul.Assets.Scripts.Enemies
         {
             foreach (Node n in path.Path)
             {
-                if (n.IsWalkable ==false)
+                if (n.IsWalkable == false)
                     return false;
             }
             return true;
         }
 
-        public bool HasPath()
+        public bool HasPath(Node n)
         {
-            grid.UpdateGrid();
-            if (First&& IsCurrentPath())
-                return true;
+            //grid.UpdateGrid();
+            //if (First&& IsCurrentPath())
+            //    return true;
             Node startNode = nodeFind.NodeFromPoint(transform);
             if (startNode == null) return false;
             Node targetNode = ancientTree.currentNodes[0];
@@ -112,7 +112,7 @@ namespace Bogadanul.Assets.Scripts.Enemies
 
                 foreach (Node neighbour in grid.GetNeighbours(currentNode))
                 {
-                    if (!neighbour.IsWalkable || closedSet.Contains(neighbour))
+                    if (!neighbour.IsWalkable || closedSet.Contains(neighbour) || neighbour == n)
                     {
                         continue;
                     }
@@ -135,12 +135,12 @@ namespace Bogadanul.Assets.Scripts.Enemies
             return false;
         }
 
-        public void FindPath(bool remove=false)
+        public void FindPath(bool remove = false)
         {
             grid.UpdateGrid();
-            if(remove)
-            if (First&&IsCurrentPath() )
-                return;
+            if (remove)
+                if (First && IsCurrentPath())
+                    return;
             Node startNode = nodeFind.NodeFromPoint(transform);
             if (startNode == null) return;
             Node targetNode = ancientTree.currentNodes[0];
@@ -157,7 +157,6 @@ namespace Bogadanul.Assets.Scripts.Enemies
 
                 if (currentNode == targetNode)
                 {
-
                     path.Path = RetracePath(startNode, targetNode);
                     return;
                 }
@@ -184,7 +183,6 @@ namespace Bogadanul.Assets.Scripts.Enemies
                     }
                 }
             }
-            
         }
 
         #endregion checkSpace

@@ -16,7 +16,6 @@ namespace Bogadanul.Assets.Scripts.Player
         private HashSet<Node> StartNodes;
 
         private NodeFinder nodeFinder = null;
-        private CustomChecks check;
 
         private ShowPaths displayPath;
 
@@ -44,22 +43,12 @@ namespace Bogadanul.Assets.Scripts.Player
             {
                 foreach (Node n in StartNodes)
                 {
-                    if (n.currentPlant != null)
-                    {
-                        check = n.currentPlant.GetComponent<CustomChecks>();
-                    }
+                    
                     if (n.TowerPlaceAble())
                     {
-                        if (check == null)
-                        {
-                            nodes.Add(n);
-                        }
-                        else if (check != null && check.SameNode(n))
-                        {
-                            nodes.Add(n);
-                        }
+                            nodes.Add(n);                                            
                     }
-                    check = null;
+                  
                 }
                 // nodes.Remove(nodeFinder.NodeFromInput(Pointer.current.position.ReadUnprocessedValue()));
 
@@ -91,21 +80,25 @@ namespace Bogadanul.Assets.Scripts.Player
         public void SetOnlyPaths(bool val)
         {
             if (val)
-                StartCoroutine(UpdateNodes(displayPath.displayPathManager.nodes));
+                UpdateNodes(displayPath.displayPathManager.nodes);
         }
 
-        private IEnumerator UpdateNodes(HashSet<Node> path)
+        private void UpdateNodes(HashSet<Node> path)
         {
             OnlyOnePathTiles = new HashSet<Node>();
-            foreach (Node n in DisplayPathManager.ReturnPathWithNoHeads(path.ToList()))
+            
+            foreach (Node n in path.ToList())
             {
+                
                 if (!CheckPlacerPath.CheckNode(n, obj))
                 {
                     OnlyOnePathTiles.Add(n);
                 }
 
-                yield return null;
+                
             }
+            RecheckNodes();
+            
         }
 
         public void DisplayPlaceable(bool show = false)
@@ -156,6 +149,16 @@ namespace Bogadanul.Assets.Scripts.Player
             EnemyManager.OnEnemySet += SetOnlyPaths;
             currentSeedDisplay.OnRangeDisplay += DisplayPlaceable;
             nodeFinder = GetComponent<NodeFinder>();
+        }
+        private void OnDrawGizmos()
+        {
+            if (OnlyOnePathTiles.Count != 0)
+            {
+                foreach(Node n in OnlyOnePathTiles)
+                {
+                    Gizmos.DrawWireCube(transform.position, 1*Vector2.one);
+                }
+            }
         }
     }
 }
