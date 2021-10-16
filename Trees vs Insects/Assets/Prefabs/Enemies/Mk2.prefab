@@ -56,8 +56,7 @@ MonoBehaviour:
   onDead:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: -7853329823428498563, guid: aa3936428b344d8488b8b6840aeb1a9a,
-          type: 3}
+      - m_Target: {fileID: 7254453582311640225}
         m_TargetAssemblyTypeName: Assets.Scripts.Enemies.EnemyAI.SpawnGameOBJ, Scripts
         m_MethodName: Spawn
         m_Mode: 1
@@ -95,8 +94,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.76095223, y: 0.6231954, z: 1}
-  m_Center: {x: -0.11771941, y: -0.1865977, z: 0}
+  m_Size: {x: 0.51537913, y: 0.77739245, z: 1}
+  m_Center: {x: 0.00506714, y: -0.0009901822, z: 0}
 --- !u!114 &2722813695433205123
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -193,7 +192,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af9e8146a89f7434da2a03d0cb2bb6d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifeTime: 2
+  lifeTime: 0.5
   ToSpawn: {fileID: 2612408486624371043, guid: 45b738fb2fd13634abf1f5d47ac4f12a, type: 3}
 --- !u!1001 &4551708323970362624
 PrefabInstance:

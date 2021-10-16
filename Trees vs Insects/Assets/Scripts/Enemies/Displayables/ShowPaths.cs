@@ -55,14 +55,14 @@ namespace Bogadanul.Assets.Scripts.Enemies
 
         private void OnDisable()
         {
-            currentSeed.OnPlace -= Display;
+            currentSeed.OnRangeDisplay -= Display;
         }
 
         private void Awake()
         {
             Init();
             currentSeed = FindObjectOfType<CurrentSeedDisplay>();
-            currentSeed.OnPlace += Display;
+            currentSeed.OnRangeDisplay += Display;
             spawners = FindObjectsOfType<TracePathCheck>();
 
         }

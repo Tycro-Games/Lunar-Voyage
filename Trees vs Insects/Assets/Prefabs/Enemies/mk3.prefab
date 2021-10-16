@@ -56,8 +56,7 @@ MonoBehaviour:
   onDead:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: -7853329823428498563, guid: aa3936428b344d8488b8b6840aeb1a9a,
-          type: 3}
+      - m_Target: {fileID: 3854107833005718659}
         m_TargetAssemblyTypeName: Assets.Scripts.Enemies.EnemyAI.SpawnGameOBJ, Scripts
         m_MethodName: Spawn
         m_Mode: 1
