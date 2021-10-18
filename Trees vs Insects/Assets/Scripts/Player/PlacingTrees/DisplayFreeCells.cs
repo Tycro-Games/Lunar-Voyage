@@ -50,7 +50,7 @@ namespace Bogadanul.Assets.Scripts.Player
                     }
                   
                 }
-                // nodes.Remove(nodeFinder.NodeFromInput(Pointer.current.position.ReadUnprocessedValue()));
+                
 
                 foreach (Node n in OnlyOnePathTiles)
                 {
@@ -67,7 +67,7 @@ namespace Bogadanul.Assets.Scripts.Player
                         nodes.Add(n);
                     }
                 }
-               // nodes.Remove(nodeFinder.NodeFromInput(Pointer.current.position.ReadUnprocessedValue()));
+               
 
                 foreach (Node n in OnlyOnePathTiles)
                 {
@@ -80,14 +80,14 @@ namespace Bogadanul.Assets.Scripts.Player
         public void SetOnlyPaths(bool val)
         {
             if (val)
-                UpdateNodes(displayPath.displayPathManager.nodes);
+                UpdateNodes();
         }
 
-        private void UpdateNodes(HashSet<Node> path)
+        private void UpdateNodes()
         {
             OnlyOnePathTiles = new HashSet<Node>();
             
-            foreach (Node n in path.ToList())
+            foreach (Node n in displayPath.UpdateDisplaysReturnNode())
             {
                 
                 if (!CheckPlacerPath.CheckNode(n, obj))

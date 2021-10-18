@@ -1,4 +1,5 @@
 ﻿using Bogadanul.Assets.Scripts.Player;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
@@ -52,7 +53,26 @@ namespace Bogadanul.Assets.Scripts.Enemies
                 }
             }
         }
-
+        public HashSet<Node> UpdateDisplaysReturnNode()
+        {
+            Reset();
+            foreach (GameObject trace in EnemyList.List.ToList())
+            {
+                if (trace != null)
+                {
+                    TracePath path = trace.GetComponentInChildren<TracePath>();
+                    displayPathManager.AddPaths(path.Path, false);
+                }
+            }
+            foreach (TracePathCheck trace in spawners)
+            {
+                if (trace != null)
+                {
+                    displayPathManager.AddPaths(trace.Path, false);
+                }
+            }
+            return displayPathManager.nodes;
+        }
         private void OnDisable()
         {
             currentSeed.OnRangeDisplay -= Display;
