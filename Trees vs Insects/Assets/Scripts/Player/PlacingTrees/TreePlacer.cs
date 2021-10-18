@@ -22,7 +22,7 @@ namespace Bogadanul.Assets.Scripts.Player
         [SerializeField]
         private LayerMask BlockLayer = 0;
 
-        private bool canBe = false;
+        private bool Fruit = false;
 
         public static event Action OnBuyCheck;
 
@@ -56,9 +56,9 @@ namespace Bogadanul.Assets.Scripts.Player
                     if (n == null)
                         return;
 
-                    if (!canBe)
+                    if (!Fruit)
                         CheckNode(n);
-                    else if (!freeCells.OnlyOnePathTiles.Contains(n) && n.FruitPlaceable())
+                    else if (n.FruitPlaceable())
                     {
                         CheckPlacerPath.ToSpawn(n, currentTree);
                         Instantiate(EffectOnPlace, n.worldPosition, Quaternion.identity);
@@ -100,7 +100,7 @@ namespace Bogadanul.Assets.Scripts.Player
         {
             placeable = true;
             currentTree = seed;
-            canBe = canBeAny;
+            Fruit = canBeAny;
         }
 
         public void UpdateNonPlaceable(GameObject seed)
