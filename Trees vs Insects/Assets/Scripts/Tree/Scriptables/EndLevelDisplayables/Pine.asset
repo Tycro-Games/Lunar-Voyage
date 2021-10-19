@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45949b90be8d30e4194056f3b5335c96, type: 3}
   m_Name: Pine
   m_EditorClassIdentifier: 
-  icon: {fileID: 21300000, guid: c56cbdd6e799b33439ac4afc745177ec, type: 3}
+  icon: {fileID: 21300000, guid: ccd1b7bcb10f72a41906ddd0c4ddcc64, type: 3}
   description: Shoots in four direction.
   collectable: {fileID: 7964760498876298798, guid: 11ecc1e599683f44c918d235d45efc25,
     type: 3}

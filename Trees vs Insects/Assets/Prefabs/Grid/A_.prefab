@@ -1205,6 +1205,10 @@ PrefabInstance:
       propertyPath: cursor
       value: 
       objectReference: {fileID: 4927380878048108043}
+    - target: {fileID: 1149903896, guid: a7b09197468d2db4c93e5ff7a0fd0e00, type: 3}
+      propertyPath: cursorSprite
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 1176542769, guid: a7b09197468d2db4c93e5ff7a0fd0e00, type: 3}
       propertyPath: m_Size.x
       value: 1.1226814

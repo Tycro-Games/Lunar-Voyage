@@ -45,7 +45,8 @@ namespace Bogadanul.Assets.Scripts.Enemies
             {
                 GetterSeedDisplayer getter = FindObjectOfType<GetterSeedDisplayer>();
 
-                Instantiate(getter.LevelEndSeedDisplayable.collectable, transform.position, Quaternion.identity);
+              GameObject obj=  Instantiate(getter.LevelEndSeedDisplayable.collectable, transform.position, Quaternion.identity);
+                obj.GetComponent<SpriteRenderer>().sprite = getter.LevelEndSeedDisplayable.icon;
             }
             OnDead?.Invoke();
             onDead?.Invoke();

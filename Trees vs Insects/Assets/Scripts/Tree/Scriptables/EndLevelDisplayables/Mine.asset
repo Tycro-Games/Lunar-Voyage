@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45949b90be8d30e4194056f3b5335c96, type: 3}
   m_Name: Mine
   m_EditorClassIdentifier: 
-  icon: {fileID: 21300000, guid: 3e338851f166bf945af502920470d8ac, type: 3}
+  icon: {fileID: 21300000, guid: 6a38edf31aa56f9409121196bb390c89, type: 3}
   description: Needs a little time to be charged and then to explode, should be placed
     in front of the enemies. It is a fruit so it can be placed over insects, but
     it will instantly be destroyed.

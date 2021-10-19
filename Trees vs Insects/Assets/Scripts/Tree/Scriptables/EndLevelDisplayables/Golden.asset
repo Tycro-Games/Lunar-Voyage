@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45949b90be8d30e4194056f3b5335c96, type: 3}
   m_Name: Golden
   m_EditorClassIdentifier: 
-  icon: {fileID: -749024654251515319, guid: 7a72458cc65ff4543932868093139ea4, type: 3}
+  icon: {fileID: 21300000, guid: 881c2c0863ef59241a4fbd3670bd57b7, type: 3}
   description: This gives you energy
   collectable: {fileID: 7964760498876298798, guid: 11ecc1e599683f44c918d235d45efc25,
     type: 3}

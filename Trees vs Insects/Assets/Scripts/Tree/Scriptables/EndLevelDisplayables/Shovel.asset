@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45949b90be8d30e4194056f3b5335c96, type: 3}
   m_Name: Shovel
   m_EditorClassIdentifier: 
-  icon: {fileID: 21300000, guid: f11b827c72245834eb88257d35fd8c94, type: 3}
+  icon: {fileID: 7741590321322356173, guid: 23c2a905bfa13bb4fbd44bfd6a697111, type: 3}
   description: Removes things that are planted
   collectable: {fileID: 7964760498876298798, guid: 11ecc1e599683f44c918d235d45efc25,
     type: 3}

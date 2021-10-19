@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45949b90be8d30e4194056f3b5335c96, type: 3}
   m_Name: Potty Pot
   m_EditorClassIdentifier: 
-  icon: {fileID: 21300000, guid: 97b864a373dd1db43984dc7a1724e3f5, type: 3}
+  icon: {fileID: 21300000, guid: b130d6838e71b344eb9877611496be0b, type: 3}
   description: Blocks the path for enemies.
   collectable: {fileID: 7964760498876298798, guid: 11ecc1e599683f44c918d235d45efc25,
     type: 3}
