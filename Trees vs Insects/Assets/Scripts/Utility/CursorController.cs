@@ -46,10 +46,8 @@ namespace Bogadanul.Assets.Scripts.Utility
 
         private void Start()
         {
-            if (Application.platform == RuntimePlatform.Android)
-                GetComponentInChildren<SpriteRenderer>().enabled = false;
             cursorTransform = transform;
-            Cursor.visible = false;
+            
         }
     }
 }

@@ -97,7 +97,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cursor: {fileID: 0}
-  cursorSprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  cursorSprite: {fileID: 21300000, guid: d0ba8e20e707a124db9606befe735dd9, type: 3}
   potCheck: {fileID: 0}
 --- !u!114 &1149903898
 MonoBehaviour:

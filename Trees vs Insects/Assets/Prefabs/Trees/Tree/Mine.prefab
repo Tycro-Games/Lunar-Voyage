@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 8ce0614fc8c19804f82736134df07312, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.14901961}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
@@ -190,7 +190,7 @@ GameObject:
   - component: {fileID: 3297613584555094711}
   - component: {fileID: 5235577648872938533}
   - component: {fileID: 5153103145353331281}
-  - component: {fileID: 4891912785796722820}
+  - component: {fileID: 2223949473793735748}
   m_Layer: 15
   m_Name: Mine
   m_TagString: Plant
@@ -299,6 +299,18 @@ MonoBehaviour:
           m_StringArgument: Boom
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2223949473793735748}
+        m_TargetAssemblyTypeName: Assets.Scripts.Enemies.EnemyAI.SpawnGameOBJ, Scripts
+        m_MethodName: Spawn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &5235577648872938533
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -351,32 +363,6 @@ MonoBehaviour:
           m_StringArgument: Ready
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1101677644}
-        m_TargetAssemblyTypeName: UnityEngine.SpriteRenderer, UnityEngine
-        m_MethodName: set_sprite
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: -5398876352035285776, guid: 688b486052beca24aaded59fa32b3b5c,
-            type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 4891912785796722820}
-        m_TargetAssemblyTypeName: Bogadanul.Assets.Scripts.Tree.GameObjectParentSpawner,
-          Scripts
-        m_MethodName: Spawn
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
   TimeToWait: 4
 --- !u!65 &5153103145353331281
 BoxCollider:
@@ -391,7 +377,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.6875, y: 0.93352795, z: 0.2}
   m_Center: {x: 0, y: -0.43948603, z: 0}
---- !u!114 &4891912785796722820
+--- !u!114 &2223949473793735748
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -400,8 +386,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 8976918986219011986}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ee3002fe75252947a3060491a953fe1, type: 3}
+  m_Script: {fileID: 11500000, guid: af9e8146a89f7434da2a03d0cb2bb6d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waterPrefab: {fileID: 8075041283695588686, guid: 26e209587f591a2479d50ace313fd63d,
-    type: 3}
+  lifeTime: 2
+  ToSpawn: {fileID: 8075041283695588686, guid: 26e209587f591a2479d50ace313fd63d, type: 3}

@@ -37,6 +37,8 @@ namespace Assets.Scripts.Enemies.EnemyAI
             while (currentValue < 1)
             {
                 currentValue += FadeFadeout.Evaluate(Time.time - startTime) * speed;
+                if (currentValue > 1)
+                    currentValue = 1;
                 _propBlock.SetFloat("_Alpha", currentValue);
                 sprite.SetPropertyBlock(_propBlock);
                 yield return null;
@@ -45,6 +47,8 @@ namespace Assets.Scripts.Enemies.EnemyAI
             while (currentValue > 0)
             {
                 currentValue -= FadeFadeout.Evaluate(Time.time - startTime) * speed;
+                if (currentValue < 0)
+                    currentValue = 0;
                 _propBlock.SetFloat("_Alpha", currentValue);
                 sprite.SetPropertyBlock(_propBlock);
                 yield return null;

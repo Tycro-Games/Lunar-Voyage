@@ -213,7 +213,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifeTime: 0.5
-  ToSpawn: {fileID: 2612408486624371043, guid: 45b738fb2fd13634abf1f5d47ac4f12a, type: 3}
+  ToSpawn: {fileID: 5205292020796908417, guid: 96c0bea2239f5d042816963658ad0f1a, type: 3}
 --- !u!1001 &6287755100790619513
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -227,26 +227,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: c6b5e65315284114bae2e783aee30060,
         type: 3}
-    - target: {fileID: 3772666519902724561, guid: 44be9c27f7006ad4dbf17419d788cc16,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 0.4862745
-      objectReference: {fileID: 0}
-    - target: {fileID: 3772666519902724561, guid: 44be9c27f7006ad4dbf17419d788cc16,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 0.61960787
-      objectReference: {fileID: 0}
-    - target: {fileID: 3772666519902724561, guid: 44be9c27f7006ad4dbf17419d788cc16,
-        type: 3}
-      propertyPath: m_Color.r
-      value: 0.84705883
-      objectReference: {fileID: 0}
-    - target: {fileID: 4886560954343573481, guid: 44be9c27f7006ad4dbf17419d788cc16,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7350138340451611808, guid: 44be9c27f7006ad4dbf17419d788cc16,
         type: 3}
       propertyPath: m_Name

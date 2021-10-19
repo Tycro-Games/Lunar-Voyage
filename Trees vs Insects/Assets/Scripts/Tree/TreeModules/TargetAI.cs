@@ -8,9 +8,11 @@ namespace Bogadanul.Assets.Scripts.Tree
         private ITreeRecon treeRecon;
         private ITreeShoot treeShoot;
 
+        public BoxCollider Target { get => target; set => target = value; }
+
         public void GetBoxCol()
         {
-            target = treeRecon.CheckForEnemies();
+            Target = treeRecon.CheckForEnemies();
         }
 
         private void OnDisable()
@@ -20,8 +22,8 @@ namespace Bogadanul.Assets.Scripts.Tree
 
         private void OnDrawGizmos()
         {
-            if (target != null)
-                Gizmos.DrawLine(transform.position, target.transform.position);
+            if (Target != null)
+                Gizmos.DrawLine(transform.position, Target.transform.position);
         }
 
         private void Start()
@@ -32,9 +34,9 @@ namespace Bogadanul.Assets.Scripts.Tree
 
         private void Update()
         {
-            if (target != null && treeRecon.CheckDist(target))
+            if (Target != null && treeRecon.CheckDist(Target))
             {
-                treeShoot.Shoot(target.transform);
+                treeShoot.Shoot(Target.transform);
                 return;
             }
             GetBoxCol();

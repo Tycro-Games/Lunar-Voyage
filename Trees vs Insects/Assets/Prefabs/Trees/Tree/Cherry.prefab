@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1101677643}
   - component: {fileID: 1101677644}
   - component: {fileID: 3502565598358487945}
+  - component: {fileID: 2567025879015859628}
   m_Layer: 15
   m_Name: GPX
   m_TagString: Untagged
@@ -25,13 +26,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1101677642}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0.38268343, w: 0.92387956}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3378922850733586424}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 45}
 --- !u!212 &1101677644
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -51,7 +52,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 21a541e03c17de24bb927f3efff9b7d7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -72,8 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -749024654251515319, guid: 7a72458cc65ff4543932868093139ea4,
-    type: 3}
+  m_Sprite: {fileID: 21300000, guid: 07e97349a6bbb244b8405f98eef5e483, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -97,6 +97,25 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.6875, y: 1.8125, z: 0.2}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!95 &2567025879015859628
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1101677642}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 92445218e4231064dbeee2ed82a903b1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &8976918986219011986
 GameObject:
   m_ObjectHideFlags: 0
@@ -109,7 +128,7 @@ GameObject:
   - component: {fileID: 7358930138947015815}
   - component: {fileID: 830405554182518472}
   - component: {fileID: 5235577648872938533}
-  - component: {fileID: 916711291337144241}
+  - component: {fileID: 7763626882811031711}
   m_Layer: 15
   m_Name: Cherry
   m_TagString: Untagged
@@ -190,10 +209,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 1101677644}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: set_flipX
-        m_Mode: 6
+      - m_Target: {fileID: 7763626882811031711}
+        m_TargetAssemblyTypeName: Assets.Scripts.Enemies.EnemyAI.SpawnGameOBJ, Scripts
+        m_MethodName: Spawn
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -202,38 +221,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 1101677644}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: set_material
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 2100000, guid: 79729714b203037449d95a1414828a68,
-            type: 2}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Material, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-  TimeToWait: 3
---- !u!114 &916711291337144241
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8976918986219011986}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2174729f36d955848af18fb955156f80, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  loop: 0
-  OnTimerFinished:
-    m_PersistentCalls:
-      m_Calls:
       - m_Target: {fileID: 7358930138947015815}
-        m_TargetAssemblyTypeName: 
+        m_TargetAssemblyTypeName: Bogadanul.Assets.Scripts.Tree.DestroyTree, Scripts
         m_MethodName: DestroyTheTree
         m_Mode: 1
         m_Arguments:
@@ -242,6 +231,20 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
-  TimeToWait: 5
+  TimeToWait: 3
+--- !u!114 &7763626882811031711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8976918986219011986}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af9e8146a89f7434da2a03d0cb2bb6d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeTime: 2
+  ToSpawn: {fileID: 6003894550369967899, guid: de8cca2005c611c4ca74d81071ad57a7, type: 3}
