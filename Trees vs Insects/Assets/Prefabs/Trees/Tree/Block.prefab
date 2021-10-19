@@ -72,7 +72,7 @@ SpriteRenderer:
   m_SortingLayerID: -2084415841
   m_SortingLayer: -1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 43d24bb06a9e5734fb25e17ef1fac293, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b130d6838e71b344eb9877611496be0b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -117,7 +117,7 @@ GameObject:
   - component: {fileID: 1545781233215998529}
   - component: {fileID: 763512362445950027}
   m_Layer: 14
-  m_Name: Potty Pot
+  m_Name: Block
   m_TagString: Plant
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0

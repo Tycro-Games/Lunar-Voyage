@@ -15,7 +15,7 @@ namespace Bogadanul.Assets.Scripts.Player
         private CheckPlacerPath checkPlacer;
 
         [SerializeField]
-        private  GameObject currentTree = null;
+        private GameObject currentTree = null;
 
         private NodeFinder raycaster;
 
@@ -142,7 +142,8 @@ namespace Bogadanul.Assets.Scripts.Player
 
         private void Placing(Node n)
         {
-            Instantiate(EffectOnPlace, n.worldPosition, Quaternion.identity);
+            if (EffectOnPlace != null)
+                Instantiate(EffectOnPlace, n.worldPosition, Quaternion.identity);
             currentTree = null;
             TreeSeedContainer.ActivateCoolDown();
             OnBuyCheck?.Invoke();

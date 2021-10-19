@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2440719c713eda543af74407f0ec8d21, type: 3}
   m_Name: Golden
   m_EditorClassIdentifier: 
-  icon: {fileID: 316753804652462999, guid: 641d9d9b89c5e06439368219f558849a, type: 3}
+  icon: {fileID: 21300000, guid: 881c2c0863ef59241a4fbd3670bd57b7, type: 3}
   price: 50
   cooldown: 10
-  sprite: {fileID: -2667012908936262611, guid: 688b486052beca24aaded59fa32b3b5c, type: 3}
+  sprite: {fileID: 21300000, guid: 881c2c0863ef59241a4fbd3670bd57b7, type: 3}
   TreeGameObject: {fileID: 7935677415777961333, guid: 22f0588ec5c83f0469ad6617dfec3dcf,
     type: 3}
   fruit: 0
