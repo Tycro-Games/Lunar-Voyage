@@ -13,8 +13,11 @@ namespace Assets.Scripts.Utility
 
         [SerializeField]
         private float time = 2.0f;
-
-        private IEnumerator OnMouseDown()
+        private void Start()
+        {
+            StartCoroutine(Activate());
+        }
+        private IEnumerator Activate()
         {
             BeforeCoolDown?.Invoke();
             yield return new WaitForSecondsRealtime(time);
