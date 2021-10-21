@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Bogadanul.Assets.Scripts.Tree
 {
@@ -8,9 +7,12 @@ namespace Bogadanul.Assets.Scripts.Tree
         [SerializeField]
         private GameObject waterPrefab = null;
 
-        public void Spawn ()
+        [SerializeField]
+        private float rangeToSpawn = 5.0f;
+
+        public void Spawn()
         {
-            Instantiate (waterPrefab, transform.position, Quaternion.identity, transform);
+            Instantiate(waterPrefab, (Vector2)transform.position + Random.insideUnitCircle * rangeToSpawn, Quaternion.identity, transform);
         }
     }
 }

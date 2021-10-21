@@ -353,12 +353,7 @@ PrefabInstance:
     - target: {fileID: 7411997694482271478, guid: 35710d2da71cf39419c01abc3d9d199c,
         type: 3}
       propertyPath: m_text
-      value: 'Getting sap is the only way to place more trees
-
-        Click on the
-        sap tree icon to place one
-
-'
+      value: Energy stations are very important for your economy!
       objectReference: {fileID: 0}
     - target: {fileID: 8251603817612713384, guid: 35710d2da71cf39419c01abc3d9d199c,
         type: 3}
@@ -929,7 +924,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: By the way, to cancel the current selection press right click.
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -956,7 +951,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 72
+  m_fontSize: 37.66
   m_fontSizeBase: 37.66
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1093,7 +1088,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: On this level 3 Saps should be enough.
+  m_text: On this level 3 energy stations should do the job!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1316,6 +1311,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 531327147, guid: 2d2288358d54cb949a246a78f82ad470, type: 3}
+      propertyPath: m_TileSpriteArray.Array.data[12].m_Data
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 531327147, guid: 2d2288358d54cb949a246a78f82ad470, type: 3}
+      propertyPath: m_TileSpriteArray.Array.data[14].m_Data
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 531327147, guid: 2d2288358d54cb949a246a78f82ad470, type: 3}
       propertyPath: m_TileSpriteArray.Array.data[15].m_Data
       value: 
       objectReference: {fileID: 21300120, guid: 1c9ed9d1200c29d4cbfd2071028c1cd5,
@@ -1327,11 +1330,13 @@ PrefabInstance:
     - target: {fileID: 531327147, guid: 2d2288358d54cb949a246a78f82ad470, type: 3}
       propertyPath: m_TileSpriteArray.Array.data[17].m_Data
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 21300062, guid: 1c9ed9d1200c29d4cbfd2071028c1cd5,
+        type: 3}
     - target: {fileID: 531327147, guid: 2d2288358d54cb949a246a78f82ad470, type: 3}
       propertyPath: m_TileSpriteArray.Array.data[20].m_Data
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 21300008, guid: 1c9ed9d1200c29d4cbfd2071028c1cd5,
+        type: 3}
     - target: {fileID: 531327147, guid: 2d2288358d54cb949a246a78f82ad470, type: 3}
       propertyPath: m_TileSpriteArray.Array.data[22].m_Data
       value: 
@@ -1655,11 +1660,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 531327147, guid: 2d2288358d54cb949a246a78f82ad470, type: 3}
       propertyPath: m_TileSpriteArray.Array.data[12].m_RefCount
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 531327147, guid: 2d2288358d54cb949a246a78f82ad470, type: 3}
       propertyPath: m_TileSpriteArray.Array.data[14].m_RefCount
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 531327147, guid: 2d2288358d54cb949a246a78f82ad470, type: 3}
       propertyPath: m_TileSpriteArray.Array.data[15].m_RefCount
@@ -1671,7 +1676,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 531327147, guid: 2d2288358d54cb949a246a78f82ad470, type: 3}
       propertyPath: m_TileSpriteArray.Array.data[17].m_RefCount
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 531327147, guid: 2d2288358d54cb949a246a78f82ad470, type: 3}
       propertyPath: m_TileSpriteArray.Array.data[18].m_RefCount
@@ -1683,7 +1688,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 531327147, guid: 2d2288358d54cb949a246a78f82ad470, type: 3}
       propertyPath: m_TileSpriteArray.Array.data[20].m_RefCount
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 531327147, guid: 2d2288358d54cb949a246a78f82ad470, type: 3}
       propertyPath: m_TileSpriteArray.Array.data[21].m_RefCount
@@ -1699,7 +1704,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 531327147, guid: 2d2288358d54cb949a246a78f82ad470, type: 3}
       propertyPath: m_TileSpriteArray.Array.data[24].m_RefCount
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 531327147, guid: 2d2288358d54cb949a246a78f82ad470, type: 3}
       propertyPath: m_TileSpriteArray.Array.data[25].m_RefCount
@@ -1736,6 +1741,14 @@ PrefabInstance:
     - target: {fileID: 531327147, guid: 2d2288358d54cb949a246a78f82ad470, type: 3}
       propertyPath: m_Tiles.Array.data[97].second.m_AllTileFlags
       value: 1073741825
+      objectReference: {fileID: 0}
+    - target: {fileID: 531327147, guid: 2d2288358d54cb949a246a78f82ad470, type: 3}
+      propertyPath: m_Tiles.Array.data[2].second.m_TileSpriteIndex
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 531327147, guid: 2d2288358d54cb949a246a78f82ad470, type: 3}
+      propertyPath: m_Tiles.Array.data[6].second.m_TileSpriteIndex
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 531327147, guid: 2d2288358d54cb949a246a78f82ad470, type: 3}
       propertyPath: m_Tiles.Array.data[8].second.m_TileSpriteIndex
@@ -1810,6 +1823,10 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 531327147, guid: 2d2288358d54cb949a246a78f82ad470, type: 3}
+      propertyPath: m_Tiles.Array.data[34].second.m_TileSpriteIndex
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 531327147, guid: 2d2288358d54cb949a246a78f82ad470, type: 3}
       propertyPath: m_Tiles.Array.data[41].second.m_TileSpriteIndex
       value: 23
       objectReference: {fileID: 0}
@@ -1832,6 +1849,10 @@ PrefabInstance:
     - target: {fileID: 531327147, guid: 2d2288358d54cb949a246a78f82ad470, type: 3}
       propertyPath: m_Tiles.Array.data[56].second.m_TileSpriteIndex
       value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 531327147, guid: 2d2288358d54cb949a246a78f82ad470, type: 3}
+      propertyPath: m_Tiles.Array.data[57].second.m_TileSpriteIndex
+      value: 24
       objectReference: {fileID: 0}
     - target: {fileID: 531327147, guid: 2d2288358d54cb949a246a78f82ad470, type: 3}
       propertyPath: m_Tiles.Array.data[58].second.m_TileSpriteIndex
@@ -2590,6 +2611,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_TileSpriteArray.Array.data[0].m_Data
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3694836581136279941, guid: 2d2288358d54cb949a246a78f82ad470,
+        type: 3}
+      propertyPath: m_TileSpriteArray.Array.data[5].m_Data
+      value: 
       objectReference: {fileID: 21300090, guid: 1c9ed9d1200c29d4cbfd2071028c1cd5,
         type: 3}
     - target: {fileID: 3694836581136279941, guid: 2d2288358d54cb949a246a78f82ad470,
@@ -2675,6 +2701,11 @@ PrefabInstance:
     - target: {fileID: 3694836581136279941, guid: 2d2288358d54cb949a246a78f82ad470,
         type: 3}
       propertyPath: m_TileSpriteArray.Array.data[0].m_RefCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3694836581136279941, guid: 2d2288358d54cb949a246a78f82ad470,
+        type: 3}
+      propertyPath: m_TileSpriteArray.Array.data[5].m_RefCount
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3694836581136279941, guid: 2d2288358d54cb949a246a78f82ad470,
@@ -3305,7 +3336,7 @@ PrefabInstance:
     - target: {fileID: 3694836581136279941, guid: 2d2288358d54cb949a246a78f82ad470,
         type: 3}
       propertyPath: m_Tiles.Array.data[51].second.m_TileSpriteIndex
-      value: 0
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3694836581136279941, guid: 2d2288358d54cb949a246a78f82ad470,
         type: 3}
@@ -4320,7 +4351,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Make sure you find a balance between production and defense! \n\n"
+  m_text: Make sure to place enough of them!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

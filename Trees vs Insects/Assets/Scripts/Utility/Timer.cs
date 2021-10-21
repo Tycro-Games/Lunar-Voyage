@@ -27,7 +27,8 @@ namespace Bogadanul.Assets.Scripts.Utility
 
         private IEnumerator TimerLoop()
         {
-            yield return new WaitForSeconds(TimeToWait);
+            
+            yield return new WaitForSecondsRealtime(TimeToWait);
             OnTimerFinished?.Invoke();
 
             if (loop)

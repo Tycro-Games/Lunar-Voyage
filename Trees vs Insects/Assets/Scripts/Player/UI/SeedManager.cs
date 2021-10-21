@@ -1,10 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using System.Linq;
-using UnityEngine.UI;
+﻿using Assets.Scripts.UI;
 using System;
-using Assets.Scripts.UI;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using UnityEngine;
+using UnityEngine.UI;
 
 namespace Bogadanul.Assets.Scripts.Player
 {
@@ -55,11 +55,11 @@ namespace Bogadanul.Assets.Scripts.Player
             }
         }
 
-        public void AddSeed(GameObject seed)
+        public IEnumerator AddSeed(GameObject seed)
         {
             if (seeds.ContainsKey(seed))//already here
             {
-                StartCoroutine(MoveSeed(seed.transform, seeds[seed]));
+                yield return StartCoroutine(MoveSeed(seed.transform, seeds[seed]));
                 ShiftList(seed);
                 index--;
                 IsFull();
@@ -68,7 +68,7 @@ namespace Bogadanul.Assets.Scripts.Player
             {
                 seeds.Add(seed, seed.transform.position);
 
-                StartCoroutine(MoveSeed(seed.transform, SeedPlace[index++].transform.position));
+                yield return StartCoroutine(MoveSeed(seed.transform, SeedPlace[index++].transform.position));
                 IsFull();
             }
         }
@@ -87,10 +87,9 @@ namespace Bogadanul.Assets.Scripts.Player
             speed = 1000;
             foreach (GameObject seed in seeds)
             {
-                AddSeed(seed);
-                yield return null;
+                yield return StartCoroutine(AddSeed(seed));
+               
             }
-            yield return new WaitForSecondsRealtime(.1f);
             FindObjectOfType<GetRocking>().gameObject.GetComponent<Button>().onClick?.Invoke();
         }
 

@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemies:
   - {fileID: 11400000, guid: bfd12a4997d333a4eb3a6bc76244cd7f, type: 2}
-  durationBetweenEnemies: 20
+  durationBetweenEnemies: 10
   weight: 3
   CountSpawners: 3

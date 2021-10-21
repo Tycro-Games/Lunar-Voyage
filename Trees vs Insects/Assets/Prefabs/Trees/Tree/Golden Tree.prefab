@@ -158,7 +158,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  TimeToWait: 20
+  TimeToWait: 15
 --- !u!65 &8330554719374839517
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -186,3 +186,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waterPrefab: {fileID: 7802668631942595373, guid: c56671422744dbb4fb293140b4fbeb48,
     type: 3}
+  rangeToSpawn: 0
