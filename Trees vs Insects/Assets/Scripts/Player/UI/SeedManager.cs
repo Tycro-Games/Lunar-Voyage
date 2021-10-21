@@ -1,10 +1,10 @@
-﻿using Assets.Scripts.UI;
-using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
+using System.Linq;
 using UnityEngine.UI;
+using System;
+using Assets.Scripts.UI;
 
 namespace Bogadanul.Assets.Scripts.Player
 {
@@ -46,6 +46,7 @@ namespace Bogadanul.Assets.Scripts.Player
 
         public void SetRound()
         {
+            
             for (int i = 0; i < transform.childCount; i++)
                 SeedPlace[i].gameObject.SetActive(false);
             foreach (GameObject s in seeds.Keys)
@@ -55,11 +56,11 @@ namespace Bogadanul.Assets.Scripts.Player
             }
         }
 
-        public IEnumerator AddSeed(GameObject seed)
+        public void AddSeed(GameObject seed)
         {
             if (seeds.ContainsKey(seed))//already here
             {
-                yield return StartCoroutine(MoveSeed(seed.transform, seeds[seed]));
+                StartCoroutine(MoveSeed(seed.transform, seeds[seed]));
                 ShiftList(seed);
                 index--;
                 IsFull();
@@ -68,7 +69,7 @@ namespace Bogadanul.Assets.Scripts.Player
             {
                 seeds.Add(seed, seed.transform.position);
 
-                yield return StartCoroutine(MoveSeed(seed.transform, SeedPlace[index++].transform.position));
+                StartCoroutine(MoveSeed(seed.transform, SeedPlace[index++].transform.position));
                 IsFull();
             }
         }
@@ -84,12 +85,14 @@ namespace Bogadanul.Assets.Scripts.Player
 
         private IEnumerator Addall(GameObject[] seeds)
         {
+           
             speed = 1000;
             foreach (GameObject seed in seeds)
             {
-                yield return StartCoroutine(AddSeed(seed));
-               
+                AddSeed(seed);
+                yield return null;
             }
+            yield return new WaitForSecondsRealtime(.1f);
             FindObjectOfType<GetRocking>().gameObject.GetComponent<Button>().onClick?.Invoke();
         }
 
