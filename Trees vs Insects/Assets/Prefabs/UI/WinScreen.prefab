@@ -695,6 +695,7 @@ GameObject:
   - component: {fileID: 4163259777998249730}
   - component: {fileID: 4163259777998249731}
   - component: {fileID: 1646395201146389659}
+  - component: {fileID: 5772671311697366594}
   m_Layer: 5
   m_Name: WinScreen
   m_TagString: Untagged
@@ -824,6 +825,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6d7d58d3cb9171544a95b7fc2ba04c87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5772671311697366594
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4163259777998249752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfb8cb5b7608042408fcceea20230ab0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &4163259778313808665
