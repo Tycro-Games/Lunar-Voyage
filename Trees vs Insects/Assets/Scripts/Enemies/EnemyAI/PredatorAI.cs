@@ -7,6 +7,7 @@ using UnityEngine.Events;
 
 namespace Bogadanul.Assets.Scripts.Enemies
 {
+   
     public class PredatorAI : HealthBaseAI
     {
         private Move move = null;
@@ -38,7 +39,7 @@ namespace Bogadanul.Assets.Scripts.Enemies
         private Gridmanager grid = null;
         private Collider target = null;
         private IEnumerator Move;
-
+        
         public override void Init(Transform Target, Gridmanager grid)
         {
             base.Init(null, grid);
@@ -51,7 +52,7 @@ namespace Bogadanul.Assets.Scripts.Enemies
             trace.IsActive = false;
             FindPrey();
         }
-
+        
         private void FindPrey()
         {
             target = GetPrey();
@@ -74,6 +75,7 @@ namespace Bogadanul.Assets.Scripts.Enemies
         protected override void Start()
         {
             base.Start();
+            
         }
 
         private void Update()

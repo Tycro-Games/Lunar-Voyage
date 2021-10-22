@@ -55,7 +55,7 @@ namespace Bogadanul.Assets.Scripts.Enemies
 
         private void Start()
         {
-            wave = FindObjectOfType<WaveSystem>();
+            wave = GameObject.FindGameObjectWithTag("WaveSystem").GetComponent<WaveSystem>();
             EnemyList.List.Add(gameObject);
         }
     }

@@ -49,8 +49,14 @@ namespace Bogadanul.Assets.Scripts.Tree
         {
             GizCol = Random.ColorHSV();
             GetRefs();
+          
+          
         }
-
+        private void Start()
+        {
+            if (nodes.Count == 0)
+                nodes = GetNodeRange(nodeFinder.NodeFromPoint(transform));
+        }
         private void OnDrawGizmosSelected()
         {
             Gizmos.color = Color.red;

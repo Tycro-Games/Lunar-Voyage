@@ -10,6 +10,7 @@ TagManager:
   - Enemy
   - Plant
   - Moveable
+  - WaveSystem
   layers:
   - Default
   - TransparentFX

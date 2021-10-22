@@ -28,6 +28,7 @@ namespace Bogadanul.Assets.Scripts.Tree
         {
             nodeFinder = GetComponent<NodeFinder> ();
             display = FindObjectOfType<DisplayRange> ();
+            
             nodes = display.nodes;
             display.Reset ();
         }
