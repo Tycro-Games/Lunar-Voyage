@@ -41,13 +41,17 @@ namespace Bogadanul.Assets.Scripts.Enemies
         public event Action<int> OnSpawn;
 
         public int EnemyWeight { get => enemyWeight; set { enemyWeight = value; } }
+
+        public bool Started { get => started; set => started = value; }
+
         private bool waveEnd = false;
 
         [HideInInspector]
         public bool End = false;
-
+        private bool started = false;
         public void StartWave()
         {
+            Started = true;
             StartCoroutine(WaveCounter());
         }
 
@@ -128,6 +132,7 @@ namespace Bogadanul.Assets.Scripts.Enemies
 
         private void Awake()
         {
+            started = false;
             trigger = GetComponent<TriggerSpawner>();
             seed = GetComponent<Seed>();
             enemyChooser = GetComponent<EnemyChooser>();

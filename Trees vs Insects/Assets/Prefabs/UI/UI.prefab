@@ -2081,6 +2081,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SelectMenu.1
       objectReference: {fileID: 0}
+    - target: {fileID: 6849209854051174254, guid: b8049ed21503413449ac48c21fbd4f80,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7760559550376439232, guid: b8049ed21503413449ac48c21fbd4f80,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size

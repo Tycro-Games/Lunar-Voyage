@@ -93,7 +93,7 @@ namespace Bogadanul.Assets.Scripts.Player
 
         private void Update()
         {
-            Node n = node.NodeFromInput(cursorController.MousePosition());
+            Node n = node.NodeFromInput(cursorController.MousePosition(false));
 
             if (Placeable)
             {

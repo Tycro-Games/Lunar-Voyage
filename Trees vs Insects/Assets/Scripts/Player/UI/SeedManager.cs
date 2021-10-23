@@ -84,16 +84,14 @@ namespace Bogadanul.Assets.Scripts.Player
         }
 
         private IEnumerator Addall(GameObject[] seeds)
-        {
-           
-            speed = 1000;
+        {       
             foreach (GameObject seed in seeds)
             {
                 AddSeed(seed);
                 yield return null;
             }
             yield return new WaitForSecondsRealtime(.1f);
-            FindObjectOfType<GetRocking>().gameObject.GetComponent<Button>().onClick?.Invoke();
+            FindObjectOfType<GetRocking>().GetComponent<Button>().onClick?.Invoke();
         }
 
         public void IsFull()

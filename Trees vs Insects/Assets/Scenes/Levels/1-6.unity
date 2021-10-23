@@ -707,6 +707,12 @@ PrefabInstance:
       objectReference: {fileID: 943066999}
     - target: {fileID: 3694836581136279941, guid: 2d2288358d54cb949a246a78f82ad470,
         type: 3}
+      propertyPath: m_TileSpriteArray.Array.data[0].m_Data
+      value: 
+      objectReference: {fileID: 21300090, guid: 1c9ed9d1200c29d4cbfd2071028c1cd5,
+        type: 3}
+    - target: {fileID: 3694836581136279941, guid: 2d2288358d54cb949a246a78f82ad470,
+        type: 3}
       propertyPath: m_TileColorArray.Array.data[1].m_Data.a
       value: 1
       objectReference: {fileID: 0}
@@ -763,12 +769,12 @@ PrefabInstance:
     - target: {fileID: 3694836581136279941, guid: 2d2288358d54cb949a246a78f82ad470,
         type: 3}
       propertyPath: m_TileSpriteArray.Array.data[0].m_RefCount
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3694836581136279941, guid: 2d2288358d54cb949a246a78f82ad470,
         type: 3}
       propertyPath: m_TileSpriteArray.Array.data[54].m_RefCount
-      value: 55
+      value: 54
       objectReference: {fileID: 0}
     - target: {fileID: 3694836581136279941, guid: 2d2288358d54cb949a246a78f82ad470,
         type: 3}
@@ -1044,6 +1050,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Tiles.Array.data[160].second.m_TileColorIndex
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3694836581136279941, guid: 2d2288358d54cb949a246a78f82ad470,
+        type: 3}
+      propertyPath: m_Tiles.Array.data[51].second.m_TileSpriteIndex
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3694836581136279941, guid: 2d2288358d54cb949a246a78f82ad470,
         type: 3}
@@ -1399,11 +1410,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: A_
-      objectReference: {fileID: 0}
-    - target: {fileID: 4830277980041357212, guid: 2d2288358d54cb949a246a78f82ad470,
-        type: 3}
-      propertyPath: gridWorldSize.y
-      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 4830277980041357213, guid: 2d2288358d54cb949a246a78f82ad470,
         type: 3}
@@ -2085,7 +2091,7 @@ Sprite:
         format: 0
         dimension: 0
       m_DataSize: 80
-      _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf000000000000000000000000000000000000000000000000000000000000000000000000
+      _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf00000000000000000000803f0000803f0000803f00000000000000000000803f00000000
     m_Bindpose: []
     textureRect:
       serializedVersion: 2

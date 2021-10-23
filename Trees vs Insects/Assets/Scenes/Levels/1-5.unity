@@ -157,8 +157,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -472.5333, y: 439.02032}
-  m_SizeDelta: {x: -945.0666, y: -878.0406}
+  m_AnchoredPosition: {x: -292.36813, y: 454.46826}
+  m_SizeDelta: {x: -584.7362, y: -908.9365}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &89606660
 MonoBehaviour:
@@ -537,7 +537,7 @@ PrefabInstance:
     - target: {fileID: 8251603818018916438, guid: 35710d2da71cf39419c01abc3d9d199c,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8251603818018916439, guid: 35710d2da71cf39419c01abc3d9d199c,
         type: 3}
@@ -1272,6 +1272,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1141873627783123839, guid: 2d2288358d54cb949a246a78f82ad470,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -219.99994
       objectReference: {fileID: 0}
     - target: {fileID: 1224838699213899205, guid: 2d2288358d54cb949a246a78f82ad470,
         type: 3}
@@ -4330,6 +4335,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2d2288358d54cb949a246a78f82ad470, type: 3}
+--- !u!114 &928525297 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 669466316, guid: 2d2288358d54cb949a246a78f82ad470,
+    type: 3}
+  m_PrefabInstance: {fileID: 928525296}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2174729f36d955848af18fb955156f80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &944738979 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8251603818018916438, guid: 35710d2da71cf39419c01abc3d9d199c,
@@ -5518,6 +5535,18 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 928525297}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
         m_CallState: 2
 --- !u!1001 &2054879097
 PrefabInstance:

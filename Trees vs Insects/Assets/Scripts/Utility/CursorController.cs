@@ -14,12 +14,12 @@ namespace Bogadanul.Assets.Scripts.Utility
 
         public event Action<Vector3> OnMovement;
 
-        public Vector2 MousePosition()
+        public Vector2 MousePosition(bool eventTrigger)
         {
             Vector2 mousePos = transform.position;
 #if !UNITY_ANDROID
             mousePos = Input.mousePosition;
-            if (Input.GetMouseButtonDown(0))
+            if ( eventTrigger&&Input.GetMouseButtonDown(0))
                 OnMovement?.Invoke(mousePos);
             return mousePos;
 #endif
@@ -31,7 +31,7 @@ namespace Bogadanul.Assets.Scripts.Utility
 
                 mousePos = touch.position;
 
-                if (touch.phase == TouchPhase.Ended)
+                if ( eventTrigger&&touch.phase == TouchPhase.Ended)
                     OnMovement?.Invoke(mousePos);
                 lastPos = mousePos;
             }
@@ -41,7 +41,7 @@ namespace Bogadanul.Assets.Scripts.Utility
 
         private void Update()
         {
-            transform.position = Vector2.Lerp(transform.position, Camera.main.ScreenToWorldPoint(MousePosition()), smooth * Time.unscaledDeltaTime);
+            transform.position = Vector2.Lerp(transform.position, Camera.main.ScreenToWorldPoint(MousePosition(true)), smooth * Time.unscaledDeltaTime);
         }
 
         private void Start()

@@ -45,11 +45,19 @@ namespace Bogadanul.Assets.Scripts.Player
         }
 
         private CursorController cursorController = null;
+        private bool first = false;
 
         public void Place(Vector3 input)
         {
             if (currentTree != null)
             {
+#if UNITY_ANDROID
+                if(first)
+                {
+                    first = false;
+                    return;
+                }
+#endif
                 if (placeable)
                 {
                     Node n = raycaster.NodeFromInput(input);
@@ -78,10 +86,16 @@ namespace Bogadanul.Assets.Scripts.Player
                         Instantiate(EffectOnRemove, ng.transform.position, Quaternion.identity);
                         ng.GetComponent<DestroyTree>().DestroyTheTree();
                         StartCoroutine(Counter());
+#if !UNITY_ANDROID
                         seedSender.CancelCurrentSeed();
                         Reset();
+#endif
                     }
                 }
+#if UNITY_ANDROID
+                seedSender.CancelCurrentSeed();
+                Reset();
+#endif
             }
         }
 
@@ -101,6 +115,7 @@ namespace Bogadanul.Assets.Scripts.Player
             placeable = true;
             currentTree = seed;
             Fruit = canBeAny;
+            first = true;
         }
 
         public void UpdateNonPlaceable(GameObject seed)

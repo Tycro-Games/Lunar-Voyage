@@ -203,6 +203,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waterPrefab: {fileID: 7802668631942595373, guid: c56671422744dbb4fb293140b4fbeb48,
     type: 3}
+  rangeToSpawn: 5
 --- !u!1 &7904163961877848882
 GameObject:
   m_ObjectHideFlags: 0
@@ -315,7 +316,7 @@ PrefabInstance:
     - target: {fileID: 613853502183762613, guid: 63de48fd3000eaa459e27c6eb2d7e800,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.6
+      value: 0.69
       objectReference: {fileID: 0}
     - target: {fileID: 613853502183762613, guid: 63de48fd3000eaa459e27c6eb2d7e800,
         type: 3}
