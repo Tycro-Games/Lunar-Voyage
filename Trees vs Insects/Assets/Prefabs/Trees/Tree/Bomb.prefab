@@ -130,7 +130,7 @@ GameObject:
   - component: {fileID: 5235577648872938533}
   - component: {fileID: 7763626882811031711}
   m_Layer: 15
-  m_Name: Cherry
+  m_Name: Bomb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

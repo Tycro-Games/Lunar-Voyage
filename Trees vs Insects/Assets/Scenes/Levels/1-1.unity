@@ -4813,6 +4813,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2888842905463847521, guid: 5276ea2362fdfcc4fbd0c0bb1504a90a,
         type: 2}
+    - target: {fileID: 5286526900055748363, guid: 2d2288358d54cb949a246a78f82ad470,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5321974529163816540, guid: 2d2288358d54cb949a246a78f82ad470,
         type: 3}
       propertyPath: m_IsActive
