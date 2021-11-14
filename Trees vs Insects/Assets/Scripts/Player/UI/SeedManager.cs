@@ -76,6 +76,7 @@ namespace Bogadanul.Assets.Scripts.Player
 
         public void AddAll()
         {
+
             GameObject[] seeds = GameObject.FindGameObjectsWithTag("Moveable");
             if (max >= seeds.Length)
             {
@@ -84,7 +85,8 @@ namespace Bogadanul.Assets.Scripts.Player
         }
 
         private IEnumerator Addall(GameObject[] seeds)
-        {       
+        {
+            speed = 10000;
             foreach (GameObject seed in seeds)
             {
                 AddSeed(seed);

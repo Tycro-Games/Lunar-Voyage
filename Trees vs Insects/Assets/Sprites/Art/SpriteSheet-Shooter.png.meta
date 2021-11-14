@@ -1,19 +1,16 @@
 fileFormatVersion: 2
-guid: 7a72458cc65ff4543932868093139ea4
+guid: eada1d1099ef7f6408ef961629be8032
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -749024654251515319
-    second: spritesheet (3)_0
+      213: -8990202243460596600
+    second: SpriteSheet-Shooter_0
   - first:
-      213: -1025294881627752460
-    second: spritesheet (3)_1
+      213: 5052934290752662794
+    second: SpriteSheet-Shooter_1
   - first:
-      213: -5624787808245219614
-    second: spritesheet (3)_0
-  - first:
-      213: 63159708840673885
-    second: spritesheet (3)_1
+      213: -5187319853391271727
+    second: SpriteSheet-Shooter_2
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -35,6 +32,7 @@ TextureImporter:
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -57,7 +55,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 128
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -66,9 +64,12 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
   applyGammaDecoding: 0
   platformSettings:
   - serializedVersion: 3
@@ -123,13 +124,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: spritesheet (3)_0
+      name: SpriteSheet-Shooter_0
       rect:
         serializedVersion: 2
-        x: 19
-        y: 13
-        width: 54
-        height: 58
+        x: 0
+        y: 258
+        width: 258
+        height: 258
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -137,20 +138,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2ee78903a4db0f1b0800000000000000
-      internalID: -5624787808245219614
+      spriteID: 88c7c9311b26c3380800000000000000
+      internalID: -8990202243460596600
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spritesheet (3)_1
+      name: SpriteSheet-Shooter_1
       rect:
         serializedVersion: 2
-        x: 110
-        y: 13
-        width: 54
-        height: 58
+        x: 258
+        y: 258
+        width: 258
+        height: 258
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -158,8 +159,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d52c099ab6360e000800000000000000
-      internalID: 63159708840673885
+      spriteID: a0de3b147f0af1640800000000000000
+      internalID: 5052934290752662794
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet-Shooter_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 258
+        height: 258
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d82842b310f208b0800000000000000
+      internalID: -5187319853391271727
       vertices: []
       indices: 
       edges: []

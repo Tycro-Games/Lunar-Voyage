@@ -25,9 +25,9 @@ namespace Bogadanul.Assets.Scripts.Tree
 
         public void Rotate(Transform target)
         {
-            Quaternion newRot = Quaternion.LookRotation(Vector3.forward, (target.position - transform.position).normalized);
+            Quaternion newRot = Quaternion.LookRotation(Vector3.forward, (target.position - TransformToRotate.position).normalized);
 
-            transform.rotation = Quaternion.Lerp(transform.rotation, newRot, Time.deltaTime * speedRotation);
+            TransformToRotate.rotation = Quaternion.Lerp(TransformToRotate.rotation, newRot, Time.deltaTime * speedRotation);
         }
     }
 }

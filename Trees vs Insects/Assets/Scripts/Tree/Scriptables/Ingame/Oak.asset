@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2440719c713eda543af74407f0ec8d21, type: 3}
   m_Name: Oak
   m_EditorClassIdentifier: 
-  icon: {fileID: 21300000, guid: 8401d0088e7a9d04fbb9d7a3f3bfc380, type: 3}
+  icon: {fileID: -8990202243460596600, guid: eada1d1099ef7f6408ef961629be8032, type: 3}
   price: 100
   cooldown: 10
-  sprite: {fileID: 21300000, guid: 8401d0088e7a9d04fbb9d7a3f3bfc380, type: 3}
+  sprite: {fileID: -8990202243460596600, guid: eada1d1099ef7f6408ef961629be8032, type: 3}
   TreeGameObject: {fileID: 7935677415777961333, guid: 638a3a3c62e04394a82929e82b7fa79f,
     type: 3}
   fruit: 0
