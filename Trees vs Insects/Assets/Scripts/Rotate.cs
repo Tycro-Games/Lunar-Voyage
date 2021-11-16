@@ -6,12 +6,23 @@ namespace Bogadanul
     {
         [SerializeField]
         private float rotateSpeed = 1;
+        [SerializeField]
+        private float minFloat=50;
+        [SerializeField]
+        private float maxFloat=100;
+        private void Start()
+        {
+            minFloat = rotateSpeed;
 
+        }
         private void Update()
         {
-          //  Quaternion newRot =Quater transform.rotation;
-          //  newRot.z = (newRot.z + Time.deltaTime * rotateSpeed) ;
             transform.RotateAround(transform.position,Vector3.forward,Time.deltaTime*rotateSpeed);
+        }
+
+        public void ChangeSpeed(float interpolation)
+        {
+            rotateSpeed = Mathf.Lerp(minFloat, maxFloat, interpolation);
         }
     }
 }

@@ -9,7 +9,8 @@ namespace Bogadanul.Assets.Scripts.Tree
     {
         [SerializeField]
         protected int hp = 1;
-
+        [SerializeField]
+        private float destroyTime=.2f;
         public virtual void DestroyTheTree()
         {
             StartCoroutine(Destroy());
@@ -23,7 +24,7 @@ namespace Bogadanul.Assets.Scripts.Tree
         private IEnumerator Destroy()
         {
             gameObject.SetActive(false);
-            Destroy(gameObject, 2);
+            Destroy(gameObject, destroyTime);
             EnemyManager.SetSpace();
             yield return null;
         }

@@ -1,16 +1,28 @@
 fileFormatVersion: 2
-guid: b111d2a9a2664ad418babd1b24dc5d2e
+guid: d1456851ba20d07489ed51fc651be411
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7465231387027634243
-    second: SpriteSheet-EnergyStation_0
+      213: 3502517380382975091
+    second: g75483_0
   - first:
-      213: -8168936535647855992
-    second: SpriteSheet-EnergyStation_1
+      213: -3901427194364248992
+    second: g75483_1
   - first:
-      213: 7209857019178975139
-    second: SpriteSheet-EnergyStation_2
+      213: -3383052772713421833
+    second: g75483_2
+  - first:
+      213: 253638539007836000
+    second: g75483_3
+  - first:
+      213: -216517916567087947
+    second: g75483_4
+  - first:
+      213: -305861606476440124
+    second: g75483_5
+  - first:
+      213: -7685262908226837875
+    second: g75483_6
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -124,13 +136,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: SpriteSheet-EnergyStation_0
+      name: g75483_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 258
-        width: 258
-        height: 258
+        y: 256
+        width: 256
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -138,20 +150,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 348f0edd464d99760800000000000000
-      internalID: 7465231387027634243
+      spriteID: 374eb5510017b9030800000000000000
+      internalID: 3502517380382975091
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpriteSheet-EnergyStation_1
+      name: g75483_1
       rect:
         serializedVersion: 2
-        x: 258
-        y: 258
-        width: 258
-        height: 258
+        x: 256
+        y: 256
+        width: 256
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -159,20 +171,62 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 88adfff608b12ae80800000000000000
-      internalID: -8168936535647855992
+      spriteID: 06cbeda23a85bd9c0800000000000000
+      internalID: -3901427194364248992
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpriteSheet-EnergyStation_2
+      name: g75483_2
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 256
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f3240a6d6bfc01d0800000000000000
+      internalID: -3383052772713421833
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: g75483_3
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 256
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06f39ea48ea158300800000000000000
+      internalID: 253638539007836000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: g75483_4
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 258
-        height: 258
+        width: 256
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -180,8 +234,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3aff48d62ce8e0460800000000000000
-      internalID: 7209857019178975139
+      spriteID: 5b4d28f1a16cefcf0800000000000000
+      internalID: -216517916567087947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: g75483_5
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4cd9a8b4d7c51cbf0800000000000000
+      internalID: -305861606476440124
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: g75483_6
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8267ad6a16785590800000000000000
+      internalID: -7685262908226837875
       vertices: []
       indices: 
       edges: []

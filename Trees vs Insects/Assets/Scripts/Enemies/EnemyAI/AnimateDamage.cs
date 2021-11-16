@@ -1,8 +1,14 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Assets.Scripts.Enemies.EnemyAI
 {
+    [System.Serializable]
+    public class FloatEvent : UnityEvent<float>
+    {
+    }
+
     public class AnimateDamage : MonoBehaviour
     {
         private SpriteRenderer sprite;
@@ -15,6 +21,8 @@ namespace Assets.Scripts.Enemies.EnemyAI
 
         [SerializeField]
         private float speed = 3.0f;
+        [SerializeField]
+        public FloatEvent OnCurrentValue=new FloatEvent();
 
         private void Start()
         {
@@ -29,6 +37,16 @@ namespace Assets.Scripts.Enemies.EnemyAI
                 StartCoroutine(Changecolor());
         }
 
+        private void OnEnable()
+        {
+            OnCurrentValue.AddListener(ChangeMaterial);
+        }
+
+        private void OnDisable()
+        {
+            OnCurrentValue.RemoveListener(ChangeMaterial);
+        }
+
         private IEnumerator Changecolor()
         {
             IsAnimating = true;
@@ -39,8 +57,8 @@ namespace Assets.Scripts.Enemies.EnemyAI
                 currentValue += FadeFadeout.Evaluate(Time.time - startTime) * speed;
                 if (currentValue > 1)
                     currentValue = 1;
-                _propBlock.SetFloat("_Alpha", currentValue);
-                sprite.SetPropertyBlock(_propBlock);
+
+                OnCurrentValue?.Invoke(currentValue);
                 yield return null;
             }
             startTime = Time.time;
@@ -49,11 +67,18 @@ namespace Assets.Scripts.Enemies.EnemyAI
                 currentValue -= FadeFadeout.Evaluate(Time.time - startTime) * speed;
                 if (currentValue < 0)
                     currentValue = 0;
-                _propBlock.SetFloat("_Alpha", currentValue);
-                sprite.SetPropertyBlock(_propBlock);
+
+                OnCurrentValue?.Invoke(currentValue);
                 yield return null;
             }
             IsAnimating = false;
+        }
+
+        private void ChangeMaterial(float currentValue)
+        {
+
+            _propBlock.SetFloat("_Alpha", currentValue);
+            sprite.SetPropertyBlock(_propBlock);
         }
     }
 }

@@ -7,6 +7,7 @@ namespace Bogadanul.Assets.Scripts.Player
     public class TreeSeedDisplay : MonoBehaviour
     {
         private Image image;
+        private Image childImage;
         private TextMeshProUGUI text;
         private Color normal;
 
@@ -21,6 +22,7 @@ namespace Bogadanul.Assets.Scripts.Player
         public void DisplaySprite(Sprite sprite)
         {
             image.sprite = sprite;
+            childImage.sprite = sprite;
         }
 
         public void ChangeColor(Color color)
@@ -36,6 +38,7 @@ namespace Bogadanul.Assets.Scripts.Player
         private void Awake()
         {
             image = GetComponent<Image>();
+            childImage =transform.GetChild(0).GetComponent<Image>();
             normal = image.color;
             text = GetComponentInChildren<TextMeshProUGUI>();
         }
