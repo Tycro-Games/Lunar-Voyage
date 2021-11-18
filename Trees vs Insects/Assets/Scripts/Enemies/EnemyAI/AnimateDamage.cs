@@ -30,7 +30,10 @@ namespace Assets.Scripts.Enemies.EnemyAI
             _propBlock = new MaterialPropertyBlock();
             sprite.GetPropertyBlock(_propBlock);
         }
-
+        [SerializeField]
+        private UnityEvent OnMax;
+        [SerializeField]
+        private UnityEvent OnMin;
         public void ChangeColor()
         {
             if (!IsAnimating)
@@ -61,6 +64,7 @@ namespace Assets.Scripts.Enemies.EnemyAI
                 OnCurrentValue?.Invoke(currentValue);
                 yield return null;
             }
+            OnMax?.Invoke();
             startTime = Time.time;
             while (currentValue > 0)
             {
@@ -72,8 +76,15 @@ namespace Assets.Scripts.Enemies.EnemyAI
                 yield return null;
             }
             IsAnimating = false;
+            OnMin?.Invoke();
         }
 
+        public void ChangeMaterial(float currentValue,SpriteRenderer sprite)
+        {
+
+            _propBlock.SetFloat("_Alpha", currentValue);
+            sprite.SetPropertyBlock(_propBlock);
+        }
         private void ChangeMaterial(float currentValue)
         {
 

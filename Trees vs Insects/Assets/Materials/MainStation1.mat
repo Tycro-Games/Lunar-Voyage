@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: MainStation
+  m_Name: MainStation1
   m_Shader: {fileID: -6465566751694194690, guid: 2c2b3ffdf4a512342800025b763d6612,
     type: 3}
   m_ShaderKeywords: ETC1_EXTERNAL_ALPHA
@@ -38,7 +38,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - Vector1_eb88d13cdae44f8994a24e090a1cd228: 0
-    - _Alpha: 1
+    - _Alpha: 0
     m_Colors:
-    - _MainCol: {r: 1.4142135, g: 1.4142135, b: 1.4142135, a: 1}
+    - _MainCol: {r: 47.937256, g: 47.937256, b: 47.937256, a: 1}
   m_BuildTextureStacks: []
