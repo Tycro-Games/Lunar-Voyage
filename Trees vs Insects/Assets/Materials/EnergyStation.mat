@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: MainStation
+  m_Name: EnergyStation
   m_Shader: {fileID: -6465566751694194690, guid: 2c2b3ffdf4a512342800025b763d6612,
     type: 3}
   m_ShaderKeywords: ETC1_EXTERNAL_ALPHA
@@ -40,5 +40,5 @@ Material:
     - Vector1_eb88d13cdae44f8994a24e090a1cd228: 0
     - _Alpha: 0
     m_Colors:
-    - _MainCol: {r: 2.433572, g: 2.433572, b: 2.433572, a: 1}
+    - _MainCol: {r: 2.79544, g: 2.79544, b: 2.79544, a: 1}
   m_BuildTextureStacks: []
