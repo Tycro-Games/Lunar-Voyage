@@ -1,11 +1,6 @@
 name: Actions 😎
 
-on:
-  pull_request: {}
-  push: { branches: [main] }
-
-env:
-  UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+on: [push, pull_request]
 
 jobs:
   build:
@@ -19,26 +14,31 @@ jobs:
           lfs: true
 
       # Cache
-      - uses: actions/cache@v1.1.0
+      - uses: actions/cache@v2
         with:
           path: Library
-          key: Library
+          key: Library-${{ hashFiles('Assets/**', 'Packages/**', 'ProjectSettings/**') }}
+          restore-keys: |
+            Library-
 
       # Test
       - name: Run tests
-        uses: webbertakken/unity-test-runner@v1.7
+        uses: game-ci/unity-test-runner@v2
+        env:
+          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
         with:
-          unityVersion: 2020.3.3f1
+          githubToken: ${{ secrets.GITHUB_TOKEN }}
 
       # Build
       - name: Build project
-        uses: webbertakken/unity-builder@v1.5
+        uses: game-ci/unity-builder@v2
+        env:
+          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
         with:
-          unityVersion: 2020.3.3f1
           targetPlatform: WebGL
 
       # Output
-      - uses: actions/upload-artifact@v1
+      - uses: actions/upload-artifact@v2
         with:
           name: Build
           path: build
