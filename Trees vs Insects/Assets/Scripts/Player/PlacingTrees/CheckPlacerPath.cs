@@ -53,7 +53,7 @@ namespace Bogadanul.Assets.Scripts.Player
                 return false;
             }
 
-            //GameObject place = ToSpawn(cell, block);
+            GameObject place = ToSpawn(cell, block);
             
 
             EnemyManager.CheckSpaceForOnlyPaths(cell);
