@@ -1,4 +1,4 @@
-name: Actions
+name: Actions 😎
 
 on: [push, pull_request]
 
@@ -8,10 +8,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       # Checkout
-     # - name: Checkout repository
-        #uses: actions/checkout@v2
-       # with:
-      #    lfs: true
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        with:
+          lfs: true
 
       # Cache
       - uses: actions/cache@v2
@@ -20,7 +20,6 @@ jobs:
           key: Library-${{ hashFiles('Assets/**', 'Packages/**', 'ProjectSettings/**') }}
           restore-keys: |
             Library-
-            
 
       # Test
       - name: Run tests
