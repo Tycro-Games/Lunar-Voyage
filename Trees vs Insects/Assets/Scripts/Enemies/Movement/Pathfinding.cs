@@ -88,9 +88,14 @@ namespace Bogadanul.Assets.Scripts.Enemies
 
         public bool HasPath(Node n)
         {
-            if (!pathCurrent.Contains(n))
+            if (!pathCurrent.Contains(n)||pathCurrent.Count==0)
                 return true;
-            Node startNode = nodeFind.NodeFromPoint(transform);
+            Node startNode;
+            int index = pathCurrent.IndexOf(n);
+            if (index > 0)
+                startNode = pathCurrent[index-1];
+            else
+                startNode = nodeFind.NodeFromPoint(transform);
             if (startNode == null) return false;
             Node targetNode = ancientTree.currentNodes[0];
 

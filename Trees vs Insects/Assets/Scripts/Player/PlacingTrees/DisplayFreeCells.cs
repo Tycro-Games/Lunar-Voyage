@@ -78,15 +78,19 @@ namespace Bogadanul.Assets.Scripts.Player
         private void UpdateNodes()
         {
             OnlyOnePathTiles = new HashSet<Node>();
-
+            int count = 0;
             foreach (Node n in displayPath.UpdateDisplaysReturnNode())
             {
                 if (!n.IsBlocked)
+                {
+                    count++;
                     if (!CheckPlacerPath.CheckNode(n))
                     {
                         OnlyOnePathTiles.Add(n);
                     }
+                }
             }
+            Debug.Log(count + " calls "+OnlyOnePathTiles.Count);
             RecheckNodes();
         }
 

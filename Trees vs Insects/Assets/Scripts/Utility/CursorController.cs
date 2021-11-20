@@ -46,6 +46,7 @@ namespace Bogadanul.Assets.Scripts.Utility
 
         private void Start()
         {
+            Application.targetFrameRate = 60;
             cursorTransform = transform;
             
         }
