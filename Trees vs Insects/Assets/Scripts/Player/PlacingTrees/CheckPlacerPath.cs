@@ -46,26 +46,24 @@ namespace Bogadanul.Assets.Scripts.Player
             EnemyManager.SetSpace();
             return true;
         }
-        public static bool CheckNode(Node cell,GameObject block)
+        public static bool CheckNode(Node cell)
         {
             if (cell == null && !cell.IsWalkable)
             {
                 return false;
             }
 
-            GameObject place = ToSpawn(cell, block);
-            
-
-            EnemyManager.CheckSpaceForOnlyPaths(cell);
+           
+           
+           EnemyManager.CheckSpaceForOnlyPaths(cell);
             bool ret;
             if (!EnemyManager.hasPath)
             {
                 ret= false;
             }
             else
-                ret = true;
-
-            //Destroy(place);
+                ret= true;
+           
             return ret;
 
         }

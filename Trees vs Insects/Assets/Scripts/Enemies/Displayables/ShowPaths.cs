@@ -9,6 +9,8 @@ namespace Bogadanul.Assets.Scripts.Enemies
     {
         private CurrentSeedDisplay currentSeed = null;
         private TracePathCheck[] spawners;
+        [SerializeField]
+        private TracePathCheck[] LeftAndRightSpawners;
 
         public void Display(bool show = true)
         {

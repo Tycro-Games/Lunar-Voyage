@@ -178,19 +178,22 @@ PrefabInstance:
     - target: {fileID: 531327147, guid: 2d2288358d54cb949a246a78f82ad470, type: 3}
       propertyPath: m_TileSpriteArray.Array.data[22].m_Data
       value: 
-      objectReference: {fileID: 21300008, guid: 1c9ed9d1200c29d4cbfd2071028c1cd5,
-        type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 531327147, guid: 2d2288358d54cb949a246a78f82ad470, type: 3}
       propertyPath: m_TileSpriteArray.Array.data[21].m_RefCount
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 531327147, guid: 2d2288358d54cb949a246a78f82ad470, type: 3}
       propertyPath: m_TileSpriteArray.Array.data[22].m_RefCount
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 531327147, guid: 2d2288358d54cb949a246a78f82ad470, type: 3}
+      propertyPath: m_TileSpriteArray.Array.data[23].m_RefCount
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 531327147, guid: 2d2288358d54cb949a246a78f82ad470, type: 3}
       propertyPath: m_Tiles.Array.data[2].second.m_TileSpriteIndex
-      value: 22
+      value: 23
       objectReference: {fileID: 0}
     - target: {fileID: 669466316, guid: 2d2288358d54cb949a246a78f82ad470, type: 3}
       propertyPath: TimeToWait
@@ -392,6 +395,12 @@ PrefabInstance:
       propertyPath: m_Icon
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 1776968627982650804, guid: 2d2288358d54cb949a246a78f82ad470,
+        type: 3}
+      propertyPath: levelEndSeedDisplayable
+      value: 
+      objectReference: {fileID: 11400000, guid: f76517db27f703642b31af164cc54109,
+        type: 2}
     - target: {fileID: 1887804386929863236, guid: 2d2288358d54cb949a246a78f82ad470,
         type: 3}
       propertyPath: m_AnchorMax.y

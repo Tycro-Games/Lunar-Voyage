@@ -376,6 +376,12 @@ PrefabInstance:
       propertyPath: m_Icon
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 1776968627982650804, guid: 2d2288358d54cb949a246a78f82ad470,
+        type: 3}
+      propertyPath: levelEndSeedDisplayable
+      value: 
+      objectReference: {fileID: 11400000, guid: f76517db27f703642b31af164cc54109,
+        type: 2}
     - target: {fileID: 1887804386929863236, guid: 2d2288358d54cb949a246a78f82ad470,
         type: 3}
       propertyPath: m_AnchorMax.y

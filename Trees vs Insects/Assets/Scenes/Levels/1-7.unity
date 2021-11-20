@@ -228,8 +228,12 @@ PrefabInstance:
       objectReference: {fileID: 2112974848451030036, guid: a673ce12e08ba6240be55658ff3153e8,
         type: 3}
     - target: {fileID: 531327147, guid: 2d2288358d54cb949a246a78f82ad470, type: 3}
+      propertyPath: m_TileSpriteArray.Array.data[15].m_RefCount
+      value: 29
+      objectReference: {fileID: 0}
+    - target: {fileID: 531327147, guid: 2d2288358d54cb949a246a78f82ad470, type: 3}
       propertyPath: m_TileSpriteArray.Array.data[21].m_RefCount
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 531327147, guid: 2d2288358d54cb949a246a78f82ad470, type: 3}
       propertyPath: m_TileSpriteArray.Array.data[22].m_RefCount
@@ -245,7 +249,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 531327147, guid: 2d2288358d54cb949a246a78f82ad470, type: 3}
       propertyPath: m_Tiles.Array.data[32].second.m_TileSpriteIndex
-      value: 21
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 669466316, guid: 2d2288358d54cb949a246a78f82ad470, type: 3}
       propertyPath: TimeToWait
@@ -459,6 +463,12 @@ PrefabInstance:
       propertyPath: m_Icon
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 1776968627982650804, guid: 2d2288358d54cb949a246a78f82ad470,
+        type: 3}
+      propertyPath: levelEndSeedDisplayable
+      value: 
+      objectReference: {fileID: 11400000, guid: f76517db27f703642b31af164cc54109,
+        type: 2}
     - target: {fileID: 1887804386929863236, guid: 2d2288358d54cb949a246a78f82ad470,
         type: 3}
       propertyPath: m_AnchorMax.y

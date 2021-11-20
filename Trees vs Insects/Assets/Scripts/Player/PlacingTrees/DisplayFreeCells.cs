@@ -1,8 +1,5 @@
-﻿using Assets.Scripts.Tree.Interface;
-using Bogadanul.Assets.Scripts.Enemies;
-using System.Collections;
+﻿using Bogadanul.Assets.Scripts.Enemies;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -43,14 +40,11 @@ namespace Bogadanul.Assets.Scripts.Player
             {
                 foreach (Node n in StartNodes)
                 {
-                    
                     if (n.TowerPlaceAble())
                     {
-                            nodes.Add(n);                                            
+                        nodes.Add(n);
                     }
-                  
                 }
-                
 
                 foreach (Node n in OnlyOnePathTiles)
                 {
@@ -61,13 +55,11 @@ namespace Bogadanul.Assets.Scripts.Player
             {
                 foreach (Node n in StartNodes)
                 {
-
                     if (currentSeedDisplay.potCheck.canBePlaced(n))
                     {
                         nodes.Add(n);
                     }
                 }
-               
 
                 foreach (Node n in OnlyOnePathTiles)
                 {
@@ -86,19 +78,16 @@ namespace Bogadanul.Assets.Scripts.Player
         private void UpdateNodes()
         {
             OnlyOnePathTiles = new HashSet<Node>();
-            
+
             foreach (Node n in displayPath.UpdateDisplaysReturnNode())
             {
-                
-                if (!CheckPlacerPath.CheckNode(n, obj))
-                {
-                    OnlyOnePathTiles.Add(n);
-                }
-
-                
+                if (!n.IsBlocked)
+                    if (!CheckPlacerPath.CheckNode(n))
+                    {
+                        OnlyOnePathTiles.Add(n);
+                    }
             }
             RecheckNodes();
-            
         }
 
         public void DisplayPlaceable(bool show = false)
@@ -137,7 +126,7 @@ namespace Bogadanul.Assets.Scripts.Player
         private void OnDisable()
         {
             currentSeedDisplay.OnRangeDisplay -= DisplayPlaceable;
-            currentSeedDisplay.OnPlace -= SetOnlyPaths;
+            //currentSeedDisplay.OnPlace -= SetOnlyPaths;
             EnemyManager.OnEnemySet -= SetOnlyPaths;
         }
 
@@ -145,18 +134,19 @@ namespace Bogadanul.Assets.Scripts.Player
         {
             Init();
             currentSeedDisplay = FindObjectOfType<CurrentSeedDisplay>();
-            currentSeedDisplay.OnPlace += SetOnlyPaths;
+            //currentSeedDisplay.OnPlace += SetOnlyPaths;
             EnemyManager.OnEnemySet += SetOnlyPaths;
             currentSeedDisplay.OnRangeDisplay += DisplayPlaceable;
             nodeFinder = GetComponent<NodeFinder>();
         }
+
         private void OnDrawGizmos()
         {
             if (OnlyOnePathTiles.Count != 0)
             {
-                foreach(Node n in OnlyOnePathTiles)
+                foreach (Node n in OnlyOnePathTiles)
                 {
-                    Gizmos.DrawWireCube(transform.position, 1*Vector2.one);
+                    Gizmos.DrawWireCube(transform.position, 1 * Vector2.one);
                 }
             }
         }

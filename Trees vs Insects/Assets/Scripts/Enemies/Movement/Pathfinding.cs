@@ -88,16 +88,15 @@ namespace Bogadanul.Assets.Scripts.Enemies
 
         public bool HasPath(Node n)
         {
-            //grid.UpdateGrid();
-            //if (First&& IsCurrentPath())
-            //    return true;
+            if (!pathCurrent.Contains(n))
+                return true;
             Node startNode = nodeFind.NodeFromPoint(transform);
             if (startNode == null) return false;
             Node targetNode = ancientTree.currentNodes[0];
 
             Heap<Node> openSet = new Heap<Node>(grid.MaxSize);
             HashSet<Node> closedSet = new HashSet<Node>();
-
+            closedSet.Add(n);
             openSet.Add(startNode);
 
             while (openSet.Count > 0)
@@ -112,7 +111,7 @@ namespace Bogadanul.Assets.Scripts.Enemies
 
                 foreach (Node neighbour in grid.GetNeighbours(currentNode))
                 {
-                    if (!neighbour.IsWalkable || closedSet.Contains(neighbour) || neighbour == n)
+                    if (!neighbour.IsWalkable || closedSet.Contains(neighbour))
                     {
                         continue;
                     }
