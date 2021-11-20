@@ -1,4 +1,4 @@
-name: Actions 
+name: Actions 😎
 
 on: [push, pull_request]
 
@@ -41,4 +41,4 @@ jobs:
       - uses: actions/upload-artifact@v2
         with:
           name: Build
-         path: build
+          path: build
