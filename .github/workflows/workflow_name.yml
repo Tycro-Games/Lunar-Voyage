@@ -3,16 +3,20 @@ name: Discord Webhook
 on: [push]
 
 jobs:
-  git:
+    update-discord:
     runs-on: ubuntu-latest
     steps:
-
-    - uses: actions/checkout@v2
-
-    - name: Run Discord Webhook
-      uses: johnnyhuy/actions-discord-git-webhook@v0.0.1
+      - uses: sarisia/actions-status-discord@v1
+      if: always()
       with:
-        webhook_url: ${{ secrets.YOUR_DISCORD_WEBHOOK_URL }}
+        webhook: ${{ secrets.DISCORD_WEBHOOK }}
+        title: "test fancy"
+        description: "making games is hard"
+       # image: ${{ secrets.EMBED_IMAGE }}
+        color: 0x0000ff
+        username: SpiderMan
+       # avatar_url: ${{ secrets.AVATAR_URL }}
+    
         
 
     # Disable URL links to the repository
