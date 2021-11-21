@@ -12,7 +12,7 @@ jobs:
         with:
           webhook: ${{ secrets.DISCORD_WEBHOOK }}
           nodetail: true
-          title: "deploy"
+          title: "${{github.event.head_commit}}"
           description: ${{github.event.head_commit.message}}
         # image: ${{ secrets.EMBED_IMAGE }}
           color: 0xffffff
