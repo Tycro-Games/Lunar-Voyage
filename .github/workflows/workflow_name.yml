@@ -3,55 +3,13 @@ name: Discord Webhook
 on: [push]
 
 jobs:
-    update:
-    name: Actions Status Discord
-    runs-on: ubuntu-latest
-    
-    steps:
-    - name: spiderman
-      uses: sarisia/actions-status-discord@v1.8.6
-
-      if: always()
-      with:
-        webhook: ${{ secrets.DISCORD_WEBHOOK }}
-        title: "test fancy"
-        description: "making games is hard"
-       # image: ${{ secrets.EMBED_IMAGE }}
-        color: 0x0000ff
-        username: SpiderMan
-       # avatar_url: ${{ secrets.AVATAR_URL }}
-    
-        
-
-    # Disable URL links to the repository
-    # 
-    # - name: Run Discord Webhook
-    #   uses: johnnyhuy/discord-webhook@main
-    #   with:
-    #     webhook_url: ${{ secrets.YOUR_DISCORD_WEBHOOK_URL }}
-    #     
-
-    # Censor username
-    # 
-    # - name: Run Discord Webhook
-    #   uses: johnnyhuy/discord-webhook@main
-    #   with:
-    #     webhook_url: ${{ secrets.YOUR_DISCORD_WEBHOOK_URL }}
-    #     censor_username: false
-
-    # Using an ID and token
-    # 
-    # - name: Run Discord Webhook
-    #   uses: johnnyhuy/discord-webhook@main
-    #   with:
-    #     id: ${{ secrets.YOUR_DISCORD_WEBHOOK_ID }}
-    #     token: ${{ secrets.YOUR_DISCORD_WEBHOOK_TOKEN }}
-
-    # Using a custom repo name
-    # 
-    # - name: Run Discord Webhook
-    #   uses: johnnyhuy/discord-webhook@main
-    #   with:
-    #     id: ${{ secrets.YOUR_DISCORD_WEBHOOK_ID }}
-    #     token: ${{ secrets.YOUR_DISCORD_WEBHOOK_TOKEN }}
-    #     repo_name: My Special Repo
+   - uses: sarisia/actions-status-discord@v1
+  if: always()
+  with:
+    webhook: ${{ secrets.DISCORD_WEBHOOK }}
+    title: "deploy"
+    description: "Build and deploy to GitHub Pages"
+    image: ${{ secrets.EMBED_IMAGE }}
+    color: 0x0000ff
+    username: GitHub Actions
+    avatar_url: ${{ secrets.AVATAR_URL }}
