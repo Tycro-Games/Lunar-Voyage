@@ -5,9 +5,11 @@ on: [push]
 jobs:
     update:
     runs-on: ubuntu-latest
+    
     steps:
-    - name: discord update
+    - name: Actions Status Discord
       uses: sarisia/actions-status-discord@v1.8.6
+      
       if: always()
       with:
         webhook: ${{ secrets.DISCORD_WEBHOOK }}
