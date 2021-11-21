@@ -8,7 +8,7 @@ jobs:
   build:
     name: Build my project ✨
     runs-on: ubuntu-latest
-     strategy:
+    strategy:
           fail-fast: true
           matrix:
             channel:
