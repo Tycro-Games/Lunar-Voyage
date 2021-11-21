@@ -7,9 +7,11 @@ env:
 jobs:
   build:
     name: Build my project ✨
-     matrix:
-        channel:
-          - web
+    strategy:
+      fail-fast: true
+      matrix:
+          channel:
+            - web
     runs-on: ubuntu-latest
     steps:
       # Checkout
