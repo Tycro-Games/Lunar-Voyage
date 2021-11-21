@@ -11,6 +11,7 @@ jobs:
         uses: sarisia/actions-status-discord@v1.8.6
         with:
           webhook: ${{ secrets.DISCORD_WEBHOOK }}
+          nodetail: true
           title: "deploy"
           description: "Build and deploy to GitHub Pages"
         # image: ${{ secrets.EMBED_IMAGE }}
