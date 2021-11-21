@@ -5,7 +5,7 @@ env:
   ITCH_USERNAME: tycro-games
   ITCH_GAME_ID: lunar-voyage-moon-colonization
 jobs:
-  needs: Build my project ✨
+  needs: Actions
   deploy:
     name: Upload to Itch
     runs-on: ubuntu-latest
