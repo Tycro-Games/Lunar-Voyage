@@ -4,12 +4,13 @@ on: [push]
 
 jobs:
     update:
+    name:Actions Status Discord
     runs-on: ubuntu-latest
     
     steps:
-    - name: Actions Status Discord
+    - name: spiderman
       uses: sarisia/actions-status-discord@v1.8.6
-      
+
       if: always()
       with:
         webhook: ${{ secrets.DISCORD_WEBHOOK }}
