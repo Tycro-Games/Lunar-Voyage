@@ -12,8 +12,8 @@ jobs:
         with:
           webhook: ${{ secrets.DISCORD_WEBHOOK }}
           nodetail: true
-          
-          title: ${{ github.event.commits[0].message }}
+
+          title: "***New Update on itch:*** https://tycro-games.itch.io/lunar-voyage-moon-colonization"
           description: ${{github.event.head_commit.message}}
         # image: ${{ secrets.EMBED_IMAGE }}
           color: 0xffffff
