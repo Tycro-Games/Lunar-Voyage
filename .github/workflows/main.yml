@@ -7,11 +7,11 @@ env:
 jobs:
   build:
     name: Build my project ✨
-   strategy:
-      fail-fast: true
-      matrix:
-        channel:
-          - webgl
+    strategy:
+        fail-fast: true
+        matrix:
+          channel:
+            - webgl
     runs-on: ubuntu-latest
     
     steps:
