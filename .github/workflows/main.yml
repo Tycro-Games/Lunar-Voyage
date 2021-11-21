@@ -1,7 +1,9 @@
 name: Actions
 
 on: [push, pull_request]
-
+env:
+  ITCH_USERNAME: tycro-games
+  ITCH_GAME_ID: lunar-voyage-moon-colonization
 jobs:
   build:
     name: Build my project ✨
@@ -42,3 +44,24 @@ jobs:
         with:
           name: Build
           path: build
+      - deploy:
+        name: Upload to Itch
+        runs-on: ubuntu-latest
+        strategy:
+          fail-fast: true
+          matrix:
+            channel:
+              - webgl
+        runs-on: ubuntu-latest
+        name: Deploy - Itch.io ${{ matrix.template }}
+        steps:
+          - uses: actions/download-artifact@v2.0.8
+            with:
+              name: ${{ matrix.channel }}
+              path: build/${{ matrix.channel }}
+          - uses: KikimoraGames/itch-publish@v0.0.3
+            with:
+              butlerApiKey: ${{secrets.BUTLER_API_KEY}}
+              gameData: ./build/${{ matrix.template }}
+              itchUsername: ${{env.ITCH_USERNAME}}
+              itchGameId: ${{ env.ITCH_GAME_ID }}
