@@ -47,8 +47,8 @@ jobs:
       # Output
       - uses: actions/upload-artifact@v2
         with:
-          name: Build
-          path: build
+          name: ${{ matrix.channel }}
+          path: build/${{ matrix.channel }}
       - uses: actions/download-artifact@v2.0.8
         with:
           name: ${{ matrix.channel }}
