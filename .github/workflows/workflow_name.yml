@@ -10,9 +10,10 @@ jobs:
     - uses: actions/checkout@v2
 
     - name: Run Discord Webhook
-      uses: johnnyhuy/discord-webhook@main
+      uses: johnnyhuy/actions-discord-git-webhook@v0.0.1
       with:
         webhook_url: ${{ secrets.YOUR_DISCORD_WEBHOOK_URL }}
+        
 
     # Disable URL links to the repository
     # 
@@ -20,7 +21,7 @@ jobs:
     #   uses: johnnyhuy/discord-webhook@main
     #   with:
     #     webhook_url: ${{ secrets.YOUR_DISCORD_WEBHOOK_URL }}
-    #     hide_links: true
+    #     
 
     # Censor username
     # 
