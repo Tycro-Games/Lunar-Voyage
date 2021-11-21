@@ -32,12 +32,13 @@ jobs:
   buildWebAndUpload:
     needs: testRunner
     name: build to itch
-    runs-on: ubuntu-latest
     strategy:
       fail-fast: true
       matrix:
         channel:
           - web
+    runs-on: ubuntu-latest
+    
     steps:
       # Build
       - name: Build project
