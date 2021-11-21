@@ -7,7 +7,7 @@ jobs:
     name: spidey
     runs-on: ubuntu-latest 
     steps:
-      - uses: sarisia/actions-status-discord@v1
+      - uses: sarisia/actions-status-discord@v1.8.6
       if: always()
         with:
           webhook: ${{ secrets.DISCORD_WEBHOOK }}
