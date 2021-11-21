@@ -4,16 +4,16 @@ on: [push]
 
 jobs:
   build:
-    name: spidey
+    name: Update Discord
     runs-on: ubuntu-latest 
     steps:
-      - name: help me god
+      - name: bot
         uses: sarisia/actions-status-discord@v1.8.6
         with:
           webhook: ${{ secrets.DISCORD_WEBHOOK }}
           title: "deploy"
           description: "Build and deploy to GitHub Pages"
         # image: ${{ secrets.EMBED_IMAGE }}
-          color: 0x0000ff
-          username: GitHub Actions
+          color: 0xffffff
+          username: Your friendly spiderman
       #    avatar_url: ${{ secrets.AVATAR_URL }}
