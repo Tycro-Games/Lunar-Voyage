@@ -46,6 +46,14 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+      - name: Restore Library cache
+        uses: actions/cache@v2
+        with:
+          path: build/${{ matrix.channel }}
+          key: Library-build-${{ matrix.channel }}
+          restore-keys: |
+            Library-build-
+            Library-
       # Build
       - name: Build project
         uses: game-ci/unity-builder@v2
