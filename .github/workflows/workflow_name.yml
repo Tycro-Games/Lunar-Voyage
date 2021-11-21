@@ -4,7 +4,7 @@ on: [push]
 
 jobs:
     update:
-    name:Actions Status Discord
+    name: Actions Status Discord
     runs-on: ubuntu-latest
     
     steps:
