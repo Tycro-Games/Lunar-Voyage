@@ -13,7 +13,7 @@ jobs:
           webhook: ${{ secrets.DISCORD_WEBHOOK }}
           nodetail: true
           title: "deploy"
-          description: "Build and deploy to GitHub Pages"
+          description: ${{github.event.head_commit.message}}
         # image: ${{ secrets.EMBED_IMAGE }}
           color: 0xffffff
           username: Your friendly spiderman
