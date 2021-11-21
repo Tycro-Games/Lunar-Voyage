@@ -7,6 +7,9 @@ env:
 jobs:
   build:
     name: Build my project ✨
+     matrix:
+        channel:
+          - web
     runs-on: ubuntu-latest
     steps:
       # Checkout
@@ -44,6 +47,10 @@ jobs:
         with:
           name: Build
           path: build
+      - uses: actions/download-artifact@v2.0.8
+        with:
+          name: ${{ matrix.channel }}
+          path: build/${{ matrix.channel }}
 
       - uses: KikimoraGames/itch-publish@v0.0.3
         with:
@@ -51,3 +58,4 @@ jobs:
           gameData: ./build/${{ matrix.template }}
           itchUsername: ${{env.ITCH_USERNAME}}
           itchGameId: ${{ env.ITCH_GAME_ID }}
+          buildChannel: ${{ matrix.channel }}
