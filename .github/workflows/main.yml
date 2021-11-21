@@ -11,7 +11,7 @@ jobs:
       fail-fast: true
       matrix:
           channel:
-            - web
+            - WebGL
     runs-on: ubuntu-latest
     steps:
       # Checkout
