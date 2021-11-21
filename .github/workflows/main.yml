@@ -59,9 +59,9 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
-        matrix:
-          channel:
-            - web
+      matrix:
+        channel:
+          - web
         
     steps:
         uses: game-ci/unity-builder@v2
