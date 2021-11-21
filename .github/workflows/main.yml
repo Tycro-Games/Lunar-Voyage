@@ -40,6 +40,8 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
       # Build
       - name: Build project
         uses: game-ci/unity-builder@v2
