@@ -8,6 +8,11 @@ jobs:
   build:
     name: Build my project ✨
     runs-on: ubuntu-latest
+     strategy:
+          fail-fast: true
+          matrix:
+            channel:
+              - webgl
     steps:
       # Checkout
       - name: Checkout repository
@@ -44,15 +49,8 @@ jobs:
         with:
           name: Build
           path: build
-      - deploy:
-        name: Upload to Itch
-        runs-on: ubuntu-latest
-        strategy:
-          fail-fast: true
-          matrix:
-            channel:
-              - webgl
-        runs-on: ubuntu-latest
+
+      - deploy:  
         name: Deploy - Itch.io ${{ matrix.template }}
         steps:
           - uses: actions/download-artifact@v2.0.8
