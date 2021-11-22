@@ -209,10 +209,10 @@ jobs:
         with:
           ruby-version: 2.7.2
           bundler-cache: true
-      - name: Upload to Google Play Internal
+      - name: Upload to Google Play beta
         uses: maierj/fastlane-action@v2.0.1
         with:
-          lane: 'android internal'
+          lane: 'android beta'
       # Uncomment to upload to alpha branch
       #    - name: Upload to Google Play Alpha
       #      uses: maierj/fastlane-action@v2.0.1
