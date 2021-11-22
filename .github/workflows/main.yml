@@ -1,42 +1,42 @@
 
-jobs:
+# jobs:
 
 
-  buildWebAndUpload:
-    needs: testRunner
-    name: build to itch
-    strategy:
-      fail-fast: true
-      matrix:
-        channel:
-          - web
-    runs-on: ubuntu-latest
+#   buildWebAndUpload:
+#     needs: testRunner
+#     name: build to itch
+#     strategy:
+#       fail-fast: true
+#       matrix:
+#         channel:
+#           - web
+#     runs-on: ubuntu-latest
     
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-      - name: Restore Library cache
-        uses: actions/cache@v2
-        with:
-          path: build/${{ matrix.channel }}
-          key: Library-build-${{ matrix.channel }}
-          restore-keys: |
-            Library-build-
-            Library-
-      # Build
-      - name: Build project
-        uses: game-ci/unity-builder@v2
-        env:
-          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
-        with:
-          allowDirtyBuild: true
-          targetPlatform: WebGL
+#     steps:
+#       - name: Checkout code
+#         uses: actions/checkout@v2
+#       - name: Restore Library cache
+#         uses: actions/cache@v2
+#         with:
+#           path: build/${{ matrix.channel }}
+#           key: Library-build-${{ matrix.channel }}
+#           restore-keys: |
+#             Library-build-
+#             Library-
+#       # Build
+#       - name: Build project
+#         uses: game-ci/unity-builder@v2
+#         env:
+#           UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+#         with:
+#           allowDirtyBuild: true
+#           targetPlatform: WebGL
 
-      # Output
-      - uses: actions/upload-artifact@v2
-        with:
-          name: ${{ matrix.channel }}
-          path: build/${{ matrix.channel }}
+#       # Output
+#       - uses: actions/upload-artifact@v2
+#         with:
+#           name: ${{ matrix.channel }}
+#           path: build/${{ matrix.channel }}
         
       
 name: GameCI Template 🎮
