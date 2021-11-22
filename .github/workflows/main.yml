@@ -149,17 +149,7 @@ jobs:
           itchGameId: ${{ env.ITCH_GAME_ID }}
           buildChannel: ${{ matrix.channel }}
           buildNumber: ${{ needs.version.outputs.version_hash }}
-          #discord notifies testers
-      - uses: sarisia/actions-status-discord@v1.8.6
-        with:
-          webhook: ${{ secrets.DISCORD_WEBHOOK }}
-          nodetail: true
-
-          title: "***New Update on itch:*** https://tycro-games.itch.io/lunar-voyage-moon-colonization"
-          description: ${{github.event.head_commit.message}}
-        # image: ${{ secrets.EMBED_IMAGE }}
-          color: 0xffffff
-          username: Your friendly spiderman
+          #discord notifies testers     
       #    avatar_url: ${{ secrets.AVATAR_URL }}
   # .github/workflows/main.yml
   buildForAndroidPlatform:
@@ -223,7 +213,20 @@ jobs:
         uses: geekyeggo/delete-artifact@v1
         with:
           name: build-Android
-
+    toDiscord:
+      name: Upload discord
+      needs: [releaseToGooglePlay, buildWebGL]
+      runs-on: ubuntu-latest
+      steps:
+        - uses: sarisia/actions-status-discord@v1.8.6
+          with:
+            webhook: ${{ secrets.DISCORD_WEBHOOK }}
+            nodetail: true
+            title: "***New Update on itch:*** https://tycro-games.itch.io/lunar-voyage-moon-colonization"
+            description: ${{github.event.head_commit.message}}
+          # image: ${{ secrets.EMBED_IMAGE }}
+            color: 0xffffff
+            username: Your friendly spiderman        
   # buildWindows:
   #   needs: testRunner
   #   name: Build for Windows 🖥️
