@@ -135,8 +135,9 @@ jobs:
 
       - uses: actions/upload-artifact@v2
         with:
-          name: build-WebGL
+          name: web
           path: build/web
+
   uploadItch:
     needs: buildWebGL
     name: UploadToItch
@@ -150,7 +151,7 @@ jobs:
       - uses: KikimoraGames/itch-publish@v0.0.3
         with:
           butlerApiKey: ${{secrets.BUTLER_API_KEY}}
-          gameData: ./build/${{ matrix.template }}
+          gameData: build/${{ matrix.template }}
           itchUsername: ${{env.ITCH_USERNAME}}
           itchGameId: ${{ env.ITCH_GAME_ID }}
           buildChannel: ${{ matrix.channel }}
