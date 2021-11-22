@@ -136,13 +136,16 @@ jobs:
       - uses: actions/upload-artifact@v2
         with:
           name: build-WebGL
-          path: build/WebGL
+          path: build/web
   uploadItch:
     needs: buildWebGL
     name: UploadToItch
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
+      matrix:
+        channel:
+          - web
     steps:
       - uses: KikimoraGames/itch-publish@v0.0.3
         with:
