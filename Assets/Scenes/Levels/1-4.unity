@@ -1529,9 +1529,14 @@ PrefabInstance:
       objectReference: {fileID: 9100000, guid: 8351316216d95194494c7d756282d9b9, type: 2}
     - target: {fileID: 4738497534054365458, guid: 638a3a3c62e04394a82929e82b7fa79f,
         type: 3}
+      propertyPath: m_Size.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4738497534054365458, guid: 638a3a3c62e04394a82929e82b7fa79f,
+        type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -8990202243460596600, guid: eada1d1099ef7f6408ef961629be8032,
+      objectReference: {fileID: 7053013456484948186, guid: 4b13e2dbbbdd1434d95817b8b7e329e8,
         type: 3}
     - target: {fileID: 4738497534054365458, guid: 638a3a3c62e04394a82929e82b7fa79f,
         type: 3}
@@ -3919,7 +3924,7 @@ SpriteRenderer:
   m_Size: {x: 2.015625, y: 2.015625}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &1887096098 stripped
