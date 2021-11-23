@@ -229,6 +229,7 @@ GameObject:
   - component: {fileID: 5840958736097152019}
   - component: {fileID: 8635780481734243977}
   - component: {fileID: 5662201355086285348}
+  - component: {fileID: 1761507228128425965}
   m_Layer: 0
   m_Name: Picatura
   m_TagString: Untagged
@@ -306,7 +307,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lifeTime: 2
   ToSpawn: {fileID: 1226272366751949832, guid: cdf8f0f182ecf8f4c986cf38ebe35bc3, type: 3}
-  speed: 10
 --- !u!114 &8635780481734243977
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -384,3 +384,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   range: 0.5
+--- !u!114 &1761507228128425965
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7802668631942595373}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2174729f36d955848af18fb955156f80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  loop: 0
+  OnTimerFinished:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4712261887305847462}
+        m_TargetAssemblyTypeName: Bogadanul.Assets.Scripts.Tree.GoldenTree, Scripts
+        m_MethodName: Collect
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  TimeToWait: 5

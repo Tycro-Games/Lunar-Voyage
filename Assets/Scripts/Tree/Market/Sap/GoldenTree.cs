@@ -18,6 +18,11 @@ namespace Bogadanul.Assets.Scripts.Tree
 
         public void OnMouseDown()
         {
+            Collect();
+        }
+
+        public void Collect()
+        {
             if (Pause.isPaused)
                 return;
             AddEnergy();
