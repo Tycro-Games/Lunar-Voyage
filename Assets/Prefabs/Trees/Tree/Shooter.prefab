@@ -71,8 +71,7 @@ SpriteRenderer:
   m_SortingLayerID: -2084415841
   m_SortingLayer: -1
   m_SortingOrder: -1
-  m_Sprite: {fileID: 5052934290752662794, guid: eada1d1099ef7f6408ef961629be8032,
-    type: 3}
+  m_Sprite: {fileID: 861967077744149502, guid: 4b13e2dbbbdd1434d95817b8b7e329e8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -157,7 +156,7 @@ SpriteRenderer:
   m_SortingLayerID: -2084415841
   m_SortingLayer: -1
   m_SortingOrder: 0
-  m_Sprite: {fileID: -5187319853391271727, guid: eada1d1099ef7f6408ef961629be8032,
+  m_Sprite: {fileID: 6799664880916946724, guid: 4b13e2dbbbdd1434d95817b8b7e329e8,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -317,7 +316,7 @@ GameObject:
   - component: {fileID: 3791582654633530137}
   - component: {fileID: 3071164001214962936}
   m_Layer: 14
-  m_Name: Oak
+  m_Name: Shooter
   m_TagString: Plant
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -380,6 +379,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 1
+  destroyTime: 0.2
 --- !u!114 &1518710009124534350
 MonoBehaviour:
   m_ObjectHideFlags: 0

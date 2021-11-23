@@ -1,19 +1,19 @@
 fileFormatVersion: 2
-guid: 0730b82ee7f61b146a6a0b20b6356f14
+guid: 4b13e2dbbbdd1434d95817b8b7e329e8
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5615897787644190857
-    second: SpriteSheet-EnergyStation1_0
+      213: 7053013456484948186
+    second: SpriteSheet-Shooter1_0
   - first:
-      213: 5531461174650645269
-    second: SpriteSheet-EnergyStation1_1
+      213: 861967077744149502
+    second: SpriteSheet-Shooter1_1
   - first:
-      213: -8043264503629858273
-    second: SpriteSheet-EnergyStation1_2
+      213: 6799664880916946724
+    second: SpriteSheet-Shooter1_2
   - first:
-      213: 8290783212950169071
-    second: SpriteSheet-EnergyStation1_3
+      213: -6132172956269410957
+    second: SpriteSheet-Shooter1_3
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -127,85 +127,85 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: SpriteSheet-EnergyStation1_0
+      name: SpriteSheet-Shooter1_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 258
-        width: 258
-        height: 258
+        y: 256
+        width: 256
+        height: 256
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9802f67984dafed40800000000000000
-      internalID: 5615897787644190857
+      spriteID: ad8d5d5ce5651e160800000000000000
+      internalID: 7053013456484948186
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpriteSheet-EnergyStation1_1
+      name: SpriteSheet-Shooter1_1
       rect:
         serializedVersion: 2
-        x: 258
-        y: 258
-        width: 258
-        height: 258
+        x: 256
+        y: 256
+        width: 256
+        height: 256
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 51baae3a1a2b3cc40800000000000000
-      internalID: 5531461174650645269
+      spriteID: ef385058d7256fb00800000000000000
+      internalID: 861967077744149502
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpriteSheet-EnergyStation1_2
+      name: SpriteSheet-Shooter1_2
       rect:
         serializedVersion: 2
         x: 0
-        y: 1
-        width: 258
-        height: 258
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f1a32aa8c85906090800000000000000
-      internalID: -8043264503629858273
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SpriteSheet-EnergyStation1_3
-      rect:
-        serializedVersion: 2
-        x: 258
         y: 0
-        width: 258
-        height: 258
+        width: 256
+        height: 256
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fe5aaadd767ce0370800000000000000
-      internalID: 8290783212950169071
+      spriteID: 42fd0cade234d5e50800000000000000
+      internalID: 6799664880916946724
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet-Shooter1_3
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3750e489f2526eaa0800000000000000
+      internalID: -6132172956269410957
       vertices: []
       indices: 
       edges: []
