@@ -220,7 +220,7 @@ jobs:
           buildNumber: ${{ needs.version.outputs.version_hash }}
   toDiscord:
     name: Upload discord
-    needs: [releaseToGooglePlay]
+    needs: [releaseToGooglePlay, buildWindows, buildWebGL]
     runs-on: ubuntu-latest
     steps:
       - uses: sarisia/actions-status-discord@v1.8.6

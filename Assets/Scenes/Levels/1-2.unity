@@ -2770,11 +2770,6 @@ PrefabInstance:
       propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
-    - target: {fileID: 1518370454936563844, guid: 2d2288358d54cb949a246a78f82ad470,
-        type: 3}
-      propertyPath: energyStart
-      value: 75
-      objectReference: {fileID: 0}
     - target: {fileID: 1776968627982650804, guid: 2d2288358d54cb949a246a78f82ad470,
         type: 3}
       propertyPath: levelEndSeedDisplayable

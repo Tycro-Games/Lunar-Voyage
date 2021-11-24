@@ -2203,7 +2203,7 @@ PrefabInstance:
     - target: {fileID: 1518370455450868716, guid: a7b09197468d2db4c93e5ff7a0fd0e00,
         type: 3}
       propertyPath: energyStart
-      value: 125
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 2171965817083306135, guid: a7b09197468d2db4c93e5ff7a0fd0e00,
         type: 3}
