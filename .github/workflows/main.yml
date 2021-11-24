@@ -194,8 +194,8 @@ jobs:
 
       - uses: actions/upload-artifact@v2
         with:
-          name: build-StandaloneWindows64
-          path: build/StandaloneWindows64
+          name: windows
+          path: build/windows
   deploy:
     needs: [buildWindows, buildWebGL]
     runs-on: ubuntu-latest
