@@ -61,6 +61,9 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
+      matrix:
+          channel:
+            - web
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -96,6 +99,14 @@ jobs:
         with:
           name: web
           path: build/web
+      - uses: KikimoraGames/itch-publish@v0.0.3
+        with:
+          butlerApiKey: ${{secrets.BUTLER_API_KEY}}
+          gameData: ./build/${{ matrix.template }}
+          itchUsername: ${{env.ITCH_USERNAME}}
+          itchGameId: ${{ env.ITCH_GAME_ID }}
+          buildChannel: ${{ matrix.channel }}
+          buildNumber: ${{ needs.version.outputs.version_hash }}
           #discord notifies testers     
       #    avatar_url: ${{ secrets.AVATAR_URL }}
   # .github/workflows/main.yml
@@ -161,6 +172,9 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
+      matrix:
+          channel:
+            - win
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -195,22 +209,7 @@ jobs:
       - uses: actions/upload-artifact@v2
         with:
           name: windows
-          path: build/windows
-  deploy:
-    needs: [buildWindows, buildWebGL]
-    runs-on: ubuntu-latest
-    strategy:
-      fail-fast: true
-      matrix:
-        channel:
-          - windows
-          - webgl
-    name: Deploy - Itch.io ${{ matrix.template }}
-    steps:
-      - uses: actions/download-artifact@v2.0.8
-        with:
-          name: ${{ matrix.channel }}
-          path: build/${{ matrix.channel }}
+          path: build/windows 
       - uses: KikimoraGames/itch-publish@v0.0.3
         with:
           butlerApiKey: ${{secrets.BUTLER_API_KEY}}
