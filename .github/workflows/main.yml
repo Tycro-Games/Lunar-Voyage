@@ -150,30 +150,11 @@ jobs:
         uses: maierj/fastlane-action@v2.0.1
         with:
           lane: 'android beta'
-      # Uncomment to upload to alpha branch
-      #    - name: Upload to Google Play Alpha
-      #      uses: maierj/fastlane-action@v2.0.1
-      #      with:
-      #        lane: 'android alpha'
       - name: Cleanup to avoid storage limit
         if: always()
         uses: geekyeggo/delete-artifact@v1
         with:
-          name: build-Android
-  toDiscord:
-    name: Upload discord
-    needs: [releaseToGooglePlay, buildWebGL]
-    runs-on: ubuntu-latest
-    steps:
-      - uses: sarisia/actions-status-discord@v1.8.6
-        with:
-          webhook: ${{ secrets.DISCORD_WEBHOOK }}
-          nodetail: true
-          title: "***New Update on itch and playstore:*** https://tycro-games.itch.io/lunar-voyage-moon-colonization https://play.google.com/store/apps/details?id=com.TycroGames.TAI"
-          description: ${{github.event.head_commit.message }}
-        # image: ${{ secrets.EMBED_IMAGE }}
-          color: 0xffffff
-          username: Your friendly spiderman        
+          name: build-Android   
   buildWindows:
     needs: testRunner
     name: Build for Windows 🖥️
@@ -238,3 +219,17 @@ jobs:
           itchGameId: ${{ env.ITCH_GAME_ID }}
           buildChannel: ${{ matrix.channel }}
           buildNumber: ${{ needs.version.outputs.version_hash }}
+  toDiscord:
+    name: Upload discord
+    needs: [releaseToGooglePlay, deploy]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: sarisia/actions-status-discord@v1.8.6
+        with:
+          webhook: ${{ secrets.DISCORD_WEBHOOK }}
+          nodetail: true
+          title: "***New Update on itch and playstore:*** https://tycro-games.itch.io/lunar-voyage-moon-colonization https://play.google.com/store/apps/details?id=com.TycroGames.TAI"
+          description: ${{github.event.head_commit.message }}
+        # image: ${{ secrets.EMBED_IMAGE }}
+          color: 0xffffff
+          username: Your friendly spiderman     
