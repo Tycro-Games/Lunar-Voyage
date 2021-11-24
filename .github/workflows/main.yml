@@ -94,8 +94,8 @@ jobs:
 
       - uses: actions/upload-artifact@v2
         with:
-          name: ${{ matrix.channel }}
-          path: build/${{ matrix.channel }}
+          name: web
+          path: build/web
           #discord notifies testers     
       #    avatar_url: ${{ secrets.AVATAR_URL }}
   # .github/workflows/main.yml
