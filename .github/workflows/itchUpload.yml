@@ -7,7 +7,6 @@ env:
 jobs:
   deploy:
     needs: [buildWindows, buildWebGL]
-    name: Upload to Itch
     runs-on: ubuntu-latest
     strategy:
       fail-fast: true
