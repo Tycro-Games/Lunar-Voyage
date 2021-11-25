@@ -171,10 +171,6 @@ PrefabInstance:
       propertyPath: m_Center.y
       value: -0.9412203
       objectReference: {fileID: 0}
-    - target: {fileID: 669466316, guid: 2d2288358d54cb949a246a78f82ad470, type: 3}
-      propertyPath: TimeToWait
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 869282389, guid: 2d2288358d54cb949a246a78f82ad470, type: 3}
       propertyPath: m_Size.y
       value: 2.7538261
