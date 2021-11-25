@@ -2841,6 +2841,11 @@ PrefabInstance:
       propertyPath: m_Center.x
       value: 6.393841
       objectReference: {fileID: 0}
+    - target: {fileID: 436043508641953524, guid: 2d2288358d54cb949a246a78f82ad470,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 632074644821238995, guid: 2d2288358d54cb949a246a78f82ad470,
         type: 3}
       propertyPath: m_RootOrder
@@ -2975,6 +2980,11 @@ PrefabInstance:
         type: 3}
       propertyPath: energyStart
       value: 175
+      objectReference: {fileID: 0}
+    - target: {fileID: 1712069463936135263, guid: 2d2288358d54cb949a246a78f82ad470,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 1776968627982650804, guid: 2d2288358d54cb949a246a78f82ad470,
         type: 3}
@@ -4370,6 +4380,11 @@ PrefabInstance:
       propertyPath: m_Tiles.Array.data[178].second.m_TileSpriteIndex
       value: 53
       objectReference: {fileID: 0}
+    - target: {fileID: 3749948111733091948, guid: 2d2288358d54cb949a246a78f82ad470,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 3794717827458101255, guid: 2d2288358d54cb949a246a78f82ad470,
         type: 3}
       propertyPath: m_ChunkCullingBounds.x
@@ -4727,6 +4742,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5662538381254568279, guid: 2d2288358d54cb949a246a78f82ad470,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 5740949095128355061, guid: 2d2288358d54cb949a246a78f82ad470,
         type: 3}
       propertyPath: m_IsActive
@@ -4736,6 +4756,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6463387565926260682, guid: 2d2288358d54cb949a246a78f82ad470,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 6739628441960653661, guid: 2d2288358d54cb949a246a78f82ad470,
         type: 3}
@@ -5149,6 +5174,11 @@ PrefabInstance:
       propertyPath: m_Tiles.Array.data[11].second.m_TileObjectToInstantiateIndex
       value: 65535
       objectReference: {fileID: 0}
+    - target: {fileID: 7203957076251434627, guid: 2d2288358d54cb949a246a78f82ad470,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 7689952593288912256, guid: 2d2288358d54cb949a246a78f82ad470,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -5170,6 +5200,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 069c3198808598241b2156aee5ca3b38,
         type: 2}
+    - target: {fileID: 8043413268905313098, guid: 2d2288358d54cb949a246a78f82ad470,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 8048202790384728250, guid: 2d2288358d54cb949a246a78f82ad470,
         type: 3}
       propertyPath: m_IsActive
