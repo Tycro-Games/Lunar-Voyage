@@ -1615,6 +1615,16 @@ PrefabInstance:
       propertyPath: m_PreserveAspect
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1962434383749868038, guid: 2d2288358d54cb949a246a78f82ad470,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 38.45011
+      objectReference: {fileID: 0}
+    - target: {fileID: 1962434383749868038, guid: 2d2288358d54cb949a246a78f82ad470,
+        type: 3}
+      propertyPath: m_Center.x
+      value: 15.624744
+      objectReference: {fileID: 0}
     - target: {fileID: 1994765764141837601, guid: 2d2288358d54cb949a246a78f82ad470,
         type: 3}
       propertyPath: m_IsActive
