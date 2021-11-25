@@ -30,7 +30,6 @@ namespace Bogadanul.Assets.Scripts.Player
 
         [SerializeField]
         private static Transform parent = null;
-        
 
         private void Awake()
         {
@@ -46,6 +45,7 @@ namespace Bogadanul.Assets.Scripts.Player
             EnemyManager.SetSpace();
             return true;
         }
+
         public static bool CheckNode(Node cell)
         {
             if (cell == null && !cell.IsWalkable)
@@ -53,20 +53,18 @@ namespace Bogadanul.Assets.Scripts.Player
                 return false;
             }
 
-           
-           
-           EnemyManager.CheckSpaceForOnlyPaths(cell);
+            EnemyManager.CheckSpaceForOnlyPaths(cell);
             bool ret;
             if (!EnemyManager.hasPath)
             {
-                ret= false;
+                ret = false;
             }
             else
-                ret= true;
-           
-            return ret;
+                ret = true;
 
+            return ret;
         }
+
         public static GameObject Spawn(GameObject currentTree, Vector2 pos)
         {
             return Instantiate(currentTree, pos, Quaternion.identity, parent);

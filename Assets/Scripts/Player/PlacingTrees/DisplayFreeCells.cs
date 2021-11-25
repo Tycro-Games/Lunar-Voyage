@@ -130,7 +130,7 @@ namespace Bogadanul.Assets.Scripts.Player
         private void OnDisable()
         {
             currentSeedDisplay.OnRangeDisplay -= DisplayPlaceable;
-            //currentSeedDisplay.OnPlace -= SetOnlyPaths;
+            currentSeedDisplay.OnPlace -= SetOnlyPaths;
             EnemyManager.OnEnemySet -= SetOnlyPaths;
         }
 
@@ -138,7 +138,7 @@ namespace Bogadanul.Assets.Scripts.Player
         {
             Init();
             currentSeedDisplay = FindObjectOfType<CurrentSeedDisplay>();
-            //currentSeedDisplay.OnPlace += SetOnlyPaths;
+            currentSeedDisplay.OnPlace += SetOnlyPaths;
             EnemyManager.OnEnemySet += SetOnlyPaths;
             currentSeedDisplay.OnRangeDisplay += DisplayPlaceable;
             nodeFinder = GetComponent<NodeFinder>();
