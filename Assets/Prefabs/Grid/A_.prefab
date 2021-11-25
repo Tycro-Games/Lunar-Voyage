@@ -1673,7 +1673,7 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0
     m_PreInfinity: 2
-    m_PostInfinity: 1
+    m_PostInfinity: 2
     m_RotationOrder: 4
   baseSpeed: 0.05
 --- !u!1 &8041771140586832989

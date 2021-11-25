@@ -25,5 +25,6 @@ namespace Bogadanul.Assets.Scripts.UI
             }
             waveSystem.OnSpawn += UpdateSlider;
         }
+       
     }
 }
