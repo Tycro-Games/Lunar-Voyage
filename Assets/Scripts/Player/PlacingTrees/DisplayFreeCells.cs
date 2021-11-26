@@ -1,4 +1,5 @@
 ﻿using Bogadanul.Assets.Scripts.Enemies;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -71,12 +72,12 @@ namespace Bogadanul.Assets.Scripts.Player
 
         public void SetOnlyPaths(bool val)
         {
-            if (val)
-                UpdateNodes();
+            StartCoroutine(UpdateNodes());
         }
 
-        private void UpdateNodes()
+        private IEnumerator UpdateNodes()
         {
+            yield return null;
             OnlyOnePathTiles = new HashSet<Node>();
             int count = 0;
             foreach (Node n in displayPath.UpdateDisplaysReturnNode())
@@ -90,7 +91,7 @@ namespace Bogadanul.Assets.Scripts.Player
                     }
                 }
             }
-            Debug.Log(count + " calls "+OnlyOnePathTiles.Count);
+            Debug.Log(count + " calls " + OnlyOnePathTiles.Count);
             RecheckNodes();
         }
 
@@ -130,7 +131,7 @@ namespace Bogadanul.Assets.Scripts.Player
         private void OnDisable()
         {
             currentSeedDisplay.OnRangeDisplay -= DisplayPlaceable;
-            currentSeedDisplay.OnPlace -= SetOnlyPaths;
+            //currentSeedDisplay.OnPlace -= SetOnlyPaths;
             EnemyManager.OnEnemySet -= SetOnlyPaths;
         }
 
@@ -138,7 +139,7 @@ namespace Bogadanul.Assets.Scripts.Player
         {
             Init();
             currentSeedDisplay = FindObjectOfType<CurrentSeedDisplay>();
-            currentSeedDisplay.OnPlace += SetOnlyPaths;
+            //   currentSeedDisplay.OnPlace += SetOnlyPaths;
             EnemyManager.OnEnemySet += SetOnlyPaths;
             currentSeedDisplay.OnRangeDisplay += DisplayPlaceable;
             nodeFinder = GetComponent<NodeFinder>();
@@ -150,7 +151,7 @@ namespace Bogadanul.Assets.Scripts.Player
             {
                 foreach (Node n in OnlyOnePathTiles)
                 {
-                    Gizmos.DrawWireCube(transform.position, 1 * Vector2.one);
+                    Gizmos.DrawWireCube(n.worldPosition, 1 * Vector2.one);
                 }
             }
         }

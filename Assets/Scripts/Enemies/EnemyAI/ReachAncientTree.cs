@@ -10,8 +10,7 @@ namespace Bogadanul.Assets.Scripts.Enemies
         [SerializeField]
         private int ancientTreeHealthLost = 1;
 
-        [SerializeField]
-        private LayerMask layerMask = 0;
+
 
         public int AncientTreeHealthLost { get => ancientTreeHealthLost; set => ancientTreeHealthLost = value; }
 

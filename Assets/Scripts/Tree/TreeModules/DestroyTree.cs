@@ -1,5 +1,4 @@
 ﻿using Bogadanul.Assets.Scripts.Enemies;
-using Bogadanul.Assets.Scripts.Player;
 using System.Collections;
 using UnityEngine;
 
@@ -9,8 +8,9 @@ namespace Bogadanul.Assets.Scripts.Tree
     {
         [SerializeField]
         protected int hp = 1;
-        [SerializeField]
-        private float destroyTime=.2f;
+
+    
+
         public virtual void DestroyTheTree()
         {
             StartCoroutine(Destroy());
@@ -24,18 +24,22 @@ namespace Bogadanul.Assets.Scripts.Tree
         private IEnumerator Destroy()
         {
             gameObject.SetActive(false);
-            Destroy(gameObject, destroyTime);
             EnemyManager.SetSpace();
+            Destroy(gameObject);
             yield return null;
+            
+           
         }
 
         private IEnumerator Destroy(float time)
         {
             yield return new WaitForSeconds(time);
             gameObject.SetActive(false);
-            Destroy(gameObject, 2);
             EnemyManager.SetSpace();
+            Destroy(gameObject);
             yield return null;
+            
+            
         }
 
         public virtual void TakeDG(int dg)

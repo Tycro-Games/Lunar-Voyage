@@ -85,7 +85,6 @@ namespace Bogadanul.Assets.Scripts.Player
                         //Here you can destroy the plant
                         Instantiate(EffectOnRemove, ng.transform.position, Quaternion.identity);
                         ng.GetComponent<DestroyTree>().DestroyTheTree();
-                        StartCoroutine(Counter());
 #if !UNITY_ANDROID
                         seedSender.CancelCurrentSeed();
                         Reset();

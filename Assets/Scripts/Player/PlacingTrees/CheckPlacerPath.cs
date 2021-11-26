@@ -48,11 +48,8 @@ namespace Bogadanul.Assets.Scripts.Player
 
         public static bool CheckNode(Node cell)
         {
-            if (cell == null && !cell.IsWalkable)
-            {
+            if (!cell.IsWalkable)
                 return false;
-            }
-
             EnemyManager.CheckSpaceForOnlyPaths(cell);
             bool ret;
             if (!EnemyManager.hasPath)
