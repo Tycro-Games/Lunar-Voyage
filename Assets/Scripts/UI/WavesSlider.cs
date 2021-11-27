@@ -14,9 +14,9 @@ namespace Bogadanul.Assets.Scripts.UI
             waveSystem.OnSpawn -= UpdateSlider;
         }
 
-        private void Awake()
+        private void Start()
         {
-            slider = GetComponent<Slider>();
+            slider = GetComponentInChildren<Slider>();
 
             waveSystem = FindObjectOfType<WaveSystem>();
             foreach (Wave wave in waveSystem.waves)
