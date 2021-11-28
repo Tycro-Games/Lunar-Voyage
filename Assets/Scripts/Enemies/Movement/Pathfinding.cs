@@ -93,7 +93,7 @@ namespace Bogadanul.Assets.Scripts.Enemies
             Node startNode;
             int index = pathCurrent.IndexOf(n);
             if (index > 0)
-                startNode = pathCurrent[index-1];
+                startNode = pathCurrent[index - 1];
             else
                 startNode = nodeFind.NodeFromPoint(transform);
 
