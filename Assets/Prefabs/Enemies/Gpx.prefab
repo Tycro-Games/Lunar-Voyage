@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: -7331610411324695850}
   - component: {fileID: 3458581431656512781}
   - component: {fileID: 8585041355354199179}
+  - component: {fileID: 1305537160966348916}
   m_Layer: 16
   m_Name: Gpx
   m_TagString: Untagged
@@ -279,3 +280,16 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1305537160966348916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7350138340451611808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b8a0b3964c803941b6c3a3822ce91f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  limitNumber: 100
