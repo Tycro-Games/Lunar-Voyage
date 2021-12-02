@@ -9,23 +9,26 @@ namespace Assets.Scripts.Tree.Projectiles.Modules
 
         [SerializeField]
         private float duration = 1.0f;
+        
+        [SerializeField]
+        private  float maxHeightY = 3.0f;
 
-        public IEnumerator Curve(Vector3 start, Vector2 target, float heightY = 3.0f)
+        public IEnumerator Curve(Vector3 start, Vector2 finish)
         {
-            float time = 0f;
+            float timePast = 0f;
 
-            Vector2 end = target;
+            
             //temp vars
-            while (time < duration)
+            while (timePast < duration)
             {
-                time += Time.deltaTime;
+                timePast += Time.deltaTime;
 
-                float linearT = time / duration;
-                float heightT = curve.Evaluate(linearT);
+                float linearTime = timePast / duration;//0 to 1 time
+                float heightTime = curve.Evaluate(linearTime);//value from curve
 
-                float height = Mathf.Lerp(0f, heightY, heightT);
+                float height = Mathf.Lerp(0f, maxHeightY, heightTime);//clamped between the max height and 0
 
-                transform.position = Vector2.Lerp(start, end, linearT) + new Vector2(0f, height);
+                transform.position = Vector2.Lerp(start, finish, linearTime) + new Vector2(0f, height);//adding values on y axis
 
                 yield return null;
             }

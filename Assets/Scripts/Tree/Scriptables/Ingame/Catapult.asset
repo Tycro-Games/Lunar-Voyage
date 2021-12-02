@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2440719c713eda543af74407f0ec8d21, type: 3}
   m_Name: Catapult
   m_EditorClassIdentifier: 
-  icon: {fileID: 3213048799308102398, guid: 648a5117ddc94044d8197d0b81ea326f, type: 3}
+  icon: {fileID: 21300000, guid: 3e338851f166bf945af502920470d8ac, type: 3}
   price: 100
   cooldown: 0
-  sprite: {fileID: 3213048799308102398, guid: 648a5117ddc94044d8197d0b81ea326f, type: 3}
+  sprite: {fileID: 21300000, guid: 3e338851f166bf945af502920470d8ac, type: 3}
   TreeGameObject: {fileID: 7935677415777961333, guid: c4765f816f5fb6f4ab1050df8f96531a,
     type: 3}
   fruit: 0
