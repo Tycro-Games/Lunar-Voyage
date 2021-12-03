@@ -363,7 +363,7 @@ MonoBehaviour:
           m_StringArgument: Ready
           m_BoolArgument: 0
         m_CallState: 2
-  TimeToWait: 4
+  TimeToWait: 2
 --- !u!65 &5153103145353331281
 BoxCollider:
   m_ObjectHideFlags: 0

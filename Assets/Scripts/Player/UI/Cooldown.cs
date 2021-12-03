@@ -49,12 +49,18 @@ namespace Bogadanul.Assets.Scripts.Player
 
         private void Start ()
         {
-            treeSeed = GetComponent<TreeSeedContainer> ();
-            market = FindObjectOfType<Market> ();
+            treeSeed = GetComponent<TreeSeedContainer>();
+            market = FindObjectOfType<Market>();
 
             market.marketIntro.OnEnergyChange += Onvalue;
+            Reset();
+        }
+
+        public void Reset()
+        {
             IsDone = true;
             currentT = 0;
+            coolDownEf.fillAmount = Mathf.InverseLerp(0, CountDown, currentT);
         }
 
         private void OnDisable ()

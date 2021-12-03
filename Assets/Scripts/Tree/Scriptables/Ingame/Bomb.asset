@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Bomb
   m_EditorClassIdentifier: 
   icon: {fileID: -4466388655673148299, guid: d88dd1e2938541c489d328b8ed55c8c0, type: 3}
-  price: 175
+  price: 200
   cooldown: 60
   sprite: {fileID: -4466388655673148299, guid: d88dd1e2938541c489d328b8ed55c8c0, type: 3}
   TreeGameObject: {fileID: 8976918986219011986, guid: 3cb9c641faca54c4c91e33203e96574c,
