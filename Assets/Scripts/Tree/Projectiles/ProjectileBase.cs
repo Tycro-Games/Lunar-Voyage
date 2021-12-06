@@ -1,6 +1,7 @@
 ﻿using Bogadanul.Assets.Scripts.Enemies;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Bogadanul.Assets.Scripts.Tree
 {
@@ -13,10 +14,14 @@ namespace Bogadanul.Assets.Scripts.Tree
         protected float speed = 0;
 
         protected IEnemyAI enemyAI;
+        [SerializeField]
+        private UnityEvent OnDie;
 
         public virtual void DestroyProjectile()
         {
+            OnDie?.Invoke();
             Destroy(gameObject);
+            
         }
 
         public virtual void DestroyProjectile(float time)

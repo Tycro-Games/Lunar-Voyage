@@ -71,7 +71,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 4
-  m_Sprite: {fileID: 21300000, guid: 3e338851f166bf945af502920470d8ac, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a2b0faa0ef86e2a4db272e06bfb39836, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -93,6 +93,7 @@ GameObject:
   - component: {fileID: 4138705543927219698}
   - component: {fileID: 8020060899947129138}
   - component: {fileID: 4467198434260877344}
+  - component: {fileID: 2298607681547870119}
   m_Layer: 0
   m_Name: ArcProjectile
   m_TagString: Untagged
@@ -129,6 +130,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   speed: 0.25
+  OnDie:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2298607681547870119}
+        m_TargetAssemblyTypeName: Assets.Scripts.Enemies.EnemyAI.SpawnGameOBJ, Scripts
+        m_MethodName: Spawn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &4467198434260877344
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -147,17 +163,17 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 5.4662557
-      outSlope: 5.4662557
-      tangentMode: 0
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 34
       weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.042972866
+      inWeight: 0
+      outWeight: 0.33333334
     - serializedVersion: 3
-      time: 0.5053541
-      value: 0.8
-      inSlope: -0.017135084
-      outSlope: -0.017135084
+      time: 0.5
+      value: 1
+      inSlope: 0
+      outSlope: 0
       tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334
@@ -165,14 +181,28 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 1
       value: 0
-      inSlope: -6.0761285
-      outSlope: -6.0761285
-      tangentMode: 0
+      inSlope: -2
+      outSlope: -2
+      tangentMode: 34
       weightedMode: 0
-      inWeight: 0.026933113
-      outWeight: 0.33333334
+      inWeight: 0.33333334
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  duration: 1
-  heightY: 3
+  duration: 0.5
+  maxHeightY: 3
+--- !u!114 &2298607681547870119
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4138705543927219697}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af9e8146a89f7434da2a03d0cb2bb6d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeTime: 2
+  ToSpawn: {fileID: 8753910961629047793, guid: d20dd6f1a6cb36840a821ddfd884630e, type: 3}
