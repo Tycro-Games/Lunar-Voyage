@@ -690,7 +690,7 @@ PrefabInstance:
     - target: {fileID: 7411997694482271478, guid: 35710d2da71cf39419c01abc3d9d199c,
         type: 3}
       propertyPath: m_text
-      value: No cooldowns for this one!
+      value: No cooldowns for this one, except for the bomb!
       objectReference: {fileID: 0}
     - target: {fileID: 8251603817612713384, guid: 35710d2da71cf39419c01abc3d9d199c,
         type: 3}
@@ -1833,7 +1833,7 @@ PrefabInstance:
     - target: {fileID: 4146199715525104476, guid: 2d2288358d54cb949a246a78f82ad470,
         type: 3}
       propertyPath: OnBuy.m_PersistentCalls.m_Calls.Array.size
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4146199715525104476, guid: 2d2288358d54cb949a246a78f82ad470,
         type: 3}

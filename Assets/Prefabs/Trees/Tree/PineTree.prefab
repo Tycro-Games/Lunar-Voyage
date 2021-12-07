@@ -283,7 +283,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2e268f83e1e4344ab1684324f2a6878, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  time: 4
+  time: 0.4
   OnShoot:
     m_PersistentCalls:
       m_Calls:
@@ -333,6 +333,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 66560
   SizeOfCheck: 0.25
+  range: 1
 --- !u!114 &243732108707045663
 MonoBehaviour:
   m_ObjectHideFlags: 0

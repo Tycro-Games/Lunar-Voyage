@@ -915,49 +915,48 @@ PrefabInstance:
     - target: {fileID: 2313814056617838248, guid: 2d2288358d54cb949a246a78f82ad470,
         type: 3}
       propertyPath: waves.Array.size
-      value: 8
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2313814056617838248, guid: 2d2288358d54cb949a246a78f82ad470,
         type: 3}
       propertyPath: waves.Array.data[0]
       value: 
-      objectReference: {fileID: 11400000, guid: 461c4782fea94654faf18dbe924f58b7,
+      objectReference: {fileID: 11400000, guid: 5adb1f5499ee9b44abb25b27d9df113b,
         type: 2}
     - target: {fileID: 2313814056617838248, guid: 2d2288358d54cb949a246a78f82ad470,
         type: 3}
       propertyPath: waves.Array.data[1]
       value: 
-      objectReference: {fileID: 11400000, guid: 870346dab9345cf42a5d03ea92545f09,
+      objectReference: {fileID: 11400000, guid: 5adb1f5499ee9b44abb25b27d9df113b,
         type: 2}
     - target: {fileID: 2313814056617838248, guid: 2d2288358d54cb949a246a78f82ad470,
         type: 3}
       propertyPath: waves.Array.data[2]
       value: 
-      objectReference: {fileID: 11400000, guid: 870346dab9345cf42a5d03ea92545f09,
+      objectReference: {fileID: 11400000, guid: 5adb1f5499ee9b44abb25b27d9df113b,
         type: 2}
     - target: {fileID: 2313814056617838248, guid: 2d2288358d54cb949a246a78f82ad470,
         type: 3}
       propertyPath: waves.Array.data[3]
       value: 
-      objectReference: {fileID: 11400000, guid: 0c537239fae73c2429e4e9f7c9f15b02,
-        type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 2313814056617838248, guid: 2d2288358d54cb949a246a78f82ad470,
         type: 3}
       propertyPath: waves.Array.data[4]
       value: 
-      objectReference: {fileID: 11400000, guid: 461c4782fea94654faf18dbe924f58b7,
+      objectReference: {fileID: 11400000, guid: 159ed392e667d0e46a14e0245b039cc7,
         type: 2}
     - target: {fileID: 2313814056617838248, guid: 2d2288358d54cb949a246a78f82ad470,
         type: 3}
       propertyPath: waves.Array.data[5]
       value: 
-      objectReference: {fileID: 11400000, guid: 5625464b73d1ee747a80bb7f1345328d,
+      objectReference: {fileID: 11400000, guid: 159ed392e667d0e46a14e0245b039cc7,
         type: 2}
     - target: {fileID: 2313814056617838248, guid: 2d2288358d54cb949a246a78f82ad470,
         type: 3}
       propertyPath: waves.Array.data[6]
       value: 
-      objectReference: {fileID: 11400000, guid: 870346dab9345cf42a5d03ea92545f09,
+      objectReference: {fileID: 11400000, guid: 159ed392e667d0e46a14e0245b039cc7,
         type: 2}
     - target: {fileID: 2313814056617838248, guid: 2d2288358d54cb949a246a78f82ad470,
         type: 3}

@@ -210,8 +210,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4137926c4753c02429fdb4843402e7af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 4
-  speed: 10
+  damage: 1
+  speed: 8
+  OnDie:
+    m_PersistentCalls:
+      m_Calls: []
   enemies:
     serializedVersion: 2
     m_Bits: 66560
@@ -242,15 +245,15 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0.06870772
     - serializedVersion: 3
-      time: 0.5994895
-      value: 0.5
-      inSlope: -0.025854902
-      outSlope: -0.025854902
+      time: 1
+      value: 0
+      inSlope: -4.665899
+      outSlope: -4.665899
       tangentMode: 0
       weightedMode: 1
-      inWeight: 0.5169385
+      inWeight: 0.115069926
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  duration: 6
+  duration: 1

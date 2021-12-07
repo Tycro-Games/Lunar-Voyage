@@ -25,9 +25,12 @@ namespace Bogadanul.Assets.Scripts.Tree
 
         [SerializeField]
         private float SizeOfCheck = .5f;
+        [SerializeField]
+        private int range = 0;
 
         public BoxCollider CheckForEnemies ()
         {
+           
             BoxCollider[] hits = new BoxCollider[1];
             for (int i = 0; i < nodes.Count; i++)
             {
@@ -40,11 +43,13 @@ namespace Bogadanul.Assets.Scripts.Tree
 
         public List<Node> GetNodeRange (Node pos)
         {
-            return UtilityRecon.GetLines (pos, Gridmanager.gridmanager,true);
+            return UtilityRecon.GetLines (pos, range, Gridmanager.gridmanager,true);
         }
 
         private void Awake ()
         {
+            if (range == 0)
+                range = nodes.Count;
             GetRefs ();
         }
 

@@ -1,6 +1,4 @@
 ﻿using Bogadanul.Assets.Scripts.Player;
-using Bogadanul.Assets.Scripts.Tree;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,31 +6,37 @@ namespace Bogadanul.Assets.Scripts.Utility
 {
     public static class UtilityRecon
     {
-        public static List<Node> GetLines(Node node, Gridmanager gridmanager, bool diagonal = false)
+        public static List<Node> GetLines(Node node, int range, Gridmanager gridmanager, bool diagonal = false)
         {
             List<Node> line = new List<Node>();
             int xGrid = node.gridX;
             int yGrid = node.gridY;
-            for (int x = xGrid + 1; x < gridmanager.gridSizeX; x++)
-                line.Add(gridmanager.grid[x, yGrid]);
+            int minX = Mathf.Clamp(xGrid - range, 0, gridmanager.gridSizeX);
+            int minY = Mathf.Clamp(yGrid - range, 0, gridmanager.gridSizeY - 1);
 
-            for (int y = yGrid + 1; y < gridmanager.gridSizeY; y++)
-                line.Add(gridmanager.grid[xGrid, y]);
+            int maxX = Mathf.Clamp(xGrid + range, 0, gridmanager.gridSizeX);
+            int maxY = Mathf.Clamp(yGrid + range, 0, gridmanager.gridSizeY - 1);
 
-            for (int x = xGrid - 1; x >= 0; x--)
-                line.Add(gridmanager.grid[x, yGrid]);
+            for (int x = minX; x <= maxX; x++)
+            {
+                if (x != xGrid)
+                    line.Add(gridmanager.grid[x, yGrid]);
+            }
+            for (int y = minY; y <= maxY; y++)
+            {
+                if (y != yGrid)
+                    line.Add(gridmanager.grid[xGrid, y]);
+            }
 
-            for (int y = yGrid - 1; y >= 0; y--)
-                line.Add(gridmanager.grid[xGrid, y]);
             if (diagonal)
             {
-                for (int x = xGrid + 1, y = yGrid + 1; x < gridmanager.gridSizeX && y < gridmanager.gridSizeY; x++, y++)
+                for (int x = xGrid + 1, y = yGrid + 1; x <= maxX && y <= maxY; x++, y++)
                     line.Add(gridmanager.grid[x, y]);
-                for (int x = xGrid + 1, y = yGrid - 1; x < gridmanager.gridSizeX && y >= 0; x++, y--)
+                for (int x = xGrid + 1, y = yGrid - 1; x <= maxX&& y >= minY; x++, y--)
                     line.Add(gridmanager.grid[x, y]);
-                for (int x = xGrid - 1, y = yGrid - 1; x >= 0 && y >= 0; x--, y--)
+                for (int x = xGrid - 1, y = yGrid - 1; x >= minX && y >= minY; x--, y--)
                     line.Add(gridmanager.grid[x, y]);
-                for (int x = xGrid - 1, y = yGrid + 1; x >= 0 && y < gridmanager.gridSizeY; x--, y++)
+                for (int x = xGrid - 1, y = yGrid + 1; x >= minX && y <= maxY; x--, y++)
                     line.Add(gridmanager.grid[x, y]);
             }
 
