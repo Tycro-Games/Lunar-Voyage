@@ -209,8 +209,8 @@ GameObject:
   - component: {fileID: 792551126891858832}
   - component: {fileID: 8964490059589244520}
   - component: {fileID: 3791582654633530137}
-  - component: {fileID: 2467764175328860721}
   - component: {fileID: 243732108707045663}
+  - component: {fileID: 7051622011229990141}
   m_Layer: 14
   m_Name: PineTree
   m_TagString: Plant
@@ -317,23 +317,6 @@ MonoBehaviour:
   layerToPlace:
     serializedVersion: 2
     m_Bits: 2048
---- !u!114 &2467764175328860721
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7935677415777961333}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 42f537785d27c794ea5d41b5d80b8cd7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemies:
-    serializedVersion: 2
-    m_Bits: 66560
-  SizeOfCheck: 0.25
-  range: 1
 --- !u!114 &243732108707045663
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -357,3 +340,19 @@ MonoBehaviour:
   - {x: -1, y: -1}
   - {x: 1, y: -1}
   - {x: -1, y: 1}
+--- !u!114 &7051622011229990141
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7935677415777961333}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb4fd25957f0136468b44bd022e58e68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemies:
+    serializedVersion: 2
+    m_Bits: 66560
+  radius: {x: 6, y: 6, z: 0}
