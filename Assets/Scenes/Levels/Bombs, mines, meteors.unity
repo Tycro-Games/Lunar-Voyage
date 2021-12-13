@@ -761,7 +761,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Camera
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 928525298}
     - target: {fileID: 8403494938142579960, guid: 35710d2da71cf39419c01abc3d9d199c,
         type: 3}
       propertyPath: m_IsActive
@@ -2719,6 +2719,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2174729f36d955848af18fb955156f80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!20 &928525298 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 3262130411453841647, guid: 2d2288358d54cb949a246a78f82ad470,
+    type: 3}
+  m_PrefabInstance: {fileID: 928525296}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1154227127 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2616829311358846448, guid: 2d2288358d54cb949a246a78f82ad470,

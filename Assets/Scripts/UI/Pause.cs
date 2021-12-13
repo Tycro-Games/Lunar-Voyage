@@ -6,6 +6,7 @@ public class Pause : MonoBehaviour
 {
     public static bool isPaused = false;
     private SceneChange sceneChange;
+    private bool isLoading = false;
 
     public bool IsPaused
     {
@@ -19,7 +20,7 @@ public class Pause : MonoBehaviour
 
     public void ToPause(string name)
     {
-        if (!IsPaused)
+        if (!IsPaused && isLoading == false)
         {
             sceneChange.LoadSceneAd(name);
             IsPaused = true;
@@ -47,9 +48,21 @@ public class Pause : MonoBehaviour
         else
             TimeController.SetTime(1);
     }
-
+    private void Isloading()
+    {
+        isLoading = true;
+    }
+    private void OnEnable()
+    {
+        EndLevel.BeforeCoolDown += Isloading;
+    }
+    private void OnDisable()
+    {
+        EndLevel.BeforeCoolDown -= Isloading;
+    }
     private void Start()
     {
+        isLoading = false;
         sceneChange = GetComponent<SceneChange>();
     }
 }
