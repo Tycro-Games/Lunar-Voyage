@@ -14,7 +14,7 @@ namespace Bogadanul.Assets.Scripts.Tree
             CanShoot = false;
             for (int i = 0; i < dir.Length; i++)
             {
-                instance = Instantiate (projectileObject, transform.position, Quaternion.LookRotation(Vector3.forward,dir[i]), transform);
+                instance = Instantiate (projectileObject, transform.position, Quaternion.LookRotation(Vector3.forward,dir[i]));
                 projectileNoT = CacheProjectile<IProjectileNoTarget> (instance);
                 projectileNoT.Init (dir[i]);
             }
