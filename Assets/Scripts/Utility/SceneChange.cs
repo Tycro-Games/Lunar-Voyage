@@ -1,4 +1,5 @@
-﻿using Assets.Scripts.Utility;
+﻿using Assets.Scripts.Saving;
+using Assets.Scripts.Utility;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
@@ -22,7 +23,7 @@ namespace Bogadanul.Assets.Scripts.Utility
             if (name.Length > 0 && levels.Contains(name))
                 SceneManager.LoadScene(name);
         }
-
+       
         private void GetSceneNames()
         {
             for (int i = 0; i < SceneManager.sceneCountInBuildSettings; i++)
@@ -32,7 +33,7 @@ namespace Bogadanul.Assets.Scripts.Utility
                 levels.Add(name);
             }
         }
-
+        
         public void LoadSceneAd(string name)
         {
             SceneManager.LoadScene(name, LoadSceneMode.Additive);
@@ -48,7 +49,7 @@ namespace Bogadanul.Assets.Scripts.Utility
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
 
-        
+       
         public void Quit()
         {
             Application.Quit();

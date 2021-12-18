@@ -1,8 +1,10 @@
+using Bogadanul.Assets.Scripts.Utility;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 namespace Assets.Scripts.Saving
 {
@@ -11,19 +13,21 @@ namespace Assets.Scripts.Saving
         public static SaveData saveAccounts;
         public static Action<Account> OnAccountChange;
         public static Action<List<Account>> OnAccountsList;
-
+        public static Action<string> OnLastLevel;
+        
         [SerializeField]
         private UnityEvent OnNoAccounts;
+      
 
         private void Start()
         {
             DontDestroyOnLoad(this);
             LoadData();
         }
-
         [ContextMenu("Save Data")]
         public void SaveData()
         {
+            saveAccounts.CurrentAccount.currentLevel = SceneManager.GetActiveScene().name;
             var data = JsonUtility.ToJson(saveAccounts);
             PlayerPrefs.SetString("GameData", data);
         }
@@ -46,22 +50,23 @@ namespace Assets.Scripts.Saving
                 return;
             }
             saveAccounts = JsonUtility.FromJson<SaveData>(data);
-            OnAccountsList?.Invoke(saveAccounts.savedAccounts);
-            OnAccountChange?.Invoke(saveAccounts.CurrentAcount);
-        }
 
+            OnAccountsList?.Invoke(saveAccounts.savedAccounts);
+            OnAccountChange?.Invoke(saveAccounts.CurrentAccount);
+        }
+        public void LoadLevel()
+        {
+            GetComponent<SceneChange>().LoadSceneSi(saveAccounts.CurrentAccount.currentLevel);
+        }
         public void CreateAccount(string nameAccount)
         {
-            Account newAccount = new Account(nameAccount);
+            Account newAccount = new Account(nameAccount,"");
             saveAccounts.savedAccounts.Add(newAccount);
             OnAccountsList?.Invoke(saveAccounts.savedAccounts);
-            saveAccounts.CurrentAcount = newAccount;
+            saveAccounts.CurrentAccount = newAccount;
             OnAccountChange?.Invoke(newAccount);
         }
+        
 
-        private void OnDisable()
-        {
-            SaveData();
-        }
     }
 }
