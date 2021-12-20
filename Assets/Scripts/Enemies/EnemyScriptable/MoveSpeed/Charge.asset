@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitsPerSec: 1
   min: 0
-  max: 0
+  max: 0.1

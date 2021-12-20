@@ -130,15 +130,55 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4163259777307591680, guid: 787077dc9040fe34b96715107f843310,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 237.1689
+      objectReference: {fileID: 0}
+    - target: {fileID: 4163259777307591680, guid: 787077dc9040fe34b96715107f843310,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 70.0922
+      objectReference: {fileID: 0}
+    - target: {fileID: 4163259777307591680, guid: 787077dc9040fe34b96715107f843310,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4163259777307591680, guid: 787077dc9040fe34b96715107f843310,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -348
+      objectReference: {fileID: 0}
+    - target: {fileID: 4163259777331571260, guid: 787077dc9040fe34b96715107f843310,
+        type: 3}
+      propertyPath: m_text
+      value: Continue
+      objectReference: {fileID: 0}
+    - target: {fileID: 4163259777969764992, guid: 787077dc9040fe34b96715107f843310,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1155.961
+      objectReference: {fileID: 0}
+    - target: {fileID: 4163259777969764992, guid: 787077dc9040fe34b96715107f843310,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.00002861
+      objectReference: {fileID: 0}
+    - target: {fileID: 4163259777969764992, guid: 787077dc9040fe34b96715107f843310,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -136.29
+      objectReference: {fileID: 0}
     - target: {fileID: 4163259777969765007, guid: 787077dc9040fe34b96715107f843310,
         type: 3}
       propertyPath: m_text
-      value: Looks like a snowflake and shoots in 8 directions.
+      value: Rotators release a heavy barage of projectiles around themselves.
       objectReference: {fileID: 0}
     - target: {fileID: 4163259777969765007, guid: 787077dc9040fe34b96715107f843310,
         type: 3}
       propertyPath: m_fontSize
-      value: 65.9
+      value: 72
       objectReference: {fileID: 0}
     - target: {fileID: 4163259777998249735, guid: 787077dc9040fe34b96715107f843310,
         type: 3}
@@ -254,8 +294,18 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: ccd1b7bcb10f72a41906ddd0c4ddcc64,
+      objectReference: {fileID: 21300000, guid: e0c9c136665e31545be1f9ac4c2757e6,
         type: 3}
+    - target: {fileID: 4163259778339042258, guid: 787077dc9040fe34b96715107f843310,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.000025749
+      objectReference: {fileID: 0}
+    - target: {fileID: 4163259778339042258, guid: 787077dc9040fe34b96715107f843310,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 211
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 787077dc9040fe34b96715107f843310, type: 3}
 --- !u!1 &146066414

@@ -3220,6 +3220,16 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 1290430554815985694, guid: 2d2288358d54cb949a246a78f82ad470,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.28
+      objectReference: {fileID: 0}
+    - target: {fileID: 1290430554815985694, guid: 2d2288358d54cb949a246a78f82ad470,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.11
+      objectReference: {fileID: 0}
     - target: {fileID: 1518370454242268860, guid: 2d2288358d54cb949a246a78f82ad470,
         type: 3}
       propertyPath: m_Icon
@@ -4112,7 +4122,7 @@ PrefabInstance:
     - target: {fileID: 3538988590334370692, guid: 2d2288358d54cb949a246a78f82ad470,
         type: 3}
       propertyPath: m_text
-      value: 'A mine a day gets the insects away
+      value: 'Bombs, mines, meteors
 
 '
       objectReference: {fileID: 0}

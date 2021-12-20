@@ -54,6 +54,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Beazon
+    uniqueID: 115026279
+    locked: 0
   - name: BeforeOver
     uniqueID: 2466477851
     locked: 0

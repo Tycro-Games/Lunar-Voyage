@@ -40,5 +40,5 @@ Material:
     - Vector1_eb88d13cdae44f8994a24e090a1cd228: 0
     - _Alpha: 1
     m_Colors:
-    - _MainCol: {r: 57.0379, g: 57.0379, b: 57.0379, a: 1}
+    - _MainCol: {r: 23.968628, g: 23.968628, b: 23.968628, a: 1}
   m_BuildTextureStacks: []

@@ -9,7 +9,9 @@ namespace Bogadanul
     {
         private void Start()
         {
-            FindObjectOfType<AccountManager>().SaveData();
+          AccountManager ac=  FindObjectOfType<AccountManager>();
+            if (ac != null)
+                ac.SaveData();
         }
     }
 }

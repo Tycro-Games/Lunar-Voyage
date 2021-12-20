@@ -696,7 +696,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -499.34, y: -45.880005}
+  m_AnchoredPosition: {x: -499.33997, y: -45.880005}
   m_SizeDelta: {x: 216.47, y: 91.76001}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3150114065001227567
@@ -1343,7 +1343,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotateSpeed: 50
   minFloat: 50
-  maxFloat: 125
+  maxFloat: 200
 --- !u!114 &573629946353918976
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1375,18 +1375,18 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 1
-      outSlope: 1
-      tangentMode: 34
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
       weightedMode: 0
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
       time: 1
       value: 1
-      inSlope: 1
-      outSlope: 1
-      tangentMode: 34
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
       weightedMode: 0
       inWeight: 0
       outWeight: 0
@@ -3346,7 +3346,7 @@ PrefabInstance:
     - target: {fileID: 1941249975009520932, guid: 7d0592356c2fbe84aaa524842882651c,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -89.62
+      value: -89.619995
       objectReference: {fileID: 0}
     - target: {fileID: 1941249975009520932, guid: 7d0592356c2fbe84aaa524842882651c,
         type: 3}
@@ -3935,12 +3935,12 @@ PrefabInstance:
     - target: {fileID: 3262130411343158041, guid: 8853b91457228584fb4fc30ac25daf8e,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4
+      value: 3.5
       objectReference: {fileID: 0}
     - target: {fileID: 3262130411343158041, guid: 8853b91457228584fb4fc30ac25daf8e,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.21
+      value: 0.21000004
       objectReference: {fileID: 0}
     - target: {fileID: 3262130411343158041, guid: 8853b91457228584fb4fc30ac25daf8e,
         type: 3}
@@ -4000,12 +4000,12 @@ PrefabInstance:
     - target: {fileID: 4927380878225769970, guid: 8853b91457228584fb4fc30ac25daf8e,
         type: 3}
       propertyPath: m_SortingLayer
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4927380878225769970, guid: 8853b91457228584fb4fc30ac25daf8e,
         type: 3}
       propertyPath: m_SortingOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4927380878225769970, guid: 8853b91457228584fb4fc30ac25daf8e,
         type: 3}

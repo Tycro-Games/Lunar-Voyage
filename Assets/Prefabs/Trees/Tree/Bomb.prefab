@@ -282,7 +282,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotateSpeed: 50
   minFloat: 50
-  maxFloat: 300
+  maxFloat: 500
 --- !u!114 &7213175312085812534
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -308,13 +308,22 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 2
-      outSlope: 2
+      time: 0.8878196
+      value: 0.5674685
+      inSlope: 1.8370438
+      outSlope: 1.8370438
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0
+      inWeight: 0.33333334
+      outWeight: 0.27961585
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 2.0698595
+      outSlope: 2.0698595
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.035114586
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2

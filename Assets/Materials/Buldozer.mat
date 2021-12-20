@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Overlay
+  m_Name: Buldozer
   m_Shader: {fileID: -6465566751694194690, guid: 2c2b3ffdf4a512342800025b763d6612,
     type: 3}
   m_ShaderKeywords: ETC1_EXTERNAL_ALPHA
@@ -38,7 +38,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - Vector1_eb88d13cdae44f8994a24e090a1cd228: 0
-    - _Alpha: 0
+    - _Alpha: 1
     m_Colors:
-    - _MainCol: {r: 2.6282175, g: 2.6282175, b: 2.6282175, a: 1}
+    - _MainCol: {r: 6.574698, g: 6.574698, b: 6.574698, a: 1}
   m_BuildTextureStacks: []

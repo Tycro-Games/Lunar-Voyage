@@ -104,7 +104,7 @@ namespace Bogadanul.Assets.Scripts.Enemies
             trace.IsActive = true;
             if (collider != null)
             {
-                DestroyTree(collider[0].GetComponent<DestroyTree>());
+               collider[0].GetComponent<DestroyTree>().DestroyTheTreeOntime(0.01f);
 
                 pathfinding.FindPath();
             }
