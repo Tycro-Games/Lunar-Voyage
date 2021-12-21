@@ -165,6 +165,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 347888508}
     m_Modifications:
+    - target: {fileID: 2967210174721104101, guid: 22f0588ec5c83f0469ad6617dfec3dcf,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3831769811946877183, guid: 22f0588ec5c83f0469ad6617dfec3dcf,
         type: 3}
       propertyPath: m_Enabled
@@ -1454,9 +1459,34 @@ PrefabInstance:
     m_TransformParent: {fileID: 347888508}
     m_Modifications:
     - target: {fileID: 1101677644, guid: 4de340657c9e125468fa4431c1d726de, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 8867634443428611405, guid: 350dc4539481bfc488530fa10b4ca31e,
+        type: 3}
+    - target: {fileID: 1101677644, guid: 4de340657c9e125468fa4431c1d726de, type: 3}
       propertyPath: m_Color.a
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1101677644, guid: 4de340657c9e125468fa4431c1d726de, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1101677644, guid: 4de340657c9e125468fa4431c1d726de, type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1101677644, guid: 4de340657c9e125468fa4431c1d726de, type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1101677644, guid: 4de340657c9e125468fa4431c1d726de, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1101677644, guid: 4de340657c9e125468fa4431c1d726de, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
     - target: {fileID: 3378922850733586424, guid: 4de340657c9e125468fa4431c1d726de,
         type: 3}
       propertyPath: m_RootOrder
@@ -1512,6 +1542,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4427962008794161236, guid: 4de340657c9e125468fa4431c1d726de,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 8351316216d95194494c7d756282d9b9, type: 2}
+    - target: {fileID: 7882036615732717142, guid: 4de340657c9e125468fa4431c1d726de,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8976918986219011986, guid: 4de340657c9e125468fa4431c1d726de,
         type: 3}
       propertyPath: m_Name
@@ -1519,6 +1559,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4de340657c9e125468fa4431c1d726de, type: 3}
+--- !u!1 &679839706 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7882036615732717142, guid: 4de340657c9e125468fa4431c1d726de,
+    type: 3}
+  m_PrefabInstance: {fileID: 679839705}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &679839707
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 679839706}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &711510058 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8251603818018916438, guid: 35710d2da71cf39419c01abc3d9d199c,
@@ -2802,11 +2867,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Events.m_Events.Array.data[0].m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 3910045045007088765, guid: 2d2288358d54cb949a246a78f82ad470,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 45.880005
       objectReference: {fileID: 0}
     - target: {fileID: 4001391027591284744, guid: 2d2288358d54cb949a246a78f82ad470,
         type: 3}
