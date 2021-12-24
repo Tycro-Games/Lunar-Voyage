@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="ParameterPreset" id="{dce12439-04ff-4359-8270-6220853460c9}">
+		<property name="name">
+			<value>CountDuration</value>
+		</property>
+		<relationship name="folder">
+			<destination>{74f98585-f141-4d96-b15b-179e1afbc3ac}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{ca5ab526-9e9e-41ef-a1f0-862ca68e910c}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{ca5ab526-9e9e-41ef-a1f0-862ca68e910c}">
+		<property name="parameterType">
+			<value>2</value>
+		</property>
+		<property name="maximum">
+			<value>8</value>
+		</property>
+		<property name="enumerationLabels">
+			<value>Value A</value>
+			<value>Value B</value>
+			<value>Value C</value>
+			<value>Value D</value>
+			<value>Value E</value>
+			<value>Value F</value>
+			<value>Value G</value>
+			<value>Value H</value>
+		</property>
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+	</object>
+</objects>
