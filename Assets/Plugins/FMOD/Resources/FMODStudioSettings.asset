@@ -433,7 +433,9 @@ MonoBehaviour:
   Plugins: []
   MasterBanks:
   - Master
-  Banks: []
+  Banks:
+  - Enemies
+  - Towers
   BanksToLoad: []
   LiveUpdatePort: 9264
   EnableMemoryTracking: 0

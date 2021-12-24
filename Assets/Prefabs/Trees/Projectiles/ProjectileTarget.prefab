@@ -94,6 +94,7 @@ GameObject:
   - component: {fileID: 4138705543927219698}
   - component: {fileID: 4138705543927219699}
   - component: {fileID: 2579501182182036288}
+  - component: {fileID: 2831590526565393998}
   m_Layer: 0
   m_Name: ProjectileTarget
   m_TagString: Untagged
@@ -130,6 +131,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 3
   speed: 6
+  OnDie:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2831590526565393998}
+        m_TargetAssemblyTypeName: FMODUnity.StudioEventEmitter, FMODUnity
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2579501182182036288
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -185,3 +201,33 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   duration: 5
+--- !u!114 &2831590526565393998
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4138705543927219697}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -1428643947
+      Data2: 1280428455
+      Data3: 1916064147
+      Data4: 608882600
+    Path: event:/Enemies/EnemyHit
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20

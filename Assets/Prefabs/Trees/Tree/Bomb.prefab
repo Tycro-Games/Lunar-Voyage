@@ -378,6 +378,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 4710280373908588832}
+        m_TargetAssemblyTypeName: FMODUnity.StudioEventEmitter, FMODUnity
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   TimeToWait: 0
 --- !u!114 &3027938730132815712
 MonoBehaviour:
@@ -406,6 +418,7 @@ GameObject:
   - component: {fileID: 830405554182518472}
   - component: {fileID: 5235577648872938533}
   - component: {fileID: 7763626882811031711}
+  - component: {fileID: 4710280373908588832}
   m_Layer: 15
   m_Name: Bomb
   m_TagString: Untagged
@@ -525,3 +538,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lifeTime: 2
   ToSpawn: {fileID: 6003894550369967899, guid: de8cca2005c611c4ca74d81071ad57a7, type: 3}
+--- !u!114 &4710280373908588832
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8976918986219011986}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 911755174
+      Data2: 1246542508
+      Data3: 1413004164
+      Data4: 939896666
+    Path: event:/Towers/Bomb/Charge
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20

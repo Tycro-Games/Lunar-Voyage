@@ -14,13 +14,21 @@ namespace Assets.Scripts.Saving
         public static Action<Account> OnAccountChange;
         public static Action<List<Account>> OnAccountsList;
         public static Action<string> OnLastLevel;
-        
+        public static AccountManager account;
         [SerializeField]
         private UnityEvent OnNoAccounts;
-      
+        [SerializeField]
+        private UnityEvent OnFirstStart;
+
 
         private void Start()
         {
+            if (account == null) { 
+                account = this;
+                OnFirstStart?.Invoke();
+        }
+            else
+                Destroy(gameObject);
             DontDestroyOnLoad(this);
             LoadData();
         }

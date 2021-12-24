@@ -1,7 +1,5 @@
 using FMOD.Studio;
 using FMODUnity;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,23 +7,34 @@ namespace Assets.Scripts.Fmod
 {
     public class VCAController : MonoBehaviour
     {
-        VCA VcaController;
-     
+        private VCA VcaController;
+
         private Slider slider;
+
         [SerializeField]
         private string VcaName;
+
+        private float val;
+
         private void Start()
         {
             slider = GetComponent<Slider>();
-            VcaController = RuntimeManager.GetVCA("vca:/"+ VcaName);
-            float val = PlayerPrefs.GetFloat(name, 0);
-            VcaController.setVolume(val);
+            SetSavedValue();
             slider.value = val;
         }
+
+        public void SetSavedValue()
+        {
+            VcaController = RuntimeManager.GetVCA("vca:/" + VcaName);
+            val = PlayerPrefs.GetFloat(VcaName, 1);
+            VcaController.setVolume(val);
+            
+        }
+
         public void SetVolume(float val)
         {
             VcaController.setVolume(val);
-            PlayerPrefs.SetFloat(name, val);
+            PlayerPrefs.SetFloat(VcaName, val);
             PlayerPrefs.Save();
         }
     }

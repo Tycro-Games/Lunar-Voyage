@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1101677643}
   - component: {fileID: 1101677644}
   - component: {fileID: 4427962008794161236}
+  - component: {fileID: 3568605174535991715}
   m_Layer: 15
   m_Name: GPX
   m_TagString: Untagged
@@ -104,6 +105,36 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &3568605174535991715
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1101677642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 463029004
+      Data2: 1329872004
+      Data3: 302092696
+      Data4: 2021456064
+    Path: event:/Towers/Mine/MineReady
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &3981511106373124973
 GameObject:
   m_ObjectHideFlags: 0
@@ -114,6 +145,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7711567145854874151}
   - component: {fileID: 4541084501480790532}
+  - component: {fileID: 7442816228089810649}
   m_Layer: 15
   m_Name: DestroyTine
   m_TagString: Untagged
@@ -190,6 +222,48 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 7442816228089810649}
+        m_TargetAssemblyTypeName: Bogadanul.Assets.Scripts.Tree.DestroyTree, Scripts
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &7442816228089810649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3981511106373124973}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 2032453239
+      Data2: 1213842833
+      Data3: -1920883526
+      Data4: 1013490555
+    Path: event:/Towers/Mine/MineStopped
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &7882036615732717142
 GameObject:
   m_ObjectHideFlags: 0
@@ -288,6 +362,7 @@ GameObject:
   - component: {fileID: 5235577648872938533}
   - component: {fileID: 5153103145353331281}
   - component: {fileID: 2223949473793735748}
+  - component: {fileID: 3368813472135039552}
   m_Layer: 15
   m_Name: Mine
   m_TagString: Plant
@@ -408,6 +483,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 3368813472135039552}
+        m_TargetAssemblyTypeName: FMODUnity.StudioEventEmitter, FMODUnity
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &5235577648872938533
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -460,6 +547,18 @@ MonoBehaviour:
           m_StringArgument: Ready
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 3568605174535991715}
+        m_TargetAssemblyTypeName: FMODUnity.StudioEventEmitter, FMODUnity
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   TimeToWait: 2
 --- !u!65 &5153103145353331281
 BoxCollider:
@@ -488,3 +587,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lifeTime: 2
   ToSpawn: {fileID: 8075041283695588686, guid: 26e209587f591a2479d50ace313fd63d, type: 3}
+--- !u!114 &3368813472135039552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8976918986219011986}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 703717271
+      Data2: 1235505966
+      Data3: 384491961
+      Data4: 1543545468
+    Path: event:/Towers/Mine/MineExplosion
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
