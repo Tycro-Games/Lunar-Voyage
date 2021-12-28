@@ -320,15 +320,15 @@ MonoBehaviour:
     HasValue: 0
   displaySortOrder: 0
   childIdentifiers:
-  - c88d16e5272a4e241b0ef0ac2e53b73d
+  - b7716510a1f36934c87976f3a81dbf3d
+  - 2fea114e74ecf3c4f920e1d5cc1c4c40
   - fd7c55dab0fce234b8c25f6ffca523c1
   - 2c5177b11d81d824dbb064f9ac8527da
-  - e7a046c753c3c3d4aacc91f6597f310d
-  - 52eb9df5db46521439908db3a29a1bbb
-  - b7716510a1f36934c87976f3a81dbf3d
-  - 0f8eb3f400726694eb47beb1a9f94ce8
   - 46fbfdf3fc43db0458918377fd40293e
-  - 2fea114e74ecf3c4f920e1d5cc1c4c40
+  - c88d16e5272a4e241b0ef0ac2e53b73d
+  - 52eb9df5db46521439908db3a29a1bbb
+  - 0f8eb3f400726694eb47beb1a9f94ce8
+  - e7a046c753c3c3d4aacc91f6597f310d
 --- !u!114 &-1714349504567450872
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -436,6 +436,7 @@ MonoBehaviour:
   Banks:
   - Enemies
   - Towers
+  - UI
   BanksToLoad: []
   LiveUpdatePort: 9264
   EnableMemoryTracking: 0
@@ -451,16 +452,16 @@ MonoBehaviour:
   LastEventReferenceScanVersion: 131588
   Platforms:
   - {fileID: -8796549570948381168}
-  - {fileID: -3629156516753867255}
-  - {fileID: 5961153467821348890}
-  - {fileID: -3898534899253319073}
-  - {fileID: -1714349504567450872}
-  - {fileID: 8237603938434910521}
-  - {fileID: 6283986673438043860}
   - {fileID: -8723987934148482463}
-  - {fileID: 6633214498278940692}
-  - {fileID: 307173989412596604}
   - {fileID: -7100329095188827050}
+  - {fileID: -3898534899253319073}
+  - {fileID: -3629156516753867255}
+  - {fileID: -1714349504567450872}
+  - {fileID: 307173989412596604}
+  - {fileID: 5961153467821348890}
+  - {fileID: 6283986673438043860}
+  - {fileID: 6633214498278940692}
+  - {fileID: 8237603938434910521}
   MigratedPlatforms: 0c000000150000000b0000000a00000009000000120000000800000005000000060000000200000001000000
 --- !u!114 &307173989412596604
 MonoBehaviour:

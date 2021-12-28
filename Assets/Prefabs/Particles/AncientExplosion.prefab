@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6890514940191724784}
   - component: {fileID: 5627264189057411676}
   - component: {fileID: 5725458328453661424}
+  - component: {fileID: 6009793101924409517}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -103,6 +104,36 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &6009793101924409517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1136199514209419661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -1689666190
+      Data2: 1245355586
+      Data3: -547866228
+      Data4: -25080089
+    Path: event:/Towers/Destroy
+  Event: 
+  PlayEvent: 1
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &3932964395048793594
 GameObject:
   m_ObjectHideFlags: 0

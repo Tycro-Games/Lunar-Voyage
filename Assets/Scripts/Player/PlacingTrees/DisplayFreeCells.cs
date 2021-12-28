@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 namespace Bogadanul.Assets.Scripts.Player
@@ -21,6 +22,9 @@ namespace Bogadanul.Assets.Scripts.Player
         private GameObject obj;
 
         public HashSet<Node> OnlyOnePathTiles = new HashSet<Node>();
+
+        [SerializeField]
+        private UnityEvent OnDestroyTower;
 
         public override void Reset()
         {

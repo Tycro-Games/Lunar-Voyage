@@ -1,8 +1,5 @@
-﻿using Bogadanul.Assets.Scripts.Tree;
-using System;
-using UnityEngine;
-using UnityEngine.InputSystem;
-using UnityEngine.UI;
+﻿using UnityEngine;
+using UnityEngine.Events;
 
 namespace Bogadanul.Assets.Scripts.Player
 {
@@ -10,6 +7,12 @@ namespace Bogadanul.Assets.Scripts.Player
     {
         public static TreeSeedContainer treeSeedContainer;
         private Cooldown cooldown;
+
+        [SerializeField]
+        private UnityEvent OnSelected;
+
+        [SerializeField]
+        private UnityEvent OnCantSelect;
 
         public static void ActivateCoolDown()
         {
@@ -27,6 +30,7 @@ namespace Bogadanul.Assets.Scripts.Player
             {
                 treeSeedSender.CancelCurrentSeed();
                 Selected = false;
+                OnCantSelect?.Invoke();
                 return;
             }
             if (treeSeedSender.market.CheckPrice(treeSeed.price))
@@ -35,6 +39,7 @@ namespace Bogadanul.Assets.Scripts.Player
 
                 Selected = true;
                 treeSeedContainer = this;
+                OnSelected?.Invoke();
             }
         }
 
