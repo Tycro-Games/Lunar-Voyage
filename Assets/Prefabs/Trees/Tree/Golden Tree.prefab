@@ -777,6 +777,7 @@ GameObject:
   - component: {fileID: 8330554719374839517}
   - component: {fileID: 4367531766411706794}
   - component: {fileID: 2967210174721104101}
+  - component: {fileID: 6126208605059863915}
   m_Layer: 14
   m_Name: Golden Tree
   m_TagString: Plant
@@ -813,7 +814,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 1
-  destroyTime: 0.2
+  OnDie:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6126208605059863915}
+        m_TargetAssemblyTypeName: Assets.Scripts.Enemies.EnemyAI.SpawnGameOBJ, Scripts
+        m_MethodName: Spawn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!65 &8330554719374839517
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -871,6 +886,20 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   TimeToWait: 15
+--- !u!114 &6126208605059863915
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7935677415777961333}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af9e8146a89f7434da2a03d0cb2bb6d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeTime: 2
+  ToSpawn: {fileID: 3932964395048793594, guid: 63de48fd3000eaa459e27c6eb2d7e800, type: 3}
 --- !u!1 &8795033583813977060
 GameObject:
   m_ObjectHideFlags: 0

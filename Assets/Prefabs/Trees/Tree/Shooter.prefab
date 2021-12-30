@@ -233,6 +233,7 @@ GameObject:
   - component: {fileID: 8964490059589244520}
   - component: {fileID: 3791582654633530137}
   - component: {fileID: 3071164001214962936}
+  - component: {fileID: 911315487433508098}
   m_Layer: 14
   m_Name: Shooter
   m_TagString: Plant
@@ -297,6 +298,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 1
+  OnDie:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 911315487433508098}
+        m_TargetAssemblyTypeName: Assets.Scripts.Enemies.EnemyAI.SpawnGameOBJ, Scripts
+        m_MethodName: Spawn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1518710009124534350
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -384,3 +400,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TransformToRotate: {fileID: 8143672664230976835}
   speedRotation: 6
+--- !u!114 &911315487433508098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7935677415777961333}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af9e8146a89f7434da2a03d0cb2bb6d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeTime: 2
+  ToSpawn: {fileID: 3932964395048793594, guid: 63de48fd3000eaa459e27c6eb2d7e800, type: 3}
