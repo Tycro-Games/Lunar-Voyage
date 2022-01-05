@@ -6,6 +6,7 @@ using Bogadanul.Assets.Scripts.Utility;
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Bogadanul.Assets.Scripts.Player
 {
@@ -37,6 +38,9 @@ namespace Bogadanul.Assets.Scripts.Player
 
         private DisplayFreeCells freeCells = null;
 
+        [SerializeField]
+        private UnityEvent OnCantSelect;
+
         public bool UnWalkable()
         {
             if (currentTree.layer == layer)
@@ -46,31 +50,39 @@ namespace Bogadanul.Assets.Scripts.Player
 
         private CursorController cursorController = null;
         private bool first = false;
+        private bool hasPlaced;
 
         public void Place(Vector3 input)
         {
             if (currentTree != null)
             {
 #if UNITY_ANDROID
-                if(first)
+                hasPlaced = false;
+                if (first)
                 {
                     first = false;
-                    return;
                 }
 #endif
                 if (placeable)
                 {
                     Node n = raycaster.NodeFromInput(input);
                     if (n == null)
+                    {
+#if UNITY_ANDROID
+                        CancelPlacing();
+#endif
                         return;
-
+                    }
                     if (!Fruit)
                         CheckNode(n);
                     else if (n.FruitPlaceable())
                     {
                         CheckPlacerPath.ToSpawn(n, currentTree);
                         Instantiate(EffectOnPlace, n.worldPosition, Quaternion.identity);
+#if UNITY_ANDROID
 
+                        hasPlaced = true;
+#endif
                         Placing(n);
                     }
                 }
@@ -78,24 +90,41 @@ namespace Bogadanul.Assets.Scripts.Player
                 {
                     Node n = raycaster.NodeFromInput(input);
                     if (n == null)
+                    {
+#if UNITY_ANDROID
+                        CancelPlacing();
+#endif
                         return;
+                    }
                     GameObject ng = n.currentPlant;
                     if (ng != null && ng.CompareTag("Plant"))
                     {
                         //Here you can destroy the plant
                         Instantiate(EffectOnRemove, ng.transform.position, Quaternion.identity);
                         ng.GetComponent<DestroyTree>().DestroyTheTree();
+#if UNITY_ANDROID
+
+                        hasPlaced = true;
+#endif
+
 #if !UNITY_ANDROID
-                        seedSender.CancelCurrentSeed();
-                        Reset();
+                        CancelPlacing();
 #endif
                     }
                 }
 #if UNITY_ANDROID
-                seedSender.CancelCurrentSeed();
-                Reset();
+
+                CancelPlacing();
 #endif
             }
+        }
+
+        private void CancelPlacing()
+        {
+            if (hasPlaced == false)
+                OnCantSelect?.Invoke();
+            seedSender.CancelCurrentSeed();
+            Reset();
         }
 
         public void Reset()

@@ -31,7 +31,7 @@ namespace Bogadanul.Assets.Scripts.Utility
 
                 mousePos = touch.position;
 
-                if ( eventTrigger&&touch.phase == TouchPhase.Ended)
+                if (eventTrigger&&touch.phase == TouchPhase.Ended)
                     OnMovement?.Invoke(mousePos);
                 lastPos = mousePos;
             }
@@ -46,7 +46,11 @@ namespace Bogadanul.Assets.Scripts.Utility
 
         private void Start()
         {
-            Application.targetFrameRate = 60;
+#if UNITY_ANDROID
+           
+            Application.targetFrameRate = 120;
+
+#endif
             cursorTransform = transform;
             
         }

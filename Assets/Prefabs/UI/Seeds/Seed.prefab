@@ -215,6 +215,7 @@ GameObject:
   - component: {fileID: 425442148701658508}
   - component: {fileID: 164113657171562137}
   - component: {fileID: 132511989177293563}
+  - component: {fileID: 8088065052000329094}
   m_Layer: 5
   m_Name: Seed
   m_TagString: Untagged
@@ -236,7 +237,6 @@ RectTransform:
   - {fileID: 485186394285071906}
   - {fileID: 2313433650967829643}
   - {fileID: 3913206827509774055}
-  - {fileID: 7559615022805119354}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -326,19 +326,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2313433652235107737}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 425442148701658508}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: OnClick
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &425442148701658508
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -370,19 +358,7 @@ MonoBehaviour:
         m_CallState: 2
   OnCantSelect:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1420263701946838793}
-        m_TargetAssemblyTypeName: FMODUnity.StudioEventEmitter, FMODUnity
-        m_MethodName: Play
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &164113657171562137
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -410,72 +386,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37dcf086f59793d4787dfd1469492abe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &5353104927076428924
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 7559615022805119354}
-  - component: {fileID: 1420263701946838793}
-  m_Layer: 5
-  m_Name: SoundForCantSelect
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &7559615022805119354
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5353104927076428924}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 2313433652235107741}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1420263701946838793
+--- !u!114 &8088065052000329094
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5353104927076428924}
+  m_GameObject: {fileID: 2313433652235107742}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CollisionTag: 
-  EventReference:
-    Guid:
-      Data1: 1684006569
-      Data2: 1099725059
-      Data3: 331005315
-      Data4: -652082188
-    Path: event:/UI/Can'tTake
-  Event: 
-  PlayEvent: 0
-  StopEvent: 0
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 20
+  m_Delegates:
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 425442148701658508}
+          m_TargetAssemblyTypeName: Bogadanul.Assets.Scripts.Player.TreeSeedContainer,
+            Scripts
+          m_MethodName: OnClick
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &8305569605575287097
 GameObject:
   m_ObjectHideFlags: 0
