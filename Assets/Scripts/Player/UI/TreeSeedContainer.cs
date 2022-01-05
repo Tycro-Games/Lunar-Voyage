@@ -30,8 +30,12 @@ namespace Bogadanul.Assets.Scripts.Player
             {
                 treeSeedSender.CancelCurrentSeed();
                 Selected = false;
+#if !UNITY_ANDROID
+
                 OnCantSelect?.Invoke();
+#endif
                 return;
+
             }
             if (treeSeedSender.market.CheckPrice(treeSeed.price))
             {

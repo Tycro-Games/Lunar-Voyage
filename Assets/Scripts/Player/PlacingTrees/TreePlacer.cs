@@ -56,8 +56,9 @@ namespace Bogadanul.Assets.Scripts.Player
         {
             if (currentTree != null)
             {
-#if UNITY_ANDROID
+
                 hasPlaced = false;
+#if UNITY_ANDROID
                 if (first)
                 {
                     first = false;
@@ -79,10 +80,10 @@ namespace Bogadanul.Assets.Scripts.Player
                     {
                         CheckPlacerPath.ToSpawn(n, currentTree);
                         Instantiate(EffectOnPlace, n.worldPosition, Quaternion.identity);
-#if UNITY_ANDROID
+
 
                         hasPlaced = true;
-#endif
+
                         Placing(n);
                     }
                 }
@@ -102,10 +103,9 @@ namespace Bogadanul.Assets.Scripts.Player
                         //Here you can destroy the plant
                         Instantiate(EffectOnRemove, ng.transform.position, Quaternion.identity);
                         ng.GetComponent<DestroyTree>().DestroyTheTree();
-#if UNITY_ANDROID
+
 
                         hasPlaced = true;
-#endif
 
 #if !UNITY_ANDROID
                         CancelPlacing();
