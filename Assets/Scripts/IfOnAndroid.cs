@@ -11,6 +11,7 @@ public class IfOnAndroid : MonoBehaviour
     {
 #if UNITY_ANDROID
         OnStart?.Invoke();
+        Destroy(this);
 #endif
     }
 }
