@@ -27,9 +27,20 @@ public class Pause : MonoBehaviour
         }
     }
 
+    public void ToPause()
+    {
+        IsPaused = true;
+    }
+
     public void ToUnpause()
     {
         IsPaused = false;
+    }
+
+    public void ToUnpause(int hp)
+    {
+        if (IsPaused)
+            IsPaused = false;
     }
 
     public void ToUnpause(string name)
@@ -48,18 +59,24 @@ public class Pause : MonoBehaviour
         else
             TimeController.SetTime(1);
     }
+
     private void Isloading()
     {
         isLoading = true;
     }
+
     private void OnEnable()
     {
         EndLevel.BeforeCoolDown += Isloading;
+        DisplayAd.BonusHealth += ToUnpause;
     }
+
     private void OnDisable()
     {
+        DisplayAd.BonusHealth -= ToUnpause;
         EndLevel.BeforeCoolDown -= Isloading;
     }
+
     private void Start()
     {
         isLoading = false;
