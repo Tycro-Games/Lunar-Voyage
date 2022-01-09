@@ -136,21 +136,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
+      - m_Target: {fileID: 5333537931671110572}
+        m_TargetAssemblyTypeName: Pause, Scripts
         m_MethodName: ToUnpause
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: LoseScreen
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: LoadSceneSi
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -869,9 +857,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: ReloadScene
+      - m_Target: {fileID: 5333537931671110572}
+        m_TargetAssemblyTypeName: Pause, Scripts
+        m_MethodName: ToUnpause
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -881,10 +869,10 @@ MonoBehaviour:
           m_StringArgument: PauseMenu
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: ToUnpause
-        m_Mode: 5
+      - m_Target: {fileID: 1518370453872429305}
+        m_TargetAssemblyTypeName: Bogadanul.Assets.Scripts.Utility.SceneChange, Scripts
+        m_MethodName: ReloadScene
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2889,7 +2877,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 5556562928119714572}
+      - m_Target: {fileID: 8770555793535382727}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
