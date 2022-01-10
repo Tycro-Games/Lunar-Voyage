@@ -1019,6 +1019,91 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1920953363210780994, guid: ee65577d071945c46a3235d33eaa8100,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1920953363210780994, guid: ee65577d071945c46a3235d33eaa8100,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1920953363210780994, guid: ee65577d071945c46a3235d33eaa8100,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1920953363210780994, guid: ee65577d071945c46a3235d33eaa8100,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1920953363210780994, guid: ee65577d071945c46a3235d33eaa8100,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 646509915}
+    - target: {fileID: 1920953363210780994, guid: ee65577d071945c46a3235d33eaa8100,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 928525298}
+    - target: {fileID: 1920953363210780994, guid: ee65577d071945c46a3235d33eaa8100,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 598210819}
+    - target: {fileID: 1920953363210780994, guid: ee65577d071945c46a3235d33eaa8100,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1920953363210780994, guid: ee65577d071945c46a3235d33eaa8100,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1920953363210780994, guid: ee65577d071945c46a3235d33eaa8100,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetActive
+      objectReference: {fileID: 0}
+    - target: {fileID: 1920953363210780994, guid: ee65577d071945c46a3235d33eaa8100,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: OnClick
+      objectReference: {fileID: 0}
+    - target: {fileID: 1920953363210780994, guid: ee65577d071945c46a3235d33eaa8100,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: PlayNextTimeline
+      objectReference: {fileID: 0}
+    - target: {fileID: 1920953363210780994, guid: ee65577d071945c46a3235d33eaa8100,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 1920953363210780994, guid: ee65577d071945c46a3235d33eaa8100,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: Assets.Scripts.Player.UI.Remover, Scripts
+      objectReference: {fileID: 0}
+    - target: {fileID: 1920953363210780994, guid: ee65577d071945c46a3235d33eaa8100,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: Bogadanul.Assets.Scripts.UI.TimelineController, Scripts
+      objectReference: {fileID: 0}
+    - target: {fileID: 1920953363210780994, guid: ee65577d071945c46a3235d33eaa8100,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 1920953363210780994, guid: ee65577d071945c46a3235d33eaa8100,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 5371944493188710472, guid: ee65577d071945c46a3235d33eaa8100,
         type: 3}
       propertyPath: m_IsActive
@@ -1173,12 +1258,12 @@ PrefabInstance:
     - target: {fileID: 5371944494303682910, guid: ee65577d071945c46a3235d33eaa8100,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5371944494303682910, guid: ee65577d071945c46a3235d33eaa8100,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 6
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5371944494303682910, guid: ee65577d071945c46a3235d33eaa8100,
         type: 3}
@@ -1214,12 +1299,12 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 646509915}
+      objectReference: {fileID: 598210819}
     - target: {fileID: 5371944494303682910, guid: ee65577d071945c46a3235d33eaa8100,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 928525298}
+      objectReference: {fileID: 598210819}
     - target: {fileID: 5371944494303682910, guid: ee65577d071945c46a3235d33eaa8100,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
@@ -1244,6 +1329,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[6].m_Target
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5371944494303682910, guid: ee65577d071945c46a3235d33eaa8100,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5371944494303682910, guid: ee65577d071945c46a3235d33eaa8100,
         type: 3}
@@ -1278,12 +1368,12 @@ PrefabInstance:
     - target: {fileID: 5371944494303682910, guid: ee65577d071945c46a3235d33eaa8100,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SetActive
+      value: PlayNextTimeline
       objectReference: {fileID: 0}
     - target: {fileID: 5371944494303682910, guid: ee65577d071945c46a3235d33eaa8100,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: OnClick
+      value: PlayNextTimeline
       objectReference: {fileID: 0}
     - target: {fileID: 5371944494303682910, guid: ee65577d071945c46a3235d33eaa8100,
         type: 3}
@@ -1313,12 +1403,12 @@ PrefabInstance:
     - target: {fileID: 5371944494303682910, guid: ee65577d071945c46a3235d33eaa8100,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: 
+      value: Bogadanul.Assets.Scripts.UI.TimelineController, Scripts
       objectReference: {fileID: 0}
     - target: {fileID: 5371944494303682910, guid: ee65577d071945c46a3235d33eaa8100,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: Assets.Scripts.Player.UI.Remover, Scripts
+      value: Bogadanul.Assets.Scripts.UI.TimelineController, Scripts
       objectReference: {fileID: 0}
     - target: {fileID: 5371944494303682910, guid: ee65577d071945c46a3235d33eaa8100,
         type: 3}
@@ -1369,6 +1459,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_StringArgument
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5371944494303682910, guid: ee65577d071945c46a3235d33eaa8100,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 5371944494303682910, guid: ee65577d071945c46a3235d33eaa8100,
         type: 3}

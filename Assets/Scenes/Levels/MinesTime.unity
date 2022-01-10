@@ -4147,9 +4147,7 @@ PrefabInstance:
     - target: {fileID: 3538988590334370692, guid: 2d2288358d54cb949a246a78f82ad470,
         type: 3}
       propertyPath: m_text
-      value: 'Bombs, mines, meteors
-
-'
+      value: MinesTime
       objectReference: {fileID: 0}
     - target: {fileID: 3694836581136279941, guid: 2d2288358d54cb949a246a78f82ad470,
         type: 3}

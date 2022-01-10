@@ -26,6 +26,8 @@ namespace Bogadanul.Assets.Scripts.Player
 
         public void OnClick()
         {
+            if (!cooldown.IsDone)
+                return;
             if (Selected)
             {
                 treeSeedSender.CancelCurrentSeed();
