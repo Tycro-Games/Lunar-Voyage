@@ -1,6 +1,7 @@
 using GoogleMobileAds.Api;
 using System;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class DisplayAd : MonoBehaviour
 {
@@ -18,6 +19,8 @@ public class DisplayAd : MonoBehaviour
     private static bool isInit = false;
 
     public static event Action<int> BonusHealth;
+    [SerializeField]
+    private UnityEvent OnFailToShowAd;
 
     public void Awake()
     {
@@ -77,6 +80,7 @@ public class DisplayAd : MonoBehaviour
 
     public void HandleRewardedAdFailedToLoad(object sender, AdFailedToLoadEventArgs args)
     {
+        OnFailToShowAd?.Invoke();
         print(
             "HandleRewardedAdFailedToLoad event received with message: "
                              + args.LoadAdError.GetMessage());
@@ -89,6 +93,7 @@ public class DisplayAd : MonoBehaviour
 
     public void HandleRewardedAdFailedToShow(object sender, AdErrorEventArgs args)
     {
+        OnFailToShowAd?.Invoke();
         print(
             "HandleRewardedAdFailedToShow event received with message: "
                              + args.AdError.GetMessage());
@@ -96,11 +101,16 @@ public class DisplayAd : MonoBehaviour
 
     public void HandleRewardedAdClosed(object sender, EventArgs args)
     {
+        LoadNewAd();
+        print("HandleRewardedAdClosed event received");
+    }
+
+    private void LoadNewAd()
+    {
         // Create an empty ad request.
         AdRequest request = new AdRequest.Builder().Build();
         // Load the rewarded ad with the request.
         rewardedAd.LoadAd(request);
-        print("HandleRewardedAdClosed event received");
     }
 
     public void HandleUserEarnedReward(object sender, Reward args)
