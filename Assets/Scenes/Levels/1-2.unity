@@ -2922,6 +2922,16 @@ PrefabInstance:
       propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 1640101073298634554, guid: 2d2288358d54cb949a246a78f82ad470,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1640101073298634554, guid: 2d2288358d54cb949a246a78f82ad470,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1718196295}
     - target: {fileID: 1776968627982650804, guid: 2d2288358d54cb949a246a78f82ad470,
         type: 3}
       propertyPath: levelEndSeedDisplayable
@@ -8171,6 +8181,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ee65577d071945c46a3235d33eaa8100, type: 3}
+--- !u!1 &1718196295 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8770555793535382727, guid: 2d2288358d54cb949a246a78f82ad470,
+    type: 3}
+  m_PrefabInstance: {fileID: 928525296}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &1830145545 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1941249975165462242, guid: 2d2288358d54cb949a246a78f82ad470,

@@ -23,8 +23,15 @@ public class DisplayAd : MonoBehaviour
     [SerializeField]
     private UnityEvent OnFailToShowAd;
 
+    [SerializeField]
+    private UnityEvent OnRewardAd;
+
     public void Awake()
     {
+        if (Application.internetReachability == NetworkReachability.NotReachable)
+        {
+            Destroy(gameObject);
+        }
 #if UNITY_EDITOR
         if (isTesting)
             adUnitId = test;
@@ -43,34 +50,37 @@ public class DisplayAd : MonoBehaviour
         DontDestroyOnLoad(gameObject);
         InitAds();
     }
-   
+
     private void InitAds()
     {
         rewardedAd = new RewardedAd(adUnitId);
         // Create an empty ad request.
         AdRequest request = new AdRequest.Builder().Build();
         // Load the rewarded ad with the request.
-        if (request != null)
-        {
-            rewardedAd.LoadAd(request);
 
-            // Called when an ad request has successfully loaded.
-            rewardedAd.OnAdLoaded += HandleRewardedAdLoaded;
-            // Called when an ad request failed to load.
-            rewardedAd.OnAdFailedToLoad += HandleRewardedAdFailedToLoad;
-            // Called when an ad is shown.
-            rewardedAd.OnAdOpening += HandleRewardedAdOpening;
-            // Called when an ad request failed to show.
-            rewardedAd.OnAdFailedToShow += HandleRewardedAdFailedToShow;
-            // Called when the user should be rewarded for interacting with the ad.
-            rewardedAd.OnUserEarnedReward += HandleUserEarnedReward;
-            // Called when the ad is closed.
-            rewardedAd.OnAdClosed += HandleRewardedAdClosed;
-        }
+        rewardedAd.LoadAd(request);
+
+        // Called when an ad request has successfully loaded.
+        rewardedAd.OnAdLoaded += HandleRewardedAdLoaded;
+        // Called when an ad request failed to load.
+        rewardedAd.OnAdFailedToLoad += HandleRewardedAdFailedToLoad;
+        // Called when an ad is shown.
+        rewardedAd.OnAdOpening += HandleRewardedAdOpening;
+        // Called when an ad request failed to show.
+        rewardedAd.OnAdFailedToShow += HandleRewardedAdFailedToShow;
+        // Called when the user should be rewarded for interacting with the ad.
+        rewardedAd.OnUserEarnedReward += HandleUserEarnedReward;
+        // Called when the ad is closed.
+        rewardedAd.OnAdClosed += HandleRewardedAdClosed;
     }
 
     public void DisplayAnAd()
     {
+        if (Application.internetReachability == NetworkReachability.NotReachable)
+        {
+            Destroy(gameObject);
+
+        }
         if (rewardedAd.IsLoaded())
         {
             rewardedAd.Show();
@@ -121,12 +131,12 @@ public class DisplayAd : MonoBehaviour
 
     public void HandleUserEarnedReward(object sender, Reward args)
     {
-        
         string type = args.Type;
         double amount = args.Amount;
         print(
             "HandleRewardedAdRewarded event received for "
                         + amount.ToString() + " " + type);
         BonusHealth?.Invoke((int)amount);
+        OnRewardAd?.Invoke();
     }
 }
