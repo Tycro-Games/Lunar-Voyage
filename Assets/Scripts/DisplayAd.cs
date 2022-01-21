@@ -27,6 +27,8 @@ public class DisplayAd : MonoBehaviour
     [SerializeField]
     private UnityEvent DeactivateButton;
 
+    private bool rewarded = false;
+
     public void Start()
     {
         if (Application.internetReachability == NetworkReachability.NotReachable)
@@ -120,7 +122,12 @@ public class DisplayAd : MonoBehaviour
     public void HandleRewardedAdClosed(object sender, EventArgs args)
     {
         OnFailToShowAd?.Invoke();
+        LoadNewAd();
 
+
+        if (rewarded)
+            OnRewardAd?.Invoke();
+        rewarded = false;
         print("HandleRewardedAdClosed event received");
     }
 
@@ -147,6 +154,7 @@ public class DisplayAd : MonoBehaviour
             "HandleRewardedAdRewarded event received for "
                         + amount.ToString() + " " + type);
 
+        rewarded = true;
         OnRewardAd?.Invoke();
     }
 }
