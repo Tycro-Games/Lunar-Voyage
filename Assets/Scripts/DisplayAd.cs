@@ -18,19 +18,22 @@ public class DisplayAd : MonoBehaviour
 
     private static bool isInit = false;
 
-    public static event Action<int> BonusHealth;
-
     [SerializeField]
     private UnityEvent OnFailToShowAd;
 
     [SerializeField]
     private UnityEvent OnRewardAd;
 
-    public void Awake()
+    [SerializeField]
+    private UnityEvent DeactivateButton;
+
+    public void Start()
     {
         if (Application.internetReachability == NetworkReachability.NotReachable)
         {
+            DeactivateButton?.Invoke();
             Destroy(gameObject);
+            return;
         }
 #if UNITY_EDITOR
         if (isTesting)
@@ -78,8 +81,9 @@ public class DisplayAd : MonoBehaviour
     {
         if (Application.internetReachability == NetworkReachability.NotReachable)
         {
+            DeactivateButton?.Invoke();
             Destroy(gameObject);
-
+            return;
         }
         if (rewardedAd.IsLoaded())
         {
@@ -116,12 +120,18 @@ public class DisplayAd : MonoBehaviour
     public void HandleRewardedAdClosed(object sender, EventArgs args)
     {
         OnFailToShowAd?.Invoke();
-        LoadNewAd();
+
         print("HandleRewardedAdClosed event received");
     }
 
-    private void LoadNewAd()
+    public void LoadNewAd()
     {
+        if (Application.internetReachability == NetworkReachability.NotReachable)
+        {
+            DeactivateButton?.Invoke();
+            Destroy(gameObject);
+            return;
+        }
         // Create an empty ad request.
         AdRequest request = new AdRequest.Builder().Build();
         // Load the rewarded ad with the request.
@@ -136,7 +146,7 @@ public class DisplayAd : MonoBehaviour
         print(
             "HandleRewardedAdRewarded event received for "
                         + amount.ToString() + " " + type);
-        BonusHealth?.Invoke((int)amount);
+
         OnRewardAd?.Invoke();
     }
 }

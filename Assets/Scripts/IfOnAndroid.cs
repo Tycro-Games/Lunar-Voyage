@@ -10,6 +10,8 @@ public class IfOnAndroid : MonoBehaviour
     private void Start()
     {
 #if UNITY_ANDROID
+        if (Application.internetReachability == NetworkReachability.NotReachable)
+            return;
         OnStart?.Invoke();
         Destroy(this);
 #endif

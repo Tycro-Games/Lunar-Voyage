@@ -68,12 +68,10 @@ public class Pause : MonoBehaviour
     private void OnEnable()
     {
         EndLevel.BeforeCoolDown += Isloading;
-        DisplayAd.BonusHealth += ToUnpause;
     }
 
     private void OnDisable()
     {
-        DisplayAd.BonusHealth -= ToUnpause;
         EndLevel.BeforeCoolDown -= Isloading;
     }
 
