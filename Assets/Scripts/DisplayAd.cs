@@ -29,7 +29,12 @@ public class DisplayAd : MonoBehaviour
 
     public void Start()
     {
-        
+        if (Application.internetReachability == NetworkReachability.NotReachable)
+        {
+            DeactivateButton?.Invoke();
+            Destroy(gameObject);
+            return;
+        }
 #if UNITY_EDITOR
         if (isTesting)
             adUnitId = test;
@@ -74,20 +79,18 @@ public class DisplayAd : MonoBehaviour
 
     public void DisplayAnAd()
     {
-        if (rewardedAd.IsLoaded())
-        {
-            rewardedAd.Show();
-        }
-    }
-    private void Update()
-    {
         if (Application.internetReachability == NetworkReachability.NotReachable)
         {
             DeactivateButton?.Invoke();
             Destroy(gameObject);
             return;
         }
+        if (rewardedAd.IsLoaded())
+        {
+            rewardedAd.Show();
+        }
     }
+
     public void HandleRewardedAdLoaded(object sender, EventArgs args)
     {
         print("HandleRewardedAdLoaded event received");
@@ -123,7 +126,12 @@ public class DisplayAd : MonoBehaviour
 
     public void LoadNewAd()
     {
-
+        if (Application.internetReachability == NetworkReachability.NotReachable)
+        {
+            DeactivateButton?.Invoke();
+            Destroy(gameObject);
+            return;
+        }
         // Create an empty ad request.
         AdRequest request = new AdRequest.Builder().Build();
         // Load the rewarded ad with the request.
