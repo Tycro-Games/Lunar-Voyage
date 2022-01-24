@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Events;
 
 namespace Bogadanul.Assets.Scripts.Tree
@@ -15,22 +14,27 @@ namespace Bogadanul.Assets.Scripts.Tree
         [SerializeField]
         private UnityEvent OnDamage = null;
 
-        public void TakeDG (int dg)
+        public void TakeDG(int dg)
         {
             hp -= dg;
             //some effect on enemies explosion
             if (hp <= 0)
             {
-                Dead ();
+                Dead();
             }
             else
-                OnDamage?.Invoke ();
+                DamageEvent();
         }
 
-        public void Dead ()
+        public void DamageEvent()
         {
-            OnDead?.Invoke ();
-            Debug.Log ("Lost");
+            OnDamage?.Invoke();
+        }
+
+        public void Dead()
+        {
+            OnDead?.Invoke();
+            Debug.Log("Lost");
             //scene manager pops up
         }
     }
