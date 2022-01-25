@@ -5,7 +5,7 @@
 			<value>AncientTreeExplosion</value>
 		</property>
 		<property name="outputFormat">
-			<value>0</value>
+			<value>1</value>
 		</property>
 		<relationship name="folder">
 			<destination>{04b5fc2e-3b24-4305-8340-565ac8da3609}</destination>
@@ -95,7 +95,7 @@
 	</object>
 	<object class="MultiSound" id="{b162dc3b-d097-4a0b-bd72-41bcdbe7c055}">
 		<relationship name="sounds">
-			<destination>{e53ea53b-0015-4f66-9174-ca1be2b43e5a}</destination>
+			<destination>{be6c3bdd-3591-4f84-ae08-dd12dbface57}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusEffectChain" id="{cad21ca9-1381-44b6-9615-f63ba7b4adb4}">
@@ -124,15 +124,12 @@
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{2ba3a448-0893-4ffc-9060-26d96a8ddff0}" />
-	<object class="SingleSound" id="{e53ea53b-0015-4f66-9174-ca1be2b43e5a}">
+	<object class="SingleSound" id="{be6c3bdd-3591-4f84-ae08-dd12dbface57}">
 		<property name="volume">
-			<value>-0.5</value>
-		</property>
-		<property name="pitch">
-			<value>9</value>
+			<value>-5.5</value>
 		</property>
 		<relationship name="audioFile">
-			<destination>{c207e3c9-92e8-460d-9fd0-13f810a81acc}</destination>
+			<destination>{42abb052-14e1-4c49-a26a-314355afb4d4}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusFader" id="{82535aad-f116-4d82-8e80-d3fac454e218}" />
