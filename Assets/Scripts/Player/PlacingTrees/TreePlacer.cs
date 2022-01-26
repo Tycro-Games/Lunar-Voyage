@@ -107,9 +107,9 @@ namespace Bogadanul.Assets.Scripts.Player
 
                         hasPlaced = true;
 
-#if !UNITY_ANDROID
+
                         CancelPlacing();
-#endif
+
                     }
                 }
 #if UNITY_ANDROID
