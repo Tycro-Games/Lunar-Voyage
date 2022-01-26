@@ -70,7 +70,7 @@ namespace Bogadanul.Assets.Scripts.Player
                     if (n == null)
                     {
 #if UNITY_ANDROID
-                        CancelPlacing();
+                        //CancelPlacing();
 #endif
                         return;
                     }
@@ -93,7 +93,7 @@ namespace Bogadanul.Assets.Scripts.Player
                     if (n == null)
                     {
 #if UNITY_ANDROID
-                        CancelPlacing();
+                      //  CancelPlacing();
 #endif
                         return;
                     }
@@ -114,7 +114,7 @@ namespace Bogadanul.Assets.Scripts.Player
                 }
 #if UNITY_ANDROID
 
-                CancelPlacing();
+                //CancelPlacing();
 #endif
             }
         }
