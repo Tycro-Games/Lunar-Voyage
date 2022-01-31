@@ -119,7 +119,7 @@ namespace Bogadanul.Assets.Scripts.Player
             }
         }
 
-        private void CancelPlacing()
+        public void CancelPlacing()
         {
             if (hasPlaced == false)
                 OnCantSelect?.Invoke();
