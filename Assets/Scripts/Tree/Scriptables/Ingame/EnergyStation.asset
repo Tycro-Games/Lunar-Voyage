@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2440719c713eda543af74407f0ec8d21, type: 3}
+  m_Name: EnergyStation
+  m_EditorClassIdentifier: 
+  icon: {fileID: 5615897787644190857, guid: 0730b82ee7f61b146a6a0b20b6356f14, type: 3}
+  price: 50
+  cooldown: 10
+  sprite: {fileID: 5615897787644190857, guid: 0730b82ee7f61b146a6a0b20b6356f14, type: 3}
+  TreeGameObject: {fileID: 7935677415777961333, guid: 22f0588ec5c83f0469ad6617dfec3dcf,
+    type: 3}
+  fruit: 0

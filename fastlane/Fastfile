@@ -1,0 +1,7 @@
+# fastlane/Fastfile
+platform :android do
+  desc "Upload a new Android version to the Google Play Store"
+  lane :beta do
+    upload_to_play_store(track: 'beta',release_status: 'completed',aab: "#{ENV['ANDROID_BUILD_FILE_PATH']}")
+  end
+end
