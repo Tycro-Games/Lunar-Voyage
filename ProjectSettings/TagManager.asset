@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Target
+  - grid
+  - GoldenTree
+  - Enemy
+  - Plant
+  - Moveable
+  - WaveSystem
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - Unwalk
+  - Grid
+  - Enemy
+  - Cells
+  - Ocupied
+  - AncientTree
+  - Trees
+  - Fruits
+  - EnemyNonOcupied
+  - EnviromentUnwalk
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Tile
+    uniqueID: 3810370291
+    locked: 0
+  - name: Tree
+    uniqueID: 2210551455
+    locked: 0
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Beazon
+    uniqueID: 115026279
+    locked: 0
+  - name: BeforeOver
+    uniqueID: 2466477851
+    locked: 0
+  - name: Overlay
+    uniqueID: 1935742771
+    locked: 0
