@@ -218,17 +218,17 @@ jobs:
           itchGameId: ${{ env.ITCH_GAME_ID }}
           buildChannel: ${{ matrix.channel }}
           buildNumber: ${{ needs.version.outputs.version_hash }}
-  toDiscord:
-    name: Upload discord
-    needs: [releaseToGooglePlay, buildWindows, buildWebGL]
-    runs-on: ubuntu-latest
-    steps:
-      - uses: sarisia/actions-status-discord@v1.8.6
-        with:
-          webhook: ${{ secrets.DISCORD_WEBHOOK }}
-          nodetail: true
-          title: "***New Update on itch and playstore:*** https://tycro-games.itch.io/lunar-voyage-moon-colonization https://play.google.com/store/apps/details?id=com.TycroGames.TAI"
-          description: ${{github.event.head_commit.message }}
-        # image: ${{ secrets.EMBED_IMAGE }}
-          color: 0xffffff
-          username: Your friendly spiderman     
+  # toDiscord:
+  #   name: Upload discord
+  #   needs: [releaseToGooglePlay, buildWindows, buildWebGL]
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: sarisia/actions-status-discord@v1.8.6
+  #       with:
+  #         webhook: ${{ secrets.DISCORD_WEBHOOK }}
+  #         nodetail: true
+  #         title: "***New Update on itch and playstore:*** https://tycro-games.itch.io/lunar-voyage-moon-colonization https://play.google.com/store/apps/details?id=com.TycroGames.TAI"
+  #         description: ${{github.event.head_commit.message }}
+  #       # image: ${{ secrets.EMBED_IMAGE }}
+  #         color: 0xffffff
+  #         username: Your friendly spiderman     
