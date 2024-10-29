@@ -63,7 +63,7 @@ TextureImporter:
       213: 7290615191695157630
     second: Enemy3_SpriteSheet_Up_19
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -80,10 +80,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -93,8 +95,8 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: 1
-    aniso: -1
-    mipBias: -100
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -122,6 +124,8 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -133,6 +137,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -145,6 +150,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -157,6 +163,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -169,6 +176,20 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
@@ -604,9 +625,29 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-  spritePackingTag: 
+    nameFileIdTable:
+      Enemy3_SpriteSheet_Up_0: -3183970742714581776
+      Enemy3_SpriteSheet_Up_1: -3020285565798457847
+      Enemy3_SpriteSheet_Up_10: -2706479137245106614
+      Enemy3_SpriteSheet_Up_11: -694315069459177295
+      Enemy3_SpriteSheet_Up_12: 1965870699283692700
+      Enemy3_SpriteSheet_Up_13: 4722845264700687824
+      Enemy3_SpriteSheet_Up_14: -314653896126823370
+      Enemy3_SpriteSheet_Up_15: 5216813479500583398
+      Enemy3_SpriteSheet_Up_16: -7339298531630979972
+      Enemy3_SpriteSheet_Up_17: 6646864619554847764
+      Enemy3_SpriteSheet_Up_18: -6928567662548445982
+      Enemy3_SpriteSheet_Up_19: 7290615191695157630
+      Enemy3_SpriteSheet_Up_2: -2006322729530639711
+      Enemy3_SpriteSheet_Up_3: -7978764294390146178
+      Enemy3_SpriteSheet_Up_4: 5857398159578151175
+      Enemy3_SpriteSheet_Up_5: 2794629205543321810
+      Enemy3_SpriteSheet_Up_6: 4195508083302482339
+      Enemy3_SpriteSheet_Up_7: 5842476536318778482
+      Enemy3_SpriteSheet_Up_8: -5285961049293824823
+      Enemy3_SpriteSheet_Up_9: 1218045940956420165
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

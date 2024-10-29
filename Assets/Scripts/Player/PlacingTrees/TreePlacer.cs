@@ -15,13 +15,11 @@ namespace Bogadanul.Assets.Scripts.Player
         private static int layer;
         private CheckPlacerPath checkPlacer;
 
-        [SerializeField]
-        private GameObject currentTree = null;
+        [SerializeField] private GameObject currentTree = null;
 
         private NodeFinder raycaster;
 
-        [SerializeField]
-        private LayerMask BlockLayer = 0;
+        [SerializeField] private LayerMask BlockLayer = 0;
 
         private bool Fruit = false;
 
@@ -30,16 +28,13 @@ namespace Bogadanul.Assets.Scripts.Player
         private bool placeable = false;
         private TreeSeedSender seedSender = null;
 
-        [SerializeField]
-        private GameObject EffectOnRemove = null;
+        [SerializeField] private GameObject EffectOnRemove = null;
 
-        [SerializeField]
-        private GameObject EffectOnPlace = null;
+        [SerializeField] private GameObject EffectOnPlace = null;
 
         private DisplayFreeCells freeCells = null;
 
-        [SerializeField]
-        private UnityEvent OnCantSelect;
+        [SerializeField] private UnityEvent OnCantSelect;
 
         public bool UnWalkable()
         {
@@ -56,7 +51,6 @@ namespace Bogadanul.Assets.Scripts.Player
         {
             if (currentTree != null)
             {
-
                 hasPlaced = false;
 #if UNITY_ANDROID
                 if (first)
@@ -66,7 +60,7 @@ namespace Bogadanul.Assets.Scripts.Player
 #endif
                 if (placeable)
                 {
-                    Node n = raycaster.NodeFromInput(input);
+                    var n = raycaster.NodeFromInput(input);
                     if (n == null)
                     {
 #if UNITY_ANDROID
@@ -74,8 +68,11 @@ namespace Bogadanul.Assets.Scripts.Player
 #endif
                         return;
                     }
+
                     if (!Fruit)
+                    {
                         CheckNode(n);
+                    }
                     else if (n.FruitPlaceable())
                     {
                         CheckPlacerPath.ToSpawn(n, currentTree);
@@ -89,7 +86,7 @@ namespace Bogadanul.Assets.Scripts.Player
                 }
                 else //this is the shovel
                 {
-                    Node n = raycaster.NodeFromInput(input);
+                    var n = raycaster.NodeFromInput(input);
                     if (n == null)
                     {
 #if UNITY_ANDROID
@@ -97,7 +94,8 @@ namespace Bogadanul.Assets.Scripts.Player
 #endif
                         return;
                     }
-                    GameObject ng = n.currentPlant;
+
+                    var ng = n.currentPlant;
                     if (ng != null && ng.CompareTag("Plant"))
                     {
                         //Here you can destroy the plant
@@ -109,11 +107,9 @@ namespace Bogadanul.Assets.Scripts.Player
 
 
                         CancelPlacing();
-
                     }
                 }
 #if UNITY_ANDROID
-
                 //CancelPlacing();
 #endif
             }
@@ -154,7 +150,7 @@ namespace Bogadanul.Assets.Scripts.Player
 
         public bool CustomChecks()
         {
-            CustomChecks check = currentTree.GetComponent<CustomChecks>();
+            var check = currentTree.GetComponent<CustomChecks>();
             if (check != null)
                 return true;
             return false;
@@ -162,24 +158,18 @@ namespace Bogadanul.Assets.Scripts.Player
 
         private void CheckNode(Node n)
         {
-            PotCheck check = currentTree.GetComponent<PotCheck>();
-            if (check != null)//with pot
+            var check = currentTree.GetComponent<PotCheck>();
+            if (check != null) //with pot
             {
                 if (check.canBePlaced(n) && !freeCells.OnlyOnePathTiles.Contains(n))
-                {
                     if (CheckPlacerPath.CheckToPlace(n, currentTree))
-                    {
                         Placing(n);
-                    }
-                }
             }
-            else//no pot
+            else //no pot
             {
                 if (n.TowerPlaceAble() && !freeCells.OnlyOnePathTiles.Contains(n))
-                {
                     if (CheckPlacerPath.CheckToPlace(n, currentTree))
                         Placing(n);
-                }
             }
         }
 
